@@ -1,5 +1,5 @@
 //основные цвета
-$yollow: #fbbf00;
+$yellow: #fbc000;
 $d-grey: #4a525f;
 $milky: #f0f1f3;
 $black: #000000;
@@ -13,12 +13,11 @@ $green: #64bc26;
 $red: #ea1601;
 
 //hover
-$l-yollow: #ffc91c;
+$l-yellow: #ffc91c;
 //active
-$d-yollow: #dca700;
+$d-yellow: #dca700;
 
 // font
-
 $gilroy: "Gilroy", sans-serif;
 
 * {
@@ -35,6 +34,15 @@ body {
   color: $d-grey;
 
   background: $bg;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-weight: normal;
 }
 
 img {
@@ -54,4 +62,29 @@ ul {
   width: 100%;
   max-width: 1545px;
   margin: 0 auto;
+}
+
+.content-wrap {
+  display: flex;
+  justify-content: space-between;
+}
+
+.left {
+  max-width: 1060px;
+  width: 100%;
+}
+
+.right {
+  width: 370px;
+}
+
+.search__input {
+  width: 100%;
+}
+
+.section-title {
+  font-weight: 600;
+  font-size: 60px;
+  line-height: 95.2%;
+  color: $d-grey;
 }

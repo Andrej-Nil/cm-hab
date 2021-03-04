@@ -55,14 +55,14 @@
 
   &:hover {
     &::before {
-      background: $yollow;
+      background: $yellow;
     }
   }
 }
 
 .h-nav__link--is-active {
   &::before {
-    background: $yollow;
+    background: $yellow;
   }
 }
 
@@ -92,7 +92,7 @@
   width: 10px;
   height: 10px;
   border-radius: 50%;
-  background: $yollow;
+  background: $yellow;
 }
 
 .h-icons__indicator-is-show {
