@@ -1,0 +1,11 @@
+{
+    "version": 3,
+    "mappings": "ACmBA,AAAA,CAAC,AAAC,CACA,OAAO,CAAE,CAAC,CACV,MAAM,CAAE,CAAC,CACT,UAAU,CAAE,UAAU,CACvB,AAED,AAAA,IAAI,AAAC,CACH,UAAU,CApBP,OAAO,CAqBX,AAED,AAAA,GAAG,AAAC,CACF,OAAO,CAAE,KAAK,CACf,AAED,AAAA,CAAC,AAAC,CACA,eAAe,CAAE,IAAI,CACtB,AAED,AAAA,EAAE,AAAC,CACD,eAAe,CAAE,IAAI,CACtB",
+    "sources": [
+        "../scss/style.scss",
+        "../scss/blocks/_main.scss",
+        "../scss/blocks/_header.scss"
+    ],
+    "names": [],
+    "file": "style.min.css"
+}

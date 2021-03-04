@@ -1,0 +1,40 @@
+//основные цвета
+$yollow: #fbbf00;
+$d-grey: #4a525f;
+$milky: #f0f1f3;
+$black: #000000;
+$white: #ffffff;
+$bg: #e5e5e5;
+
+// дополнительные цвета
+$l-grey: #cccccc;
+$grey: #666666;
+$green: #64bc26;
+$red: #ea1601;
+
+//hover
+$l-yollow: #ffc91c;
+//active
+$d-yollow: #dca700;
+
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+body {
+  background: $bg;
+}
+
+img {
+  display: block;
+}
+
+a {
+  text-decoration: none;
+}
+
+ul {
+  list-style-type: none;
+}
