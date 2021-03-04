@@ -17,6 +17,10 @@ $l-yollow: #ffc91c;
 //active
 $d-yollow: #dca700;
 
+// font
+
+$gilroy: "Gilroy", sans-serif;
+
 * {
   padding: 0;
   margin: 0;
@@ -24,6 +28,12 @@ $d-yollow: #dca700;
 }
 
 body {
+  font-family: $gilroy;
+  font-size: 18px;
+  font-weight: normal;
+  font-style: normal;
+  color: $d-grey;
+
   background: $bg;
 }
 
@@ -33,8 +43,15 @@ img {
 
 a {
   text-decoration: none;
+  color: $d-grey;
 }
 
 ul {
   list-style-type: none;
+}
+
+.container {
+  width: 100%;
+  max-width: 1545px;
+  margin: 0 auto;
 }

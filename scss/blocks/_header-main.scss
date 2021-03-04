@@ -1,0 +1,100 @@
+.h-main {
+  background: $white;
+  border-top: 2px solid $bg;
+}
+
+.h-main__inner {
+  display: flex;
+  align-items: center;
+  min-height: 100px;
+}
+
+.h-logo {
+  height: 80px;
+  width: auto;
+  margin-right: auto;
+}
+
+.h-nav__list {
+  display: flex;
+}
+
+.h-nav {
+  display: flex;
+}
+
+.h-nav__list {
+  margin-right: 32px;
+}
+
+.h-nav__item {
+  position: relative;
+  display: flex;
+  align-items: center;
+  margin-right: 40px;
+  min-height: 100px;
+  &:last-child {
+    margin-right: 0;
+  }
+}
+
+.h-nav__link {
+  font-size: 24px;
+  line-height: 95.2%;
+
+  &::before {
+    content: "";
+    position: absolute;
+    top: -2px;
+    left: 0;
+    display: block;
+    height: 5px;
+    width: 100%;
+    transition: 0.2s ease-in-out;
+  }
+
+  &:hover {
+    &::before {
+      background: $yollow;
+    }
+  }
+}
+
+.h-nav__link--is-active {
+  &::before {
+    background: $yollow;
+  }
+}
+
+.h-icons {
+  display: flex;
+  align-items: center;
+}
+
+.h-icons__item {
+  position: relative;
+  margin-right: 27px;
+  &:last-child {
+    margin-right: 0;
+  }
+}
+
+.h-icons__img {
+  height: 29px;
+  width: auto;
+}
+
+.h-icons__indicator {
+  position: absolute;
+  top: 0px;
+  right: -5px;
+  display: none;
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background: $yollow;
+}
+
+.h-icons__indicator-is-show {
+  display: block;
+}

@@ -1,0 +1,38 @@
+.h-contact {
+  background-color: $white;
+  font-style: 20px;
+  line-height: 95.2%;
+}
+
+.h-city {
+  margin-right: auto;
+}
+
+.h-contact__inner {
+  display: flex;
+  align-items: center;
+  min-height: 50px;
+}
+
+.h-contacts__list {
+  display: flex;
+  margin-right: 70px;
+}
+.h-contacts__item {
+  margin-right: 105px;
+  &:last-child {
+    margin-right: 0;
+  }
+}
+
+.h-callback {
+  margin-right: 70px;
+}
+
+.h-callback-btn {
+  cursor: pointer;
+}
+
+.h-login-btn {
+  cursor: pointer;
+}
