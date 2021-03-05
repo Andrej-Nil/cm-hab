@@ -1,0 +1,18 @@
+.favorite-btn {
+  position: relative;
+  display: block;
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  background: $white;
+  cursor: pointer;
+}
+
+.favorite-btn__icon {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 25px;
+  height: 22px;
+}

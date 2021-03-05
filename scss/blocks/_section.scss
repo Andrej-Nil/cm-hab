@@ -1,0 +1,38 @@
+.section {
+  margin-bottom: 100px;
+}
+
+.section-title {
+  font-weight: 600;
+  font-size: 60px;
+  line-height: 95.2%;
+  color: $d-grey;
+
+  margin-bottom: 30px;
+}
+
+.section-controls {
+  display: flex;
+  justify-content: space-between;
+  width: 450px;
+  margin: 0 auto;
+  margin-top: 30px;
+}
+
+.section-arrow {
+  position: relative;
+  display: block;
+  width: 50px;
+  height: 50px;
+  background: $white;
+  border-radius: 50%;
+}
+
+.section-arrow__img {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 20px;
+  height: 14px;
+}

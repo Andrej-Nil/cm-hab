@@ -224,17 +224,10 @@ ul {
   width: 100%;
 }
 
-.section-title {
-  font-weight: 600;
-  font-size: 60px;
-  line-height: 95.2%;
-  color: #4a525f;
-}
-
 .yellow-btn {
   position: relative;
   display: inline-block;
-  padding: 15px 33px;
+  padding: 15px 33px 16px;
   background: #fbc000;
   border-radius: 50px;
   -webkit-transition: 0.2s ease-in-out;
@@ -242,22 +235,6 @@ ul {
   cursor: pointer;
   font-size: 20px;
   line-height: 95.2%;
-  z-index: 1;
-}
-
-.yellow-btn::before {
-  content: "";
-  position: absolute;
-  top: 4px;
-  left: 50%;
-  -webkit-transform: translate(-50%, 0);
-          transform: translate(-50%, 0);
-  display: block;
-  height: 49px;
-  width: 90%;
-  z-index: -1;
-  -webkit-transition: 0.2s ease-in-out;
-  transition: 0.2s ease-in-out;
 }
 
 .yellow-btn:hover {
@@ -266,6 +243,39 @@ ul {
 
 .yellow-btn:active {
   background: #dca700;
+}
+
+.white-btn {
+  display: inline-block;
+  padding: 15px 33px 16px;
+  background: #ffffff;
+  border-radius: 50px;
+  -webkit-transition: 0.2s ease-in-out;
+  transition: 0.2s ease-in-out;
+  cursor: pointer;
+  border: 1px solid #4a525f;
+  font-size: 20px;
+  line-height: 95.2%;
+}
+
+.favorite-btn {
+  position: relative;
+  display: block;
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  background: #ffffff;
+  cursor: pointer;
+}
+
+.favorite-btn__icon {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  -webkit-transform: translate(-50%, -50%);
+          transform: translate(-50%, -50%);
+  width: 25px;
+  height: 22px;
 }
 
 .header {
@@ -549,19 +559,70 @@ ul {
   position: absolute;
   top: 50%;
   left: 50%;
+  width: 16px;
+  height: 11px;
   -webkit-transform: translate(-50%, -50%);
           transform: translate(-50%, -50%);
 }
 
-.product-slide {
-  border-radius: 20px;
-  width: 340px;
-  height: 460px;
-  background: #ffffff;
+.section {
+  margin-bottom: 100px;
 }
 
-.product-slider___title {
+.section-title {
+  font-weight: 600;
+  font-size: 60px;
+  line-height: 95.2%;
+  color: #4a525f;
   margin-bottom: 30px;
+}
+
+.section-controls {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  width: 450px;
+  margin: 0 auto;
+  margin-top: 30px;
+}
+
+.section-arrow {
+  position: relative;
+  display: block;
+  width: 50px;
+  height: 50px;
+  background: #ffffff;
+  border-radius: 50%;
+}
+
+.section-arrow__img {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  -webkit-transform: translate(-50%, -50%);
+          transform: translate(-50%, -50%);
+  width: 20px;
+  height: 14px;
+}
+
+.product-slides {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  overflow: hidden;
+}
+
+.product-slide {
+  position: relative;
+  border-radius: 20px;
+  min-width: 340px;
+  max-width: 340px;
+  height: 460px;
+  background: #ffffff;
+  margin-right: 20px;
 }
 
 .product-slide__img {
@@ -610,5 +671,61 @@ ul {
   font-weight: 600;
   font-size: 24px;
   line-height: 95.2%;
+}
+
+.product-slide__favorite {
+  position: absolute;
+  top: 19px;
+  right: 15px;
+}
+
+.subsections {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+}
+
+.subsection-card {
+  position: relative;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  padding: 20px;
+  width: 520px;
+  height: 300px;
+  background: #ffffff;
+  border-radius: 20px;
+}
+
+.subsection-card__title {
+  font-weight: 600;
+  font-size: 36px;
+  line-height: 95.2%;
+  z-index: 1;
+}
+
+.subsection-card--right {
+  -webkit-box-pack: end;
+      -ms-flex-pack: end;
+          justify-content: flex-end;
+}
+
+.subsection-card__img {
+  position: absolute;
+  width: auto;
+  max-height: 300px;
+  bottom: 0;
+  right: 0;
+}
+
+.subsection-card__img--right {
+  top: 0;
+  left: 0;
 }
 /*# sourceMappingURL=style.css.map */

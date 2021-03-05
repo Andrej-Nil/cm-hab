@@ -1,7 +1,7 @@
 .yellow-btn {
   position: relative;
   display: inline-block;
-  padding: 15px 33px;
+  padding: 15px 33px 16px;
   background: $yellow;
   border-radius: 50px;
   transition: 0.2s ease-in-out;
@@ -9,33 +9,46 @@
 
   font-size: 20px;
   line-height: 95.2%;
-  z-index: 1;
-  &::before {
-    content: "";
-    position: absolute;
-    top: 4px;
-    left: 50%;
-    transform: translate(-50%, 0);
-    display: block;
-    height: 49px;
-    width: 90%;
-    //background: rgba(251, 191, 0, 0);
-    //filter: blur(20px);
-    z-index: -1;
-    transition: 0.2s ease-in-out;
-  }
+  //z-index: 1;
+  //&::before {
+  //  content: "";
+  //  position: absolute;
+  //  top: 4px;
+  //  left: 50%;
+  //  transform: translate(-50%, 0);
+  //  display: block;
+  //  height: 49px;
+  //  width: 90%;
+  //  background: rgba(251, 191, 0, 0);
+  //  filter: blur(20px);
+  //  z-index: -1;
+  //  transition: 0.2s ease-in-out;
+  //}
   &:hover {
     background: #ffc91c;
-    &::before {
-      //background: rgba(251, 191, 0, 0.4);
-      //filter: blur(20px);
-    }
+    //&::before {
+    //background: rgba(251, 191, 0, 0.4);
+    //filter: blur(20px);
+    //}
   }
   &:active {
     background: #dca700;
-    &::before {
-      //background: rgba(251, 191, 0, 0);
-      //filter: blur(0);
-    }
+    //&::before {
+    //background: rgba(251, 191, 0, 0);
+    //filter: blur(0);
+    //}
   }
+}
+
+.white-btn {
+  display: inline-block;
+  padding: 15px 33px 16px;
+  background: $white;
+  border-radius: 50px;
+  transition: 0.2s ease-in-out;
+  cursor: pointer;
+  border: 1px solid #4a525f;
+
+  font-size: 20px;
+  line-height: 95.2%;
 }
