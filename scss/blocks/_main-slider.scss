@@ -1,11 +1,5 @@
 .main-slider {
-  position: relative;
-  margin-bottom: 150px;
-}
-
-.main-slides {
-  display: flex;
-  overflow: hidden;
+  margin-bottom: 80px;
 }
 
 .main-slide__link {
@@ -15,7 +9,6 @@
 .main-slide {
   position: relative;
   padding: 0 47px;
-  min-width: 100%;
   background: $white;
   border-radius: 20px;
   height: 300px;

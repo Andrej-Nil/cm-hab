@@ -1,0 +1,12 @@
+.slider {
+  position: relative;
+}
+
+.slides {
+  display: flex;
+  overflow: hidden;
+}
+
+.slide {
+  min-width: 100%;
+}
