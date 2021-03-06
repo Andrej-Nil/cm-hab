@@ -54,3 +54,14 @@
   font-size: 20px;
   line-height: 95.2%;
 }
+
+.dark-btn {
+  display: inline-block;
+  padding: 10px 36px;
+  background: $d-grey;
+  border-radius: 50px;
+
+  color: $white;
+  font-size: 25px;
+  line-height: 95.2%;
+}

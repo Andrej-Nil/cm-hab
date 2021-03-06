@@ -1,6 +1,3 @@
-.inputs-block {
-}
-
 .input-with-name {
   display: flex;
   margin-bottom: 10px;
@@ -119,6 +116,10 @@
   margin-top: 20px;
   margin: 20px 0 21px auto;
   width: 250px;
+
+  font-size: 20px;
+  line-height: 95.2%;
+  color: $d-grey;
 }
 
 .input-check {
