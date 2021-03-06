@@ -230,6 +230,7 @@
         </div>
         <!-- main-slider -->
 
+        <!-- Выгодные предложения -->
         <section class='section'>
 
           <h2 class="section-title">
@@ -379,7 +380,9 @@
           </div>
           <!-- section-controls -->
         </section>
+        <!-- Выгодные предложения -->
 
+        <!-- Что вас интересует? -->
         <section class="section">
           <h2 class="section-title">
             Что вас интересует?
@@ -407,11 +410,15 @@
               </a>
               <!-- subsection-card -->
             </div>
+            <!-- subsection -->
           </div>
-          <!-- subsection -->
+          <!-- section__content -->
+
 
         </section>
+        <!-- Что вас интересует? -->
 
+        <!-- Популярные товары -->
         <section class="section">
           <h2 class="section-title">
             Популярные товары
@@ -735,7 +742,88 @@
           </div>
           <!-- section-controls -->
         </section>
+        <!-- Популярные товары -->
 
+        <!--Обратная связь -->
+        <section class="section">
+          <h2 class="section-title">
+            Обратная связь
+          </h2>
+
+          <!-- section__content -->
+          <div class="section__content">
+            <!-- callback -->
+            <div class="callback">
+              <!-- callback-form -->
+              <form id='callbackForm' enctype="multipart/form-data" action="test-form.html" method="POST"
+                class='callback-form'>
+                <h4 class='callback-form__title'>
+                  Получите точный расчет
+                </h4>
+                <p class="callback-form__desc">
+                  Загрузите файл с перечнем необходимых позиций
+                  и в ответном письме мы вышлем Вам точный расчет
+                </p>
+                <!--callback__inputs-->
+                <div class="callback__inputs inputs-block">
+                  <div class="input-with-name">
+                    <label class="input-label">
+                      Имя
+                    </label>
+                    <input type="text" class="input" name='name' placeholder="Константин">
+                  </div>
+
+                  <div class="input-with-name">
+                    <label class="input-label">
+                      Почта
+                    </label>
+                    <input type="text" class="input input--is-success" name='mail' placeholder="Kostya228@gmail.com">
+                  </div>
+
+                  <div class="input-with-name">
+                    <label class="input-label">
+                      Сообщение
+                    </label>
+                    <textarea class="input textarea input--is-error" name='textarea'
+                      placeholder="Мне нужно быстро доставить"></textarea>
+                  </div>
+
+                  <div class="input-upload">
+                    <label class="input-upload__label">
+                      <img src="./img/icon/clip-icon.svg" alt="" class="input-upload__img">
+                      <span class='input-upload__text'>Прикрепить файл</span>
+                      <input type="file" name='upload' class="input-upload__file">
+                    </label>
+                  </div>
+                  <button class='input-submit yellow-btn' type='submit'>Отправить</button>
+
+                  <div class="input-check">
+                    <label class="input-check__label">
+                      <input class='input-check__checkbox' type="checkbox" name='consent'>
+                      <span class="input-check__fake">
+
+                      </span>
+                      <span class="input-check__text">
+                        Даю согласие на обработку моих персональных данных
+                      </span>
+
+                    </label>
+                  </div>
+                  <!--callback__inputs-->
+                </div>
+              </form>
+              <!-- callback-form -->
+              <div class="callback-right">
+                <img class="callback-right__img" src="./img/image/manager.jpg" alt="">
+              </div>
+            </div>
+            <!-- callback -->
+          </div>
+          <!-- section__content -->
+
+
+        </section>
+        <!--Обратная связь -->
       </div>
       <!-- left -->
 

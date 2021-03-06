@@ -4,11 +4,11 @@ $d-grey: #4a525f;
 $milky: #f0f1f3;
 $black: #000000;
 $white: #ffffff;
-$bg: #e5e5e5;
+$pearl: #e5e5e5;
 
 // дополнительные цвета
-$l-grey: #cccccc;
 $grey: #666666;
+$l-grey: #cccccc;
 $green: #64bc26;
 $red: #ea1601;
 
@@ -32,8 +32,7 @@ body {
   font-weight: normal;
   font-style: normal;
   color: $d-grey;
-
-  background: $bg;
+  background: $pearl;
 }
 
 h1,

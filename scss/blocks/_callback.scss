@@ -1,0 +1,44 @@
+.callback {
+  border-radius: 20px;
+  background: $white;
+  display: flex;
+}
+
+.callback-form {
+  padding: 21px 44px;
+  width: 530px;
+}
+
+.callback-form__title {
+  font-weight: 600;
+  font-size: 36px;
+  line-height: 95.2%;
+  margin-bottom: 10px;
+}
+
+.callback-form__desc {
+  line-height: 130%;
+  font-size: 18px;
+  margin-bottom: 25px;
+}
+
+.callback-right {
+  width: 50%;
+}
+
+.callback-right__img {
+  width: auto;
+  max-height: 540px;
+  border-radius: 0 20px 20px 0;
+}
+
+.callback__inputs {
+  //margin-bottom: 30px;
+}
+
+.callback__item {
+  margin-bottom: 10px;
+  &:last-child {
+    margin-bottom: 0;
+  }
+}
