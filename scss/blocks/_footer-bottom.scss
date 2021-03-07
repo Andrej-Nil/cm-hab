@@ -1,0 +1,27 @@
+.f-bootom {
+  background: $d-grey;
+}
+
+.f-bootom__inner {
+  min-height: 125px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.made {
+  display: flex;
+}
+
+.made__text {
+  padding-top: 5px;
+
+  font-weight: 200;
+  font-size: 15px;
+  line-height: 130%;
+  color: $white;
+}
+
+.made__link {
+  margin: 0 20px 0 9px;
+}

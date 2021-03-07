@@ -1,0 +1,28 @@
+.f-top {
+  background: $white;
+  border-bottom: 1px solid $milky;
+}
+
+.f-top__inner {
+  min-height: 150px;
+  display: flex;
+  align-items: center;
+}
+
+.f-logo {
+  height: 93px;
+  margin-right: auto;
+}
+
+.f-nav__list {
+  display: flex;
+}
+
+.f-nav__item {
+  font-size: 24px;
+  line-height: 95.2%;
+  margin-right: 40px;
+  &:last-child {
+    margin-right: 0;
+  }
+}

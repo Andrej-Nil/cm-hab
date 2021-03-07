@@ -1,0 +1,51 @@
+.f-info {
+  background: $d-grey;
+  border: 1px solid rgba(255, 255, 255, 0.3);
+}
+
+.f-info__inner {
+  display: flex;
+  align-items: center;
+  min-height: 95px;
+}
+
+.f-info__list {
+  margin-right: auto;
+}
+
+.f-info__item {
+  color: $white;
+  font-weight: 200;
+  line-height: 130%;
+}
+
+.f-info__link {
+  position: relative;
+  color: $white;
+  &::before {
+    content: "";
+    position: absolute;
+    bottom: -2px;
+    left: 0;
+    display: block;
+    width: 100%;
+    height: 1px;
+    background: $l-grey;
+  }
+}
+
+.f-socials__list {
+  display: flex;
+}
+
+.f-socials__item {
+  margin-right: 26px;
+  &:last-child {
+    margin-right: 0;
+  }
+}
+
+.f-socials__icon {
+  width: 31px;
+  height: 35px;
+}
