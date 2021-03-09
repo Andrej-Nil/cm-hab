@@ -1,5 +1,6 @@
 .small-card {
   display: flex;
+  overflow: hidden;
   border-radius: 20px;
   height: 150px;
   background: $white;
@@ -7,25 +8,32 @@
   &:last-child {
     margin-bottom: 0;
   }
+  &:hover .small-card__img {
+    transform: scale(1.1, 1.1);
+  }
 }
-
+.small-card__preview {
+  overflow: hidden;
+  width: 315px;
+}
 .small-card__info {
   display: flex;
   padding: 40px 17px;
 }
 .small-card__img {
   border-radius: 20px 0 0 20px;
-  height: 150px;
   width: auto;
+  height: 150px;
+  transition: 0.2s ease-in-out;
 }
 
 .small-card__text {
   margin-right: 20px;
 }
 
-.small-card__title {
+.small-card__link {
   font-size: 24px;
-  line-height: 95.2%;
+  line-height: 105%;
 }
 
 .small-card__price {

@@ -11,34 +11,35 @@
 
   font-size: 20px;
   line-height: 95.2%;
-  //z-index: 1;
-  //&::before {
-  //  content: "";
-  //  position: absolute;
-  //  top: 4px;
-  //  left: 50%;
-  //  transform: translate(-50%, 0);
-  //  display: block;
-  //  height: 49px;
-  //  width: 90%;
-  //  background: rgba(251, 191, 0, 0);
-  //  filter: blur(20px);
-  //  z-index: -1;
-  //  transition: 0.2s ease-in-out;
-  //}
+  text-align: center;
+  z-index: 1;
+  &::before {
+    content: "";
+    position: absolute;
+    top: 4px;
+    left: 50%;
+    transform: translate(-50%, 0);
+    display: block;
+    height: 49px;
+    width: 90%;
+    background: rgba(251, 191, 0, 0);
+    filter: blur(20px);
+    z-index: -1;
+    transition: 0.2s ease-in-out;
+  }
   &:hover {
     background: #ffc91c;
-    //&::before {
-    //background: rgba(251, 191, 0, 0.4);
-    //filter: blur(20px);
-    //}
+    &::before {
+      background: rgba(251, 191, 0, 0.4);
+      filter: blur(20px);
+    }
   }
   &:active {
     background: #dca700;
-    //&::before {
-    //background: rgba(251, 191, 0, 0);
-    //filter: blur(0);
-    //}
+    &::before {
+      background: rgba(251, 191, 0, 0);
+      filter: blur(0);
+    }
   }
 }
 
@@ -53,15 +54,45 @@
 
   font-size: 20px;
   line-height: 95.2%;
+  text-align: center;
 }
 
 .dark-btn {
+  position: relative;
   display: inline-block;
-  padding: 10px 36px;
+  padding: 11px 36px;
   background: $d-grey;
   border-radius: 50px;
+  z-index: 1;
 
   color: $white;
   font-size: 25px;
   line-height: 95.2%;
+  text-align: center;
+  &::before {
+    content: "";
+    position: absolute;
+    top: 4px;
+    left: 50%;
+    transform: translate(-50%, 0);
+    display: block;
+    height: 45px;
+    width: 90%;
+    background: rgba(74, 82, 95, 0);
+    filter: blur(20px);
+    z-index: -1;
+    transition: 0.2s ease-in-out;
+  }
+  &:hover {
+    &::before {
+      background: rgba(74, 82, 95, 0.4);
+      filter: blur(20px);
+    }
+  }
+  &:active {
+    &::before {
+      background: rgba(74, 82, 95, 0);
+      filter: blur(20px);
+    }
+  }
 }

@@ -8,16 +8,24 @@
   min-width: 340px;
   border-radius: 10px;
   margin-right: 20px;
+  overflow: hidden;
+
+  &:hover .news-slide__img {
+    transform: scale(1.1, 1.1);
+  }
 }
 
 .news-slide__preview {
+  overflow: hidden;
   margin-bottom: 15px;
+  max-height: 210px;
 }
 
 .news-slide__img {
   border-radius: 10px 10px 0 0;
   width: 100%;
   height: auto;
+  transition: 0.2s ease-in-out;
 }
 
 .news-slide__info {

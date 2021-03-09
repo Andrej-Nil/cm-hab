@@ -53,6 +53,12 @@ a {
   color: $d-grey;
 }
 
+.link {
+  &:hover {
+    text-decoration: underline;
+  }
+}
+
 ul {
   list-style-type: none;
 }
@@ -75,8 +81,4 @@ ul {
 
 .right {
   width: 370px;
-}
-
-.search__input {
-  width: 100%;
 }

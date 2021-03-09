@@ -13,15 +13,34 @@
   height: 300px;
   background: $white;
   border-radius: 20px;
+  &:hover .subsection-card__img {
+    transform: scale(1.1, 1.1);
+  }
+
+  &:hover .subsection-card__arrow {
+    transform: translate(0, 0);
+  }
+}
+
+.subsection-card__content {
+  overflow: hidden;
+  z-index: 1;
 }
 
 .subsection-card__title {
   font-weight: 600;
   font-size: 36px;
   line-height: 95.2%;
-  z-index: 1;
+  margin-bottom: 3px;
 }
 
+.subsection-card__arrow {
+  display: inline-block;
+  height: 10px;
+  width: auto;
+  transform: translate(-150%, 0);
+  transition: 0.2s ease-in-out;
+}
 .subsection-card--right {
   justify-content: flex-end;
 }
@@ -32,6 +51,7 @@
   max-height: 300px;
   bottom: 0;
   right: 0;
+  transition: 0.2s ease-in-out;
 }
 
 .subsection-card__img--right {
