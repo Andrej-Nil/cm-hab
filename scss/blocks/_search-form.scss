@@ -1,9 +1,51 @@
 .search-form {
+  position: relative;
   margin-bottom: 20px;
 }
 
 .search__input {
   width: 100%;
+  padding: 14px 45px 14px 23px;
   border: none;
   outline: none;
+
+  font-size: 20px;
+  line-height: 95.2%;
+  color: $d-grey;
+}
+
+.search__input::-webkit-input-placeholder {
+  font-family: "Gilroy", sans-serif;
+  font-weight: normal;
+  font-size: 20px;
+  line-height: 95.2%;
+  color: $l-grey;
+}
+.search__input::-moz-placeholder {
+  font-family: "Gilroy", sans-serif;
+  font-weight: normal;
+  font-size: 20px;
+  line-height: 95.2%;
+  color: $l-grey;
+}
+.search__input:-ms-input-placeholder {
+  font-family: "Gilroy", sans-serif;
+  font-weight: normal;
+  font-size: 20px;
+  line-height: 95.2%;
+  color: $l-grey;
+}
+.search__input:-moz-placeholder {
+  font-family: "Gilroy", sans-serif;
+  font-weight: normal;
+  font-size: 20px;
+  line-height: 95.2%;
+  color: $l-grey;
+}
+
+.search__sumbit {
+  position: absolute;
+  top: 50%;
+  transform: translate(0, -50%);
+  right: 13px;
 }
