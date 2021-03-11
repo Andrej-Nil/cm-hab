@@ -1,0 +1,84 @@
+.modals {
+  //display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100vh;
+  z-index: 1000;
+}
+
+.bg-modals {
+  width: 100%;
+  height: 100%;
+  background: $bgForModals;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.modal {
+  display: none;
+  overflow: hidden;
+  position: relative;
+  background: $white;
+  padding: 50px;
+  width: 100%;
+  border-radius: 20px;
+}
+
+.modal--is-show {
+  display: block;
+}
+
+.modal__text {
+  position: relative;
+  width: 450px;
+  margin-bottom: 30px;
+  z-index: 10;
+}
+
+.modal__title {
+  font-weight: 600;
+  font-size: 36px;
+  line-height: 95.2%;
+  margin-bottom: 10px;
+}
+
+.modal__desc {
+  font-weight: 300;
+  font-size: 18px;
+  line-height: 110%;
+}
+
+.modal-form {
+  position: relative;
+  max-width: 382px;
+  width: 100%;
+  z-index: 10;
+}
+
+.modal__close {
+  position: absolute;
+  width: 30px;
+  height: 30px;
+  top: 15px;
+  right: 13px;
+  z-index: 10;
+}
+
+.modal__bg {
+  position: absolute;
+}
+
+.modal__link {
+  margin-top: 25px;
+  max-width: 250px;
+  width: 100%;
+}
+
+.modal-thanks__text {
+  position: relative;
+  width: 450px;
+  z-index: 10;
+}

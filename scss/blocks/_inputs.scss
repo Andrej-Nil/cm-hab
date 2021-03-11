@@ -131,6 +131,8 @@
   position: relative;
   display: inline-flex;
   cursor: pointer;
+  max-width: 250px;
+  width: 100%;
 }
 
 .input-check__fake {
@@ -160,7 +162,6 @@
   font-weight: 300;
   font-size: 14px;
   line-height: 110%;
-  width: 245px;
   padding-left: 27px;
   color: $d-grey;
 }

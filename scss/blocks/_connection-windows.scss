@@ -1,0 +1,22 @@
+.connection-modal {
+  max-width: 700px;
+}
+
+.connection-modal__bg {
+  bottom: 0;
+  right: 0;
+}
+
+.connection-modal__img {
+  max-height: 380px;
+  height: auto;
+  width: auto;
+  max-width: 250px;
+}
+
+.connection-thanks {
+  display: flex;
+  align-items: center;
+  max-width: 700px;
+  min-height: 400px;
+}

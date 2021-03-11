@@ -336,6 +336,54 @@ ul {
           filter: blur(20px);
 }
 
+.up {
+  position: fixed;
+  right: 114px;
+  bottom: 100px;
+}
+
+.up-btn {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  background: #ffffff;
+  opacity: 0.5;
+  cursor: pointer;
+  -webkit-transition: 0.2s ease-in-out;
+  transition: 0.2s ease-in-out;
+}
+
+.up-btn:hover {
+  opacity: 1;
+  -webkit-box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.1);
+          box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.1);
+}
+
+.up-btn__img {
+  width: 14px;
+  height: auto;
+}
+
+.close-btn {
+  width: 100%;
+  height: 100%;
+  cursor: pointer;
+}
+
+.close-btm__icon {
+  width: 100%;
+  height: 100%;
+}
+
 .input-with-name {
   display: -webkit-box;
   display: -ms-flexbox;
@@ -488,6 +536,8 @@ ul {
   display: -ms-inline-flexbox;
   display: inline-flex;
   cursor: pointer;
+  max-width: 250px;
+  width: 100%;
 }
 
 .input-check__fake {
@@ -519,7 +569,6 @@ ul {
   font-weight: 300;
   font-size: 14px;
   line-height: 110%;
-  width: 245px;
   padding-left: 27px;
   color: #4a525f;
 }
@@ -530,6 +579,26 @@ ul {
 
 .input-check__checkbox:checked + .input-check__fake::before {
   display: block;
+}
+
+.form-error {
+  display: none;
+  margin-top: 15px;
+}
+
+.form-error--is-show {
+  display: block;
+}
+
+.form-error__message {
+  max-width: 250px;
+  width: 100%;
+  margin-left: auto;
+  text-align: center;
+  font-weight: normal;
+  font-size: 18px;
+  line-height: 95.2%;
+  color: #ea1601;
 }
 
 .logo {
@@ -1248,10 +1317,14 @@ ul {
 }
 
 .callback-right {
+  position: relative;
   width: 50%;
 }
 
 .callback-right__img {
+  position: absolute;
+  bottom: 0;
+  right: 0;
   width: auto;
   max-height: 540px;
   border-radius: 0 20px 20px 0;
@@ -1530,13 +1603,19 @@ ul {
   color: #4a525f;
 }
 
-.up {
+.modals {
   position: fixed;
-  right: 114px;
-  bottom: 100px;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100vh;
+  z-index: 1000;
 }
 
-.up-btn {
+.bg-modals {
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.5);
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -1546,25 +1625,99 @@ ul {
   -webkit-box-pack: center;
       -ms-flex-pack: center;
           justify-content: center;
-  width: 50px;
-  height: 50px;
-  border-radius: 50%;
+}
+
+.modal {
+  display: none;
+  overflow: hidden;
+  position: relative;
   background: #ffffff;
-  opacity: 0.5;
-  cursor: pointer;
-  -webkit-transition: 0.2s ease-in-out;
-  transition: 0.2s ease-in-out;
+  padding: 50px;
+  width: 100%;
+  border-radius: 20px;
 }
 
-.up-btn:hover {
-  opacity: 1;
-  -webkit-box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.1);
-          box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.1);
+.modal--is-show {
+  display: block;
 }
 
-.up-btn__img {
-  width: 14px;
+.modal__text {
+  position: relative;
+  width: 450px;
+  margin-bottom: 30px;
+  z-index: 10;
+}
+
+.modal__title {
+  font-weight: 600;
+  font-size: 36px;
+  line-height: 95.2%;
+  margin-bottom: 10px;
+}
+
+.modal__desc {
+  font-weight: 300;
+  font-size: 18px;
+  line-height: 110%;
+}
+
+.modal-form {
+  position: relative;
+  max-width: 382px;
+  width: 100%;
+  z-index: 10;
+}
+
+.modal__close {
+  position: absolute;
+  width: 30px;
+  height: 30px;
+  top: 15px;
+  right: 13px;
+  z-index: 10;
+}
+
+.modal__bg {
+  position: absolute;
+}
+
+.modal__link {
+  margin-top: 25px;
+  max-width: 250px;
+  width: 100%;
+}
+
+.modal-thanks__text {
+  position: relative;
+  width: 450px;
+  z-index: 10;
+}
+
+.connection-modal {
+  max-width: 700px;
+}
+
+.connection-modal__bg {
+  bottom: 0;
+  right: 0;
+}
+
+.connection-modal__img {
+  max-height: 380px;
   height: auto;
+  width: auto;
+  max-width: 250px;
+}
+
+.connection-thanks {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  max-width: 700px;
+  min-height: 400px;
 }
 
 .f-top {

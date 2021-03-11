@@ -23,10 +23,14 @@
 }
 
 .callback-right {
+  position: relative;
   width: 50%;
 }
 
 .callback-right__img {
+  position: absolute;
+  bottom: 0;
+  right: 0;
   width: auto;
   max-height: 540px;
   border-radius: 0 20px 20px 0;
