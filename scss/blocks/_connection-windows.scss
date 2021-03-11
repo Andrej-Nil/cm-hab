@@ -2,6 +2,12 @@
   max-width: 700px;
 }
 
+.connection-modal__content {
+  position: relative;
+  padding: 50px;
+  width: 100%;
+}
+
 .connection-modal__bg {
   bottom: 0;
   right: 0;
@@ -15,8 +21,14 @@
 }
 
 .connection-thanks {
-  display: flex;
-  align-items: center;
+  position: relative;
   max-width: 700px;
   min-height: 400px;
+}
+
+.connection-thanks__content {
+  padding: 50px;
+  min-height: 400px;
+  display: flex;
+  align-items: center;
 }

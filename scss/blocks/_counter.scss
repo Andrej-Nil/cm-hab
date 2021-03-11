@@ -1,0 +1,29 @@
+.counter {
+  width: 150px;
+  border-radius: 50px;
+  border: 1px solid $d-grey;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  font-weight: 500;
+  font-size: 24px;
+  line-height: 95.2%;
+}
+
+.counter__sing {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 30px;
+  height: 30px;
+}
+
+.counter__quantity {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 19px;
+  width: 30px;
+  height: 30px;
+}

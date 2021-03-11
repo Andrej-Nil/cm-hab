@@ -1,5 +1,5 @@
 .modals {
-  //display: none;
+  display: none;
   position: fixed;
   top: 0;
   left: 0;
@@ -20,11 +20,9 @@
 .modal {
   display: none;
   overflow: hidden;
-  position: relative;
-  background: $white;
-  padding: 50px;
   width: 100%;
   border-radius: 20px;
+  background: $white;
 }
 
 .modal--is-show {
