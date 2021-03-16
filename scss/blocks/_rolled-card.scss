@@ -1,0 +1,59 @@
+.rolled-cards {
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  z-index: 1;
+}
+
+.rolled-card {
+  position: relative;
+  overflow: hidden;
+  width: 520px;
+  height: 280px;
+  background: $white;
+  border-radius: 20px;
+  margin-bottom: 20px;
+  &:hover .rolled-card__img {
+    transform: scale(1.1, 1.1);
+  }
+
+  &:hover .rolled-card__arrow {
+    transform: translate(0, 0);
+  }
+}
+
+.rolled-card__content {
+  overflow: hidden;
+  z-index: 1;
+}
+
+.rolled-card__link {
+  display: flex;
+  align-items: center;
+  padding: 25px;
+  height: 100%;
+}
+
+.rolled-card__title {
+  font-size: 24px;
+  line-height: 95.2%;
+  margin-bottom: 7px;
+}
+
+.rolled-card__arrow {
+  display: inline-block;
+  height: 10px;
+  width: auto;
+  transform: translate(-150%, 0);
+  transition: 0.2s ease-in-out;
+}
+
+.rolled-card__img {
+  position: absolute;
+  top: 0;
+  right: 0;
+  max-height: 280px;
+  height: 100%;
+  width: auto;
+  transition: 0.2s ease-in-out;
+}

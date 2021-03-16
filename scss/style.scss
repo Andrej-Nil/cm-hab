@@ -15,6 +15,7 @@
 @import "./blocks/_path.scss";
 
 // content
+//index
 @import "./blocks/_slider.scss";
 @import "./blocks/_main-slider.scss";
 @import "./blocks/_product-card.scss";
@@ -23,11 +24,12 @@
 @import "./blocks/_subsections.scss";
 @import "./blocks/_small-card.scss";
 @import "./blocks/_callback.scss";
-@import "./blocks/_catalog-card.scss";
+@import "./blocks/_rolled-card.scss";
 @import "./blocks/_news-card-slide.scss";
 
 // catalog
 @import "./blocks/_switch.scss";
+@import "./blocks/_catalog-card.scss";
 
 //right
 @import "./blocks/_search-form.scss";

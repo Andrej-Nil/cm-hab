@@ -20,8 +20,9 @@ $d-yellow: #dca700;
 // font
 $gilroy: "Gilroy", sans-serif;
 
-//полупрозрачный фон для модульных окон
+//полупрозрачный фон
 $bgForModals: rgba(0, 0, 0, 0.5);
+$bgWhite: rgba(255, 255, 255, 0.8);
 
 * {
   padding: 0;
