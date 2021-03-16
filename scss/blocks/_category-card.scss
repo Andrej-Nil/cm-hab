@@ -1,0 +1,37 @@
+.category-card {
+  overflow: hidden;
+  max-width: 340px;
+  width: 100%;
+  min-height: 400px;
+  background: $white;
+  border-radius: 20px;
+  margin-bottom: 20px;
+  &:hover .category-card__img {
+    transform: scale(1.1, 1.1);
+  }
+
+  &:hover .category-card__title {
+    text-decoration: underline;
+  }
+}
+
+.category-card__preview {
+  width: 100%;
+  height: 313px;
+  overflow: hidden;
+}
+
+.category-card__img {
+  height: auto;
+  width: 100%;
+  transition: 0.2s ease-in-out;
+}
+
+.category-card__info {
+  padding: 10px 20px;
+}
+
+.category-card__title {
+  font-size: 24px;
+  line-height: 95.2%;
+}

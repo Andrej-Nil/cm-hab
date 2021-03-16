@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ru">
 
 <head>
   <meta charset="UTF-8">
@@ -35,11 +35,11 @@
             </ul>
           </div>
           <div class="h-callback">
-            <span class="h-callback-btn">Обратный звонок</span>
+            <span id='feedback' class="h-callback-btn">Обратный звонок</span>
           </div>
 
           <div class="h-login">
-            <span id='' class="h-login-btn">Авторизация</span>
+            <span class="h-login-btn">Авторизация</span>
           </div>
 
         </div>
@@ -131,7 +131,7 @@
           <div class="slides">
             <!-- slide -->
             <div class="slide">
-              <a href="" class="main-slide__link">
+              <a href="#!" class="main-slide__link">
                 <div class="main-slide">
                   <div class="main-slide__text">
                     <h3 class="main-slide__title">
@@ -141,7 +141,7 @@
                       уже через 1 день после оплаты
                       заказа
                     </p>
-                    <span href="#!" class="main-slide__btn">
+                    <span class="main-slide__btn">
                       Сделать заказ
                     </span>
                   </div>
@@ -153,7 +153,7 @@
 
             <!-- slide -->
             <div class="slide">
-              <a href="" class="main-slide__link">
+              <a href="#!" class="main-slide__link">
                 <div class="main-slide">
                   <div class="main-slide__text">
                     <h3 class="main-slide__title">
@@ -163,7 +163,7 @@
                       уже через 1 день после оплаты
                       заказа
                     </p>
-                    <span href="#!" class="main-slide__btn">
+                    <span class="main-slide__btn">
                       Сделать заказ
                     </span>
                   </div>
@@ -175,7 +175,7 @@
 
             <!-- slide -->
             <div class="slide">
-              <a href="" class="main-slide__link">
+              <a href="#!" class="main-slide__link">
                 <div class="main-slide">
                   <div class="main-slide__text">
                     <h3 class="main-slide__title">
@@ -185,7 +185,7 @@
                       уже через 2 день после оплаты
                       заказа
                     </p>
-                    <span href="#!" class="main-slide__btn">
+                    <span class="main-slide__btn">
                       Сделать заказ
                     </span>
                   </div>
@@ -197,7 +197,7 @@
 
             <!-- slide -->
             <div class="slide">
-              <a href="" class="main-slide__link">
+              <a href="#!" class="main-slide__link">
                 <div class="main-slide">
                   <div class="main-slide__text">
                     <h3 class="main-slide__title">
@@ -207,7 +207,7 @@
                       уже через 3 день после оплаты
                       заказа
                     </p>
-                    <span href="#!" class="main-slide__btn">
+                    <span class="main-slide__btn">
                       Сделать заказ
                     </span>
                   </div>
@@ -240,163 +240,174 @@
           <div class="section__content">
             <!-- product-slider -->
             <div class='product-slider'>
+
+              <!--product-slides-->
               <div class="product-slides">
                 <!-- product-slide -->
                 <div class="product-slide">
-                  <div class="product-slide__content">
-                    <div class="product-slide__preview">
-                      <a href="#!" class="product-slide__link">
-                        <img src="./img/image/product-card-img-1.jpg" alt="" class="product-slide__img">
-                      </a>
-                    </div>
-                    <div class="product-slide__info">
-                      <h3 class="product-slide__title">
-                        <a href="#!" class="product-slide__title-link link">
-                          Лист нержавеющий 7х1250х2500 мм 03Х13Н6К10М4ФБ-ВД 7х1250х2500 мм 03Х13Н6К10М4ФБ-ВД
+                  <div class="product-card">
+                    <div class="product-card__content">
+                      <div class="product-card__preview">
+                        <a href="#!" class="product-card__link">
+                          <img src="./img/image/product-card-img-1.jpg" alt="" class="product-card__img">
                         </a>
-                      </h3>
-                      <div class="product-slide__buy">
-                        <div class="product-slide__price">
-                          <span class="product-slide__discount">-10%</span>
-                          <span class="product-slide__number">90390 ₽</span>
-                        </div>
-                        <div class="product-slide__btn">
-                          <span class="product-slide__in-basket yellow-btn">В карзину</span>
+                      </div>
+                      <div class="product-card__info">
+                        <h3 class="product-card__title">
+                          <a href="#!" class="product-card__title-link link">
+                            Лист нержавеющий 7х1250х2500 мм 03Х13Н6К10М4ФБ-ВД 7х1250х2500 мм 03Х13Н6К10М4ФБ-ВД
+                          </a>
+                        </h3>
+                        <div class="product-card__buy">
+                          <div class="product-card__price">
+                            <span class="product-card__discount">-10%</span>
+                            <span class="product-card__number">90390 ₽</span>
+                          </div>
+                          <div class="product-card__btn">
+                            <span class="product-card__in-basket yellow-btn">В карзину</span>
+                          </div>
                         </div>
                       </div>
                     </div>
-                  </div>
-                  <div class="product-slide__favorite js-favorite">
-                    <span class="favorite-btn">
-                      <img class="favorite-btn__icon" src="./img/icon/favorite-icon.svg" alt="">
-                    </span>
-                  </div>
+                    <div class="product-card__favorite js-favorite">
+                      <span class="favorite-btn">
+                        <img class="favorite-btn__icon" src="./img/icon/favorite-icon.svg" alt="">
+                      </span>
+                    </div>
 
-                  <div class="short-order">
-                    <span class="short-order__btn white-btn">
-                      Заказать в 1 клик
-                    </span>
+                    <div class="short-order">
+                      <span class="short-order__btn white-btn">
+                        Заказать в 1 клик
+                      </span>
+                    </div>
                   </div>
                 </div>
                 <!-- product-slide -->
 
                 <!-- product-slide -->
                 <div class="product-slide">
-                  <div class="product-slide__content">
-                    <div class="product-slide__preview">
-                      <a href="#!" class="product-slide__link">
-                        <img src="./img/image/product-card-img-2.jpg" alt="" class="product-slide__img">
-                      </a>
-                    </div>
-                    <div class="product-slide__info">
-                      <h3 class="product-slide__title">
-                        <a href="#!" class="product-slide__title-link link">
-                          Лист нержавеющий 7х1250х2500 мм 03Х13Н6К10М4ФБ-ВД 7х1250х2500 мм
+                  <div class="product-card">
+                    <div class="product-card__content">
+                      <div class="product-card__preview">
+                        <a href="#!" class="product-card__link">
+                          <img src="./img/image/product-card-img-2.jpg" alt="" class="product-card__img">
                         </a>
-                      </h3>
-                      <div class="product-slide__buy">
-                        <div class="product-slide__price">
-                          <span class="product-slide__discount">-10%</span>
-                          <span class="product-slide__number">90390 ₽</span>
-                        </div>
-                        <div class="product-slide__btn">
-                          <span class="product-slide__in-basket yellow-btn">В карзину</span>
+                      </div>
+                      <div class="product-card__info">
+                        <h3 class="product-card__title">
+                          <a href="#!" class="product-card__title-link link">
+                            Лист нержавеющий 7х1250х2500 мм 03Х13Н6К10М4ФБ-ВД 7х1250х2500 мм 03Х13Н6К10М4ФБ-ВД
+                          </a>
+                        </h3>
+                        <div class="product-card__buy">
+                          <div class="product-card__price">
+                            <span class="product-card__discount">-10%</span>
+                            <span class="product-card__number">90390 ₽</span>
+                          </div>
+                          <div class="product-card__btn">
+                            <span class="product-card__in-basket white-btn">Добавлено</span>
+                          </div>
                         </div>
                       </div>
                     </div>
-                  </div>
-                  <div class="product-slide__favorite js-favorite">
-                    <span class="favorite-btn">
-                      <img class="favorite-btn__icon" src="./img/icon/favorite-icon.svg" alt="">
-                    </span>
-                  </div>
+                    <div class="product-card__favorite js-favorite">
+                      <span class="favorite-btn">
+                        <img class="favorite-btn__icon" src="./img/icon/favorite-active-icon.svg" alt="">
+                      </span>
+                    </div>
 
-                  <div class="short-order">
-                    <span class="short-order__btn white-btn">
-                      Заказать в 1 клик
-                    </span>
+                    <div class="short-order">
+                      <span class="short-order__btn white-btn">
+                        Заказать в 1 клик
+                      </span>
+                    </div>
                   </div>
                 </div>
                 <!-- product-slide -->
 
                 <!-- product-slide -->
                 <div class="product-slide">
-                  <div class="product-slide__content">
-                    <div class="product-slide__preview">
-                      <a href="#!" class="product-slide__link">
-                        <img src="./img/image/product-card-img-3.jpg" alt="" class="product-slide__img">
-                      </a>
-                    </div>
-                    <div class="product-slide__info">
-                      <h3 class="product-slide__title">
-                        <a href="#!" class="product-slide__title-link link">
-                          Лист нержавеющий 7х1250х2500 мм 03Х13Н6К10М4ФБ-ВД
+                  <div class="product-card">
+                    <div class="product-card__content">
+                      <div class="product-card__preview">
+                        <a href="#!" class="product-card__link">
+                          <img src="./img/image/product-card-img-3.jpg" alt="" class="product-card__img">
                         </a>
-                      </h3>
-                      <div class="product-slide__buy">
-                        <div class="product-slide__price">
-                          <span class="product-slide__discount">-10%</span>
-                          <span class="product-slide__number">90390 ₽</span>
-                        </div>
-                        <div class="product-slide__btn">
-                          <span class="product-slide__in-basket white-btn">Добавленно</span>
+                      </div>
+                      <div class="product-card__info">
+                        <h3 class="product-card__title">
+                          <a href="#!" class="product-card__title-link link">
+                            Лист нержавеющий 7х1250х2500 мм 03Х13Н6К10М4ФБ-ВД 7х1250х2500 мм 03Х13Н6К10М4ФБ-ВД
+                          </a>
+                        </h3>
+                        <div class="product-card__buy">
+                          <div class="product-card__price">
+                            <span class="product-card__discount">-10%</span>
+                            <span class="product-card__number">90390 ₽</span>
+                          </div>
+                          <div class="product-card__btn">
+                            <span class="product-card__in-basket yellow-btn">В карзину</span>
+                          </div>
                         </div>
                       </div>
                     </div>
-                  </div>
-                  <div class="product-slide__favorite js-favorite">
-                    <span class="favorite-btn">
-                      <img class="favorite-btn__icon" src="./img/icon/favorite-active-icon.svg" alt="">
-                    </span>
-                  </div>
+                    <div class="product-card__favorite js-favorite">
+                      <span class="favorite-btn">
+                        <img class="favorite-btn__icon" src="./img/icon/favorite-icon.svg" alt="">
+                      </span>
+                    </div>
 
-                  <div class="short-order">
-                    <span class="short-order__btn white-btn">
-                      Заказать в 1 клик
-                    </span>
+                    <div class="short-order">
+                      <span class="short-order__btn white-btn">
+                        Заказать в 1 клик
+                      </span>
+                    </div>
                   </div>
                 </div>
                 <!-- product-slide -->
 
                 <!-- product-slide -->
                 <div class="product-slide">
-                  <div class="product-slide__content">
-                    <div class="product-slide__preview">
-                      <a href="#!" class="product-slide__link">
-                        <img src="./img/image/product-card-img-3.jpg" alt="" class="product-slide__img">
-                      </a>
-                    </div>
-                    <div class="product-slide__info">
-                      <h3 class="product-slide__title">
-                        <a href="#!" class="product-slide__title-link link">
-                          Лист нержавеющий 7х1250х2500 мм 03Х13Н6К10М4ФБ-ВД
+                  <div class="product-card">
+                    <div class="product-card__content">
+                      <div class="product-card__preview">
+                        <a href="#!" class="product-card__link">
+                          <img src="./img/image/product-card-img-1.jpg" alt="" class="product-card__img">
                         </a>
-                      </h3>
-                      <div class="product-slide__buy">
-                        <div class="product-slide__price">
-                          <span class="product-slide__discount">-10%</span>
-                          <span class="product-slide__number">90390 ₽</span>
-                        </div>
-                        <div class="product-slide__btn">
-                          <span class="product-slide__in-basket yellow-btn">В карзину</span>
+                      </div>
+                      <div class="product-card__info">
+                        <h3 class="product-card__title">
+                          <a href="#!" class="product-card__title-link link">
+                            Лист нержавеющий 7х1250х2500 мм 03Х13Н6К10М4ФБ-ВД 7х1250х2500 мм 03Х13Н6К10М4ФБ-ВД
+                          </a>
+                        </h3>
+                        <div class="product-card__buy">
+                          <div class="product-card__price">
+                            <span class="product-card__discount">-10%</span>
+                            <span class="product-card__number">90390 ₽</span>
+                          </div>
+                          <div class="product-card__btn">
+                            <span class="product-card__in-basket yellow-btn">В карзину</span>
+                          </div>
                         </div>
                       </div>
                     </div>
-                  </div>
-                  <div class="product-slide__favorite js-favorite">
-                    <span class="favorite-btn">
-                      <img class="favorite-btn__icon" src="./img/icon/favorite-icon.svg" alt="">
-                    </span>
-                  </div>
+                    <div class="product-card__favorite js-favorite">
+                      <span class="favorite-btn">
+                        <img class="favorite-btn__icon" src="./img/icon/favorite-icon.svg" alt="">
+                      </span>
+                    </div>
 
-                  <div class="short-order">
-                    <span class="short-order__btn white-btn">
-                      Заказать в 1 клик
-                    </span>
+                    <div class="short-order">
+                      <span class="short-order__btn white-btn">
+                        Заказать в 1 клик
+                      </span>
+                    </div>
                   </div>
                 </div>
                 <!-- product-slide -->
               </div>
+              <!--product-slides-->
             </div>
             <!-- product-slider -->
 
@@ -922,7 +933,7 @@
                   <div class="rolled-cards">
                     <!-- catalog-card -->
                     <div class="rolled-card">
-                      <a class='rolled-card__link' href="categories1.html" class="">
+                      <a class='rolled-card__link' href="categories1.html">
                         <div class="rolled-card__content">
                           <h4 class="rolled-card__title">
                             Алюминиевый
@@ -936,7 +947,7 @@
 
                     <!-- catalog-card -->
                     <div class="rolled-card">
-                      <a class='rolled-card__link' href="categories1.html" class="">
+                      <a class='rolled-card__link' href="categories1.html">
                         <div class="rolled-card__content">
                           <h4 class="rolled-card__title">
                             Алюминиевый
@@ -950,7 +961,7 @@
 
                     <!-- catalog-card -->
                     <div class="rolled-card">
-                      <a class='rolled-card__link' href="categories1.html" class="">
+                      <a class='rolled-card__link' href="categories1.html">
                         <div class="rolled-card__content">
                           <h4 class="rolled-card__title">
                             Алюминиевый
@@ -964,7 +975,7 @@
 
                     <!-- catalog-card -->
                     <div class="rolled-card">
-                      <a class='rolled-card__link' href="categories1.html" class="">
+                      <a class='rolled-card__link' href="categories1.html">
                         <div class="rolled-card__content">
                           <h4 class="rolled-card__title">
                             Алюминиевый
@@ -1008,7 +1019,7 @@
                   <div class="catalog-cards">
                     <!-- catalog-card -->
                     <div class="catalog-card">
-                      <a class='catalog-card__link' href="categories1.html" class="">
+                      <a class='catalog-card__link' href="categories1.html">
                         <div class="catalog-card__content">
                           <h4 class="catalog-card__title">
                             Алюминиевый
@@ -1022,7 +1033,7 @@
 
                     <!-- catalog-card -->
                     <div class="catalog-card">
-                      <a class='catalog-card__link' href="categories1.html" class="">
+                      <a class='catalog-card__link' href="categories1.html">
                         <div class="catalog-card__content">
                           <h4 class="catalog-card__title">
                             Алюминиевый
@@ -1036,7 +1047,7 @@
 
                     <!-- catalog-card -->
                     <div class="catalog-card">
-                      <a class='catalog-card__link' href="categories1.html" class="">
+                      <a class='catalog-card__link' href="categories1.html">
                         <div class="catalog-card__content">
                           <h4 class="catalog-card__title">
                             Алюминиевый
@@ -1050,7 +1061,7 @@
 
                     <!-- catalog-card -->
                     <div class="catalog-card">
-                      <a class='catalog-card__link' href="categories1.html" class="">
+                      <a class='catalog-card__link' href="categories1.html">
                         <div class="catalog-card__content">
                           <h4 class="catalog-card__title">
                             Алюминиевый
@@ -1094,7 +1105,7 @@
                   <div class="catalog-cards">
                     <!-- catalog-card -->
                     <div class="catalog-card">
-                      <a class='catalog-card__link' href="categories1.html" class="">
+                      <a class='catalog-card__link' href="categories1.html">
                         <div class="catalog-card__content">
                           <h4 class="catalog-card__title">
                             Алюминиевый
@@ -1108,7 +1119,7 @@
 
                     <!-- catalog-card -->
                     <div class="catalog-card">
-                      <a class='catalog-card__link' href="categories1.html" class="">
+                      <a class='catalog-card__link' href="categories1.html">
                         <div class="catalog-card__content">
                           <h4 class="catalog-card__title">
                             Алюминиевый
@@ -1122,7 +1133,7 @@
 
                     <!-- catalog-card -->
                     <div class="catalog-card">
-                      <a class='catalog-card__link' href="categories1.html" class="">
+                      <a class='catalog-card__link' href="categories1.html">
                         <div class="catalog-card__content">
                           <h4 class="catalog-card__title">
                             Алюминиевый
@@ -1136,7 +1147,7 @@
 
                     <!-- catalog-card -->
                     <div class="catalog-card">
-                      <a class='catalog-card__link' href="categories1.html" class="">
+                      <a class='catalog-card__link' href="categories1.html">
                         <div class="catalog-card__content">
                           <h4 class="catalog-card__title">
                             Алюминиевый
@@ -1180,7 +1191,7 @@
                   <div class="catalog-cards">
                     <!-- catalog-card -->
                     <div class="catalog-card">
-                      <a class='catalog-card__link' href="categories1.html" class="">
+                      <a class='catalog-card__link' href="categories1.html">
                         <div class="catalog-card__content">
                           <h4 class="catalog-card__title">
                             Алюминиевый
@@ -1194,7 +1205,7 @@
 
                     <!-- catalog-card -->
                     <div class="catalog-card">
-                      <a class='catalog-card__link' href="categories1.html" class="">
+                      <a class='catalog-card__link' href="categories1.html">
                         <div class="catalog-card__content">
                           <h4 class="catalog-card__title">
                             Алюминиевый
@@ -1208,7 +1219,7 @@
 
                     <!-- catalog-card -->
                     <div class="catalog-card">
-                      <a class='catalog-card__link' href="categories1.html" class="">
+                      <a class='catalog-card__link' href="categories1.html">
                         <div class="catalog-card__content">
                           <h4 class="catalog-card__title">
                             Алюминиевый
@@ -1222,7 +1233,7 @@
 
                     <!-- catalog-card -->
                     <div class="catalog-card">
-                      <a class='catalog-card__link' href="categories1.html" class="">
+                      <a class='catalog-card__link' href="categories1.html">
                         <div class="catalog-card__content">
                           <h4 class="catalog-card__title">
                             Алюминиевый
@@ -1421,8 +1432,8 @@
 
         <!-- search-form -->
         <form id='search' action="search.html" class="search-form">
-          <input class='search__input' type="text" name="search" id="" placeholder="Поиск">
-          <input class='search__sumbit' type="image" src='./img/icon/loupe.svg'>
+          <input class='search__input' type="text" name="search" id="searchInput" placeholder="Поиск">
+          <input class='search__sumbit' type="image" src='./img/icon/loupe.svg' alt='Найти'>
         </form>
         <!-- search-form -->
 
@@ -1860,692 +1871,688 @@
       <!--f-bootom-->
 
     </footer>
-  </div>
 
-
-  <!--up-->
-  <div class="up">
-    <div class="up-btn">
-      <img src="./img/controls/up-arrow.svg" alt="" class="up-btn__img">
+    <!--up-->
+    <div class="up">
+      <div class="up-btn">
+        <img src="./img/controls/up-arrow.svg" alt="" class="up-btn__img">
+      </div>
     </div>
-  </div>
-  <!--up-->
+    <!--up-->
 
-  <!-- modal windows -->
-  <div class="modals">
-    <div class="bg-modals">
-      <!-- connection windows-->
+    <!-- modal windows -->
+    <div class="modals">
+      <div class="bg-modals">
+        <!-- connection windows-->
 
-      <!-- calculator -->
-      <div id='calculator' class="connection-modal modal js-modal">
-        <!--connection-modal__content-->
-        <div class="connection-modal__content">
-          <div class="modal__text">
-            <h4 class="modal__title">
-              Получите точный расчет
-            </h4>
-            <p class="modal__desc">
-              Загрузите файл с перечнем необходимых позиций
-              и в ответном письме мы вышлем Вам точный расчет
-            </p>
-          </div>
-
-          <form id='calculatorForm' enctype="multipart/form-data" action="test-form.html" method="POST"
-            class='modal-form'>
-            <!--modal__inputs-->
-            <div class="modal__inputs inputs-block">
-
-              <!--input-with-name-->
-              <div class="input-with-name">
-                <label class="input-label">
-                  Имя
-                </label>
-                <input type="text" class="input js-input-name" name='name' placeholder="Константин">
-              </div>
-              <!--input-with-name-->
-
-              <!--input-with-name-->
-              <div class="input-with-name">
-                <label class="input-label">
-                  Почта
-                </label>
-                <input type="text" class="input input--is-success js-input-email" name='email'
-                  placeholder="Kostya228@gmail.com">
-              </div>
-              <!--input-with-name-->
-
-              <!--input-with-name-->
-              <div class="input-with-name">
-                <label class="input-label">
-                  Сообщение
-                </label>
-                <textarea class="input textarea input--is-error js-input-textarea" name='message'
-                  placeholder="Мне нужно быстро доставить"></textarea>
-              </div>
-              <!--input-with-name-->
-
-              <!--input-upload-->
-              <div class="input-upload">
-                <label class="input-upload__label">
-                  <img src="./img/icon/clip-icon.svg" alt="" class="input-upload__img">
-                  <span class='input-upload__text'>Прикрепить файл</span>
-                  <input type="file" name='file' class="input-upload__file js-input-file ">
-                </label>
-              </div>
-              <!--input-upload-->
-
-              <button class='input-submit yellow-btn' type='submit'>Отправить</button>
-
-              <!--input-check-->
-              <div class="input-check">
-                <label class="input-check__label">
-                  <input class='input-check__checkbox js-input-checkbox' type="checkbox" name='consent'>
-                  <span class="input-check__fake">
-
-                  </span>
-                  <span class="input-check__text">
-                    Даю согласие на обработку моих персональных данных
-                  </span>
-
-                </label>
-              </div>
-              <!--input-check-->
-
-            </div>
-            <!--modal__inputs-->
-
-            <!--modal-form__error-->
-            <div class='modal-form__error form-error'>
-              <p class="modal-form__error form-error__message">
-                Ошибка отправки
+        <!-- calculator -->
+        <div id='calculator' class="connection-modal modal js-modal">
+          <!--connection-modal__content-->
+          <div class="connection-modal__content">
+            <div class="modal__text">
+              <h4 class="modal__title">
+                Получите точный расчет
+              </h4>
+              <p class="modal__desc">
+                Загрузите файл с перечнем необходимых позиций
+                и в ответном письме мы вышлем Вам точный расчет
               </p>
             </div>
-            <!--modal-form__error-->
-          </form>
-          <div class="modal__close js-close-modal">
-            <span class="close-btn">
-              <img src="./img/controls/close-btn-icon.svg" alt="" class="close-btm__icon">
-            </span>
-          </div>
 
-          <div class="modal__bg connection-modal__bg">
-            <img src="./img/image/manager2.jpg" alt="" class="modal__img connection-modal__img">
-          </div>
-        </div>
-        <!--connection-modal__content-->
-      </div>
-      <!-- calculator -->
+            <form id='calculatorForm' enctype="multipart/form-data" action="test-form.html" method="POST"
+              class='modal-form'>
+              <!--modal__inputs-->
+              <div class="modal__inputs inputs-block">
 
-      <!-- feetback -->
-      <div id='feetback' class=" connection-modal modal js-modal">
-        <!--connection-modal__content-->
-        <div class="connection-modal__content">
-          <div class="modal__text">
-            <h4 class="modal__title">
-              Обратный звонок
-            </h4>
-            <p class="modal__desc">
-              Оставьте свои контактные данные
-              и наш менеджер свяжется с вами в течении часа
-            </p>
-          </div>
+                <!--input-with-name-->
+                <div class="input-with-name">
+                  <label class="input-label">
+                    Имя
+                  </label>
+                  <input type="text" class="input js-input-name" name='name' placeholder="Константин">
+                </div>
+                <!--input-with-name-->
 
-          <form id='feetbackForm' action="test-form.html" method="POST" class='modal-form'>
-            <!--modal__inputs-->
-            <div class="modal__inputs inputs-block">
+                <!--input-with-name-->
+                <div class="input-with-name">
+                  <label class="input-label">
+                    Почта
+                  </label>
+                  <input type="text" class="input input--is-success js-input-email" name='email'
+                    placeholder="Kostya228@gmail.com">
+                </div>
+                <!--input-with-name-->
 
-              <!--input-with-name-->
-              <div class="input-with-name">
-                <label class="input-label">
-                  Имя
-                </label>
-                <input type="text" class="input js-input-name" name='name' placeholder="Константин">
+                <!--input-with-name-->
+                <div class="input-with-name">
+                  <label class="input-label">
+                    Сообщение
+                  </label>
+                  <textarea class="input textarea input--is-error js-input-textarea" name='message'
+                    placeholder="Мне нужно быстро доставить"></textarea>
+                </div>
+                <!--input-with-name-->
+
+                <!--input-upload-->
+                <div class="input-upload">
+                  <label class="input-upload__label">
+                    <img src="./img/icon/clip-icon.svg" alt="" class="input-upload__img">
+                    <span class='input-upload__text'>Прикрепить файл</span>
+                    <input type="file" name='file' class="input-upload__file js-input-file ">
+                  </label>
+                </div>
+                <!--input-upload-->
+
+                <button class='input-submit yellow-btn' type='submit'>Отправить</button>
+
+                <!--input-check-->
+                <div class="input-check">
+                  <label class="input-check__label">
+                    <input class='input-check__checkbox js-input-checkbox' type="checkbox" name='consent'>
+                    <span class="input-check__fake">
+
+                    </span>
+                    <span class="input-check__text">
+                      Даю согласие на обработку моих персональных данных
+                    </span>
+
+                  </label>
+                </div>
+                <!--input-check-->
+
               </div>
-              <!--input-with-name-->
+              <!--modal__inputs-->
 
-              <!--input-with-name-->
-              <div class="input-with-name">
-                <label class="input-label">
-                  Почта
-                </label>
-                <input type="text" class="input input--is-success js-input-phone" name='phone'
-                  placeholder="+7 922 888 88 88">
-              </div>
-              <!--input-with-name-->
-
-              <button class='input-submit yellow-btn' type='submit'>Отправить</button>
-
-              <!--input-check-->
-              <div class="input-check">
-                <label class="input-check__label">
-                  <input class='input-check__checkbox js-input-checkbox' type="checkbox" name='consent'>
-                  <span class="input-check__fake">
-
-                  </span>
-                  <span class="input-check__text">
-                    Даю согласие на обработку моих персональных данных
-                  </span>
-
-                </label>
-              </div>
-              <!--input-check-->
-            </div>
-            <!--modal__inputs-->
-
-
-            <!--modal-form__error-->
-            <div class='modal-form__error form-error'>
-              <p class="modal-form__error form-error__message">
-                Ошибка отправки
-              </p>
-            </div>
-            <!--modal-form__error-->
-
-          </form>
-
-          <div class="modal__close js-close-modal">
-            <span class="close-btn">
-              <img src="./img/controls/close-btn-icon.svg" alt="" class="close-btm__icon">
-            </span>
-          </div>
-
-          <div class="modal__bg connection-modal__bg">
-            <img src="./img/image/manager2.jpg" alt="" class="modal__img connection-modal__img">
-          </div>
-        </div>
-        <!--connection-modal__content-->
-      </div>
-      <!-- feetback -->
-
-      <!-- help -->
-      <div id='help' class="connection-modal modal js-modal ">
-        <!--connection-modal__content-->
-        <div class="connection-modal__content">
-          <div class="modal__text">
-            <h4 class="modal__title">
-              Служба поддержки
-            </h4>
-            <p class="modal__desc">
-              Здесь вы можете оставить нам сообщение, касающееся работы сайта, чтобы мы могли стать еще удобнее и
-              функциональнее для Вас
-            </p>
-          </div>
-
-          <form id='helpForm' enctype="multipart/form-data" action="test-form.html" method="POST" class='modal-form'>
-            <!--modal__inputs-->
-            <div class="modal__inputs inputs-block">
-
-              <!--input-with-name-->
-              <div class="input-with-name">
-                <label class="input-label">
-                  Почта
-                </label>
-                <input type="text" class="input input--is-success js-input-email" name='email'
-                  placeholder="Kostya228@gmail.com">
-              </div>
-              <!--input-with-name-->
-
-              <!--input-with-name-->
-              <div class="input-with-name">
-                <label class="input-label">
-                  Сообщение
-                </label>
-                <textarea class="input textarea input--is-error js-input-textarea" name='message'
-                  placeholder="Мне нужно быстро доставить"></textarea>
-              </div>
-              <!--input-with-name-->
-
-              <button class='input-submit yellow-btn' type='submit'>Отправить</button>
-
-              <!--input-check-->
-              <div class="input-check">
-                <label class="input-check__label">
-                  <input class='input-check__checkbox js-input-checkbox' type="checkbox" name='consent'>
-                  <span class="input-check__fake">
-
-                  </span>
-                  <span class="input-check__text">
-                    Даю согласие на обработку моих персональных данных
-                  </span>
-
-                </label>
-              </div>
-              <!--input-check-->
-
-            </div>
-            <!--modal__inputs-->
-
-            <!--modal-form__error-->
-            <div class='modal-form__error form-error'>
-              <p class="modal-form__error form-error__message">
-                Ошибка отправки
-              </p>
-            </div>
-            <!--modal-form__error-->
-          </form>
-          <div class="modal__close js-close-modal">
-            <span class="close-btn">
-              <img src="./img/controls/close-btn-icon.svg" alt="" class="close-btm__icon">
-            </span>
-          </div>
-
-          <div class="modal__bg connection-modal__bg">
-            <img src="./img/image/earth-img.jpg" alt="" class="modal__img connection-modal__img">
-          </div>
-        </div>
-        <!--connection-modal__content-->
-
-      </div>
-      <!-- help -->
-
-      <!-- connection-thanks -->
-      <div id='connectionThanks' class="connection-thanks modal js-modal">
-        <div class="connection-thanks__content">
-          <div class="modal-thanks__text">
-            <h4 class="modal__title">
-              Спасибо за вашу заявку
-            </h4>
-            <p class="modal__desc">
-              Скоро мы свяжемся с вами!
-            </p>
-
-            <a href="index.html" class="modal__link yellow-btn">На главную</a>
-          </div>
-        </div>
-
-        <div class="modal__close js-close-modal">
-          <span class="close-btn">
-            <img src="./img/controls/close-btn-icon.svg" alt="" class="close-btm__icon">
-          </span>
-        </div>
-
-        <div class="modal__bg connection-modal__bg">
-          <img src="./img/image/armature-big.jpg" alt="" class="modal__img connection-modal__img">
-        </div>
-      </div>
-      <!-- connection-thanks -->
-
-      <!-- connection windows-->
-
-
-      <!-- order windows-->
-
-      <!--fast order-->
-      <div id='fastOrder' class="order-modal modal js-modal">
-        <form id='fastOrderForm' action="test-form.html" method="POST">
-          <div class="order-modal__content">
-            <!--order-modal__left-->
-            <div class="order-modal__left">
-              <div class="modal__text">
-                <h4 class="modal__title">
-                  Быстрый заказ
-                </h4>
-                <p class="modal__desc">
-                  Оставьте свои контактные данные
+              <!--modal-form__error-->
+              <div class='modal-form__error form-error'>
+                <p class="modal-form__error form-error__message">
+                  Ошибка отправки
                 </p>
               </div>
-              <!--order-inputs-->
-              <div class='order-inputs'>
-                <!--modal__inputs-->
-                <div class="modal__inputs inputs-block">
-
-                  <!--input-with-name-->
-                  <div class="input-with-name">
-                    <label class="input-label">
-                      Имя
-                    </label>
-                    <input type="text" class="input js-input-name" name='name' placeholder="Константин">
-                  </div>
-                  <!--input-with-name-->
-
-                  <!--input-with-name-->
-                  <div class="input-with-name">
-                    <label class="input-label">
-                      Телефон
-                    </label>
-                    <input type="text" class="input input--is-success js-input-phone" name='phone'
-                      placeholder="+7 922 888 88 88">
-                  </div>
-                  <!--input-with-name-->
-
-                  <!--input-with-name-->
-                  <div class="input-with-name">
-                    <label class="input-label">
-                      Почта
-                    </label>
-                    <input type="text" class="input input--is-success js-input-email" name='email'
-                      placeholder="Kostya228@gmail.com">
-                  </div>
-                  <!--input-with-name-->
-
-                  <!--input-with-name-->
-                  <div class="input-with-name">
-                    <label class="input-label">
-                      Сообщение
-                    </label>
-                    <textarea class="input textarea input--is-error js-input-textarea" name='message'
-                      placeholder="Мне нужно быстро доставить"></textarea>
-                  </div>
-                  <!--input-with-name-->
-
-                  <button class='input-submit yellow-btn' type='submit'>Отправить</button>
-
-                  <!--input-check-->
-                  <div class="input-check">
-                    <label class="input-check__label">
-                      <input class='input-check__checkbox js-input-checkbox' type="checkbox" name='consent'>
-                      <span class="input-check__fake">
-
-                      </span>
-                      <span class="input-check__text">
-                        Даю согласие на обработку моих персональных данных
-                      </span>
-
-                    </label>
-                  </div>
-                  <!--input-check-->
-
-                </div>
-                <!--modal__inputs-->
-
-                <!--modal-form__error-->
-                <div class='modal-form__error form-error'>
-                  <p class="modal-form__error form-error__message">
-                    Ошибка отправки
-                  </p>
-                </div>
-                <!--modal-form__error-->
-              </div>
-              <!--order-inputs-->
-              <div class="modal__close js-close-modal">
-                <span class="close-btn">
-                  <img src="./img/controls/close-btn-icon.svg" alt="" class="close-btm__icon">
-                </span>
-              </div>
-
-              <div class="modal__bg order-modal__bg">
-                <img src="./img/image/armature-order.jpg" alt="" class="modal__img order-modal__img">
-              </div>
+              <!--modal-form__error-->
+            </form>
+            <div class="modal__close js-close-modal">
+              <span class="close-btn">
+                <img src="./img/controls/close-btn-icon.svg" alt="" class="close-btm__icon">
+              </span>
             </div>
-            <!--order-modal__left-->
 
-            <!--order-modal__right-->
-            <div class="order-modal__right">
-              <h4 class="modal__title">
-                Информация о заказе
-              </h4>
-
-              <!--order-modal__list-->
-              <ul class="order-modal__list">
-                <li class="order-modal__item">
-                  <!--modal-card-->
-                  <div class="modal-card">
-                    <div class="modal-card__preview">
-                      <a href="product-page.html" class="modal-card__preview">
-                        <img src="./img/image/model-card-img.jpg" alt="" class="modal-card__img">
-                      </a>
-                    </div>
-                    <div class="modal-card__info">
-                      <h3 class='modal-card__title'>
-                        <a href="product-page.html" class="modal-card__link link">Алюминиевая прессованная труба
-                          100х10 мм В95Т1 ГОСТ 18482-79 </a>
-                      </h3>
-
-                      <!--modal-card__control-->
-                      <div class="modal-card__control">
-
-                        <!--modal-card__counter-->
-                        <div class="modal-card__counter counter js-counter">
-                          <span class="counter__sing js-dec">-</span>
-
-                          <span class="counter__quantity js-quantity">1</span>
-                          <span class="counter__sing js-inc">+</span>
-                        </div>
-
-                        <div class="modal-card__icon js-favorite">
-                          <span class="favorite-btn">
-                            <img class="favorite-btn__icon" src="./img/icon/favorite-icon.svg" alt="">
-                          </span>
-                        </div>
-
-                        <div class="modal-card__icon js-delete">
-                          <span class="close-btn">
-                            <img src="./img/controls/delete-icon.svg" alt="" class="close-btm__icon">
-                          </span>
-                        </div>
-                        <!--modal-card__counter-->
-                      </div>
-                      <!--modal-card__control-->
-                    </div>
-
-                    <div class="modal-card__price">
-                      <span class="modal-card__num">8900 ₽</span>
-                    </div>
-
-                  </div>
-                  <!--modal-card-->
-                </li>
-              </ul>
-              <!--order-modal__list-->
-
-              <div class="order-modal__total">
-                <span class="order-modal__text">Итого:</span>
-                <span class="order-modal__price">8900 ₽</span>
-              </div>
+            <div class="modal__bg connection-modal__bg">
+              <img src="./img/image/manager2.jpg" alt="" class="modal__img connection-modal__img">
             </div>
-            <!--order-modal__right-->
-
           </div>
-        </form>
-      </div>
-      <!--fast order-->
+          <!--connection-modal__content-->
+        </div>
+        <!-- calculator -->
 
-      <!--order-->
-      <div id='order' class="order-modal  modal js-modal">
-        <form id='orderForm' action="test-form.html" method="POST">
-          <div class="order-modal__content">
-            <!--order-modal__left-->
-            <div class="order-modal__left">
-              <div class="modal__text">
-                <h4 class="modal__title">
-                  Быстрый заказ
-                </h4>
-                <p class="modal__desc">
-                  Оставьте свои контактные данные
+        <!-- feetback -->
+        <div id='feetback' class=" connection-modal modal js-modal">
+          <!--connection-modal__content-->
+          <div class="connection-modal__content">
+            <div class="modal__text">
+              <h4 class="modal__title">
+                Обратный звонок
+              </h4>
+              <p class="modal__desc">
+                Оставьте свои контактные данные
+                и наш менеджер свяжется с вами в течении часа
+              </p>
+            </div>
+
+            <form id='feetbackForm' action="test-form.html" method="POST" class='modal-form'>
+              <!--modal__inputs-->
+              <div class="modal__inputs inputs-block">
+
+                <!--input-with-name-->
+                <div class="input-with-name">
+                  <label class="input-label">
+                    Имя
+                  </label>
+                  <input type="text" class="input js-input-name" name='name' placeholder="Константин">
+                </div>
+                <!--input-with-name-->
+
+                <!--input-with-name-->
+                <div class="input-with-name">
+                  <label class="input-label">
+                    Почта
+                  </label>
+                  <input type="text" class="input input--is-success js-input-phone" name='phone'
+                    placeholder="+7 922 888 88 88">
+                </div>
+                <!--input-with-name-->
+
+                <button class='input-submit yellow-btn' type='submit'>Отправить</button>
+
+                <!--input-check-->
+                <div class="input-check">
+                  <label class="input-check__label">
+                    <input class='input-check__checkbox js-input-checkbox' type="checkbox" name='consent'>
+                    <span class="input-check__fake">
+
+                    </span>
+                    <span class="input-check__text">
+                      Даю согласие на обработку моих персональных данных
+                    </span>
+
+                  </label>
+                </div>
+                <!--input-check-->
+              </div>
+              <!--modal__inputs-->
+
+
+              <!--modal-form__error-->
+              <div class='modal-form__error form-error'>
+                <p class="modal-form__error form-error__message">
+                  Ошибка отправки
                 </p>
               </div>
-              <!--order-inputs-->
-              <div class='order-inputs'>
-                <!--modal__inputs-->
-                <div class="modal__inputs inputs-block">
+              <!--modal-form__error-->
 
-                  <!--input-with-name-->
-                  <div class="input-with-name">
-                    <label class="input-label">
-                      Имя
-                    </label>
-                    <input type="text" class="input js-input-name" name='name' placeholder="Константин">
-                  </div>
-                  <!--input-with-name-->
+            </form>
 
-                  <!--input-with-name-->
-                  <div class="input-with-name">
-                    <label class="input-label">
-                      Телефон
-                    </label>
-                    <input type="text" class="input input--is-success js-input-phone" name='phone'
-                      placeholder="+7 922 888 88 88">
-                  </div>
-                  <!--input-with-name-->
+            <div class="modal__close js-close-modal">
+              <span class="close-btn">
+                <img src="./img/controls/close-btn-icon.svg" alt="" class="close-btm__icon">
+              </span>
+            </div>
 
-                  <!--input-with-name-->
-                  <div class="input-with-name">
-                    <label class="input-label">
-                      Почта
-                    </label>
-                    <input type="text" class="input input--is-success js-input-email" name='email'
-                      placeholder="Kostya228@gmail.com">
-                  </div>
-                  <!--input-with-name-->
+            <div class="modal__bg connection-modal__bg">
+              <img src="./img/image/manager2.jpg" alt="" class="modal__img connection-modal__img">
+            </div>
+          </div>
+          <!--connection-modal__content-->
+        </div>
+        <!-- feetback -->
 
-                  <!--input-with-name-->
-                  <div class="input-with-name">
-                    <label class="input-label">
-                      Сообщение
-                    </label>
-                    <textarea class="input textarea input--is-error js-input-textarea" name='message'
-                      placeholder="Мне нужно быстро доставить"></textarea>
-                  </div>
-                  <!--input-with-name-->
+        <!-- help -->
+        <div id='help' class="connection-modal modal js-modal ">
+          <!--connection-modal__content-->
+          <div class="connection-modal__content">
+            <div class="modal__text">
+              <h4 class="modal__title">
+                Служба поддержки
+              </h4>
+              <p class="modal__desc">
+                Здесь вы можете оставить нам сообщение, касающееся работы сайта, чтобы мы могли стать еще удобнее и
+                функциональнее для Вас
+              </p>
+            </div>
 
-                  <button class='input-submit yellow-btn' type='submit'>Отправить</button>
+            <form id='helpForm' enctype="multipart/form-data" action="test-form.html" method="POST" class='modal-form'>
+              <!--modal__inputs-->
+              <div class="modal__inputs inputs-block">
 
-                  <!--input-check-->
-                  <div class="input-check">
-                    <label class="input-check__label">
-                      <input class='input-check__checkbox js-input-checkbox' type="checkbox" name='consent'>
-                      <span class="input-check__fake">
-
-                      </span>
-                      <span class="input-check__text">
-                        Даю согласие на обработку моих персональных данных
-                      </span>
-
-                    </label>
-                  </div>
-                  <!--input-check-->
-
+                <!--input-with-name-->
+                <div class="input-with-name">
+                  <label class="input-label">
+                    Почта
+                  </label>
+                  <input type="text" class="input input--is-success js-input-email" name='email'
+                    placeholder="Kostya228@gmail.com">
                 </div>
-                <!--modal__inputs-->
+                <!--input-with-name-->
 
-                <!--modal-form__error-->
-                <div class='modal-form__error form-error'>
-                  <p class="modal-form__error form-error__message">
-                    Ошибка отправки
+                <!--input-with-name-->
+                <div class="input-with-name">
+                  <label class="input-label">
+                    Сообщение
+                  </label>
+                  <textarea class="input textarea input--is-error js-input-textarea" name='message'
+                    placeholder="Мне нужно быстро доставить"></textarea>
+                </div>
+                <!--input-with-name-->
+
+                <button class='input-submit yellow-btn' type='submit'>Отправить</button>
+
+                <!--input-check-->
+                <div class="input-check">
+                  <label class="input-check__label">
+                    <input class='input-check__checkbox js-input-checkbox' type="checkbox" name='consent'>
+                    <span class="input-check__fake">
+
+                    </span>
+                    <span class="input-check__text">
+                      Даю согласие на обработку моих персональных данных
+                    </span>
+
+                  </label>
+                </div>
+                <!--input-check-->
+
+              </div>
+              <!--modal__inputs-->
+
+              <!--modal-form__error-->
+              <div class='modal-form__error form-error'>
+                <p class="modal-form__error form-error__message">
+                  Ошибка отправки
+                </p>
+              </div>
+              <!--modal-form__error-->
+            </form>
+            <div class="modal__close js-close-modal">
+              <span class="close-btn">
+                <img src="./img/controls/close-btn-icon.svg" alt="" class="close-btm__icon">
+              </span>
+            </div>
+
+            <div class="modal__bg connection-modal__bg">
+              <img src="./img/image/earth-img.jpg" alt="" class="modal__img connection-modal__img">
+            </div>
+          </div>
+          <!--connection-modal__content-->
+
+        </div>
+        <!-- help -->
+
+        <!-- connection-thanks -->
+        <div id='connectionThanks' class="connection-thanks modal js-modal">
+          <div class="connection-thanks__content">
+            <div class="modal-thanks__text">
+              <h4 class="modal__title">
+                Спасибо за вашу заявку
+              </h4>
+              <p class="modal__desc">
+                Скоро мы свяжемся с вами!
+              </p>
+
+              <a href="index.html" class="modal__link yellow-btn">На главную</a>
+            </div>
+          </div>
+
+          <div class="modal__close js-close-modal">
+            <span class="close-btn">
+              <img src="./img/controls/close-btn-icon.svg" alt="" class="close-btm__icon">
+            </span>
+          </div>
+
+          <div class="modal__bg connection-modal__bg">
+            <img src="./img/image/armature-big.jpg" alt="" class="modal__img connection-modal__img">
+          </div>
+        </div>
+        <!-- connection-thanks -->
+
+        <!-- connection windows-->
+
+
+        <!-- order windows-->
+
+        <!--fast order-->
+        <div id='fastOrder' class="order-modal modal js-modal">
+          <form id='fastOrderForm' action="test-form.html" method="POST">
+            <div class="order-modal__content">
+              <!--order-modal__left-->
+              <div class="order-modal__left">
+                <div class="modal__text">
+                  <h4 class="modal__title">
+                    Быстрый заказ
+                  </h4>
+                  <p class="modal__desc">
+                    Оставьте свои контактные данные
                   </p>
                 </div>
-                <!--modal-form__error-->
-              </div>
-              <!--order-inputs-->
-              <div class="modal__close js-close-modal">
-                <span class="close-btn">
-                  <img src="./img/controls/close-btn-icon.svg" alt="" class="close-btm__icon">
-                </span>
-              </div>
+                <!--order-inputs-->
+                <div class='order-inputs'>
+                  <!--modal__inputs-->
+                  <div class="modal__inputs inputs-block">
 
-              <div class="modal__bg order-modal__bg">
-                <img src="./img/image/armature-order.jpg" alt="" class="modal__img order-modal__img">
-              </div>
-            </div>
-            <!--order-modal__left-->
-
-            <!--order-modal__right-->
-            <div class="order-modal__right">
-              <h4 class="modal__title">
-                Информация о заказе
-              </h4>
-
-              <!--order-modal__list-->
-              <ul class="order-modal__list">
-                <li class="order-modal__item">
-                  <!--modal-card-->
-                  <div class="modal-card">
-                    <div class="modal-card__preview">
-                      <a href="product-page.html" class="modal-card__preview">
-                        <img src="./img/image/model-card-img.jpg" alt="" class="modal-card__img">
-                      </a>
+                    <!--input-with-name-->
+                    <div class="input-with-name">
+                      <label class="input-label">
+                        Имя
+                      </label>
+                      <input type="text" class="input js-input-name" name='name' placeholder="Константин">
                     </div>
-                    <div class="modal-card__info">
-                      <h3 class='modal-card__title'>
-                        <a href="product-page.html" class="modal-card__link link">Алюминиевая прессованная труба
-                          100х10 мм В95Т1 ГОСТ 18482-79 </a>
-                      </h3>
+                    <!--input-with-name-->
 
-                      <!--modal-card__control-->
-                      <div class="modal-card__control">
-
-                        <!--modal-card__counter-->
-                        <div class="modal-card__counter counter js-counter">
-                          <span class="counter__sing js-dec">-</span>
-
-                          <span class="counter__quantity js-quantity">1</span>
-                          <span class="counter__sing js-inc">+</span>
-                        </div>
-
-                        <div class="modal-card__icon js-favorite">
-                          <span class="favorite-btn">
-                            <img class="favorite-btn__icon" src="./img/icon/favorite-icon.svg" alt="">
-                          </span>
-                        </div>
-
-                        <div class="modal-card__icon js-delete">
-                          <span class="close-btn">
-                            <img src="./img/controls/delete-icon.svg" alt="" class="close-btm__icon">
-                          </span>
-                        </div>
-                        <!--modal-card__counter-->
-                      </div>
-                      <!--modal-card__control-->
+                    <!--input-with-name-->
+                    <div class="input-with-name">
+                      <label class="input-label">
+                        Телефон
+                      </label>
+                      <input type="text" class="input input--is-success js-input-phone" name='phone'
+                        placeholder="+7 922 888 88 88">
                     </div>
+                    <!--input-with-name-->
 
-                    <div class="modal-card__price">
-                      <span class="modal-card__num">8900 ₽</span>
+                    <!--input-with-name-->
+                    <div class="input-with-name">
+                      <label class="input-label">
+                        Почта
+                      </label>
+                      <input type="text" class="input input--is-success js-input-email" name='email'
+                        placeholder="Kostya228@gmail.com">
                     </div>
+                    <!--input-with-name-->
+
+                    <!--input-with-name-->
+                    <div class="input-with-name">
+                      <label class="input-label">
+                        Сообщение
+                      </label>
+                      <textarea class="input textarea input--is-error js-input-textarea" name='message'
+                        placeholder="Мне нужно быстро доставить"></textarea>
+                    </div>
+                    <!--input-with-name-->
+
+                    <button class='input-submit yellow-btn' type='submit'>Отправить</button>
+
+                    <!--input-check-->
+                    <div class="input-check">
+                      <label class="input-check__label">
+                        <input class='input-check__checkbox js-input-checkbox' type="checkbox" name='consent'>
+                        <span class="input-check__fake">
+
+                        </span>
+                        <span class="input-check__text">
+                          Даю согласие на обработку моих персональных данных
+                        </span>
+
+                      </label>
+                    </div>
+                    <!--input-check-->
 
                   </div>
-                  <!--modal-card-->
-                </li>
-              </ul>
-              <!--order-modal__list-->
+                  <!--modal__inputs-->
 
-              <div class="order-modal__total">
-                <span class="order-modal__text">Итого:</span>
-                <span class="order-modal__price">8900 ₽</span>
+                  <!--modal-form__error-->
+                  <div class='modal-form__error form-error'>
+                    <p class="modal-form__error form-error__message">
+                      Ошибка отправки
+                    </p>
+                  </div>
+                  <!--modal-form__error-->
+                </div>
+                <!--order-inputs-->
+                <div class="modal__close js-close-modal">
+                  <span class="close-btn">
+                    <img src="./img/controls/close-btn-icon.svg" alt="" class="close-btm__icon">
+                  </span>
+                </div>
+
+                <div class="modal__bg order-modal__bg">
+                  <img src="./img/image/armature-order.jpg" alt="" class="modal__img order-modal__img">
+                </div>
               </div>
+              <!--order-modal__left-->
+
+              <!--order-modal__right-->
+              <div class="order-modal__right">
+                <h4 class="modal__title">
+                  Информация о заказе
+                </h4>
+
+                <!--order-modal__list-->
+                <ul class="order-modal__list">
+                  <li class="order-modal__item">
+                    <!--modal-card-->
+                    <div class="modal-card">
+                      <div class="modal-card__preview">
+                        <a href="product-page.html" class="modal-card__preview">
+                          <img src="./img/image/model-card-img.jpg" alt="" class="modal-card__img">
+                        </a>
+                      </div>
+                      <div class="modal-card__info">
+                        <h3 class='modal-card__title'>
+                          <a href="product-page.html" class="modal-card__link link">Алюминиевая прессованная труба
+                            100х10 мм В95Т1 ГОСТ 18482-79 </a>
+                        </h3>
+
+                        <!--modal-card__control-->
+                        <div class="modal-card__control">
+
+                          <!--modal-card__counter-->
+                          <div class="modal-card__counter counter js-counter">
+                            <span class="counter__sing js-dec">-</span>
+
+                            <span class="counter__quantity js-quantity">1</span>
+                            <span class="counter__sing js-inc">+</span>
+                          </div>
+
+                          <div class="modal-card__icon js-favorite">
+                            <span class="favorite-btn">
+                              <img class="favorite-btn__icon" src="./img/icon/favorite-icon.svg" alt="">
+                            </span>
+                          </div>
+
+                          <div class="modal-card__icon js-delete">
+                            <span class="close-btn">
+                              <img src="./img/controls/delete-icon.svg" alt="" class="close-btm__icon">
+                            </span>
+                          </div>
+                          <!--modal-card__counter-->
+                        </div>
+                        <!--modal-card__control-->
+                      </div>
+
+                      <div class="modal-card__price">
+                        <span class="modal-card__num">8900 ₽</span>
+                      </div>
+
+                    </div>
+                    <!--modal-card-->
+                  </li>
+                </ul>
+                <!--order-modal__list-->
+
+                <div class="order-modal__total">
+                  <span class="order-modal__text">Итого:</span>
+                  <span class="order-modal__price">8900 ₽</span>
+                </div>
+              </div>
+              <!--order-modal__right-->
+
             </div>
-            <!--order-modal__right-->
+          </form>
+        </div>
+        <!--fast order-->
 
+        <!--order-->
+        <div id='order' class="order-modal  modal js-modal">
+          <form id='orderForm' action="test-form.html" method="POST">
+            <div class="order-modal__content">
+              <!--order-modal__left-->
+              <div class="order-modal__left">
+                <div class="modal__text">
+                  <h4 class="modal__title">
+                    Быстрый заказ
+                  </h4>
+                  <p class="modal__desc">
+                    Оставьте свои контактные данные
+                  </p>
+                </div>
+                <!--order-inputs-->
+                <div class='order-inputs'>
+                  <!--modal__inputs-->
+                  <div class="modal__inputs inputs-block">
+
+                    <!--input-with-name-->
+                    <div class="input-with-name">
+                      <label class="input-label">
+                        Имя
+                      </label>
+                      <input type="text" class="input js-input-name" name='name' placeholder="Константин">
+                    </div>
+                    <!--input-with-name-->
+
+                    <!--input-with-name-->
+                    <div class="input-with-name">
+                      <label class="input-label">
+                        Телефон
+                      </label>
+                      <input type="text" class="input input--is-success js-input-phone" name='phone'
+                        placeholder="+7 922 888 88 88">
+                    </div>
+                    <!--input-with-name-->
+
+                    <!--input-with-name-->
+                    <div class="input-with-name">
+                      <label class="input-label">
+                        Почта
+                      </label>
+                      <input type="text" class="input input--is-success js-input-email" name='email'
+                        placeholder="Kostya228@gmail.com">
+                    </div>
+                    <!--input-with-name-->
+
+                    <!--input-with-name-->
+                    <div class="input-with-name">
+                      <label class="input-label">
+                        Сообщение
+                      </label>
+                      <textarea class="input textarea input--is-error js-input-textarea" name='message'
+                        placeholder="Мне нужно быстро доставить"></textarea>
+                    </div>
+                    <!--input-with-name-->
+
+                    <button class='input-submit yellow-btn' type='submit'>Отправить</button>
+
+                    <!--input-check-->
+                    <div class="input-check">
+                      <label class="input-check__label">
+                        <input class='input-check__checkbox js-input-checkbox' type="checkbox" name='consent'>
+                        <span class="input-check__fake">
+
+                        </span>
+                        <span class="input-check__text">
+                          Даю согласие на обработку моих персональных данных
+                        </span>
+
+                      </label>
+                    </div>
+                    <!--input-check-->
+
+                  </div>
+                  <!--modal__inputs-->
+
+                  <!--modal-form__error-->
+                  <div class='modal-form__error form-error'>
+                    <p class="modal-form__error form-error__message">
+                      Ошибка отправки
+                    </p>
+                  </div>
+                  <!--modal-form__error-->
+                </div>
+                <!--order-inputs-->
+                <div class="modal__close js-close-modal">
+                  <span class="close-btn">
+                    <img src="./img/controls/close-btn-icon.svg" alt="" class="close-btm__icon">
+                  </span>
+                </div>
+
+                <div class="modal__bg order-modal__bg">
+                  <img src="./img/image/armature-order.jpg" alt="" class="modal__img order-modal__img">
+                </div>
+              </div>
+              <!--order-modal__left-->
+
+              <!--order-modal__right-->
+              <div class="order-modal__right">
+                <h4 class="modal__title">
+                  Информация о заказе
+                </h4>
+
+                <!--order-modal__list-->
+                <ul class="order-modal__list">
+                  <li class="order-modal__item">
+                    <!--modal-card-->
+                    <div class="modal-card">
+                      <div class="modal-card__preview">
+                        <a href="product-page.html" class="modal-card__preview">
+                          <img src="./img/image/model-card-img.jpg" alt="" class="modal-card__img">
+                        </a>
+                      </div>
+                      <div class="modal-card__info">
+                        <h3 class='modal-card__title'>
+                          <a href="product-page.html" class="modal-card__link link">Алюминиевая прессованная труба
+                            100х10 мм В95Т1 ГОСТ 18482-79 </a>
+                        </h3>
+
+                        <!--modal-card__control-->
+                        <div class="modal-card__control">
+
+                          <!--modal-card__counter-->
+                          <div class="modal-card__counter counter js-counter">
+                            <span class="counter__sing js-dec">-</span>
+
+                            <span class="counter__quantity js-quantity">1</span>
+                            <span class="counter__sing js-inc">+</span>
+                          </div>
+
+                          <div class="modal-card__icon js-favorite">
+                            <span class="favorite-btn">
+                              <img class="favorite-btn__icon" src="./img/icon/favorite-icon.svg" alt="">
+                            </span>
+                          </div>
+
+                          <div class="modal-card__icon js-delete">
+                            <span class="close-btn">
+                              <img src="./img/controls/delete-icon.svg" alt="" class="close-btm__icon">
+                            </span>
+                          </div>
+                          <!--modal-card__counter-->
+                        </div>
+                        <!--modal-card__control-->
+                      </div>
+
+                      <div class="modal-card__price">
+                        <span class="modal-card__num">8900 ₽</span>
+                      </div>
+
+                    </div>
+                    <!--modal-card-->
+                  </li>
+                </ul>
+                <!--order-modal__list-->
+
+                <div class="order-modal__total">
+                  <span class="order-modal__text">Итого:</span>
+                  <span class="order-modal__price">8900 ₽</span>
+                </div>
+              </div>
+              <!--order-modal__right-->
+
+            </div>
+          </form>
+        </div>
+        <!--order-->
+
+        <!--order-thanks-->
+        <div id='orderThanks' class="connection-thanks modal js-modal">
+          <div class="order-thanks__content">
+            <div class="modal-thanks__text">
+              <h4 class="modal__title">
+                Спасибо за ваш заказ
+              </h4>
+              <p class="modal__desc">
+                Скоро мы свяжемся с вами!
+              </p>
+
+              <a href="index.html" class="modal__link yellow-btn">На главную</a>
+            </div>
           </div>
-        </form>
-      </div>
-      <!--order-->
 
-      <!--order-thanks-->
-      <div id='orderThanks' class="connection-thanks modal js-modal">
-        <div class="order-thanks__content">
-          <div class="modal-thanks__text">
-            <h4 class="modal__title">
-              Спасибо за ваш заказ
-            </h4>
-            <p class="modal__desc">
-              Скоро мы свяжемся с вами!
-            </p>
+          <div class="modal__close js-close-modal">
+            <span class="close-btn">
+              <img src="./img/controls/close-btn-icon.svg" alt="" class="close-btm__icon">
+            </span>
+          </div>
 
-            <a href="index.html" class="modal__link yellow-btn">На главную</a>
+          <div class="modal__bg order-modal__bg">
+            <img src="./img/image/armature-order.jpg" alt="" class="modal__img connection-modal__img">
           </div>
         </div>
+        <!--order-thanks-->
 
-        <div class="modal__close js-close-modal">
-          <span class="close-btn">
-            <img src="./img/controls/close-btn-icon.svg" alt="" class="close-btm__icon">
-          </span>
-        </div>
 
-        <div class="modal__bg order-modal__bg">
-          <img src="./img/image/armature-order.jpg" alt="" class="modal__img connection-modal__img">
-        </div>
+        <!-- order windows-->
+
       </div>
-      <!--order-thanks-->
-
-
-      <!-- order windows-->
-
     </div>
+    <!-- modal windows -->
   </div>
-
-
-
-  <!-- modal windows -->
   <script src='./js/main.js'></script>
 </body>
 
