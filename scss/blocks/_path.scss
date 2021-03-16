@@ -1,0 +1,23 @@
+.path-wrap{
+  margin-bottom: 37px;
+}
+
+.path{
+  color: $l-grey;
+}
+
+.path__link{
+  color: $l-grey;
+  transition: 0.2s ease-in-out;
+  &:hover{
+    color: $d-grey;
+  }
+}
+
+.path__link--is-active{
+  color: $d-grey;
+}
+
+.path__slash{
+  margin: 0 10px;
+}

@@ -1,15 +1,23 @@
+// base
 @import "./blocks/_fonts.scss";
 @import "./blocks/_main.scss";
 @import "./blocks/_btns.scss";
 @import "./blocks/_inputs.scss";
 @import "./blocks/_form-error.scss";
 @import "./blocks/_logo.scss";
-@import "./blocks/_product-card.scss";
+
+//header
 @import "./blocks/_header.scss";
 @import "./blocks/_header-contact.scss";
 @import "./blocks/_header-main.scss";
+
+//path
+@import "./blocks/_path.scss";
+
+// content
 @import "./blocks/_slider.scss";
 @import "./blocks/_main-slider.scss";
+@import "./blocks/_product-card.scss";
 @import "./blocks/_section.scss";
 @import "./blocks/_product-slider.scss";
 @import "./blocks/_subsections.scss";
@@ -17,13 +25,22 @@
 @import "./blocks/_callback.scss";
 @import "./blocks/_catalog-card.scss";
 @import "./blocks/_news-card-slide.scss";
+
+// catalog
+@import "./blocks/_switch.scss";
+
+//right
 @import "./blocks/_search-form.scss";
 @import "./blocks/_catalog-nav.scss";
+
+//modals
 @import "./blocks/_modals.scss";
 @import "./blocks/_connection-windows.scss";
 @import "./blocks/_order-windows.scss";
 @import "./blocks/_modal-card.scss";
 @import "./blocks/_counter.scss";
+
+//footer
 @import "./blocks/_footer-nav.scss";
 @import "./blocks/_footer-contacts.scss";
 @import "./blocks/_footer-info.scss";
