@@ -1,0 +1,36 @@
+.news-card {
+  overflow: hidden;
+  background: $white;
+  max-width: 515px;
+  width: 100%;
+  border-radius: 20px;
+  margin-bottom: 30px;
+  &:hover .news-card__title {
+    text-decoration: underline;
+  }
+
+  &:hover .news-card__img {
+    transform: scale(1.1, 1.1);
+  }
+}
+
+.news-card__preview {
+  overflow: hidden;
+  height: 300px;
+}
+
+.news-card__img {
+  width: 100%;
+  height: auto;
+  transition: 0.2s ease-in-out;
+}
+
+.news-card__desc {
+  padding: 21px 32px;
+}
+
+.news-card__title {
+  font-weight: 500;
+  font-size: 24px;
+  line-height: 95.2%;
+}

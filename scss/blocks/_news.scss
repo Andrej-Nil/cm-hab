@@ -1,0 +1,15 @@
+.news {
+  margin-bottom: 70px;
+}
+
+.news-list {
+  display: flex;
+  justify-content: space-between;
+}
+
+.news-col {
+  margin-right: 10px;
+  &:last-child {
+    margin-right: 0;
+  }
+}
