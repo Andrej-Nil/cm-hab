@@ -11,23 +11,759 @@
 
 <body>
   <div class="app">
-    <header class='header'>
+    <header class='header h'>
+      <!-- header contact -->
+      <div class="h-contact">
+        <div class="h-contact__inner container">
+          <div class="h-city">
+            <span class='h-city__name'>
+              Хабаровск
+            </span>
+          </div>
+          <div class="h-contacts">
+            <ul class="h-contacts__list">
+              <li class="h-contacts__item">
+                <a href="mailto:hab@metall-as.ru" class="h-contacts__link">
+                  hab@metall-as.ru
+                </a>
+              </li>
+              <li class="h-contacts__item">
+                <a href="tel:+74212929786" class="h-contacts__link">
+                  8 (421) 292-97-86
+                </a>
+              </li>
+            </ul>
+          </div>
+          <div class="h-callback">
+            <span id='feedback' class="h-callback-btn">Обратный звонок</span>
+          </div>
 
+          <div class="h-login">
+            <span class="h-login-btn">Авторизация</span>
+          </div>
+
+        </div>
+      </div>
+      <!-- header contact -->
+
+      <!-- header main -->
+      <div class="h-main">
+        <div class="h-main__inner container">
+          <!-- logo -->
+          <div class="h-logo">
+            <div class="logo">
+              <a href="index.html" class="logo__link">
+                <img class='logo__img' src="./img/logo.svg" alt="цветная металлургия">
+              </a>
+            </div>
+          </div>
+          <!-- logo -->
+
+          <!-- header-nav-->
+          <nav class="h-nav">
+            <ul class="h-nav__list">
+              <li class="h-nav__item">
+                <a href="index.html" class="h-nav__link">
+                  Главная
+                </a>
+              </li>
+
+              <li class="h-nav__item">
+                <a href="catalog.html" class="h-nav__link">
+                  Каталог
+                </a>
+              </li>
+
+              <li class="h-nav__item">
+                <a href="about.html" class="h-nav__link h-nav__link--is-active">
+                  О Компании
+                </a>
+              </li>
+
+              <li class="h-nav__item">
+                <a href="news.html" class="h-nav__link">
+                  Новости
+                </a>
+              </li>
+
+              <li class="h-nav__item">
+                <a href="contacts.html" class="h-nav__link">
+                  Контакты
+                </a>
+              </li>
+
+              <li class="h-nav__item">
+                <a href="branches.html" class="h-nav__link">
+                  Филиалы
+                </a>
+              </li>
+            </ul>
+
+            <ul class="h-icons">
+              <li class="h-icons__item">
+                <span class="h-icons__indicator h-icons__indicator-is-show"></span>
+                <a href="basket.html" class="h-icons__link">
+                  <img class='h-icons__img h-icons__img--is-active' src="./img/icon/basket-icon.svg" alt="">
+                </a>
+              </li>
+              <li class="h-icons__item">
+                <a href="basket.html" class="h-icons__link">
+                  <span class="h-icons__indicator"></span>
+                  <img class='h-icons__img h-icons__img--is-active' src="./img/icon/favorites-icon.svg" alt="">
+                </a>
+              </li>
+            </ul>
+
+          </nav>
+
+          <!-- header-nav-->
+        </div>
+      </div>
+      <!-- header main -->
     </header>
 
-    <div class="content-wrap">
+    <!--path-->
+    <nav class="path-wrap container">
+      <div class="path">
+        <a href="catalog.html" class="path__link">Каталог</a>
+        <span class="path__slash">\</span>
+        <a href="about.html" class="path__link path__link--is-active">О компании</a>
+      </div>
+    </nav>
+    <!--path-->
+
+    <!--content-wrap-->
+    <div class="content-wrap container">
+      <!-- left -->
       <div class="left">
 
+        <!-- about -->
+        <section class="about">
+          <h1 class="section-title">О компании</h1>
+          <!--about-info-->
+          <div class="about-info">
+            <!--about-info__desc-->
+            <div class="about-info__desc">
+
+              <h2 class="about-info__title">
+                ПКФ Цветная металлургия занимается оптово-розничной поставками металлопроката во все регионы России, а
+                также в Казахстан, Беларусь, Киргизию, Армению, Китай, Монголию.
+              </h2>
+
+              <!-- about-info__text -->
+              <div class="about-info__text">
+
+                <ul class="about-info__list">
+                  <li class="about-info__item">
+                    Доставка продукции осуществляется грузовыми машинами компании, железнодорожным транспортом,
+                    транспортными компаниями по выбору заказчика.
+                  </li>
+                  <li class="about-info__item">
+                    При необходимости организуем самовывоз продукции с территории нашего склада, бесплатно погрузим в
+                    машины с открытым верхом козловыми или мостовыми кранами.
+                  </li>
+                  <li class="about-info__item">
+                    Отгрузка металлопроката в день оплаты.
+                  </li>
+                  <li class="about-info__item">
+                    Способы расчета: наличные средства или безналичный платеж.
+                  </li>
+                  <li class="about-info__item">
+                    Для постоянных клиентов и оптовых заказчиков мы разработали гибкую систему скидок и бонусных
+                    предложений.
+                  </li>
+
+                </ul>
+
+                <p class="about-info__para">
+                  Работая с нами вы получаете продукцию высокого качества по ценам завода-изготовителя, большой выбор
+                  металлоизделий из цветных металлов и сплавов, точное соблюдение договоренностей. Наша продукция
+                </p>
+
+                <p class="about-info__para">
+                  В нашем каталоге более 2 000 наименований металлоизделий из меди, латуни, алюминия, бронзы, титана,
+                  свинца. У нас можно приобрести из наличия или под заказ круглый и плоский прокат, трубы, шины
+                  электротехнические, металлический порошок, свинец в чушках, кровельную медь, сетку тканую фильтровую.
+                </p>
+
+                <p class="about-info__para">
+                  Для изготовления металлопроката мы используем только качественное сырье от проверенных поставщиков.
+                  Благодаря долголетним партнерским отношениям мы получаем материалы по низким закупочным ценам и
+                  обеспечиваем большие объемы закупок, что позволяет нам держать расценки на металлопрокат на приемлемом
+                  уровне.
+                </p>
+
+              </div>
+              <!-- about-info__text -->
+
+            </div>
+            <!--about-info__desc-->
+
+            <!--about-info__desc-->
+            <div class="about-info__desc">
+
+              <h2 class="about-info__title">
+                Наша продукция
+              </h2>
+
+              <!-- about-info__text -->
+              <div class="about-info__text">
+
+                <p class="about-info__para">
+                  В нашем каталоге более 2 000 наименований металлоизделий из меди, латуни, алюминия, бронзы, титана,
+                  свинца. У нас можно приобрести из наличия или под заказ круглый и плоский прокат, трубы, шины
+                  электротехнические, металлический порошок, свинец в чушках, кровельную медь, сетку тканую фильтровую.
+                </p>
+
+                <p class="about-info__para">
+                  Для изготовления металлопроката мы используем только качественное сырье от проверенных поставщиков.
+                  Благодаря долголетним партнерским отношениям мы получаем материалы по низким закупочным ценам и
+                  обеспечиваем большие объемы закупок, что позволяет нам держать расценки на металлопрокат на приемлемом
+                  уровне.
+                </p>
+
+              </div>
+              <!-- about-info__text -->
+
+            </div>
+            <!--about-info__desc-->
+          </div>
+          <!--about-info-->
+
+          <!--categories__list-->
+          <div class="categories__list">
+            <!--category-card-->
+            <div class="category-card">
+              <a href="categories2.html" class="category-card__link">
+                <div class="category-card__preview">
+                  <img src="./img/image/categories-img-1.jpg" alt="" class="category-card__img">
+                </div>
+
+                <div class="category-card__info">
+                  <h3 class="category-card__title">Алюминиевая
+                    прессованная труба</h3>
+                </div>
+              </a>
+            </div>
+            <!--category-card-->
+
+            <!--category-card-->
+            <div class="category-card">
+              <a href="categories2.html" class="category-card__link">
+                <div class="category-card__preview">
+                  <img src="./img/image/categories-img-1.jpg" alt="" class="category-card__img">
+                </div>
+
+                <div class="category-card__info">
+                  <h3 class="category-card__title">Алюминиевая
+                    прессованная труба</h3>
+                </div>
+              </a>
+            </div>
+            <!--category-card-->
+
+            <!--category-card-->
+            <div class="category-card">
+              <a href="categories2.html" class="category-card__link">
+                <div class="category-card__preview">
+                  <img src="./img/image/categories-img-1.jpg" alt="" class="category-card__img">
+                </div>
+
+                <div class="category-card__info">
+                  <h3 class="category-card__title">Алюминиевая
+                    прессованная труба</h3>
+                </div>
+              </a>
+            </div>
+            <!--category-card-->
+
+            <!--category-card-->
+            <div class="category-card">
+              <a href="categories2.html" class="category-card__link">
+                <div class="category-card__preview">
+                  <img src="./img/image/categories-img-1.jpg" alt="" class="category-card__img">
+                </div>
+
+                <div class="category-card__info">
+                  <h3 class="category-card__title">Алюминиевая прессованная труба В95Т1</h3>
+                </div>
+              </a>
+            </div>
+            <!--category-card-->
+
+            <!--category-card-->
+            <div class="category-card">
+              <a href="categories2.html" class="category-card__link">
+                <div class="category-card__preview">
+                  <img src="./img/image/categories-img-1.jpg" alt="" class="category-card__img">
+                </div>
+
+                <div class="category-card__info">
+                  <h3 class="category-card__title">Алюминиевая
+                    прессованная труба</h3>
+                </div>
+              </a>
+            </div>
+            <!--category-card-->
+          </div>
+          <!--categories__list-->
+        </section>
+        <!-- about -->
       </div>
+      <!-- left -->
+
+      <!-- right -->
       <div class="right">
 
+        <!-- search-form -->
+        <form id='search' action="search.html" class="search-form">
+          <input class='search__input' type="text" name="search" id="searchInput" placeholder="Поиск">
+          <input class='search__sumbit' type="image" src='./img/icon/loupe.svg' alt='Найти'>
+        </form>
+        <!-- search-form -->
+
+        <!-- catalog -->
+        <nav class="catalog-nav">
+          <!--category-->
+          <div class="category js-dropdown">
+            <div class="category__name">
+              <a href='categories1.html' class='category__link'>
+                Латунный прокат
+              </a>
+              <div class="category__btn js-dropdown-btn">
+                <img src="./img/controls/dropdown-btn.svg" alt="" class="category__arrow ">
+              </div>
+            </div>
+
+            <!--category__content-->
+            <div class="subcategories category__list--is-open js-dropdown-content ">
+              <!-- category__list -->
+              <ul class="subcategories__list">
+                <li class="subcategories__item">
+                  <a href="categories2.html" class="subcategories__link">
+                    Свинец
+                  </a>
+                </li>
+
+                <li class="subcategories__item">
+                  <a href="categories2.html" class="subcategories__link">
+                    Металлы и сплавы
+                  </a>
+                </li>
+
+                <li class="subcategories__item">
+                  <a href="categories2.html" class="subcategories__link">
+                    Прием лома
+                  </a>
+                </li>
+
+                <li class="subcategories__item">
+                  <a href="categories2.html" class="subcategories__link">
+                    Прием лома
+                  </a>
+                </li>
+
+                <li class="subcategories__item">
+                  <a href="categories2.html" class="subcategories__link">
+                    Порошок металлический
+                  </a>
+                </li>
+              </ul>
+              <!-- category__list -->
+            </div>
+            <!--category__content-->
+          </div>
+          <!--category-->
+
+          <!--category-->
+          <div class="category js-dropdown">
+            <div class="category__name">
+              <a href='categories1.html' class='category__link'>
+                Латунный прокат
+              </a>
+              <div class="category__btn js-dropdown-btn">
+                <img src="./img/controls/dropdown-btn.svg" alt="" class="category__arrow ">
+              </div>
+            </div>
+
+            <!--category__content-->
+            <div class="subcategories category__list--is-open js-dropdown-content ">
+              <!-- category__list -->
+              <ul class="subcategories__list">
+                <li class="subcategories__item">
+                  <a href="categories2.html" class="subcategories__link">
+                    Свинец
+                  </a>
+                </li>
+
+                <li class="subcategories__item">
+                  <a href="categories2.html" class="subcategories__link">
+                    Металлы и сплавы
+                  </a>
+                </li>
+
+                <li class="subcategories__item">
+                  <a href="categories2.html" class="subcategories__link">
+                    Прием лома
+                  </a>
+                </li>
+
+                <li class="subcategories__item">
+                  <a href="categories2.html" class="subcategories__link">
+                    Прием лома
+                  </a>
+                </li>
+
+                <li class="subcategories__item">
+                  <a href="categories2.html" class="subcategories__link">
+                    Порошок металлический
+                  </a>
+                </li>
+              </ul>
+              <!-- category__list -->
+            </div>
+            <!--category__content-->
+          </div>
+          <!--category-->
+
+          <!--category-->
+          <div class="category js-dropdown">
+            <div class="category__name">
+              <a href='categories1.html' class='category__link'>
+                Латунный прокат
+              </a>
+              <div class="category__btn js-dropdown-btn">
+                <img src="./img/controls/dropdown-btn.svg" alt="" class="category__arrow ">
+              </div>
+            </div>
+
+            <!--category__content-->
+            <div class="subcategories category__list--is-open js-dropdown-content ">
+              <!-- category__list -->
+              <ul class="subcategories__list">
+                <li class="subcategories__item">
+                  <a href="categories2.html" class="subcategories__link">
+                    Свинец
+                  </a>
+                </li>
+
+                <li class="subcategories__item">
+                  <a href="categories2.html" class="subcategories__link">
+                    Металлы и сплавы
+                  </a>
+                </li>
+
+                <li class="subcategories__item">
+                  <a href="categories2.html" class="subcategories__link">
+                    Прием лома
+                  </a>
+                </li>
+
+                <li class="subcategories__item">
+                  <a href="categories2.html" class="subcategories__link">
+                    Прием лома
+                  </a>
+                </li>
+
+                <li class="subcategories__item">
+                  <a href="categories2.html" class="subcategories__link">
+                    Порошок металлический
+                  </a>
+                </li>
+              </ul>
+              <!-- category__list -->
+            </div>
+            <!--category__content-->
+          </div>
+          <!--category-->
+
+          <!--category-->
+          <div class="category js-dropdown">
+            <div class="category__name">
+              <a href='categories1.html' class='category__link'>
+                Латунный прокат
+              </a>
+              <div class="category__btn js-dropdown-btn">
+                <img src="./img/controls/dropdown-btn.svg" alt="" class="category__arrow ">
+              </div>
+            </div>
+
+            <!--category__content-->
+            <div class="subcategories category__list--is-open js-dropdown-content ">
+              <!-- category__list -->
+              <ul class="subcategories__list">
+                <li class="subcategories__item">
+                  <a href="categories2.html" class="subcategories__link">
+                    Свинец
+                  </a>
+                </li>
+
+                <li class="subcategories__item">
+                  <a href="categories2.html" class="subcategories__link">
+                    Металлы и сплавы
+                  </a>
+                </li>
+
+                <li class="subcategories__item">
+                  <a href="categories2.html" class="subcategories__link">
+                    Прием лома
+                  </a>
+                </li>
+
+                <li class="subcategories__item">
+                  <a href="categories2.html" class="subcategories__link">
+                    Прием лома
+                  </a>
+                </li>
+
+                <li class="subcategories__item">
+                  <a href="categories2.html" class="subcategories__link">
+                    Порошок металлический
+                  </a>
+                </li>
+              </ul>
+              <!-- category__list -->
+            </div>
+            <!--category__content-->
+          </div>
+          <!--category-->
+
+          <!--category-->
+          <div class="category js-dropdown">
+            <div class="category__name">
+              <a href='categories1.html' class='category__link'>
+                Латунный прокат
+              </a>
+              <div class="category__btn js-dropdown-btn">
+                <img src="./img/controls/dropdown-btn.svg" alt="" class="category__arrow ">
+              </div>
+            </div>
+
+            <!--category__content-->
+            <div class="subcategories category__list--is-open js-dropdown-content ">
+              <!-- category__list -->
+              <ul class="subcategories__list">
+                <li class="subcategories__item">
+                  <a href="categories2.html" class="subcategories__link">
+                    Свинец
+                  </a>
+                </li>
+
+                <li class="subcategories__item">
+                  <a href="categories2.html" class="subcategories__link">
+                    Металлы и сплавы
+                  </a>
+                </li>
+
+                <li class="subcategories__item">
+                  <a href="categories2.html" class="subcategories__link">
+                    Прием лома
+                  </a>
+                </li>
+
+                <li class="subcategories__item">
+                  <a href="categories2.html" class="subcategories__link">
+                    Прием лома
+                  </a>
+                </li>
+
+                <li class="subcategories__item">
+                  <a href="categories2.html" class="subcategories__link">
+                    Порошок металлический
+                  </a>
+                </li>
+              </ul>
+              <!-- category__list -->
+            </div>
+            <!--category__content-->
+          </div>
+          <!--category-->
+
+        </nav>
+        <!-- catalog -->
       </div>
+      <!-- right -->
 
     </div>
+    <!--content-wrap-->
 
-    <footer class='footer'>
+    <footer class='footer f'>
+      <!--f-top-->
+      <div class="f-top">
+        <!--f-top__inner-->
+        <div class="f-top__inner container">
+          <!--logo-->
+          <div class="f-logo">
+            <div class="logo">
+              <a href="index.html" class="logo__link">
+                <img class='logo__img' src="./img/logo.svg" alt="цветная металлургия">
+              </a>
+            </div>
+          </div>
+          <!--logo-->
+
+          <nav class="f-nav">
+
+            <ul class="f-nav__list">
+
+              <li class="f-nav__item">
+                <a href="index.html" class="f-nav__link link">
+                  Главная
+                </a>
+              </li>
+
+              <li class="f-nav__item">
+                <a href="catalog.html" class="f-nav__link link">
+                  Коталог
+                </a>
+              </li>
+
+              <li class="f-nav__item">
+                <a href="about.html" class="f-nav__link link">
+                  О компании
+                </a>
+              </li>
+
+              <li class="f-nav__item">
+                <a href="news.html" class="f-nav__link link">
+                  Новости
+                </a>
+              </li>
+
+              <li class="f-nav__item">
+                <a href="contacts.html" class="f-nav__link link">
+                  Контакты
+                </a>
+              </li>
+
+              <li class="f-nav__item">
+                <a href="favorites.html" class="f-nav__link link">
+                  Избранное
+                </a>
+              </li>
+
+              <li class="f-nav__item">
+                <a href="basket.html" class="f-nav__link link">
+                  Корзина
+                </a>
+              </li>
+
+            </ul>
+          </nav>
+
+        </div>
+        <!--f-top__inner-->
+      </div>
+      <!--f-top-->
+
+      <!--f-contacts-->
+      <div class="f-contacts">
+        <!--f-contacts__inner-->
+        <div class="f-contacts__inner container">
+          <a class='privacy-policy' href="#!">
+            Политика конфиденциальности Соглашение на обработку ПД
+          </a>
+
+
+          <p class="f-contacts__address">
+            Адрес: 620075, Свердловская область,
+            г. Екатеринбург,улица Малышева,
+            строение 51, этаж 16
+          </p>
+
+          <ul class="f-contacts__list">
+            <li class="f-contact">
+              <span class="f-contact__name">
+                Электронная почта:
+              </span><a href="mailto:info@cm-hab.ru" class="f-contact__link">info@cm-hab.ru</a>
+            </li>
+
+            <li class="f-contact">
+              <span class="f-contact__name">
+                Телефон:
+              </span><a href="tel:+74212529026" class="f-contact__link">+7 (4212) 52-90-26</a>
+            </li>
+
+            <li class="f-contact"><a href="#!" class="f-contact__link f-contact__link--underline">Служба поддержки</a>
+            </li>
+          </ul>
+        </div>
+        <!--f-contacts__inner-->
+      </div>
+      <!--f-contacts-->
+
+      <!--f-info-->
+      <div class="f-info">
+        <!--f-info__inner-->
+        <div class="f-info__inner container">
+          <!--f-info__list-->
+          <div class="f-info__list">
+
+            <p class="f-info__item">
+              Информация на сайте не является публичной <a href="#!" class="f-info__link">офертой.</a>
+            </p>
+
+            <p class="f-info__item">
+              © PKF Non-ferrous metallurgy 2009 - 2021
+            </p>
+
+          </div>
+          <!--f-info__list-->
+
+          <!-- f-socials__list -->
+          <ul class="f-socials__list">
+            <li class="f-socials__item">
+              <a href="#!" class="f-socials__link">
+                <img src="./img/icon/vk-icon.svg" alt="" class="f-socials__icon">
+              </a>
+            </li>
+
+            <li class="f-socials__item">
+              <a href="#!" class="f-socials__link">
+                <img src="./img/icon/instagram-icon.svg" alt="" class="f-socials__icon">
+              </a>
+            </li>
+
+            <li class="f-socials__item">
+              <a href="#!" class="f-socials__link">
+                <img src="./img/icon/telegram-icon.svg" alt="" class="f-socials__icon">
+              </a>
+            </li>
+          </ul>
+          <!-- f-socials__list -->
+
+        </div>
+        <!--f-info__inner-->
+      </div>
+      <!--f-info-->
+
+      <!--f-bootom-->
+      <div class="f-bootom">
+        <!--f-bootom__inner-->
+        <div class="f-bootom__inner container">
+          <!--made-->
+          <div class="made">
+            <span class="made__text">Сайт создан на</span>
+            <a href="#!" class="made__link">
+              <img src="./img/icon/vassortimente-logo.svg" alt="" class="made__logo">
+            </a>
+            <span class="made__text">Пакет: Business </span>
+          </div>
+          <!--made-->
+        </div>
+        <!--f-bootom__inner-->
+      </div>
+      <!--f-bootom-->
 
     </footer>
+
+    <!--up-->
+    <div class="up">
+      <div class="up-btn">
+        <img src="./img/controls/up-arrow.svg" alt="" class="up-btn__img">
+      </div>
+    </div>
+    <!--up-->
   </div>
   <script src='./js/main.js'></script>
 </body>
