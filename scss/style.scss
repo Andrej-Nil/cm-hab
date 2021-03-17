@@ -14,7 +14,7 @@
 //path
 @import "./blocks/_path.scss";
 
-// content
+// content left
 //index
 @import "./blocks/_slider.scss";
 @import "./blocks/_main-slider.scss";
@@ -45,9 +45,19 @@
 //one-news
 @import "./blocks/_one-news.scss";
 
-//right
+//branches
+@import "./blocks/_branches.scss";
+
+//content right
+// nav
 @import "./blocks/_search-form.scss";
 @import "./blocks/_catalog-nav.scss";
+
+//footer
+@import "./blocks/_footer-nav.scss";
+@import "./blocks/_footer-contacts.scss";
+@import "./blocks/_footer-info.scss";
+@import "./blocks/_footer-bottom.scss";
 
 //modals
 @import "./blocks/_modals.scss";
@@ -55,9 +65,3 @@
 @import "./blocks/_order-windows.scss";
 @import "./blocks/_modal-card.scss";
 @import "./blocks/_counter.scss";
-
-//footer
-@import "./blocks/_footer-nav.scss";
-@import "./blocks/_footer-contacts.scss";
-@import "./blocks/_footer-info.scss";
-@import "./blocks/_footer-bottom.scss";
