@@ -97,23 +97,26 @@
                   Филиалы
                 </a>
               </li>
-            </ul>
 
-            <ul class="h-icons">
-              <li class="h-icons__item">
-                <span class="h-icons__indicator h-icons__indicator-is-show"></span>
-                <a href="basket.html" class="h-icons__link">
-                  <img class='h-icons__img h-icons__img--is-active' src="./img/icon/basket-icon.svg" alt="">
+              <li class="h-nav__item">
+
+                <a href="basket.html" class="h-nav__link">
+                  <div class="h-nav__icon">
+                    <span class="h-icon__indicator h-icon__indicator-is-show"></span>
+                    <img class='h-icon__img' src="./img/icon/basket-icon.svg" alt="">
+                  </div>
                 </a>
               </li>
-              <li class="h-icons__item">
-                <a href="basket.html" class="h-icons__link">
-                  <span class="h-icons__indicator"></span>
-                  <img class='h-icons__img h-icons__img--is-active' src="./img/icon/favorites-icon.svg" alt="">
+
+              <li class="h-nav__item">
+                <a href="basket.html" class="h-nav__link">
+                  <div class="h-nav__icon">
+                    <span class="h-icon__indicator"></span>
+                    <img class='h-icon__img' src="./img/icon/favorites-icon.svg" alt="">
+                  </div>
                 </a>
               </li>
             </ul>
-
           </nav>
 
           <!-- header-nav-->
@@ -260,7 +263,9 @@
                         </h3>
                         <div class="product-card__buy">
                           <div class="product-card__price">
-                            <span class="product-card__discount">-10%</span>
+                            <div class="product-card__discount">
+                              <span class="discount-sticker">-10%</span>
+                            </div>
                             <span class="product-card__number">90390 ₽</span>
                           </div>
                           <div class="product-card__btn">
@@ -301,7 +306,9 @@
                         </h3>
                         <div class="product-card__buy">
                           <div class="product-card__price">
-                            <span class="product-card__discount">-10%</span>
+                            <div class="product-card__discount">
+                              <span class="discount-sticker">-10%</span>
+                            </div>
                             <span class="product-card__number">90390 ₽</span>
                           </div>
                           <div class="product-card__btn">
@@ -342,7 +349,9 @@
                         </h3>
                         <div class="product-card__buy">
                           <div class="product-card__price">
-                            <span class="product-card__discount">-10%</span>
+                            <div class="product-card__discount">
+                              <span class="discount-sticker">-10%</span>
+                            </div>
                             <span class="product-card__number">90390 ₽</span>
                           </div>
                           <div class="product-card__btn">
@@ -383,7 +392,9 @@
                         </h3>
                         <div class="product-card__buy">
                           <div class="product-card__price">
-                            <span class="product-card__discount">-10%</span>
+                            <div class="product-card__discount">
+                              <span class="discount-sticker">-10%</span>
+                            </div>
                             <span class="product-card__number">90390 ₽</span>
                           </div>
                           <div class="product-card__btn">
@@ -2294,6 +2305,7 @@
                           <img src="./img/image/model-card-img.jpg" alt="" class="modal-card__img">
                         </a>
                       </div>
+
                       <div class="modal-card__info">
                         <h3 class='modal-card__title'>
                           <a href="product-page.html" class="modal-card__link link">Алюминиевая прессованная труба
@@ -2304,12 +2316,16 @@
                         <div class="modal-card__control">
 
                           <!--modal-card__counter-->
-                          <div class="modal-card__counter counter js-counter">
-                            <span class="counter__sing js-dec">-</span>
+                          <div class="modal-card__counter">
+                            <div class="counter js-counter">
+                              <span class="counter__sing js-dec">-</span>
 
-                            <span class="counter__quantity js-quantity">1</span>
-                            <span class="counter__sing js-inc">+</span>
+                              <input type='text' class="counter__quantity js-quantity" value='1'>
+
+                              <span class="counter__sing js-inc">+</span>
+                            </div>
                           </div>
+                          <!--modal-card__counter-->
 
                           <div class="modal-card__icon js-favorite">
                             <span class="favorite-btn">
@@ -2322,7 +2338,7 @@
                               <img src="./img/controls/delete-icon.svg" alt="" class="close-btm__icon">
                             </span>
                           </div>
-                          <!--modal-card__counter-->
+
                         </div>
                         <!--modal-card__control-->
                       </div>
@@ -2350,7 +2366,7 @@
         <!--fast order-->
 
         <!--order-->
-        <div id='order' class="order-modal  modal js-modal">
+        <div id='order' class="order-modal  modaljs-modal">
           <form id='orderForm' action="test-form.html" method="POST">
             <div class="order-modal__content">
               <!--order-modal__left-->
@@ -2474,12 +2490,15 @@
                         <div class="modal-card__control">
 
                           <!--modal-card__counter-->
-                          <div class="modal-card__counter counter js-counter">
-                            <span class="counter__sing js-dec">-</span>
+                          <div class="modal-card__counter">
+                            <div class="counter js-counter">
+                              <span class="counter__sing js-dec">-</span>
 
-                            <span class="counter__quantity js-quantity">1</span>
-                            <span class="counter__sing js-inc">+</span>
+                              <input type='text' class="counter__quantity js-quantity" value='1'>
+                              <span class="counter__sing js-inc">+</span>
+                            </div>
                           </div>
+                          <!--modal-card__counter-->
 
                           <div class="modal-card__icon js-favorite">
                             <span class="favorite-btn">
@@ -2492,7 +2511,7 @@
                               <img src="./img/controls/delete-icon.svg" alt="" class="close-btm__icon">
                             </span>
                           </div>
-                          <!--modal-card__counter-->
+
                         </div>
                         <!--modal-card__control-->
                       </div>

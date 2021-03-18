@@ -1,0 +1,73 @@
+.basket {
+  background: $white;
+  border-radius: 20px;
+  padding: 10px 16px 21px 25px;
+}
+
+.basket-cols {
+  display: flex;
+  padding: 0 16px 0 25px;
+  margin-bottom: 17px;
+}
+
+.basket-col {
+  width: 100%;
+  text-align: center;
+  margin-right: 25px;
+
+  line-height: 95.2%;
+}
+
+.basket-col--1 {
+  max-width: 430px;
+}
+.basket-col--2 {
+  max-width: 150px;
+}
+.basket-col--3 {
+  max-width: 180px;
+  margin-right: 0;
+}
+.basket-col--4 {
+  max-width: 100px;
+  margin-right: 15px;
+}
+.basket-col--5 {
+  max-width: 60px;
+}
+
+.basket__list {
+  margin-bottom: 30px;
+
+  height: 650px;
+  overflow-y: auto;
+}
+
+.basket-order-wrap {
+  display: flex;
+  justify-content: flex-end;
+}
+
+.basket__item {
+  padding: 10px 0 9px;
+  border-bottom: 1px solid $milky;
+}
+
+.basket-price {
+  margin-bottom: 20px;
+}
+
+.basket-price__text {
+  font-size: 24px;
+  line-height: 95.2%;
+}
+
+.basket-price__num {
+  font-weight: 500;
+  font-size: 24px;
+  line-height: 95.2%;
+}
+
+.basket-buy {
+  text-align: right;
+}

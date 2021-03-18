@@ -22,10 +22,6 @@
   display: flex;
 }
 
-.h-nav__list {
-  margin-right: 32px;
-}
-
 .h-nav__item {
   position: relative;
   display: flex;
@@ -65,11 +61,6 @@
   }
 }
 
-.h-icons {
-  display: flex;
-  align-items: center;
-}
-
 .h-icons__item {
   position: relative;
   margin-right: 27px;
@@ -78,12 +69,16 @@
   }
 }
 
-.h-icons__img {
+.h-icon__img {
   height: 29px;
   width: auto;
 }
 
-.h-icons__indicator {
+.h-nav__icon {
+  position: relative;
+}
+
+.h-icon__indicator {
   position: absolute;
   top: 0px;
   right: -5px;
@@ -94,6 +89,6 @@
   background: $yellow;
 }
 
-.h-icons__indicator-is-show {
+.h-icon__indicator-is-show {
   display: block;
 }

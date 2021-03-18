@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ru">
 
 <head>
   <meta charset="UTF-8">
@@ -11,23 +11,1009 @@
 
 <body>
   <div class="app">
-    <header class='header'>
+    <header class='header h'>
+      <!-- header contact -->
+      <div class="h-contact">
+        <div class="h-contact__inner container">
+          <div class="h-city">
+            <span class='h-city__name'>
+              Хабаровск
+            </span>
+          </div>
+          <div class="h-contacts">
+            <ul class="h-contacts__list">
+              <li class="h-contacts__item">
+                <a href="mailto:hab@metall-as.ru" class="h-contacts__link">
+                  hab@metall-as.ru
+                </a>
+              </li>
+              <li class="h-contacts__item">
+                <a href="tel:+74212929786" class="h-contacts__link">
+                  8 (421) 292-97-86
+                </a>
+              </li>
+            </ul>
+          </div>
+          <div class="h-callback">
+            <span id='feedback' class="h-callback-btn">Обратный звонок</span>
+          </div>
 
+          <div class="h-login">
+            <span class="h-login-btn">Авторизация</span>
+          </div>
+
+        </div>
+      </div>
+      <!-- header contact -->
+
+      <!-- header main -->
+      <div class="h-main">
+        <div class="h-main__inner container">
+          <!-- logo -->
+          <div class="h-logo">
+            <div class="logo">
+              <a href="index.html" class="logo__link">
+                <img class='logo__img' src="./img/logo.svg" alt="цветная металлургия">
+              </a>
+            </div>
+          </div>
+          <!-- logo -->
+
+          <!-- header-nav-->
+          <nav class="h-nav">
+            <ul class="h-nav__list">
+              <li class="h-nav__item">
+                <a href="index.html" class="h-nav__link">
+                  Главная
+                </a>
+              </li>
+
+              <li class="h-nav__item">
+                <a href="catalog.html" class="h-nav__link">
+                  Каталог
+                </a>
+              </li>
+
+              <li class="h-nav__item">
+                <a href="about.html" class="h-nav__link">
+                  О Компании
+                </a>
+              </li>
+
+              <li class="h-nav__item">
+                <a href="news.html" class="h-nav__link">
+                  Новости
+                </a>
+              </li>
+
+              <li class="h-nav__item">
+                <a href="contacts.html" class="h-nav__link">
+                  Контакты
+                </a>
+              </li>
+
+              <li class="h-nav__item">
+                <a href="branches.html" class="h-nav__link">
+                  Филиалы
+                </a>
+              </li>
+
+              <li class="h-nav__item">
+
+                <a href="basket.html" class="h-nav__link h-nav__link--is-active">
+
+                  <div class="h-nav__icon">
+                    <span class="h-icon__indicator h-icon__indicator-is-show"></span>
+                    <img class='h-icon__img' src="./img/icon/basket-icon.svg" alt="">
+                  </div>
+
+                </a>
+              </li>
+
+              <li class="h-nav__item">
+                <a href="basket.html" class="h-nav__link">
+                  <div class="h-nav__icon">
+                    <span class="h-icon__indicator"></span>
+                    <img class='h-icon__img' src="./img/icon/favorites-icon.svg" alt="">
+                  </div>
+                </a>
+              </li>
+            </ul>
+
+          </nav>
+
+          <!-- header-nav-->
+        </div>
+      </div>
+      <!-- header main -->
     </header>
 
-    <div class="content-wrap">
+    <!--path-->
+    <nav class="path-wrap container">
+      <div class="path">
+        <a href="index.html" class="path__link">Главная</a>
+        <span class="path__slash">\</span>
+        <a href="basket.html" class="path__link path__link--is-active">Корзина</a>
+      </div>
+    </nav>
+    <!--path-->
+
+    <!-- content-wrap -->
+    <div class="content-wrap container">
+
+      <!-- left -->
       <div class="left">
 
+        <section class="section">
+          <h1 class="section-title">
+            Корзина
+          </h1>
+
+          <!--basket-wrap-->
+          <div class="basket-wrap">
+            <!--basket-name-col-->
+            <ul class="basket-cols">
+              <li class="basket-col basket-col--1">
+                Описание
+              </li>
+              <li class="basket-col basket-col--2">
+                Количество
+              </li>
+              <li class="basket-col basket-col--3">
+                Цена
+              </li>
+              <li class="basket-col basket-col--4">
+                Избранное
+              </li>
+              <li class="basket-col basket-col--5">
+                Убрать
+              </li>
+            </ul>
+            <!--basket-name-col-->
+
+            <!-- basket -->
+            <div class="basket">
+
+              <!--basket__list-->
+              <ul class="basket__list">
+
+                <li class="basket__item">
+                  <!--basket-card-->
+                  <div class="basket-card">
+                    <div class="basket-card__preview">
+                      <a href="product-page.html" class="basket-card__preview-link">
+                        <img src="./img/image/product-card-img-4.jpg" alt="" class="basket-card__img">
+                      </a>
+                    </div>
+                    <h2 class="basket-card__title">
+                      <a href="product-page.html" class="basket-card__link link">
+                        Алюминиевая прессованная труба 100х10мм В95Т1 ГОСТ 18482-79
+                      </a>
+                    </h2>
+                    <!--basket-card__counter-->
+                    <div class="basket-card__counter">
+                      <div class="counter js-counter">
+                        <span class="counter__sing js-dec">-</span>
+
+                        <input type='text' class="counter__quantity js-quantity" value='1'>
+                        <span class="counter__sing js-inc">+</span>
+                      </div>
+                    </div>
+                    <!--basket-card__counter-->
+
+                    <div class="basket-card__price">
+                      <div class="basket-card__discount">
+                        <span class="discount-sticker">-10%</span>
+                      </div>
+
+                      <span class="basket-card__price-num">
+                        100000000 ₽
+                      </span>
+                    </div>
+
+                    <div class="basket-card__btn js-favorite">
+                      <span class="favorite-btn">
+                        <img class="favorite-btn__icon" src="./img/icon/favorite-icon.svg" alt="">
+                      </span>
+                    </div>
+
+                    <div class="basket-card__btn js-delete">
+                      <span class="close-btn">
+                        <img src="./img/controls/delete-icon.svg" alt="" class="close-btm__icon">
+                      </span>
+                    </div>
+
+                  </div>
+                  <!--basket-card-->
+                </li>
+
+                <li class="basket__item">
+                  <!--basket-card-->
+                  <div class="basket-card">
+                    <div class="basket-card__preview">
+                      <a href="product-page.html" class="basket-card__preview-link">
+                        <img src="./img/image/product-card-img-4.jpg" alt="" class="basket-card__img">
+                      </a>
+                    </div>
+                    <h2 class="basket-card__title">
+                      <a href="product-page.html" class="basket-card__link link">
+                        Алюминиевая прессованная труба 100х10мм В95Т1 ГОСТ 18482-79
+                      </a>
+                    </h2>
+                    <!--basket-card__counter-->
+                    <div class="basket-card__counter">
+                      <div class="counter js-counter">
+                        <span class="counter__sing js-dec">-</span>
+
+                        <input type='text' class="counter__quantity js-quantity" value='10000'>
+                        <span class="counter__sing js-inc">+</span>
+                      </div>
+                    </div>
+                    <!--basket-card__counter-->
+
+                    <div class="basket-card__price">
+                      <div class="basket-card__discount">
+                        <span class="discount-sticker">-10%</span>
+                      </div>
+
+                      <span class="basket-card__price-num">
+                        100000000 ₽
+                      </span>
+                    </div>
+
+                    <div class="basket-card__btn js-favorite">
+                      <span class="favorite-btn">
+                        <img class="favorite-btn__icon" src="./img/icon/favorite-active-icon.svg" alt="">
+                      </span>
+                    </div>
+
+                    <div class="basket-card__btn js-delete">
+                      <span class="close-btn">
+                        <img src="./img/controls/delete-icon.svg" alt="" class="close-btm__icon">
+                      </span>
+                    </div>
+
+                  </div>
+                  <!--basket-card-->
+                </li>
+
+                <li class="basket__item">
+                  <!--basket-card-->
+                  <div class="basket-card">
+                    <div class="basket-card__preview">
+                      <a href="product-page.html" class="basket-card__preview-link">
+                        <img src="./img/image/product-card-img-4.jpg" alt="" class="basket-card__img">
+                      </a>
+                    </div>
+                    <h2 class="basket-card__title">
+                      <a href="product-page.html" class="basket-card__link link">
+                        Алюминиевая прессованная труба 100х10мм В95Т1 ГОСТ 18482-79
+                      </a>
+                    </h2>
+                    <!--basket-card__counter-->
+                    <div class="basket-card__counter">
+                      <div class="counter js-counter">
+                        <span class="counter__sing js-dec">-</span>
+
+                        <input type='text' class="counter__quantity js-quantity" value='1'>
+                        <span class="counter__sing js-inc">+</span>
+                      </div>
+                    </div>
+                    <!--basket-card__counter-->
+
+                    <div class="basket-card__price">
+                      <div class="basket-card__discount">
+                        <span class="discount-sticker">-10%</span>
+                      </div>
+
+                      <span class="basket-card__price-num">
+                        100000000 ₽
+                      </span>
+                    </div>
+
+                    <div class="basket-card__btn js-favorite">
+                      <span class="favorite-btn">
+                        <img class="favorite-btn__icon" src="./img/icon/favorite-icon.svg" alt="">
+                      </span>
+                    </div>
+
+                    <div class="basket-card__btn js-delete">
+                      <span class="close-btn">
+                        <img src="./img/controls/delete-icon.svg" alt="" class="close-btm__icon">
+                      </span>
+                    </div>
+
+                  </div>
+                  <!--basket-card-->
+                </li>
+
+                <li class="basket__item">
+                  <!--basket-card-->
+                  <div class="basket-card">
+                    <div class="basket-card__preview">
+                      <a href="product-page.html" class="basket-card__preview-link">
+                        <img src="./img/image/product-card-img-4.jpg" alt="" class="basket-card__img">
+                      </a>
+                    </div>
+                    <h2 class="basket-card__title">
+                      <a href="product-page.html" class="basket-card__link link">
+                        Алюминиевая прессованная труба 100х10мм В95Т1 ГОСТ 18482-79
+                      </a>
+                    </h2>
+                    <!--basket-card__counter-->
+                    <div class="basket-card__counter">
+                      <div class="counter js-counter">
+                        <span class="counter__sing js-dec">-</span>
+
+                        <input type='text' class="counter__quantity js-quantity" value='1'>
+                        <span class="counter__sing js-inc">+</span>
+                      </div>
+                    </div>
+                    <!--basket-card__counter-->
+
+                    <div class="basket-card__price">
+                      <div class="basket-card__discount">
+                        <span class="discount-sticker">-10%</span>
+                      </div>
+
+                      <span class="basket-card__price-num">
+                        100000000 ₽
+                      </span>
+                    </div>
+
+                    <div class="basket-card__btn js-favorite">
+                      <span class="favorite-btn">
+                        <img class="favorite-btn__icon" src="./img/icon/favorite-icon.svg" alt="">
+                      </span>
+                    </div>
+
+                    <div class="basket-card__btn js-delete">
+                      <span class="close-btn">
+                        <img src="./img/controls/delete-icon.svg" alt="" class="close-btm__icon">
+                      </span>
+                    </div>
+
+                  </div>
+                  <!--basket-card-->
+                </li>
+
+                <li class="basket__item">
+                  <!--basket-card-->
+                  <div class="basket-card">
+                    <div class="basket-card__preview">
+                      <a href="product-page.html" class="basket-card__preview-link">
+                        <img src="./img/image/product-card-img-4.jpg" alt="" class="basket-card__img">
+                      </a>
+                    </div>
+                    <h2 class="basket-card__title">
+                      <a href="product-page.html" class="basket-card__link link">
+                        Алюминиевая прессованная труба 100х10мм В95Т1 ГОСТ 18482-79
+                      </a>
+                    </h2>
+                    <!--basket-card__counter-->
+                    <div class="basket-card__counter">
+                      <div class="counter js-counter">
+                        <span class="counter__sing js-dec">-</span>
+
+                        <input type='text' class="counter__quantity js-quantity" value='1'>
+                        <span class="counter__sing js-inc">+</span>
+                      </div>
+                    </div>
+                    <!--basket-card__counter-->
+
+                    <div class="basket-card__price">
+                      <div class="basket-card__discount">
+                        <span class="discount-sticker">-10%</span>
+                      </div>
+
+                      <span class="basket-card__price-num">
+                        100000000 ₽
+                      </span>
+                    </div>
+
+                    <div class="basket-card__btn js-favorite">
+                      <span class="favorite-btn">
+                        <img class="favorite-btn__icon" src="./img/icon/favorite-icon.svg" alt="">
+                      </span>
+                    </div>
+
+                    <div class="basket-card__btn js-delete">
+                      <span class="close-btn">
+                        <img src="./img/controls/delete-icon.svg" alt="" class="close-btm__icon">
+                      </span>
+                    </div>
+
+                  </div>
+                  <!--basket-card-->
+                </li>
+
+                <li class="basket__item">
+                  <!--basket-card-->
+                  <div class="basket-card">
+                    <div class="basket-card__preview">
+                      <a href="product-page.html" class="basket-card__preview-link">
+                        <img src="./img/image/product-card-img-4.jpg" alt="" class="basket-card__img">
+                      </a>
+                    </div>
+                    <h2 class="basket-card__title">
+                      <a href="product-page.html" class="basket-card__link link">
+                        Алюминиевая прессованная труба 100х10мм В95Т1 ГОСТ 18482-79
+                      </a>
+                    </h2>
+                    <!--basket-card__counter-->
+                    <div class="basket-card__counter">
+                      <div class="counter js-counter">
+                        <span class="counter__sing js-dec">-</span>
+
+                        <input type='text' class="counter__quantity js-quantity" value='1'>
+                        <span class="counter__sing js-inc">+</span>
+                      </div>
+                    </div>
+                    <!--basket-card__counter-->
+
+                    <div class="basket-card__price">
+                      <div class="basket-card__discount">
+                        <span class="discount-sticker">-10%</span>
+                      </div>
+
+                      <span class="basket-card__price-num">
+                        100000000 ₽
+                      </span>
+                    </div>
+
+                    <div class="basket-card__btn js-favorite">
+                      <span class="favorite-btn">
+                        <img class="favorite-btn__icon" src="./img/icon/favorite-icon.svg" alt="">
+                      </span>
+                    </div>
+
+                    <div class="basket-card__btn js-delete">
+                      <span class="close-btn">
+                        <img src="./img/controls/delete-icon.svg" alt="" class="close-btm__icon">
+                      </span>
+                    </div>
+
+                  </div>
+                  <!--basket-card-->
+                </li>
+
+                <li class="basket__item">
+                  <!--basket-card-->
+                  <div class="basket-card">
+                    <div class="basket-card__preview">
+                      <a href="product-page.html" class="basket-card__preview-link">
+                        <img src="./img/image/product-card-img-4.jpg" alt="" class="basket-card__img">
+                      </a>
+                    </div>
+                    <h2 class="basket-card__title">
+                      <a href="product-page.html" class="basket-card__link link">
+                        Алюминиевая прессованная труба 100х10мм В95Т1 ГОСТ 18482-79
+                      </a>
+                    </h2>
+                    <!--basket-card__counter-->
+                    <div class="basket-card__counter">
+                      <div class="counter js-counter">
+                        <span class="counter__sing js-dec">-</span>
+
+                        <input type='text' class="counter__quantity js-quantity" value='1'>
+                        <span class="counter__sing js-inc">+</span>
+                      </div>
+                    </div>
+                    <!--basket-card__counter-->
+
+                    <div class="basket-card__price">
+                      <div class="basket-card__discount">
+                        <span class="discount-sticker">-10%</span>
+                      </div>
+
+                      <span class="basket-card__price-num">
+                        100000000 ₽
+                      </span>
+                    </div>
+
+                    <div class="basket-card__btn js-favorite">
+                      <span class="favorite-btn">
+                        <img class="favorite-btn__icon" src="./img/icon/favorite-icon.svg" alt="">
+                      </span>
+                    </div>
+
+                    <div class="basket-card__btn js-delete">
+                      <span class="close-btn">
+                        <img src="./img/controls/delete-icon.svg" alt="" class="close-btm__icon">
+                      </span>
+                    </div>
+
+                  </div>
+                  <!--basket-card-->
+                </li>
+
+              </ul>
+              <!-- basket__list -->
+
+              <!-- basket-order -->
+              <div class="basket-order-wrap">
+
+                <div class="basket-order">
+
+                  <div class="basket-price">
+                    <span class="basket-price__text">Итого:</span>
+                    <span class="basket-price__num">2150065878978987 ₽</span>
+                  </div>
+
+                  <div class="basket-buy">
+                    <span class="basket-buy__btn yellow-btn">Оформить заказ</span>
+                  </div>
+
+                </div>
+
+              </div>
+              <!--basket-order-->
+
+
+
+            </div>
+            <!-- basket -->
+
+          </div>
+          <!--basket-wrap-->
+        </section>
+
       </div>
+      <!-- left -->
+
+
+      <!-- right -->
       <div class="right">
 
+        <!-- search-form -->
+        <form id='search' action="search.html" class="search-form">
+          <input class='search__input' type="text" name="search" id="searchInput" placeholder="Поиск">
+          <input class='search__sumbit' type="image" src='./img/icon/loupe.svg' alt='Найти'>
+        </form>
+        <!-- search-form -->
+
+        <!-- catalog -->
+        <nav class="catalog-nav">
+          <!--category-->
+          <div class="category js-dropdown">
+            <div class="category__name">
+              <a href='categories1.html' class='category__link'>
+                Латунный прокат
+              </a>
+              <div class="category__btn js-dropdown-btn">
+                <img src="./img/controls/dropdown-btn.svg" alt="" class="category__arrow ">
+              </div>
+            </div>
+
+            <!--category__content-->
+            <div class="subcategories category__list--is-open js-dropdown-content ">
+              <!-- category__list -->
+              <ul class="subcategories__list">
+                <li class="subcategories__item">
+                  <a href="categories2.html" class="subcategories__link">
+                    Свинец
+                  </a>
+                </li>
+
+                <li class="subcategories__item">
+                  <a href="categories2.html" class="subcategories__link">
+                    Металлы и сплавы
+                  </a>
+                </li>
+
+                <li class="subcategories__item">
+                  <a href="categories2.html" class="subcategories__link">
+                    Прием лома
+                  </a>
+                </li>
+
+                <li class="subcategories__item">
+                  <a href="categories2.html" class="subcategories__link">
+                    Прием лома
+                  </a>
+                </li>
+
+                <li class="subcategories__item">
+                  <a href="categories2.html" class="subcategories__link">
+                    Порошок металлический
+                  </a>
+                </li>
+              </ul>
+              <!-- category__list -->
+            </div>
+            <!--category__content-->
+          </div>
+          <!--category-->
+
+          <!--category-->
+          <div class="category js-dropdown">
+            <div class="category__name">
+              <a href='categories1.html' class='category__link'>
+                Латунный прокат
+              </a>
+              <div class="category__btn js-dropdown-btn">
+                <img src="./img/controls/dropdown-btn.svg" alt="" class="category__arrow ">
+              </div>
+            </div>
+
+            <!--category__content-->
+            <div class="subcategories category__list--is-open js-dropdown-content ">
+              <!-- category__list -->
+              <ul class="subcategories__list">
+                <li class="subcategories__item">
+                  <a href="categories2.html" class="subcategories__link">
+                    Свинец
+                  </a>
+                </li>
+
+                <li class="subcategories__item">
+                  <a href="categories2.html" class="subcategories__link">
+                    Металлы и сплавы
+                  </a>
+                </li>
+
+                <li class="subcategories__item">
+                  <a href="categories2.html" class="subcategories__link">
+                    Прием лома
+                  </a>
+                </li>
+
+                <li class="subcategories__item">
+                  <a href="categories2.html" class="subcategories__link">
+                    Прием лома
+                  </a>
+                </li>
+
+                <li class="subcategories__item">
+                  <a href="categories2.html" class="subcategories__link">
+                    Порошок металлический
+                  </a>
+                </li>
+              </ul>
+              <!-- category__list -->
+            </div>
+            <!--category__content-->
+          </div>
+          <!--category-->
+
+          <!--category-->
+          <div class="category js-dropdown">
+            <div class="category__name">
+              <a href='categories1.html' class='category__link'>
+                Латунный прокат
+              </a>
+              <div class="category__btn js-dropdown-btn">
+                <img src="./img/controls/dropdown-btn.svg" alt="" class="category__arrow ">
+              </div>
+            </div>
+
+            <!--category__content-->
+            <div class="subcategories category__list--is-open js-dropdown-content ">
+              <!-- category__list -->
+              <ul class="subcategories__list">
+                <li class="subcategories__item">
+                  <a href="categories2.html" class="subcategories__link">
+                    Свинец
+                  </a>
+                </li>
+
+                <li class="subcategories__item">
+                  <a href="categories2.html" class="subcategories__link">
+                    Металлы и сплавы
+                  </a>
+                </li>
+
+                <li class="subcategories__item">
+                  <a href="categories2.html" class="subcategories__link">
+                    Прием лома
+                  </a>
+                </li>
+
+                <li class="subcategories__item">
+                  <a href="categories2.html" class="subcategories__link">
+                    Прием лома
+                  </a>
+                </li>
+
+                <li class="subcategories__item">
+                  <a href="categories2.html" class="subcategories__link">
+                    Порошок металлический
+                  </a>
+                </li>
+              </ul>
+              <!-- category__list -->
+            </div>
+            <!--category__content-->
+          </div>
+          <!--category-->
+
+          <!--category-->
+          <div class="category js-dropdown">
+            <div class="category__name">
+              <a href='categories1.html' class='category__link'>
+                Латунный прокат
+              </a>
+              <div class="category__btn js-dropdown-btn">
+                <img src="./img/controls/dropdown-btn.svg" alt="" class="category__arrow ">
+              </div>
+            </div>
+
+            <!--category__content-->
+            <div class="subcategories category__list--is-open js-dropdown-content ">
+              <!-- category__list -->
+              <ul class="subcategories__list">
+                <li class="subcategories__item">
+                  <a href="categories2.html" class="subcategories__link">
+                    Свинец
+                  </a>
+                </li>
+
+                <li class="subcategories__item">
+                  <a href="categories2.html" class="subcategories__link">
+                    Металлы и сплавы
+                  </a>
+                </li>
+
+                <li class="subcategories__item">
+                  <a href="categories2.html" class="subcategories__link">
+                    Прием лома
+                  </a>
+                </li>
+
+                <li class="subcategories__item">
+                  <a href="categories2.html" class="subcategories__link">
+                    Прием лома
+                  </a>
+                </li>
+
+                <li class="subcategories__item">
+                  <a href="categories2.html" class="subcategories__link">
+                    Порошок металлический
+                  </a>
+                </li>
+              </ul>
+              <!-- category__list -->
+            </div>
+            <!--category__content-->
+          </div>
+          <!--category-->
+
+          <!--category-->
+          <div class="category js-dropdown">
+            <div class="category__name">
+              <a href='categories1.html' class='category__link'>
+                Латунный прокат
+              </a>
+              <div class="category__btn js-dropdown-btn">
+                <img src="./img/controls/dropdown-btn.svg" alt="" class="category__arrow ">
+              </div>
+            </div>
+
+            <!--category__content-->
+            <div class="subcategories category__list--is-open js-dropdown-content ">
+              <!-- category__list -->
+              <ul class="subcategories__list">
+                <li class="subcategories__item">
+                  <a href="categories2.html" class="subcategories__link">
+                    Свинец
+                  </a>
+                </li>
+
+                <li class="subcategories__item">
+                  <a href="categories2.html" class="subcategories__link">
+                    Металлы и сплавы
+                  </a>
+                </li>
+
+                <li class="subcategories__item">
+                  <a href="categories2.html" class="subcategories__link">
+                    Прием лома
+                  </a>
+                </li>
+
+                <li class="subcategories__item">
+                  <a href="categories2.html" class="subcategories__link">
+                    Прием лома
+                  </a>
+                </li>
+
+                <li class="subcategories__item">
+                  <a href="categories2.html" class="subcategories__link">
+                    Порошок металлический
+                  </a>
+                </li>
+              </ul>
+              <!-- category__list -->
+            </div>
+            <!--category__content-->
+          </div>
+          <!--category-->
+
+        </nav>
+        <!-- catalog -->
       </div>
+      <!-- right -->
 
     </div>
+    <!-- content-wrap -->
 
-    <footer class='footer'>
+    <footer class='footer f'>
+      <!--f-top-->
+      <div class="f-top">
+        <!--f-top__inner-->
+        <div class="f-top__inner container">
+          <!--logo-->
+          <div class="f-logo">
+            <div class="logo">
+              <a href="index.html" class="logo__link">
+                <img class='logo__img' src="./img/logo.svg" alt="цветная металлургия">
+              </a>
+            </div>
+          </div>
+          <!--logo-->
+
+          <nav class="f-nav">
+
+            <ul class="f-nav__list">
+
+              <li class="f-nav__item">
+                <a href="index.html" class="f-nav__link link">
+                  Главная
+                </a>
+              </li>
+
+              <li class="f-nav__item">
+                <a href="catalog.html" class="f-nav__link link">
+                  Коталог
+                </a>
+              </li>
+
+              <li class="f-nav__item">
+                <a href="about.html" class="f-nav__link link">
+                  О компании
+                </a>
+              </li>
+
+              <li class="f-nav__item">
+                <a href="news.html" class="f-nav__link link">
+                  Новости
+                </a>
+              </li>
+
+              <li class="f-nav__item">
+                <a href="contacts.html" class="f-nav__link link">
+                  Контакты
+                </a>
+              </li>
+
+              <li class="f-nav__item">
+                <a href="favorites.html" class="f-nav__link link">
+                  Избранное
+                </a>
+              </li>
+
+              <li class="f-nav__item">
+                <a href="basket.html" class="f-nav__link link">
+                  Корзина
+                </a>
+              </li>
+
+            </ul>
+          </nav>
+
+        </div>
+        <!--f-top__inner-->
+      </div>
+      <!--f-top-->
+
+      <!--f-contacts-->
+      <div class="f-contacts">
+        <!--f-contacts__inner-->
+        <div class="f-contacts__inner container">
+          <a class='privacy-policy' href="#!">
+            Политика конфиденциальности Соглашение на обработку ПД
+          </a>
+
+
+          <p class="f-contacts__address">
+            Адрес: 620075, Свердловская область,
+            г. Екатеринбург,улица Малышева,
+            строение 51, этаж 16
+          </p>
+
+          <ul class="f-contacts__list">
+            <li class="f-contact">
+              <span class="f-contact__name">
+                Электронная почта:
+              </span><a href="mailto:info@cm-hab.ru" class="f-contact__link">info@cm-hab.ru</a>
+            </li>
+
+            <li class="f-contact">
+              <span class="f-contact__name">
+                Телефон:
+              </span><a href="tel:+74212529026" class="f-contact__link">+7 (4212) 52-90-26</a>
+            </li>
+
+            <li class="f-contact"><a href="#!" class="f-contact__link f-contact__link--underline">Служба поддержки</a>
+            </li>
+          </ul>
+        </div>
+        <!--f-contacts__inner-->
+      </div>
+      <!--f-contacts-->
+
+      <!--f-info-->
+      <div class="f-info">
+        <!--f-info__inner-->
+        <div class="f-info__inner container">
+          <!--f-info__list-->
+          <div class="f-info__list">
+
+            <p class="f-info__item">
+              Информация на сайте не является публичной <a href="#!" class="f-info__link">офертой.</a>
+            </p>
+
+            <p class="f-info__item">
+              © PKF Non-ferrous metallurgy 2009 - 2021
+            </p>
+
+          </div>
+          <!--f-info__list-->
+
+          <!-- f-socials__list -->
+          <ul class="f-socials__list">
+            <li class="f-socials__item">
+              <a href="#!" class="f-socials__link">
+                <img src="./img/icon/vk-icon.svg" alt="" class="f-socials__icon">
+              </a>
+            </li>
+
+            <li class="f-socials__item">
+              <a href="#!" class="f-socials__link">
+                <img src="./img/icon/instagram-icon.svg" alt="" class="f-socials__icon">
+              </a>
+            </li>
+
+            <li class="f-socials__item">
+              <a href="#!" class="f-socials__link">
+                <img src="./img/icon/telegram-icon.svg" alt="" class="f-socials__icon">
+              </a>
+            </li>
+          </ul>
+          <!-- f-socials__list -->
+
+        </div>
+        <!--f-info__inner-->
+      </div>
+      <!--f-info-->
+
+      <!--f-bootom-->
+      <div class="f-bootom">
+        <!--f-bootom__inner-->
+        <div class="f-bootom__inner container">
+          <!--made-->
+          <div class="made">
+            <span class="made__text">Сайт создан на</span>
+            <a href="#!" class="made__link">
+              <img src="./img/icon/vassortimente-logo.svg" alt="" class="made__logo">
+            </a>
+            <span class="made__text">Пакет: Business </span>
+          </div>
+          <!--made-->
+        </div>
+        <!--f-bootom__inner-->
+      </div>
+      <!--f-bootom-->
 
     </footer>
+
+    <!--up-->
+    <div class="up">
+      <div class="up-btn">
+        <img src="./img/controls/up-arrow.svg" alt="" class="up-btn__img">
+      </div>
+    </div>
+    <!--up-->
   </div>
   <script src='./js/main.js'></script>
 </body>
