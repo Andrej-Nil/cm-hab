@@ -1,0 +1,40 @@
+.pagination {
+  display: flex;
+}
+
+.pagination__list {
+  display: flex;
+  align-items: center;
+  background: $white;
+  padding: 5px;
+  border-radius: 50px;
+  margin: 0 20px;
+}
+
+.pagination__item {
+  margin-right: 5px;
+  &:last-child {
+    margin-right: 0;
+  }
+}
+
+.pagination__btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  transition: 0.2s ease-in-out;
+  &:hover {
+    background: $l-yellow;
+  }
+
+  &:active {
+    background: $d-yellow;
+  }
+}
+
+.pagination__btn--is-active {
+  background: $yellow;
+}

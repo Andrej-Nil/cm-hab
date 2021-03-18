@@ -33,6 +33,8 @@
 .basket-card__price {
   display: flex;
   margin-right: 25px;
+  max-width: 180px;
+  width: 100%;
 }
 
 .basket-card__discount {
