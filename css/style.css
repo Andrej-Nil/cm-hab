@@ -2076,6 +2076,42 @@ ul {
   line-height: 130%;
 }
 
+.contacts {
+  background: #ffffff;
+  overflow: hidden;
+  border-radius: 20px;
+}
+
+.contacts__list {
+  padding: 43px 0 23px 58px;
+}
+
+.contants__item {
+  max-width: 800px;
+  width: 100%;
+  margin-bottom: 20px;
+}
+
+.contants__item:last-child {
+  margin-bottom: 0;
+}
+
+.contants__title {
+  font-weight: 500;
+  font-size: 24px;
+  line-height: 130%;
+}
+
+.contants__text {
+  font-size: 24px;
+  line-height: 130%;
+}
+
+.contacts__img {
+  width: 100%;
+  height: auto;
+}
+
 .branches {
   overflow: hidden;
   background: #ffffff;
