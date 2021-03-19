@@ -6,7 +6,7 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="stylesheet" href="./css/style.min.css">
-  <title>goods</title>
+  <title>goods-list</title>
 </head>
 
 <body>
@@ -191,7 +191,6 @@
                         <span class="sorting__text input-check__text">
                           Сначала новые
                         </span>
-
                       </label>
                     </div>
                   </li>
@@ -235,397 +234,401 @@
 
             <!--display-type-->
             <div class="display-type">
+              <div class="display-type__btn">
+                <a href="goods.html" class="">
+                  <img src="./img/controls/display-tile-btn.svg" alt="" class="display-type__img">
+                </a>
+              </div>
 
               <div class="display-type__btn">
-
-                <img src="./img/controls/display-tile-active-btn.svg" alt="" class="display-type__img">
+                <img src="./img/controls/display-list-active-btn.svg" alt="" class="display-type__img">
               </div>
-              <a href="goods-list.html" class="">
-                <div class="display-type__btn">
-                  <a href="goods-list.html" class="">
-                    <img src="./img/controls/display-list-btn.svg" alt="" class="display-type__img">
-                  </a>
-                </div>
             </div>
             <!-- display-type -->
 
           </div>
           <!-- selects -->
 
-          <!--product__list-->
-          <div class="product__tile">
-            <!-- product-card -->
-            <div class="product-card">
-              <div class="product-card__content">
-                <div class="product-card__preview">
-                  <a href="product-page.html" class="product-card__link">
-                    <img src="./img/image/product-card-img-1.jpg" alt="" class="product-card__img">
+          <!--basket-name-col-->
+          <ul class="product-cols">
+            <li class="product-col product-col--1">
+              Описание
+            </li>
+            <li class="product-col product-col--2">
+              Цена
+            </li>
+            <li class="product-col product-col--3">
+              Количество
+            </li>
+            <li class="product-col product-col--4">
+              Купить
+            </li>
+          </ul>
+          <!--basket-name-col-->
+
+          <!--popular__list-->
+          <ul class="product__list">
+            <li class="product__item">
+              <!-- product-card-list -->
+              <div class="product-line">
+                <h2 class="product-line__title">
+                  <a href="product-page.html" class="product-line__link link">
+                    Алюминиевая прессованная труба 100х10 мм В95Т1 ГОСТ 18482-79
                   </a>
-                </div>
-                <div class="product-card__info">
-                  <h3 class="product-card__title">
-                    <a href="product-page.html" class="product-card__title-link link">
-                      Лист нержавеющий 7х1250х2500 мм 03Х13Н6К10М4ФБ-ВД 7х1250х2500 мм 03Х13Н6К10М4ФБ-ВД
-                    </a>
-                  </h3>
-                  <div class="product-card__buy">
-                    <div class="product-card__price">
-                      <div class="product-card__discount">
-                        <span class="discount-sticker">-10%</span>
-                      </div>
-                      <span class="product-card__number">90390 ₽</span>
-                    </div>
-                    <div class="product-card__btn">
-                      <span class="product-card__in-basket yellow-btn">В карзину</span>
-                    </div>
+                </h2>
+                <div class="product-line__price">
+                  <div class="product-line__discount">
+                    <span class="discount-sticker">-10%</span>
                   </div>
+                  <span class="product-line__num">100000890 ₽</span>
                 </div>
-              </div>
-              <div class="product-card__favorite">
-                <span class="btn js-favorite">
-                  <img class="btn__icon" src="./img/icon/favorite-active-icon.svg" alt="">
-                </span>
-              </div>
 
-              <div class="short-order">
-                <span class="short-order__btn white-btn js-add-basket">
-                  Заказать в 1 клик
-                </span>
-              </div>
-            </div>
-            <!-- product-card -->
+                <div class="product-line__counter">
+                  <div class="counter js-counter">
+                    <span class="counter__sing js-dec">-</span>
 
-            <!-- product-card -->
-            <div class="product-card">
-              <div class="product-card__content">
-                <div class="product-card__preview">
-                  <a href="product-page.html" class="product-card__link">
-                    <img src="./img/image/product-card-img-2.jpg" alt="" class="product-card__img">
-                  </a>
-                </div>
-                <div class="product-card__info">
-                  <h3 class="product-card__title">
-                    <a href="product-page.html" class="product-card__title-link link">
-                      Лист нержавеющий 7х1250х2500 мм 03Х13Н6К10М4ФБ-ВД 7х1250х2500 мм 03Х13Н6К10М4ФБ-ВД
-                    </a>
-                  </h3>
-                  <div class="product-card__buy">
-                    <div class="product-card__price">
-                      <div class="product-card__discount">
-                        <span class="discount-sticker">-10%</span>
-                      </div>
-                      <span class="product-card__number">90390 ₽</span>
-                    </div>
-                    <div class="product-card__btn">
-                      <span class="product-card__in-basket yellow-btn">В карзину</span>
-                    </div>
-                  </div>
-                </div>
-              </div>
-              <div class="product-card__favorite js-favorite">
-                <span class="btn js-favorite">
-                  <img class="btn__icon" src="./img/icon/favorite-icon.svg" alt="">
-                </span>
-              </div>
-
-              <div class="short-order">
-                <span class="short-order__btn white-btn js-add-basket">
-                  Заказать в 1 клик
-                </span>
-              </div>
-            </div>
-            <!-- product-card -->
-
-            <!-- product-card -->
-            <div class="product-card">
-              <div class="product-card__content">
-                <div class="product-card__preview">
-                  <a href="product-page.html" class="product-card__link">
-                    <img src="./img/image/product-card-img-4.jpg" alt="" class="product-card__img">
-                  </a>
-                </div>
-                <div class="product-card__info">
-                  <h3 class="product-card__title">
-                    <a href="product-page.html" class="product-card__title-link link">
-                      Лист нержавеющий 7х1250х2500 мм 03Х13Н6К10М4ФБ-ВД
-                    </a>
-                  </h3>
-                  <div class="product-card__buy">
-                    <div class="product-card__price">
-                      <div class="product-card__discount">
-                        <span class="discount-sticker">-10%</span>
-                      </div>
-                      <span class="product-card__number">90390 ₽</span>
-                    </div>
-                    <div class="product-card__btn">
-                      <span class="product-card__in-basket white-btn">Добавлено</span>
-                    </div>
-                  </div>
-                </div>
-              </div>
-              <div class="product-card__favorite js-favorite">
-                <span class="btn js-favorite">
-                  <img class="btn__icon" src="./img/icon/favorite-icon.svg" alt="">
-                </span>
-              </div>
-
-              <div class="short-order">
-                <span class="short-order__btn white-btn  js-add-basket">
-                  Заказать в 1 клик
-                </span>
-              </div>
-            </div>
-            <!-- product-card -->
-
-            <!-- product-card -->
-            <div class="product-card">
-              <div class="product-card__content">
-                <div class="product-card__preview">
-                  <a href="product-page.html" class="product-card__link">
-                    <img src="./img/image/product-card-img-2.jpg" alt="" class="product-card__img">
-                  </a>
-                </div>
-                <div class="product-card__info">
-                  <h3 class="product-card__title">
-                    <a href="product-page.html" class="product-card__title-link link">
-                      Лист нержавеющий 7х1250х2500 мм 03Х13Н6К10М4ФБ-ВД 7х1250х2500 мм 03Х13Н6К10М4ФБ-ВД
-                    </a>
-                  </h3>
-                  <div class="product-card__buy">
-                    <div class="product-card__price">
-                      <div class="product-card__discount">
-                        <span class="discount-sticker">-10%</span>
-                      </div>
-                      <span class="product-card__number">90390 ₽</span>
-                    </div>
-                    <div class="product-card__btn">
-                      <span class="product-card__in-basket yellow-btn">В карзину</span>
-                    </div>
-                  </div>
-                </div>
-              </div>
-              <div class="product-card__favorite js-favorite">
-                <span class="btn js-favorite">
-                  <img class="btn__icon" src="./img/icon/favorite-icon.svg" alt="">
-                </span>
-              </div>
-
-              <div class="short-order">
-                <span class="short-order__btn white-btn  js-add-basket">
-                  Заказать в 1 клик
-                </span>
-              </div>
-            </div>
-            <!-- product-card -->
-
-            <!-- product-card -->
-            <div class="product-card">
-              <div class="product-card__content">
-                <div class="product-card__preview">
-                  <a href="product-page.html" class="product-card__link">
-                    <img src="./img/image/product-card-img-4.jpg" alt="" class="product-card__img">
-                  </a>
-                </div>
-                <div class="product-card__info">
-                  <h3 class="product-card__title">
-                    <a href="product-page.html" class="product-card__title-link link">
-                      Лист нержавеющий 7х1250х2500 мм 03Х13Н6К10М4ФБ-ВД
-                    </a>
-                  </h3>
-                  <div class="product-card__buy">
-                    <div class="product-card__price">
-                      <div class="product-card__discount">
-                        <span class="discount-sticker">-10%</span>
-                      </div>
-                      <span class="product-card__number">90390 ₽</span>
-                    </div>
-                    <div class="product-card__btn">
-                      <span class="product-card__in-basket white-btn">Добавлено</span>
-                    </div>
+                    <input type='text' class="counter__quantity js-quantity" value='1'>
+                    <span class="counter__sing js-inc">+</span>
                   </div>
                 </div>
 
-              </div>
-              <div class="product-card__favorite js-favorite">
-                <span class="btn js-favorite">
-                  <img class="btn__icon" src="./img/icon/favorite-icon.svg" alt="">
-                </span>
-              </div>
-
-              <div class="short-order">
-                <span class="short-order__btn white-btn js-add-basket">
-                  Заказать в 1 клик
-                </span>
-              </div>
-            </div>
-            <!-- product-card -->
-
-            <!-- product-card -->
-            <div class="product-card">
-              <div class="product-card__content">
-                <div class="product-card__preview">
-                  <a href="product-page.html" class="product-card__link">
-                    <img src="./img/image/product-card-img-2.jpg" alt="" class="product-card__img">
-                  </a>
+                <div class="product-line__btn">
+                  <span class="btn js-add-basket">
+                    <img class="btn__icon" src="./img/controls/basket-btn.svg" alt="">
+                  </span>
                 </div>
-                <div class="product-card__info">
-                  <h3 class="product-card__title">
-                    <a href="product-page.html" class="product-card__title-link link">
-                      Лист нержавеющий 7х1250х2500 мм 03Х13Н6К10М4ФБ-ВД 7х1250х2500 мм 03Х13Н6К10М4ФБ-ВД
-                    </a>
-                  </h3>
-                  <div class="product-card__buy">
-                    <div class="product-card__price">
-                      <div class="product-card__discount">
-                        <span class="discount-sticker">-10%</span>
-                      </div>
-                      <span class="product-card__number">90390 ₽</span>
-                    </div>
-                    <div class="product-card__btn">
-                      <span class="product-card__in-basket yellow-btn">В карзину</span>
-                    </div>
+
+                <div class="product-line__btn">
+                  <span class="btn js-favorite">
+                    <img class="btn__icon" src="./img/icon/favorite-icon.svg" alt="">
+                  </span>
+                </div>
+
+              </div>
+              <!-- product-card-list -->
+            </li>
+
+            <li class="product__item">
+              <!-- product-card-list -->
+              <div class="product-line">
+                <h2 class="product-line__title">
+                  <a href="product-page.html" class="product-line__link link">
+                    Алюминиевая прессованная труба 100х10 мм В95Т1 ГОСТ 18482-79
+                  </a>
+                </h2>
+                <div class="product-line__price">
+                  <div class="product-line__discount">
+                    <span class="discount-sticker">-10%</span>
                   </div>
+                  <span class="product-line__num">100000890 ₽</span>
                 </div>
-              </div>
-              <div class="product-card__favorite js-favorite">
-                <span class="btn js-favorite">
-                  <img class="btn__icon" src="./img/icon/favorite-icon.svg" alt="">
-                </span>
-              </div>
 
-              <div class="short-order">
-                <span class="short-order__btn white-btn js-add-basket">
-                  Заказать в 1 клик
-                </span>
-              </div>
-            </div>
-            <!-- product-card -->
+                <div class="product-line__counter">
+                  <div class="counter js-counter">
+                    <span class="counter__sing js-dec">-</span>
 
-            <!-- product-card -->
-            <div class="product-card">
-              <div class="product-card__content">
-                <div class="product-card__preview">
-                  <a href="product-page.html" class="product-card__link">
-                    <img src="./img/image/product-card-img-4.jpg" alt="" class="product-card__img">
-                  </a>
-                </div>
-                <div class="product-card__info">
-                  <h3 class="product-card__title">
-                    <a href="product-page.html" class="product-card__title-link link">
-                      Лист нержавеющий 7х1250х2500 мм 03Х13Н6К10М4ФБ-ВД
-                    </a>
-                  </h3>
-                  <div class="product-card__buy">
-                    <div class="product-card__price">
-                      <div class="product-card__discount">
-                        <span class="discount-sticker">-10%</span>
-                      </div>
-                      <span class="product-card__number">90390 ₽</span>
-                    </div>
-                    <div class="product-card__btn">
-                      <span class="product-card__in-basket white-btn">Добавлено</span>
-                    </div>
-                  </div>
-                </div>
-              </div>
-              <div class="product-card__favorite js-favorite">
-                <span class="btn js-favorite">
-                  <img class="btn__icon" src="./img/icon/favorite-icon.svg" alt="">
-                </span>
-              </div>
-
-              <div class="short-order">
-                <span class="short-order__btn white-btn  js-add-basket">
-                  Заказать в 1 клик
-                </span>
-              </div>
-            </div>
-            <!-- product-card -->
-
-            <!-- product-card -->
-            <div class="product-card">
-              <div class="product-card__content">
-                <div class="product-card__preview">
-                  <a href="product-page.html" class="product-card__link">
-                    <img src="./img/image/product-card-img-2.jpg" alt="" class="product-card__img">
-                  </a>
-                </div>
-                <div class="product-card__info">
-                  <h3 class="product-card__title">
-                    <a href="product-page.html" class="product-card__title-link link">
-                      Лист нержавеющий 7х1250х2500 мм 03Х13Н6К10М4ФБ-ВД 7х1250х2500 мм 03Х13Н6К10М4ФБ-ВД
-                    </a>
-                  </h3>
-                  <div class="product-card__buy">
-                    <div class="product-card__price">
-                      <div class="product-card__discount">
-                        <span class="discount-sticker">-10%</span>
-                      </div>
-                      <span class="product-card__number">90390 ₽</span>
-                    </div>
-                    <div class="product-card__btn">
-                      <span class="product-card__in-basket yellow-btn">В карзину</span>
-                    </div>
-                  </div>
-                </div>
-              </div>
-              <div class="product-card__favorite js-favorite">
-                <span class="btn js-favorite">
-                  <img class="btn__icon" src="./img/icon/favorite-icon.svg" alt="">
-                </span>
-              </div>
-
-              <div class="short-order">
-                <span class="short-order__btn white-btn  js-add-basket">
-                  Заказать в 1 клик
-                </span>
-              </div>
-            </div>
-            <!-- product-card -->
-
-            <!-- product-card -->
-            <div class="product-card">
-              <div class="product-card__content">
-                <div class="product-card__preview">
-                  <a href="product-page.html" class="product-card__link">
-                    <img src="./img/image/product-card-img-4.jpg" alt="" class="product-card__img">
-                  </a>
-                </div>
-                <div class="product-card__info">
-                  <h3 class="product-card__title">
-                    <a href="product-page.html" class="product-card__title-link link">
-                      Лист нержавеющий 7х1250х2500 мм 03Х13Н6К10М4ФБ-ВД
-                    </a>
-                  </h3>
-                  <div class="product-card__buy">
-                    <div class="product-card__price">
-                      <div class="product-card__discount">
-                        <span class="discount-sticker">-10%</span>
-                      </div>
-                      <span class="product-card__number">90390 ₽</span>
-                    </div>
-                    <div class="product-card__btn">
-                      <span class="product-card__in-basket white-btn">Добавлено</span>
-                    </div>
+                    <input type='text' class="counter__quantity js-quantity" value='1'>
+                    <span class="counter__sing js-inc">+</span>
                   </div>
                 </div>
 
-              </div>
-              <div class="product-card__favorite js-favorite">
-                <span class="btn js-favorite">
-                  <img class="btn__icon" src="./img/icon/favorite-icon.svg" alt="">
-                </span>
-              </div>
+                <div class="product-line__btn">
+                  <span class="btn js-add-basket">
+                    <img class="btn__icon" src="./img/controls/basket-btn.svg" alt="">
+                  </span>
+                </div>
 
-              <div class="short-order">
-                <span class="short-order__btn white-btn js-add-basket">
-                  Заказать в 1 клик
-                </span>
+                <div class="product-line__btn">
+                  <span class="btn js-favorite">
+                    <img class="btn__icon" src="./img/icon/favorite-icon.svg" alt="">
+                  </span>
+                </div>
+
               </div>
-            </div>
-            <!-- product-card -->
-          </div>
-          <!--product__list-->
+              <!-- product-card-list -->
+            </li>
+
+            <li class="product__item">
+              <!-- product-card-list -->
+              <div class="product-line">
+                <h2 class="product-line__title">
+                  <a href="product-page.html" class="product-line__link link">
+                    Алюминиевая прессованная труба 100х10 мм В95Т1 ГОСТ 18482-79
+                  </a>
+                </h2>
+                <div class="product-line__price">
+                  <div class="product-line__discount">
+                    <span class="discount-sticker">-10%</span>
+                  </div>
+                  <span class="product-line__num">549900 </span>
+                </div>
+
+                <div class="product-line__counter">
+                  <div class="counter js-counter">
+                    <span class="counter__sing js-dec">-</span>
+
+                    <input type='text' class="counter__quantity js-quantity" value='1'>
+                    <span class="counter__sing js-inc">+</span>
+                  </div>
+                </div>
+
+                <div class="product-line__btn">
+                  <span class="btn js-add-basket">
+                    <img class="btn__icon" src="./img/controls/basket-btn.svg" alt="">
+                  </span>
+                </div>
+
+                <div class="product-line__btn">
+                  <span class="btn js-favorite">
+                    <img class="btn__icon" src="./img/icon/favorite-icon.svg" alt="">
+                  </span>
+                </div>
+
+              </div>
+              <!-- product-card-list -->
+            </li>
+
+            <li class="product__item">
+              <!-- product-card-list -->
+              <div class="product-line">
+                <h2 class="product-line__title">
+                  <a href="product-page.html" class="product-line__link link">
+                    Алюминиевая прессованная труба 100х10 мм В95Т1 ГОСТ 18482-79
+                  </a>
+                </h2>
+                <div class="product-line__price">
+                  <div class="product-line__discount">
+                    <span class="discount-sticker">-10%</span>
+                  </div>
+                  <span class="product-line__num">100000890 ₽</span>
+                </div>
+
+                <div class="product-line__counter">
+                  <div class="counter js-counter">
+                    <span class="counter__sing js-dec">-</span>
+
+                    <input type='text' class="counter__quantity js-quantity" value='1'>
+                    <span class="counter__sing js-inc">+</span>
+                  </div>
+                </div>
+
+                <div class="product-line__btn">
+                  <span class="btn js-add-basket">
+                    <img class="btn__icon" src="./img/controls/basket-btn.svg" alt="">
+                  </span>
+                </div>
+
+                <div class="product-line__btn">
+                  <span class="btn js-favorite">
+                    <img class="btn__icon" src="./img/icon/favorite-icon.svg" alt="">
+                  </span>
+                </div>
+
+              </div>
+              <!-- product-card-list -->
+            </li>
+
+            <li class="product__item">
+              <!-- product-card-list -->
+              <div class="product-line">
+                <h2 class="product-line__title">
+                  <a href="product-page.html" class="product-line__link link">
+                    Алюминиевая прессованная труба 100х10 мм В95Т1 ГОСТ 18482-79
+                  </a>
+                </h2>
+                <div class="product-line__price">
+                  <div class="product-line__discount">
+                    <span class="discount-sticker">-10%</span>
+                  </div>
+                  <span class="product-line__num">100000890 ₽</span>
+                </div>
+
+                <div class="product-line__counter">
+                  <div class="counter js-counter">
+                    <span class="counter__sing js-dec">-</span>
+
+                    <input type='text' class="counter__quantity js-quantity" value='1'>
+                    <span class="counter__sing js-inc">+</span>
+                  </div>
+                </div>
+
+                <div class="product-line__btn">
+                  <span class="btn js-add-basket">
+                    <img class="btn__icon" src="./img/controls/basket-btn.svg" alt="">
+                  </span>
+                </div>
+
+                <div class="product-line__btn">
+                  <span class="btn js-favorite">
+                    <img class="btn__icon" src="./img/icon/favorite-icon.svg" alt="">
+                  </span>
+                </div>
+
+              </div>
+              <!-- product-card-list -->
+            </li>
+
+            <li class="product__item">
+              <!-- product-card-list -->
+              <div class="product-line">
+                <h2 class="product-line__title">
+                  <a href="product-page.html" class="product-line__link link">
+                    Алюминиевая прессованная труба 100х10 мм В95Т1 ГОСТ 18482-79
+                  </a>
+                </h2>
+                <div class="product-line__price">
+                  <div class="product-line__discount">
+                    <span class="discount-sticker">-10%</span>
+                  </div>
+                  <span class="product-line__num">549900 </span>
+                </div>
+
+                <div class="product-line__counter">
+                  <div class="counter js-counter">
+                    <span class="counter__sing js-dec">-</span>
+
+                    <input type='text' class="counter__quantity js-quantity" value='1'>
+                    <span class="counter__sing js-inc">+</span>
+                  </div>
+                </div>
+
+                <div class="product-line__btn">
+                  <span class="btn js-add-basket">
+                    <img class="btn__icon" src="./img/controls/basket-btn.svg" alt="">
+                  </span>
+                </div>
+
+                <div class="product-line__btn">
+                  <span class="btn js-favorite">
+                    <img class="btn__icon" src="./img/icon/favorite-icon.svg" alt="">
+                  </span>
+                </div>
+
+              </div>
+              <!-- product-card-list -->
+            </li>
+
+            <li class="product__item">
+              <!-- product-card-list -->
+              <div class="product-line">
+                <h2 class="product-line__title">
+                  <a href="product-page.html" class="product-line__link link">
+                    Алюминиевая прессованная труба 100х10 мм В95Т1 ГОСТ 18482-79
+                  </a>
+                </h2>
+                <div class="product-line__price">
+                  <div class="product-line__discount">
+                    <span class="discount-sticker">-10%</span>
+                  </div>
+                  <span class="product-line__num">100000890 ₽</span>
+                </div>
+
+                <div class="product-line__counter">
+                  <div class="counter js-counter">
+                    <span class="counter__sing js-dec">-</span>
+
+                    <input type='text' class="counter__quantity js-quantity" value='1'>
+                    <span class="counter__sing js-inc">+</span>
+                  </div>
+                </div>
+
+                <div class="product-line__btn">
+                  <span class="btn js-add-basket">
+                    <img class="btn__icon" src="./img/controls/basket-btn.svg" alt="">
+                  </span>
+                </div>
+
+                <div class="product-line__btn">
+                  <span class="btn js-favorite">
+                    <img class="btn__icon" src="./img/icon/favorite-icon.svg" alt="">
+                  </span>
+                </div>
+
+              </div>
+              <!-- product-card-list -->
+            </li>
+
+            <li class="product__item">
+              <!-- product-card-list -->
+              <div class="product-line">
+                <h2 class="product-line__title">
+                  <a href="product-page.html" class="product-line__link link">
+                    Алюминиевая прессованная труба 100х10 мм В95Т1 ГОСТ 18482-79
+                  </a>
+                </h2>
+                <div class="product-line__price">
+                  <div class="product-line__discount">
+                    <span class="discount-sticker">-10%</span>
+                  </div>
+                  <span class="product-line__num">100000890 ₽</span>
+                </div>
+
+                <div class="product-line__counter">
+                  <div class="counter js-counter">
+                    <span class="counter__sing js-dec">-</span>
+
+                    <input type='text' class="counter__quantity js-quantity" value='1'>
+                    <span class="counter__sing js-inc">+</span>
+                  </div>
+                </div>
+
+                <div class="product-line__btn">
+                  <span class="btn js-add-basket">
+                    <img class="btn__icon" src="./img/controls/basket-btn.svg" alt="">
+                  </span>
+                </div>
+
+                <div class="product-line__btn">
+                  <span class="btn js-favorite">
+                    <img class="btn__icon" src="./img/icon/favorite-icon.svg" alt="">
+                  </span>
+                </div>
+
+              </div>
+              <!-- product-card-list -->
+            </li>
+
+            <li class="product__item">
+              <!-- product-card-list -->
+              <div class="product-line">
+                <h2 class="product-line__title">
+                  <a href="product-page.html" class="product-line__link link">
+                    Алюминиевая прессованная труба 100х10 мм В95Т1 ГОСТ 18482-79
+                  </a>
+                </h2>
+                <div class="product-line__price">
+                  <div class="product-line__discount">
+                    <span class="discount-sticker">-10%</span>
+                  </div>
+                  <span class="product-line__num">549900 </span>
+                </div>
+
+                <div class="product-line__counter">
+                  <div class="counter js-counter">
+                    <span class="counter__sing js-dec">-</span>
+
+                    <input type='text' class="counter__quantity js-quantity" value='1'>
+                    <span class="counter__sing js-inc">+</span>
+                  </div>
+                </div>
+
+                <div class="product-line__btn">
+                  <span class="btn js-add-basket">
+                    <img class="btn__icon" src="./img/controls/basket-btn.svg" alt="">
+                  </span>
+                </div>
+
+                <div class="product-line__btn">
+                  <span class="btn js-favorite">
+                    <img class="btn__icon" src="./img/icon/favorite-icon.svg" alt="">
+                  </span>
+                </div>
+
+              </div>
+              <!-- product-card-list -->
+            </li>
+          </ul>
+          <!--popular__list-->
 
           <!--pagination-->
           <div class="pagination-wrap">

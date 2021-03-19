@@ -14,7 +14,6 @@
   width: 100%;
   text-align: center;
   margin-right: 25px;
-
   line-height: 95.2%;
 }
 
@@ -39,7 +38,6 @@
 
 .basket__list {
   margin-bottom: 30px;
-
   height: 650px;
   overflow-y: auto;
 }
@@ -71,4 +69,8 @@
 
 .basket-buy {
   text-align: right;
+}
+
+.pagination-wrap {
+  margin-top: 50px;
 }

@@ -8,6 +8,11 @@
 @import "./blocks/_discount-sticker.scss";
 @import "./blocks/_pagination.scss";
 
+//filters
+@import "./blocks/_view-list.scss";
+@import "./blocks/_display-type.scss";
+@import "./blocks/_sorting.scss";
+
 //header
 @import "./blocks/_header.scss";
 @import "./blocks/_header-contact.scss";
@@ -21,6 +26,7 @@
 @import "./blocks/_slider.scss";
 @import "./blocks/_main-slider.scss";
 @import "./blocks/_product-card.scss";
+@import "./blocks/_product-line.scss";
 @import "./blocks/_section.scss";
 @import "./blocks/_product-slider.scss";
 @import "./blocks/_subsections.scss";

@@ -1,0 +1,14 @@
+.display-type {
+  display: flex;
+}
+
+.display-type__btn {
+  height: 30px;
+  width: 30px;
+  margin-right: 8px;
+  cursor: pointer;
+
+  &:last-child {
+    margin-right: 0;
+  }
+}

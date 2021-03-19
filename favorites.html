@@ -145,380 +145,477 @@
             Избранное
           </h1>
 
-          <!--popular__list-->
-          <div class="product__list">
-            <!-- product-card -->
-            <div class="product-card">
-              <div class="product-card__content">
-                <div class="product-card__preview">
-                  <a href="product-page.html" class="product-card__link">
-                    <img src="./img/image/product-card-img-1.jpg" alt="" class="product-card__img">
-                  </a>
-                </div>
-                <div class="product-card__info">
-                  <h3 class="product-card__title">
-                    <a href="product-page.html" class="product-card__title-link link">
-                      Лист нержавеющий 7х1250х2500 мм 03Х13Н6К10М4ФБ-ВД 7х1250х2500 мм 03Х13Н6К10М4ФБ-ВД
-                    </a>
-                  </h3>
-                  <div class="product-card__buy">
-                    <div class="product-card__price">
-                      <div class="product-card__discount">
-                        <span class="discount-sticker">-10%</span>
-                      </div>
-                      <span class="product-card__number">90390 ₽</span>
-                    </div>
-                    <div class="product-card__btn">
-                      <span class="product-card__in-basket yellow-btn">В карзину</span>
-                    </div>
-                  </div>
-                </div>
-              </div>
-              <div class="product-card__favorite js-favorite">
-                <span class="favorite-btn">
-                  <img class="favorite-btn__icon" src="./img/icon/favorite-active-icon.svg" alt="">
+          <!--selects-->
+          <div class="view-list">
+
+            <!--sorting-->
+            <div class="sorting js-dropdown">
+              <div class="sorting__head js-dropdown-btn">
+                <span class="sorting__title">
+                  Сортировка
                 </span>
+                <img src="./img/controls/dropdown-btn.svg" alt="" class="sorting__arrow">
+              </div>
+              <!--sorting__body-->
+              <div class="sorting__body js-dropdown-content">
+                <!-- sorting__list -->
+                <ul class="sorting___list">
+                  <li class="sorting___item">
+                    <div class="input-check">
+                      <label class="input-check__label">
+                        <input class='input-check__checkbox' type="radio" name='sort' value="от А до Я" checked>
+                        <span class="input-check__fake">
+
+                        </span>
+                        <span class="sorting__text input-check__text">
+                          от А до Я
+                        </span>
+
+                      </label>
+                    </div>
+                  </li>
+
+                  <li class="sorting___item">
+                    <div class="input-check">
+                      <label class="input-check__label">
+                        <input class='input-check__checkbox' type="radio" name='sort' value='Сначала новые'>
+                        <span class="input-check__fake">
+
+                        </span>
+                        <span class="sorting__text input-check__text">
+                          Сначала новые
+                        </span>
+
+                      </label>
+                    </div>
+                  </li>
+
+                  <li class="sorting___item">
+                    <div class="input-check">
+                      <label class="input-check__label">
+                        <input class='input-check__checkbox' type="radio" name='sort' value='Сначала дешевые'>
+                        <span class="input-check__fake">
+
+                        </span>
+                        <span class="sorting__text input-check__text">
+                          Сначала дешевые
+                        </span>
+
+                      </label>
+                    </div>
+                  </li>
+
+                  <li class="sorting___item">
+                    <div class="input-check">
+                      <label class="input-check__label">
+                        <input class='input-check__checkbox' type="radio" name='sort' value='Сначала дорогие'>
+                        <span class="input-check__fake">
+
+                        </span>
+                        <span class="sorting__text input-check__text">
+                          Сначала дорогие
+                        </span>
+
+                      </label>
+                    </div>
+                  </li>
+
+                </ul>
+                <!-- sorting__list -->
+              </div>
+              <!--sorting__body-->
+            </div>
+            <!-- sorting -->
+
+            <!--display-type-->
+            <div class="display-type">
+              <div class="display-type__btn">
+                <img src="./img/controls/display-tile-active-btn.svg" alt="" class="display-type__img">
               </div>
 
-              <div class="short-order">
-                <span class="short-order__btn white-btn">
-                  Заказать в 1 клик
-                </span>
+              <div class="display-type__btn">
+                <img src="./img/controls/display-list-btn.svg" alt="" class="display-type__img">
               </div>
             </div>
-            <!-- product-card -->
-
-            <!-- product-card -->
-            <div class="product-card">
-              <div class="product-card__content">
-                <div class="product-card__preview">
-                  <a href="product-page.html" class="product-card__link">
-                    <img src="./img/image/product-card-img-2.jpg" alt="" class="product-card__img">
-                  </a>
-                </div>
-                <div class="product-card__info">
-                  <h3 class="product-card__title">
-                    <a href="product-page.html" class="product-card__title-link link">
-                      Лист нержавеющий 7х1250х2500 мм 03Х13Н6К10М4ФБ-ВД 7х1250х2500 мм 03Х13Н6К10М4ФБ-ВД
-                    </a>
-                  </h3>
-                  <div class="product-card__buy">
-                    <div class="product-card__price">
-                      <div class="product-card__discount">
-                        <span class="discount-sticker">-10%</span>
-                      </div>
-                      <span class="product-card__number">90390 ₽</span>
-                    </div>
-                    <div class="product-card__btn">
-                      <span class="product-card__in-basket yellow-btn">В карзину</span>
-                    </div>
-                  </div>
-                </div>
-              </div>
-              <div class="product-card__favorite js-favorite">
-                <span class="favorite-btn">
-                  <img class="favorite-btn__icon" src="./img/icon/favorite-active-icon.svg" alt="">
-                </span>
-              </div>
-
-              <div class="short-order">
-                <span class="short-order__btn white-btn">
-                  Заказать в 1 клик
-                </span>
-              </div>
-            </div>
-            <!-- product-card -->
-
-            <!-- product-card -->
-            <div class="product-card">
-              <div class="product-card__content">
-                <div class="product-card__preview">
-                  <a href="product-page.html" class="product-card__link">
-                    <img src="./img/image/product-card-img-4.jpg" alt="" class="product-card__img">
-                  </a>
-                </div>
-                <div class="product-card__info">
-                  <h3 class="product-card__title">
-                    <a href="product-page.html" class="product-card__title-link link">
-                      Лист нержавеющий 7х1250х2500 мм 03Х13Н6К10М4ФБ-ВД
-                    </a>
-                  </h3>
-                  <div class="product-card__buy">
-                    <div class="product-card__price">
-                      <div class="product-card__discount">
-                        <span class="discount-sticker">-10%</span>
-                      </div>
-                      <span class="product-card__number">90390 ₽</span>
-                    </div>
-                    <div class="product-card__btn">
-                      <span class="product-card__in-basket white-btn">Добавлено</span>
-                    </div>
-                  </div>
-                </div>
-              </div>
-              <div class="product-card__favorite js-favorite">
-                <span class="favorite-btn">
-                  <img class="favorite-btn__icon" src="./img/icon/favorite-active-icon.svg" alt="">
-                </span>
-              </div>
-
-              <div class="short-order">
-                <span class="short-order__btn white-btn">
-                  Заказать в 1 клик
-                </span>
-              </div>
-            </div>
-            <!-- product-card -->
-
-            <!-- product-card -->
-            <div class="product-card">
-              <div class="product-card__content">
-                <div class="product-card__preview">
-                  <a href="product-page.html" class="product-card__link">
-                    <img src="./img/image/product-card-img-3.jpg" alt="" class="product-card__img">
-                  </a>
-                </div>
-                <div class="product-card__info">
-                  <h3 class="product-card__title">
-                    <a href="product-page.html" class="product-card__title-link link">
-                      Лист нержавеющий 7х1250х2500 мм 03Х13Н6К10М4ФБ-ВД 7х1250х2500 мм 03Х13Н6К10М4ФБ-ВД
-                    </a>
-                  </h3>
-                  <div class="product-card__buy">
-                    <div class="product-card__price">
-                      <div class="product-card__discount">
-                        <span class="discount-sticker">-10%</span>
-                      </div>
-                      <span class="product-card__number">90390 ₽</span>
-                    </div>
-                    <div class="product-card__btn">
-                      <span class="product-card__in-basket yellow-btn">В карзину</span>
-                    </div>
-                  </div>
-                </div>
-              </div>
-              <div class="product-card__favorite js-favorite">
-                <span class="favorite-btn">
-                  <img class="favorite-btn__icon" src="./img/icon/favorite-active-icon.svg" alt="">
-                </span>
-              </div>
-
-              <div class="short-order">
-                <span class="short-order__btn white-btn">
-                  Заказать в 1 клик
-                </span>
-              </div>
-            </div>
-            <!-- product-card -->
-
-            <!-- product-card -->
-            <div class="product-card">
-              <div class="product-card__content">
-                <div class="product-card__preview">
-                  <a href="product-page.html" class="product-card__link">
-                    <img src="./img/image/product-card-img-4.jpg" alt="" class="product-card__img">
-                  </a>
-                </div>
-                <div class="product-card__info">
-                  <h3 class="product-card__title">
-                    <a href="product-page.html" class="product-card__title-link link">
-                      Лист нержавеющий 7х1250х2500 мм 03Х13Н6К10М4ФБ-ВД
-                    </a>
-                  </h3>
-                  <div class="product-card__buy">
-                    <div class="product-card__price">
-                      <div class="product-card__discount">
-                        <span class="discount-sticker">-10%</span>
-                      </div>
-                      <span class="product-card__number">90390 ₽</span>
-                    </div>
-                    <div class="product-card__btn">
-                      <span class="product-card__in-basket white-btn">Добавлено</span>
-                    </div>
-                  </div>
-                </div>
-
-              </div>
-              <div class="product-card__favorite js-favorite">
-                <span class="favorite-btn">
-                  <img class="favorite-btn__icon" src="./img/icon/favorite-active-icon.svg" alt="">
-                </span>
-              </div>
-
-              <div class="short-order">
-                <span class="short-order__btn white-btn">
-                  Заказать в 1 клик
-                </span>
-              </div>
-            </div>
-            <!-- product-card -->
-
-            <!-- product-card -->
-            <div class="product-card">
-              <div class="product-card__content">
-                <div class="product-card__preview">
-                  <a href="product-page.html" class="product-card__link">
-                    <img src="./img/image/product-card-img-1.jpg" alt="" class="product-card__img">
-                  </a>
-                </div>
-                <div class="product-card__info">
-                  <h3 class="product-card__title">
-                    <a href="product-page.html" class="product-card__title-link link">
-                      Лист нержавеющий 7х1250х2500 мм 03Х13Н6К10М4ФБ-ВД 7х1250х2500 мм 03Х13Н6К10М4ФБ-ВД
-                    </a>
-                  </h3>
-                  <div class="product-card__buy">
-                    <div class="product-card__price">
-                      <div class="product-card__discount">
-                        <span class="discount-sticker">-10%</span>
-                      </div>
-                      <span class="product-card__number">90390 ₽</span>
-                    </div>
-                    <div class="product-card__btn">
-                      <span class="product-card__in-basket yellow-btn">В карзину</span>
-                    </div>
-                  </div>
-                </div>
-              </div>
-              <div class="product-card__favorite js-favorite">
-                <span class="favorite-btn">
-                  <img class="favorite-btn__icon" src="./img/icon/favorite-active-icon.svg" alt="">
-                </span>
-              </div>
-
-              <div class="short-order">
-                <span class="short-order__btn white-btn">
-                  Заказать в 1 клик
-                </span>
-              </div>
-            </div>
-            <!-- product-card -->
-
-            <!-- product-card -->
-            <div class="product-card">
-              <div class="product-card__content">
-                <div class="product-card__preview">
-                  <a href="product-page.html" class="product-card__link">
-                    <img src="./img/image/product-card-img-2.jpg" alt="" class="product-card__img">
-                  </a>
-                </div>
-                <div class="product-card__info">
-                  <h3 class="product-card__title">
-                    <a href="product-page.html" class="product-card__title-link link">
-                      Лист нержавеющий 7х1250х2500 мм 03Х13Н6К10М4ФБ-ВД 7х1250х2500 мм 03Х13Н6К10М4ФБ-ВД
-                    </a>
-                  </h3>
-                  <div class="product-card__buy">
-                    <div class="product-card__price">
-                      <div class="product-card__discount">
-                        <span class="discount-sticker">-10%</span>
-                      </div>
-                      <span class="product-card__number">90390 ₽</span>
-                    </div>
-                    <div class="product-card__btn">
-                      <span class="product-card__in-basket yellow-btn">В карзину</span>
-                    </div>
-                  </div>
-                </div>
-              </div>
-              <div class="product-card__favorite js-favorite">
-                <span class="favorite-btn">
-                  <img class="favorite-btn__icon" src="./img/icon/favorite-active-icon.svg" alt="">
-                </span>
-              </div>
-
-              <div class="short-order">
-                <span class="short-order__btn white-btn">
-                  Заказать в 1 клик
-                </span>
-              </div>
-            </div>
-            <!-- product-card -->
-
-            <!-- product-card -->
-            <div class="product-card">
-              <div class="product-card__content">
-                <div class="product-card__preview">
-                  <a href="product-page.html" class="product-card__link">
-                    <img src="./img/image/product-card-img-4.jpg" alt="" class="product-card__img">
-                  </a>
-                </div>
-                <div class="product-card__info">
-                  <h3 class="product-card__title">
-                    <a href="product-page.html" class="product-card__title-link link">
-                      Лист нержавеющий 7х1250х2500 мм 03Х13Н6К10М4ФБ-ВД
-                    </a>
-                  </h3>
-                  <div class="product-card__buy">
-                    <div class="product-card__price">
-                      <div class="product-card__discount">
-                        <span class="discount-sticker">-10%</span>
-                      </div>
-                      <span class="product-card__number">90390 ₽</span>
-                    </div>
-                    <div class="product-card__btn">
-                      <span class="product-card__in-basket white-btn">Добавлено</span>
-                    </div>
-                  </div>
-                </div>
-              </div>
-              <div class="product-card__favorite js-favorite">
-                <span class="favorite-btn">
-                  <img class="favorite-btn__icon" src="./img/icon/favorite-active-icon.svg" alt="">
-                </span>
-              </div>
-
-              <div class="short-order">
-                <span class="short-order__btn white-btn">
-                  Заказать в 1 клик
-                </span>
-              </div>
-            </div>
-            <!-- product-card -->
-
-            <!-- product-card -->
-            <div class="product-card">
-              <div class="product-card__content">
-                <div class="product-card__preview">
-                  <a href="product-page.html" class="product-card__link">
-                    <img src="./img/image/product-card-img-3.jpg" alt="" class="product-card__img">
-                  </a>
-                </div>
-                <div class="product-card__info">
-                  <h3 class="product-card__title">
-                    <a href="product-page.html" class="product-card__title-link link">
-                      Лист нержавеющий 7х1250х2500 мм 03Х13Н6К10М4ФБ-ВД 7х1250х2500 мм 03Х13Н6К10М4ФБ-ВД
-                    </a>
-                  </h3>
-                  <div class="product-card__buy">
-                    <div class="product-card__price">
-                      <div class="product-card__discount">
-                        <span class="discount-sticker">-10%</span>
-                      </div>
-                      <span class="product-card__number">90390 ₽</span>
-                    </div>
-                    <div class="product-card__btn">
-                      <span class="product-card__in-basket yellow-btn">В карзину</span>
-                    </div>
-                  </div>
-                </div>
-              </div>
-              <div class="product-card__favorite js-favorite">
-                <span class="favorite-btn">
-                  <img class="favorite-btn__icon" src="./img/icon/favorite-active-icon.svg" alt="">
-                </span>
-              </div>
-
-              <div class="short-order">
-                <span class="short-order__btn white-btn">
-                  Заказать в 1 клик
-                </span>
-              </div>
-            </div>
-            <!-- product-card -->
+            <!-- display-type -->
 
           </div>
-          <!--popular__list-->
+          <!-- selects -->
+
+          <!--product__list-->
+          <div class="product__tile">
+            <!-- product-card -->
+            <div class="product-card">
+              <div class="product-card__content">
+                <div class="product-card__preview">
+                  <a href="product-page.html" class="product-card__link">
+                    <img src="./img/image/product-card-img-1.jpg" alt="" class="product-card__img">
+                  </a>
+                </div>
+                <div class="product-card__info">
+                  <h3 class="product-card__title">
+                    <a href="product-page.html" class="product-card__title-link link">
+                      Лист нержавеющий 7х1250х2500 мм 03Х13Н6К10М4ФБ-ВД 7х1250х2500 мм 03Х13Н6К10М4ФБ-ВД
+                    </a>
+                  </h3>
+                  <div class="product-card__buy">
+                    <div class="product-card__price">
+                      <div class="product-card__discount">
+                        <span class="discount-sticker">-10%</span>
+                      </div>
+                      <span class="product-card__number">90390 ₽</span>
+                    </div>
+                    <div class="product-card__btn">
+                      <span class="product-card__in-basket yellow-btn">В карзину</span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="product-card__favorite">
+                <span class="btn js-favorite">
+                  <img class="btn__icon" src="./img/icon/favorite-active-icon.svg" alt="">
+                </span>
+              </div>
+
+              <div class="short-order">
+                <span class="short-order__btn white-btn js-add-basket">
+                  Заказать в 1 клик
+                </span>
+              </div>
+            </div>
+            <!-- product-card -->
+
+            <!-- product-card -->
+            <div class="product-card">
+              <div class="product-card__content">
+                <div class="product-card__preview">
+                  <a href="product-page.html" class="product-card__link">
+                    <img src="./img/image/product-card-img-2.jpg" alt="" class="product-card__img">
+                  </a>
+                </div>
+                <div class="product-card__info">
+                  <h3 class="product-card__title">
+                    <a href="product-page.html" class="product-card__title-link link">
+                      Лист нержавеющий 7х1250х2500 мм 03Х13Н6К10М4ФБ-ВД 7х1250х2500 мм 03Х13Н6К10М4ФБ-ВД
+                    </a>
+                  </h3>
+                  <div class="product-card__buy">
+                    <div class="product-card__price">
+                      <div class="product-card__discount">
+                        <span class="discount-sticker">-10%</span>
+                      </div>
+                      <span class="product-card__number">90390 ₽</span>
+                    </div>
+                    <div class="product-card__btn">
+                      <span class="product-card__in-basket yellow-btn">В карзину</span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="product-card__favorite js-favorite">
+                <span class="btn js-favorite">
+                  <img class="btn__icon" src="./img/icon/favorite-icon.svg" alt="">
+                </span>
+              </div>
+
+              <div class="short-order">
+                <span class="short-order__btn white-btn js-add-basket">
+                  Заказать в 1 клик
+                </span>
+              </div>
+            </div>
+            <!-- product-card -->
+
+            <!-- product-card -->
+            <div class="product-card">
+              <div class="product-card__content">
+                <div class="product-card__preview">
+                  <a href="product-page.html" class="product-card__link">
+                    <img src="./img/image/product-card-img-4.jpg" alt="" class="product-card__img">
+                  </a>
+                </div>
+                <div class="product-card__info">
+                  <h3 class="product-card__title">
+                    <a href="product-page.html" class="product-card__title-link link">
+                      Лист нержавеющий 7х1250х2500 мм 03Х13Н6К10М4ФБ-ВД
+                    </a>
+                  </h3>
+                  <div class="product-card__buy">
+                    <div class="product-card__price">
+                      <div class="product-card__discount">
+                        <span class="discount-sticker">-10%</span>
+                      </div>
+                      <span class="product-card__number">90390 ₽</span>
+                    </div>
+                    <div class="product-card__btn">
+                      <span class="product-card__in-basket white-btn">Добавлено</span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="product-card__favorite js-favorite">
+                <span class="btn js-favorite">
+                  <img class="btn__icon" src="./img/icon/favorite-icon.svg" alt="">
+                </span>
+              </div>
+
+              <div class="short-order">
+                <span class="short-order__btn white-btn  js-add-basket">
+                  Заказать в 1 клик
+                </span>
+              </div>
+            </div>
+            <!-- product-card -->
+
+            <!-- product-card -->
+            <div class="product-card">
+              <div class="product-card__content">
+                <div class="product-card__preview">
+                  <a href="product-page.html" class="product-card__link">
+                    <img src="./img/image/product-card-img-2.jpg" alt="" class="product-card__img">
+                  </a>
+                </div>
+                <div class="product-card__info">
+                  <h3 class="product-card__title">
+                    <a href="product-page.html" class="product-card__title-link link">
+                      Лист нержавеющий 7х1250х2500 мм 03Х13Н6К10М4ФБ-ВД 7х1250х2500 мм 03Х13Н6К10М4ФБ-ВД
+                    </a>
+                  </h3>
+                  <div class="product-card__buy">
+                    <div class="product-card__price">
+                      <div class="product-card__discount">
+                        <span class="discount-sticker">-10%</span>
+                      </div>
+                      <span class="product-card__number">90390 ₽</span>
+                    </div>
+                    <div class="product-card__btn">
+                      <span class="product-card__in-basket yellow-btn">В карзину</span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="product-card__favorite js-favorite">
+                <span class="btn js-favorite">
+                  <img class="btn__icon" src="./img/icon/favorite-icon.svg" alt="">
+                </span>
+              </div>
+
+              <div class="short-order">
+                <span class="short-order__btn white-btn  js-add-basket">
+                  Заказать в 1 клик
+                </span>
+              </div>
+            </div>
+            <!-- product-card -->
+
+            <!-- product-card -->
+            <div class="product-card">
+              <div class="product-card__content">
+                <div class="product-card__preview">
+                  <a href="product-page.html" class="product-card__link">
+                    <img src="./img/image/product-card-img-4.jpg" alt="" class="product-card__img">
+                  </a>
+                </div>
+                <div class="product-card__info">
+                  <h3 class="product-card__title">
+                    <a href="product-page.html" class="product-card__title-link link">
+                      Лист нержавеющий 7х1250х2500 мм 03Х13Н6К10М4ФБ-ВД
+                    </a>
+                  </h3>
+                  <div class="product-card__buy">
+                    <div class="product-card__price">
+                      <div class="product-card__discount">
+                        <span class="discount-sticker">-10%</span>
+                      </div>
+                      <span class="product-card__number">90390 ₽</span>
+                    </div>
+                    <div class="product-card__btn">
+                      <span class="product-card__in-basket white-btn">Добавлено</span>
+                    </div>
+                  </div>
+                </div>
+
+              </div>
+              <div class="product-card__favorite js-favorite">
+                <span class="btn js-favorite">
+                  <img class="btn__icon" src="./img/icon/favorite-icon.svg" alt="">
+                </span>
+              </div>
+
+              <div class="short-order">
+                <span class="short-order__btn white-btn js-add-basket">
+                  Заказать в 1 клик
+                </span>
+              </div>
+            </div>
+            <!-- product-card -->
+
+            <!-- product-card -->
+            <div class="product-card">
+              <div class="product-card__content">
+                <div class="product-card__preview">
+                  <a href="product-page.html" class="product-card__link">
+                    <img src="./img/image/product-card-img-2.jpg" alt="" class="product-card__img">
+                  </a>
+                </div>
+                <div class="product-card__info">
+                  <h3 class="product-card__title">
+                    <a href="product-page.html" class="product-card__title-link link">
+                      Лист нержавеющий 7х1250х2500 мм 03Х13Н6К10М4ФБ-ВД 7х1250х2500 мм 03Х13Н6К10М4ФБ-ВД
+                    </a>
+                  </h3>
+                  <div class="product-card__buy">
+                    <div class="product-card__price">
+                      <div class="product-card__discount">
+                        <span class="discount-sticker">-10%</span>
+                      </div>
+                      <span class="product-card__number">90390 ₽</span>
+                    </div>
+                    <div class="product-card__btn">
+                      <span class="product-card__in-basket yellow-btn">В карзину</span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="product-card__favorite js-favorite">
+                <span class="btn js-favorite">
+                  <img class="btn__icon" src="./img/icon/favorite-icon.svg" alt="">
+                </span>
+              </div>
+
+              <div class="short-order">
+                <span class="short-order__btn white-btn js-add-basket">
+                  Заказать в 1 клик
+                </span>
+              </div>
+            </div>
+            <!-- product-card -->
+
+            <!-- product-card -->
+            <div class="product-card">
+              <div class="product-card__content">
+                <div class="product-card__preview">
+                  <a href="product-page.html" class="product-card__link">
+                    <img src="./img/image/product-card-img-4.jpg" alt="" class="product-card__img">
+                  </a>
+                </div>
+                <div class="product-card__info">
+                  <h3 class="product-card__title">
+                    <a href="product-page.html" class="product-card__title-link link">
+                      Лист нержавеющий 7х1250х2500 мм 03Х13Н6К10М4ФБ-ВД
+                    </a>
+                  </h3>
+                  <div class="product-card__buy">
+                    <div class="product-card__price">
+                      <div class="product-card__discount">
+                        <span class="discount-sticker">-10%</span>
+                      </div>
+                      <span class="product-card__number">90390 ₽</span>
+                    </div>
+                    <div class="product-card__btn">
+                      <span class="product-card__in-basket white-btn">Добавлено</span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="product-card__favorite js-favorite">
+                <span class="btn js-favorite">
+                  <img class="btn__icon" src="./img/icon/favorite-icon.svg" alt="">
+                </span>
+              </div>
+
+              <div class="short-order">
+                <span class="short-order__btn white-btn  js-add-basket">
+                  Заказать в 1 клик
+                </span>
+              </div>
+            </div>
+            <!-- product-card -->
+
+            <!-- product-card -->
+            <div class="product-card">
+              <div class="product-card__content">
+                <div class="product-card__preview">
+                  <a href="product-page.html" class="product-card__link">
+                    <img src="./img/image/product-card-img-2.jpg" alt="" class="product-card__img">
+                  </a>
+                </div>
+                <div class="product-card__info">
+                  <h3 class="product-card__title">
+                    <a href="product-page.html" class="product-card__title-link link">
+                      Лист нержавеющий 7х1250х2500 мм 03Х13Н6К10М4ФБ-ВД 7х1250х2500 мм 03Х13Н6К10М4ФБ-ВД
+                    </a>
+                  </h3>
+                  <div class="product-card__buy">
+                    <div class="product-card__price">
+                      <div class="product-card__discount">
+                        <span class="discount-sticker">-10%</span>
+                      </div>
+                      <span class="product-card__number">90390 ₽</span>
+                    </div>
+                    <div class="product-card__btn">
+                      <span class="product-card__in-basket yellow-btn">В карзину</span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="product-card__favorite js-favorite">
+                <span class="btn js-favorite">
+                  <img class="btn__icon" src="./img/icon/favorite-icon.svg" alt="">
+                </span>
+              </div>
+
+              <div class="short-order">
+                <span class="short-order__btn white-btn  js-add-basket">
+                  Заказать в 1 клик
+                </span>
+              </div>
+            </div>
+            <!-- product-card -->
+
+            <!-- product-card -->
+            <div class="product-card">
+              <div class="product-card__content">
+                <div class="product-card__preview">
+                  <a href="product-page.html" class="product-card__link">
+                    <img src="./img/image/product-card-img-4.jpg" alt="" class="product-card__img">
+                  </a>
+                </div>
+                <div class="product-card__info">
+                  <h3 class="product-card__title">
+                    <a href="product-page.html" class="product-card__title-link link">
+                      Лист нержавеющий 7х1250х2500 мм 03Х13Н6К10М4ФБ-ВД
+                    </a>
+                  </h3>
+                  <div class="product-card__buy">
+                    <div class="product-card__price">
+                      <div class="product-card__discount">
+                        <span class="discount-sticker">-10%</span>
+                      </div>
+                      <span class="product-card__number">90390 ₽</span>
+                    </div>
+                    <div class="product-card__btn">
+                      <span class="product-card__in-basket white-btn">Добавлено</span>
+                    </div>
+                  </div>
+                </div>
+
+              </div>
+              <div class="product-card__favorite js-favorite">
+                <span class="btn js-favorite">
+                  <img class="btn__icon" src="./img/icon/favorite-icon.svg" alt="">
+                </span>
+              </div>
+
+              <div class="short-order">
+                <span class="short-order__btn white-btn js-add-basket">
+                  Заказать в 1 клик
+                </span>
+              </div>
+            </div>
+            <!-- product-card -->
+          </div>
+          <!--product__list-->
 
           <!--pagination-->
           <div class="pagination-wrap">

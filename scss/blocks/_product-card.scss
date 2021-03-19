@@ -1,4 +1,6 @@
-.product__list {
+//product__tile
+
+.product__tile {
   display: flex;
   justify-content: space-between;
   flex-wrap: wrap;
@@ -77,7 +79,6 @@
 }
 
 .product-card__discount {
-  display: inline-block;
   margin-bottom: 8px;
 }
 
