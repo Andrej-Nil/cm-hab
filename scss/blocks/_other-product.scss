@@ -1,0 +1,33 @@
+.other-product {
+  margin-bottom: 50px;
+}
+
+.other-product__title {
+  font-weight: 600;
+  font-size: 36px;
+  line-height: 95.2%;
+  margin-bottom: 30px;
+}
+
+.mb15 {
+  margin-bottom: 15px;
+}
+
+.other-product__link {
+  margin-bottom: 25px;
+  display: inline-flex;
+  align-items: center;
+  font-size: 18px;
+  line-height: 95.2%;
+  &:hover .other-product__link-arrow {
+    margin-left: 35px;
+  }
+}
+
+.other-product__link-arrow {
+  display: inline-block;
+  margin-left: 20px;
+  width: 54px;
+  height: auto;
+  transition: 0.2s ease-in-out;
+}

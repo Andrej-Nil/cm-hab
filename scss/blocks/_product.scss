@@ -1,0 +1,246 @@
+.product {
+  display: flex;
+  border-radius: 20px;
+  background: $white;
+  padding: 24px 26px;
+  margin-bottom: 20px;
+}
+
+//pic-dots
+.pic-dots {
+  height: 350px;
+  width: 100px;
+  margin-right: 16px;
+  overflow: hidden;
+}
+
+.pic-dots__item {
+  border: 2px solid $milky;
+  border-radius: 10px;
+  overflow: hidden;
+  width: 100px;
+  height: 100px;
+  cursor: pointer;
+  margin-bottom: 25px;
+  transition: 0.2s ease-in-out;
+  border: 2px solid $milky;
+}
+
+.pic-dots__item--is-active {
+  border: 2px solid $yellow;
+}
+
+.pic-dots__img {
+  width: 100%;
+  height: 100%;
+}
+
+//product__preview
+.product__preview {
+  position: relative;
+  overflow: hidden;
+  border-radius: 20px;
+  width: 350px;
+  height: 350px;
+  margin-right: 31px;
+}
+
+.product__imges {
+  width: 100%;
+  height: 100%;
+}
+
+.product__img {
+  width: 100%;
+  height: 100%;
+  display: none;
+}
+
+.product__img--is-active {
+  display: block;
+}
+
+.product__favorite {
+  position: absolute;
+  top: 17px;
+  right: 16px;
+  border-radius: 20px;
+  background: $white;
+}
+
+//product__controls
+.product__controls {
+  position: absolute;
+  width: 100%;
+  justify-content: space-between;
+  display: flex;
+  align-items: center;
+  bottom: 15px;
+  padding: 0 15px;
+}
+
+.product__arrow {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: $white;
+  border-radius: 50%;
+  width: 50px;
+  height: 50px;
+  cursor: pointer;
+  transition: 0.2s ease-in-out;
+  box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.15);
+  &:hover {
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.15);
+  }
+}
+
+.product__arrow-img {
+  width: 36px;
+  height: auto;
+}
+
+.product__dots {
+  display: flex;
+}
+
+.product__dot {
+  position: relative;
+  display: block;
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  border: 1px solid rgba(0, 0, 0, 0);
+  margin-right: 12px;
+  cursor: pointer;
+  transition: 0.2s ease-in-out;
+  &:last-child {
+    margin-right: 0;
+  }
+  &::before {
+    content: "";
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    display: block;
+    width: 15px;
+    height: 15px;
+    border-radius: 50%;
+    background: $l-grey;
+    transition: 0.2s ease-in-out;
+  }
+}
+
+.product__dot--is-active {
+  border: 1px solid $d-grey;
+  &::before {
+    background: $d-grey;
+  }
+}
+//product__desc
+.product__desc {
+  max-width: 510px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.product__title {
+  font-size: 24px;
+  line-height: 95.2%;
+  margin-bottom: 30px;
+}
+
+.product__btns {
+  display: flex;
+  justify-content: space-between;
+}
+
+.product__btn {
+  width: 250px;
+  padding: 14px 33px 15px;
+  font-size: 24px;
+  line-height: 95.2%;
+}
+
+.product__btn--order {
+  width: 230px;
+  padding: 13px 33px 14px;
+  margin-left: auto;
+}
+
+//product__info
+.product__info {
+  background: $milky;
+  border-radius: 10px;
+  padding: 11px 33px;
+  margin-bottom: 20px;
+  display: flex;
+}
+
+.product__price {
+  border-right: 1px solid $l-grey;
+  padding: 19px 26px 19px 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.product__sale {
+  margin-bottom: 12px;
+  display: flex;
+  align-items: center;
+}
+
+.discount-sticker {
+  margin-right: 10px;
+}
+
+.product__old-price {
+  font-size: 24px;
+  line-height: 95.2%;
+  text-decoration-line: line-through;
+  color: $l-grey;
+}
+
+.product__new-price {
+  font-weight: 600;
+  font-size: 36px;
+  line-height: 95.2%;
+}
+
+//delivery
+
+.delivery {
+  padding: 19px 0 19px 26px;
+}
+.delivery__title {
+  font-size: 18px;
+  line-height: 95.2%;
+  color: $l-grey;
+  margin-bottom: 10px;
+}
+
+.delivery__item {
+  position: relative;
+  padding-left: 25px;
+  margin-bottom: 5px;
+  font-size: 18px;
+  line-height: 100%;
+  &:last-child {
+    margin-bottom: 0;
+  }
+  &:before {
+    content: "";
+    position: absolute;
+    top: 50%;
+    left: 0;
+    transform: translate(0, -50%);
+    display: block;
+    width: 10px;
+    height: 10px;
+    background: $yellow;
+    border-radius: 50%;
+  }
+}
