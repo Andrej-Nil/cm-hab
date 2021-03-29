@@ -3583,4 +3583,37 @@ ul {
   width: 66px;
   height: 30px;
 }
+
+.error404 {
+  position: relative;
+  overflow: hidden;
+}
+
+.error404__text {
+  position: absolute;
+  top: 50%;
+  right: 170px;
+  width: 672px;
+  font-size: 24px;
+  line-height: 130%;
+  color: #ffffff;
+}
+
+.error404__link {
+  position: relative;
+  font-size: 24px;
+  line-height: 130%;
+  color: #ffffff;
+}
+
+.error404__link::before {
+  content: "";
+  position: absolute;
+  bottom: -4px;
+  left: 0;
+  display: block;
+  background-color: #ffffff;
+  width: 100%;
+  height: 1px;
+}
 /*# sourceMappingURL=style.css.map */
