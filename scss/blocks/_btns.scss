@@ -97,6 +97,25 @@
   }
 }
 
+.grey-btn {
+  position: relative;
+  display: inline-block;
+  padding: 11px 36px;
+  background: $milky;
+  border-radius: 50px;
+  z-index: 1;
+  transition: 0.2s ease-in-out;
+
+  color: $d-grey;
+  font-size: 25px;
+  line-height: 95.2%;
+  text-align: center;
+  cursor: pointer;
+  &:hover {
+    background: $pearl;
+  }
+}
+
 // up-btn
 .up {
   position: fixed;
