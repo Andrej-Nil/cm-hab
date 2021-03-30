@@ -1,12 +1,20 @@
 .f-bootom {
   background: $d-grey;
+  padding: $flank;
+  @media (min-width: 1575px) {
+    padding: 0;
+  }
 }
 
 .f-bootom__inner {
-  min-height: 125px;
   display: flex;
+  padding: 20px 0;
   align-items: center;
   justify-content: center;
+  @media (min-width: 1000px) {
+    min-height: 125px;
+    padding: 0;
+  }
 }
 
 .made {
@@ -17,11 +25,26 @@
   padding-top: 5px;
 
   font-weight: 200;
-  font-size: 15px;
+  font-size: 12px;
   line-height: 130%;
   color: $white;
+
+  @media (min-width: 600px) {
+    font-size: 15px;
+  }
 }
 
 .made__link {
-  margin: 0 20px 0 9px;
+  margin: 0 9px 0 1px;
+  @media (min-width: 600px) {
+    margin: 0 20px 0 9px;
+  }
+}
+
+.made__logo {
+  width: 100px;
+  height: auto;
+  @media (min-width: 600px) {
+    width: 160px;
+  }
 }
