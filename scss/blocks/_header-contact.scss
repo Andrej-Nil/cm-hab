@@ -1,11 +1,15 @@
 .h-contact {
+  display: none;
   background-color: $white;
   font-style: 20px;
   line-height: 95.2%;
-}
-
-.h-city {
-  margin-right: auto;
+  padding: $flank;
+  @media (min-width: 786px) {
+    display: block;
+  }
+  @media (min-width: 1575px) {
+    padding: 0;
+  }
 }
 
 .h-contact__inner {
@@ -14,14 +18,32 @@
   min-height: 50px;
 }
 
+.h-city {
+  margin-right: auto;
+  display: none;
+  @media (min-width: 1000px) {
+    display: block;
+    padding: 0;
+  }
+}
+.h-contacts {
+  margin-right: auto;
+  @media (min-width: 1000px) {
+    margin-right: 0;
+  }
+}
+
 .h-contacts__list {
   display: flex;
   margin-right: 70px;
 }
 .h-contacts__item {
-  margin-right: 105px;
+  margin-right: 70px;
   &:last-child {
     margin-right: 0;
+  }
+  @media (min-width: 1000px) {
+    margin-right: 70px;
   }
 }
 
