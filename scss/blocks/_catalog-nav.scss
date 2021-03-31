@@ -36,12 +36,15 @@
 }
 
 .category__link {
-  font-size: 24px;
+  font-size: 22px;
   line-height: 140%;
   color: $l-grey;
   transition: 0.2s;
   &:hover {
     color: $d-grey;
+  }
+  @media (min-width: 1280px) {
+    font-size: 24px;
   }
 }
 

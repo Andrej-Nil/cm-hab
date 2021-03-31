@@ -3,16 +3,22 @@
 }
 
 .section--with-slider {
-  overflow: hidden;
+  @media (min-width: 1090px) {
+    overflow: hidden;
+  }
 }
 
 .section-title {
   font-weight: 600;
-  font-size: 60px;
+  font-size: 36px;
   line-height: 95.2%;
   color: $d-grey;
 
-  margin-bottom: 30px;
+  margin-bottom: 20px;
+  @media (min-width: 1280px) {
+    font-size: 60px;
+    margin-bottom: 30px;
+  }
 }
 
 .section-controls {
@@ -32,7 +38,7 @@
 
 .section-arrow {
   position: relative;
-  display: block;
+  display: none;
   width: 50px;
   height: 50px;
   background: $white;
@@ -42,10 +48,22 @@
   &:hover {
     box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.1);
   }
+
+  @media (min-width: 1000px) {
+    display: block;
+  }
 }
 
 .section-link {
-  margin: 0 50px;
+  width: 100%;
+  max-width: 290px;
+  @media (min-width: 350px) {
+    max-width: 250px;
+  }
+
+  @media (min-width: 1000px) {
+    margin: 0 50px;
+  }
 }
 
 .section-arrow__img {

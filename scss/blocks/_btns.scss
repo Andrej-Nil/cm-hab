@@ -9,7 +9,8 @@
   outline: none;
   cursor: pointer;
 
-  font-size: 20px;
+  font-size: 18px;
+  font-weight: normal;
   line-height: 95.2%;
   text-align: center;
   z-index: 1;
@@ -41,20 +42,30 @@
       filter: blur(0);
     }
   }
+
+  @media (min-width: 768px) {
+    font-size: 20px;
+  }
 }
 
 .white-btn {
   display: inline-block;
-  padding: 14px 33px 15px;
+  padding: 14px 0 15px;
+  width: 150px;
   background: $white;
   border-radius: 50px;
   transition: 0.2s ease-in-out;
   cursor: pointer;
   border: 1px solid #4a525f;
 
-  font-size: 20px;
+  font-size: 18px;
   line-height: 95.2%;
+  font-weight: normal;
   text-align: center;
+
+  @media (min-width: 768px) {
+    font-size: 20px;
+  }
 }
 
 .dark-btn {
