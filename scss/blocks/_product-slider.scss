@@ -1,12 +1,12 @@
 .product-slider {
   width: 160px;
-  margin: 0 auto;
-  @media (min-width: 350px) {
+  //margin: 0 auto;
+  @media (min-width: 500px) {
     width: 245px;
   }
-  @media (min-width: 768px) {
+  @media (min-width: 1090px) {
     width: 100%;
-    margin: 0;
+    margin: 0 0 100px 0;
   }
 }
 .product-slides {
@@ -17,11 +17,11 @@
   display: flex;
   min-width: 160px;
   margin-right: 15px;
-  @media (min-width: 350px) {
+  @media (min-width: 500px) {
     min-width: 245px;
     margin-right: 20px;
   }
-  @media (min-width: 768px) {
+  @media (min-width: 1090px) {
     min-width: 340px;
   }
 }
@@ -37,7 +37,7 @@
   transition-delay: 0.1s;
   z-index: 0;
 
-  @media (min-width: 768px) {
+  @media (min-width: 1090px) {
     max-width: 340px;
     min-height: 460px;
     &:hover {
@@ -66,10 +66,10 @@
   overflow: hidden;
   height: 110px;
   border-radius: 20px 20px 0 0;
-  @media (min-width: 350px) {
+  @media (min-width: 500px) {
     height: 220px;
   }
-  @media (min-width: 768px) {
+  @media (min-width: 1090px) {
     height: 320px;
   }
 }
@@ -86,7 +86,7 @@
   flex-grow: 1;
   flex-direction: column;
   padding: 15px 5px 5px;
-  @media (min-width: 768px) {
+  @media (min-width: 1090px) {
     font-size: 18px;
     margin-bottom: 20px;
     padding: 17px 20px 12px;
@@ -97,7 +97,7 @@
   line-height: 95.2%;
   font-size: 14px;
   margin-bottom: 15px;
-  @media (min-width: 768px) {
+  @media (min-width: 1090px) {
     font-size: 18px;
     margin-bottom: 20px;
   }
@@ -109,7 +109,7 @@
   margin-top: auto;
   justify-content: space-between;
   font-weight: 600;
-  @media (min-width: 768px) {
+  @media (min-width: 1090px) {
     flex-direction: row;
     align-items: flex-end;
   }
@@ -120,14 +120,14 @@
   justify-content: space-between;
   margin-bottom: 15px;
 
-  @media (min-width: 768px) {
+  @media (min-width: 1090px) {
     display: block;
     margin-bottom: 0;
   }
 }
 
 .product-slide__discount {
-  @media (min-width: 768px) {
+  @media (min-width: 1090px) {
     margin-bottom: 8px;
   }
 }
@@ -138,14 +138,14 @@
   font-weight: 600;
   font-size: 18px;
   line-height: 95.2%;
-  @media (min-width: 768px) {
+  @media (min-width: 1090px) {
     font-size: 24px;
   }
 }
 
 .product-slide__in-basket {
   width: 100%;
-  @media (min-width: 768px) {
+  @media (min-width: 1090px) {
     width: 160px;
   }
 }
@@ -159,7 +159,7 @@
   width: 30px;
   height: 30px;
   z-index: 1000;
-  @media (min-width: 768px) {
+  @media (min-width: 1090px) {
     top: 19px;
     right: 15px;
     width: 50px;
