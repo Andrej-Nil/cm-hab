@@ -24,11 +24,21 @@
   }
 }
 
+.section__dots {
+  margin: 28px 0 20px 0;
+  @media (min-width: 500px) {
+    display: none;
+  }
+}
+
 .section-controls {
   display: flex;
   justify-content: center;
   margin: 0 auto;
-  margin-top: 30px;
+  //margin-top: 30px;
+  @media (min-width: 500px) {
+    margin-top: 30px;
+  }
 }
 
 .mt10 {

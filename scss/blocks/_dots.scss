@@ -1,0 +1,39 @@
+.dots {
+  display: flex;
+  justify-content: center;
+}
+
+.dot {
+  position: relative;
+  display: block;
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  border: 1px solid rgba(0, 0, 0, 0);
+  margin-right: 12px;
+  cursor: pointer;
+  transition: 0.2s ease-in-out;
+  &:last-child {
+    margin-right: 0;
+  }
+  &::before {
+    content: "";
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    display: block;
+    width: 15px;
+    height: 15px;
+    border-radius: 50%;
+    background: $l-grey;
+    transition: 0.2s ease-in-out;
+  }
+}
+
+.dot--is-active {
+  border: 1px solid $d-grey;
+  &::before {
+    background: $d-grey;
+  }
+}
