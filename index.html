@@ -867,8 +867,8 @@
             <!-- callback -->
             <div class="callback">
               <!-- callback-form -->
-              <form id='callbackForm' enctype="multipart/form-data" action="test-form.html" method="POST"
-                class='callback-form'>
+              <!-- callback-form__top -->
+              <div class="callback-form__top">
                 <h4 class='callback-form__title'>
                   Получите точный расчет
                 </h4>
@@ -876,66 +876,75 @@
                   Загрузите файл с перечнем необходимых позиций
                   и в ответном письме мы вышлем Вам точный расчет
                 </p>
-                <!--callback__inputs-->
-                <div class="callback__inputs inputs-block">
-                  <div class="input-with-name">
-                    <label class="input-label">
-                      Имя
-                    </label>
-                    <input type="text" class="input" name='name' placeholder="Константин">
-                  </div>
+              </div>
+              <!-- callback-form__top -->
+              <!--callback-form__content-->
+              <div class="callback-form__content">
+                <form id='callbackForm' enctype="multipart/form-data" action="test-form.html" method="POST"
+                  class='callback-form'>
 
-                  <div class="input-with-name">
-                    <label class="input-label">
-                      Почта
-                    </label>
-                    <input type="text" class="input input--is-success" name='email' placeholder="Kostya228@gmail.com">
-                  </div>
+                  <!--callback__inputs-->
+                  <div class="callback__inputs inputs-block">
+                    <div class="input-with-name">
+                      <label class="input-label">
+                        Имя
+                      </label>
+                      <input type="text" class="input" name='name' placeholder="Константин">
+                    </div>
 
-                  <div class="input-with-name">
-                    <label class="input-label">
-                      Сообщение
-                    </label>
-                    <textarea class="input textarea input--is-error" name='message'
-                      placeholder="Мне нужно быстро доставить"></textarea>
-                  </div>
+                    <div class="input-with-name">
+                      <label class="input-label">
+                        Почта
+                      </label>
+                      <input type="text" class="input input--is-success" name='email' placeholder="Kostya228@gmail.com">
+                    </div>
 
-                  <div class="input-upload">
-                    <label class="input-upload__label">
-                      <img src="./img/icon/clip-icon.svg" alt="" class="input-upload__img">
-                      <span class='input-upload__text'>Прикрепить файл</span>
-                      <input type="file" name='files' class="input-upload__file">
-                    </label>
-                  </div>
-                  <button class='input-submit yellow-btn' type='submit'>Отправить</button>
+                    <div class="input-with-name">
+                      <label class="input-label">
+                        Сообщение
+                      </label>
+                      <textarea class="input textarea input--is-error" name='message'
+                        placeholder="Мне нужно быстро доставить"></textarea>
+                    </div>
 
-                  <div class="input-check">
-                    <label class="input-check__label">
-                      <input class='input-check__checkbox' type="checkbox" name='consent'>
-                      <span class="input-check__fake">
+                    <div class="input-upload">
+                      <label class="input-upload__label">
+                        <img src="./img/icon/clip-icon.svg" alt="" class="input-upload__img">
+                        <span class='input-upload__text'>Прикрепить файл</span>
+                        <input type="file" name='files' class="input-upload__file">
+                      </label>
+                    </div>
+                    <button class='input-submit yellow-btn' type='submit'>Отправить</button>
 
-                      </span>
-                      <span class="input-check__text">
-                        Даю согласие на обработку моих персональных данных
-                      </span>
+                    <div class="input-check">
+                      <label class="input-check__label">
+                        <input class='input-check__checkbox' type="checkbox" name='consent'>
+                        <span class="input-check__fake">
 
-                    </label>
+                        </span>
+                        <span class="input-check__text">
+                          Даю согласие на обработку моих персональных данных
+                        </span>
+
+                      </label>
+                    </div>
+                    <!--callback__inputs-->
                   </div>
                   <!--callback__inputs-->
-                </div>
-                <!--callback__inputs-->
 
-                <div class='callback-form__error form-error form-error--is-show'>
-                  <p class="callback-form__error form-error__message">
-                    Ошибка отправки
-                  </p>
-                </div>
+                  <div class='callback-form__error form-error form-error--is-show'>
+                    <p class="callback-form__error form-error__message">
+                      Ошибка отправки
+                    </p>
+                  </div>
 
-              </form>
-              <!-- callback-form -->
-              <div class="callback-right">
-                <img class="callback-right__img" src="./img/image/manager.jpg" alt="">
+                </form>
+                <!-- callback-form -->
+                <div class="callback-right">
+                  <img class="callback-right__img" src="./img/image/manager.jpg" alt="">
+                </div>
               </div>
+              <!--callback-form__content-->
             </div>
             <!-- callback -->
           </div>
