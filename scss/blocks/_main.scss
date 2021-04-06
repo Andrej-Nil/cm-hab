@@ -83,9 +83,10 @@ ul {
 
 .content-wrap {
   display: flex;
-
-  padding: $flank;
+  padding: 0;
   @media (min-width: 1090px) {
+    padding: $flank;
+
     justify-content: space-between;
     max-width: 1100px;
   }

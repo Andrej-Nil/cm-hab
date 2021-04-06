@@ -1,5 +1,6 @@
 .section {
   margin-bottom: 80px;
+  padding: $flank;
   @media (min-width: 1090px) {
     margin-bottom: 100px;
   }
