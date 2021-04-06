@@ -1,63 +1,87 @@
-.switch{
+.switch-wrap {
+  padding: $flank;
+  margin-bottom: 50px;
+  @media (min-width: 1090px) {
+    padding: 0;
+    margin-bottom: 80px;
+  }
+}
+.switch {
   display: flex;
   justify-content: space-between;
   align-items: center;
   width: 100%;
   background: $white;
-  padding: 25px 43px;
+  padding: 5px 15px;
   border-radius: 20px;
-  margin-bottom: 80px;
+  @media (min-width: 1090px) {
+    padding: 25px 43px;
+  }
 }
 
-.switch__item{
-  font-weight: 600;
-  font-size: 36px;
+.switch__item {
+  font-weight: normal;
+  font-size: 14px;
+  @media (min-width: 1090px) {
+    font-weight: 600;
+    font-size: 36px;
+  }
 }
 
-.switch__toggle{
+.switch__toggle {
   display: flex;
   align-items: center;
   background: $white;
-  width: 100px;
-  height: 50px;
+  width: 80px;
+  height: 40px;
   border-radius: 50px;
-  padding: 0 5px;
+  padding: 0 4px;
   border: 1px solid $pearl;
   cursor: pointer;
   transition: 0.1s ease-in-out;
+  @media (min-width: 1090px) {
+    padding: 0 5px;
+    width: 100px;
+    height: 50px;
+  }
 }
 
-.switch__toggle--is-left{
+.switch__toggle--is-left {
   background: $yellow;
-  .toggle__lever{
+  .toggle__lever {
     left: 0;
     transform: translate(0, -50%);
   }
 }
 
-.switch__toggle--is-right{
+.switch__toggle--is-right {
   background: $yellow;
-  .toggle__lever{
+  .toggle__lever {
     left: 100%;
     transform: translate(-100%, -50%);
   }
 }
 
-.toggle{
+.toggle {
   position: relative;
   width: 100%;
 }
 
-.toggle__lever{
+.toggle__lever {
   position: absolute;
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
   display: block;
-  width: 40px;
-  height: 40px;
+  width: 30px;
+  height: 30px;
+
   border-radius: 50%;
   background: $white;
   box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.15);
   transition: 0.1s ease-in-out;
+  @media (min-width: 1090px) {
+    width: 40px;
+    height: 40px;
+  }
 }

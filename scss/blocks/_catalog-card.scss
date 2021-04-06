@@ -7,39 +7,70 @@
 .catalog-card {
   position: relative;
   overflow: hidden;
-  max-width: 520px;
+
   width: 100%;
-  height: 280px;
+  height: 140px;
   background: $white;
   border-radius: 20px;
   margin-bottom: 20px;
-  &:hover .catalog-card__back {
-    display: block;
+  @media (min-width: 620px) {
+    width: 49%;
   }
+  @media (min-width: 1090px) {
+    width: 100%;
+    height: 280px;
+    &:hover .catalog-card__back {
+      display: block;
+    }
 
-  &:hover .catalog-card__title {
-    filter: blur(2px);
+    &:hover .catalog-card__title {
+      filter: blur(2px);
+    }
+
+    &:hover .catalog-card__img {
+      filter: blur(2px);
+    }
   }
+  @media (min-width: 1500px) {
+    max-width: 520px;
+  }
+}
 
-  &:hover .catalog-card__img {
-    filter: blur(2px);
+.catalog-card__front-link {
+  position: absolute;
+  width: 100%;
+  left: 0;
+  top: 0;
+  bottom: 0;
+  z-index: 10;
+  @media (min-width: 1090px) {
+    display: none;
   }
 }
 
 .catalog-card__front {
   height: 100%;
   display: flex;
-  padding: 25px;
+  padding: 18px;
   align-items: center;
   cursor: pointer;
+  @media (min-width: 1090px) {
+    padding: 25px;
+  }
 }
 
 .catalog-card__title {
   position: relative;
   width: 180px;
-  font-size: 24px;
+  font-size: 14px;
   line-height: 95.2%;
   z-index: 10;
+  @media (min-width: 400px) {
+    font-size: 20px;
+  }
+  @media (min-width: 1090px) {
+    font-size: 24px;
+  }
 }
 
 .catalog-card__img {

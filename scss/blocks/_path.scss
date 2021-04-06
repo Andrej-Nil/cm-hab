@@ -1,23 +1,28 @@
-.path-wrap{
+.path-wrap {
+  display: none;
   margin-bottom: 37px;
+  padding: $flank;
+  @media (min-width: 1090px) {
+    display: block;
+  }
 }
 
-.path{
+.path {
   color: $l-grey;
 }
 
-.path__link{
+.path__link {
   color: $l-grey;
   transition: 0.2s ease-in-out;
-  &:hover{
+  &:hover {
     color: $d-grey;
   }
 }
 
-.path__link--is-active{
+.path__link--is-active {
   color: $d-grey;
 }
 
-.path__slash{
+.path__slash {
   margin: 0 10px;
 }
