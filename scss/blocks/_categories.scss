@@ -1,11 +1,22 @@
 .categories {
   margin-bottom: 80px;
-}
-
-.categories-title {
+  padding: $flank;
   font-size: 36px;
   line-height: 95.2%;
   margin-bottom: 30px;
+  @media (min-width: 1090px) {
+    padding: 0;
+  }
+}
+
+.categories-title {
+  font-size: 24px;
+  line-height: 95.2%;
+  margin-bottom: 20px;
+  @media (min-width: 1090px) {
+    font-size: 36px;
+    margin-bottom: 30px;
+  }
 }
 
 .categories__list {
@@ -16,6 +27,21 @@
     content: "";
     max-width: 340px;
     width: 100%;
+  }
+
+  @media (min-width: 600px) {
+    &::after {
+      content: "";
+      max-width: 32%;
+      width: 100%;
+    }
+  }
+  @media (min-width: 1090px) {
+    &::after {
+      content: "";
+      max-width: 340px;
+      width: 100%;
+    }
   }
 }
 

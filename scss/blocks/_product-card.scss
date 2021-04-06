@@ -1,36 +1,33 @@
-//product__tile
-
-.product__tile {
-  display: flex;
-  justify-content: space-between;
-  flex-wrap: wrap;
-  &:after {
-    content: "";
-    width: 100%;
-    max-width: 340px;
-  }
-}
-
 .product-card {
   position: relative;
-  max-width: 340px;
-  width: 100%;
-  min-height: 460px;
+  width: 48.5%;
+  min-height: 270px;
   transition: 0.2s ease-in-out;
   margin-bottom: 50px;
   transition: 0.1;
   transition-delay: 0.1s;
   z-index: 0;
-  &:hover {
-    z-index: 10;
+
+  @media (min-width: 600px) {
+    width: 32%;
   }
 
-  &:hover .short-order {
-    transform: translate(0, 64px);
-  }
+  @media (min-width: 1090px) {
+    max-width: 340px;
+    width: 100%;
+    min-height: 460px;
+    margin-bottom: 50px;
+    &:hover {
+      z-index: 10;
+    }
 
-  &:hover .product-card__img {
-    transform: scale(1.1, 1.1);
+    &:hover .short-order {
+      transform: translate(0, 64px);
+    }
+
+    &:hover .product-card__img {
+      transform: scale(1.1, 1.1);
+    }
   }
 }
 
@@ -45,8 +42,11 @@
 .product-card__preview {
   position: relative;
   overflow: hidden;
-  height: 320px;
+  height: auto;
   border-radius: 20px 20px 0 0;
+  @media (min-width: 1090px) {
+    height: 320px;
+  }
 }
 
 .product-card__img {
@@ -60,14 +60,21 @@
   display: flex;
   flex-grow: 1;
   flex-direction: column;
-  padding: 17px 20px 12px;
+  padding: 15px 10px;
+  @media (min-width: 1090px) {
+    padding: 17px 20px 12px;
+  }
 }
 
 .product-card__title {
-  font-size: 18px;
-  line-height: 95.2%;
-  font-size: 18px;
-  margin-bottom: 20px;
+  font-size: 14px;
+  line-height: 110%;
+  margin-bottom: 12px;
+  @media (min-width: 1090px) {
+    font-size: 18px;
+    line-height: 95.2%;
+    margin-bottom: 20px;
+  }
 }
 
 .product-card__buy {
@@ -83,11 +90,29 @@
 }
 
 .product-card__number {
-  display: block;
-
   font-weight: 600;
-  font-size: 24px;
+  font-size: 16px;
   line-height: 95.2%;
+  @media (min-width: 1090px) {
+    font-size: 24px;
+  }
+}
+
+.product-card__btn-icon {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  margin-left: auto;
+  @media (min-width: 1090px) {
+    display: none;
+  }
+}
+
+.product-card__in-basket {
+  display: none;
+  @media (min-width: 1090px) {
+    display: block;
+  }
 }
 
 .product-card__favorite {
