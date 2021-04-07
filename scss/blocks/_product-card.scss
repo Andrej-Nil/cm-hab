@@ -3,12 +3,13 @@
   width: 48.5%;
   min-height: 270px;
   transition: 0.2s ease-in-out;
-  margin-bottom: 50px;
+  margin-bottom: 20px;
   transition: 0.1;
   transition-delay: 0.1s;
   z-index: 0;
 
   @media (min-width: 600px) {
+    margin-bottom: 30px;
     width: 32%;
   }
 
