@@ -825,6 +825,17 @@ ul {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+
+@media (min-width: 1090px) {
+  .pagination {
+    -webkit-box-pack: start;
+        -ms-flex-pack: start;
+            justify-content: flex-start;
+  }
 }
 
 .pagination__list {
@@ -837,15 +848,21 @@ ul {
   background: #ffffff;
   padding: 5px;
   border-radius: 50px;
-  margin: 0 20px;
 }
 
-.pagination__item {
-  margin-right: 5px;
+@media (min-width: 500px) {
+  .pagination__list {
+    margin: 0 20px;
+  }
 }
 
-.pagination__item:last-child {
-  margin-right: 0;
+@media (min-width: 1090px) {
+  .pagination__item {
+    margin-right: 5px;
+  }
+  .pagination__item:last-child {
+    margin-right: 0;
+  }
 }
 
 .pagination__btn {
@@ -858,19 +875,24 @@ ul {
   -webkit-box-pack: center;
       -ms-flex-pack: center;
           justify-content: center;
-  width: 40px;
-  height: 40px;
+  width: 30px;
+  height: 30px;
   border-radius: 50%;
   -webkit-transition: 0.2s ease-in-out;
   transition: 0.2s ease-in-out;
 }
 
-.pagination__btn:hover {
-  background: #ffc91c;
-}
-
-.pagination__btn:active {
-  background: #dca700;
+@media (min-width: 1090px) {
+  .pagination__btn {
+    width: 40px;
+    height: 40px;
+  }
+  .pagination__btn:hover {
+    background: #ffc91c;
+  }
+  .pagination__btn:active {
+    background: #dca700;
+  }
 }
 
 .pagination__btn--is-active {
@@ -909,13 +931,28 @@ ul {
 
 .sorting {
   position: relative;
-  width: 250px;
+  width: 200px;
   z-index: 1000;
   background: #e5e5e5;
 }
 
 .sorting:hover .sorting__body {
   height: auto;
+}
+
+@media (min-width: 600px) {
+  .sorting {
+    width: 250px;
+  }
+  .sorting:hover .sorting__body {
+    height: auto;
+  }
+}
+
+@media (min-width: 1090px) {
+  .sorting:hover .sorting__body {
+    height: auto;
+  }
 }
 
 .sorting__head {
@@ -1732,11 +1769,20 @@ ul {
   position: absolute;
   background: #ffffff;
   border-radius: 50%;
-  top: 19px;
-  right: 15px;
-  width: 50px;
-  height: 50px;
+  top: 11px;
+  right: 5px;
+  width: 40px;
+  height: 40px;
   z-index: 1000;
+}
+
+@media (min-width: 1090px) {
+  .product-card__favorite {
+    top: 19px;
+    right: 15px;
+    width: 50px;
+    height: 50px;
+  }
 }
 
 .short-order {
