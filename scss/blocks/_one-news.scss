@@ -1,53 +1,102 @@
-.one-news {
+.news {
   overflow: hidden;
   background: $white;
   border-radius: 20px;
 }
 
-.one-news__preveiw {
+.news__preveiw {
   position: relative;
+  margin-bottom: 20px;
+  width: 100%;
+  @media (min-width: 700px) {
+    margin-bottom: 30px;
+  }
 }
 
-.one-news__img {
+.news__img {
   width: 100%;
   height: auto;
 }
 
-.one-news__nav {
+.news__nav {
   position: absolute;
   left: 0;
-  bottom: 20px;
+  bottom: 9px;
   display: flex;
   width: 100%;
   padding: 0 20px;
   justify-content: space-between;
-}
-
-.one-news__link {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  width: 265px;
-  &:hover .one-news__link-text {
-    text-decoration: underline;
+  @media (min-width: 700px) {
+    bottom: 20px;
   }
 }
 
-.one-news__link-text {
-  color: $white;
+.news__arrow {
+  display: block;
+  width: 40px;
+  height: 40px;
+  @media (min-width: 1500px) {
+    width: 50px;
+    height: 50px;
+  }
 }
 
-.one-news__desc {
-  padding: 35px 35px 32px;
+.news__link {
+  display: flex;
+  align-items: center;
+  @media (min-width: 1090px) {
+    &:hover .news__link-text {
+      text-decoration: underline;
+    }
+  }
 }
 
-.one-news__title {
-  font-weight: 500;
-  font-size: 24px;
+.news__link-text {
+  display: none;
+  font-size: 14px;
   line-height: 95.2%;
-  margin-bottom: 15px;
+  color: $white;
+  margin: 0 20px;
+  @media (min-width: 700px) {
+    display: block;
+  }
+  @media (min-width: 1500px) {
+    display: block;
+    font-size: 18px;
+    margin: 0 40px;
+  }
 }
 
-.one-news__text {
+.news__desc {
+  padding: 0px 10px 15px;
+  @media (min-width: 700px) {
+    padding: 0px 35px 32px;
+  }
+}
+
+.news__title {
+  font-weight: 600;
+  font-size: 18px;
+  line-height: 95.2%;
+  margin-bottom: 10px;
+  @media (min-width: 700px) {
+    font-size: 21px;
+    line-height: 95.2%;
+    margin-bottom: 15px;
+  }
+
+  @media (min-width: 1500px) {
+    font-size: 24px;
+  }
+}
+
+.news__text {
+  font-size: 14px;
   line-height: 130%;
+  @media (min-width: 700px) {
+    font-size: 16px;
+  }
+  @media (min-width: 1500px) {
+    font-size: 18px;
+  }
 }
