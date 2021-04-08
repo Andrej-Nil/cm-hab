@@ -1,45 +1,104 @@
 .basket-card {
   display: flex;
-  align-items: center;
+  flex-wrap: wrap;
   padding-right: 30px;
+  padding: 10px 0 20px;
+  border-bottom: 1px solid $milky;
+  @media (min-width: 1090px) {
+    padding: 9px 0 10px;
+  }
+  @media (min-width: 1500px) {
+    display: flex;
+    align-items: center;
+  }
+}
+
+.basket-card__desc {
+  width: 100%;
+  display: flex;
+  margin-bottom: 5px;
+  order: 0;
+  @media (min-width: 1500px) {
+    align-items: center;
+    width: auto;
+    margin-bottom: 0;
+  }
 }
 
 .basket-card__preview {
   overflow: hidden;
   border-radius: 10px;
-  width: 110px;
-  height: 110px;
-  margin-right: 20px;
+  min-width: 60px;
+  min-height: 60px;
+  max-width: 60px;
+  max-height: 60px;
+  margin-right: 10px;
+  @media (min-width: 1090px) {
+    display: block;
+    min-width: 110px;
+    min-height: 110px;
+    max-width: 110px;
+    max-height: 110px;
+    margin-right: 20px;
+  }
 }
 
 .basket-card__img {
   width: 100%;
   height: 100%;
+  border-radius: 10px;
 }
 
 .basket-card__title {
-  max-width: 300px;
-  margin-right: 25px;
+  @media (min-width: 1500px) {
+    min-width: 300px;
+    max-width: 300px;
+    margin-right: 25px;
+  }
 }
 .basket-card__link {
+  width: 100%;
   font-size: 18px;
   line-height: 95.2%;
 }
 
 .basket-card__counter {
-  margin-right: 25px;
+  order: 2;
+  margin: 0 10px 0 0;
+  @media (min-width: 520px) {
+    margin: 0 10px 0 auto;
+  }
+  @media (min-width: 1500px) {
+    order: 1;
+    margin: 0 25px 0 0;
+  }
 }
 
 .basket-card__price {
   display: flex;
   align-items: center;
-  margin-right: 25px;
-  max-width: 180px;
+  margin: 0 0 15px 0;
   width: 100%;
+  order: 1;
+  @media (min-width: 520px) {
+    width: 195px;
+    margin: 0 0 0 0;
+  }
+  @media (min-width: 1500px) {
+    margin: 0 25px 0 0;
+    //max-width: 185px;
+    order: 2;
+  }
 }
 
 .basket-card__discount {
   margin-right: 17px;
+  @media (min-width: 520px) {
+    margin-right: 10px;
+  }
+  @media (min-width: 1500px) {
+    margin-right: 17px;
+  }
 }
 
 .basket-card__price-num {
@@ -47,12 +106,21 @@
   font-size: 18px;
   line-height: 95.2%;
 }
-
+.basket-card__btns {
+  order: 3;
+  display: flex;
+}
 .basket-card__btn {
   width: 40px;
   height: 40px;
-  margin-right: auto;
+  margin-right: 15px;
   &:last-child {
     margin-right: 0;
+  }
+  @media (min-width: 1500px) {
+    margin-right: 50px;
+    &:last-child {
+      margin-right: 0;
+    }
   }
 }
