@@ -1,40 +1,63 @@
 .order-modal {
-  max-width: 1060px;
+  max-width: 570px;
   width: 100%;
+  @media (min-width: 1090px) {
+    max-width: 1060px;
+  }
 }
 
 .order-modal__content {
   position: relative;
-  display: flex;
-  min-height: 650px;
+
   background: $white;
+  @media (min-width: 1090px) {
+    max-width: 1060px;
+    min-height: 670px;
+    display: flex;
+  }
 }
 
 .order-modal__left {
-  max-width: 490px;
-  padding: 50px;
+  position: relative;
+  padding: 25px 20px 129px;
   width: 100%;
   background: $white;
+  @media (min-width: 1090px) {
+    //max-width: 440px;
+    padding: 50px;
+    max-width: 490px;
+  }
+}
+
+.order-inputs {
+  position: relative;
+  z-index: 10;
 }
 
 .order-modal__bg {
+  position: absolute;
   bottom: 0;
   left: 0;
+  max-width: 100px;
+  @media (min-width: 1090px) {
+    max-width: 190px;
+  }
 }
 
 .order-modal__img {
-  max-width: 190px;
-  max-height: 260px;
-  width: auto;
+  width: 100%;
   height: auto;
 }
 
 .order-modal__right {
   background: $milky;
-  padding: 50px 30px 50px 30px;
+  padding: 25px 20px 15px;
   width: 100%;
   display: flex;
   flex-direction: column;
+  @media (min-width: 1090px) {
+    padding: 50px 30px 20px 30px;
+  }
 }
 
 .order-modal__total {
@@ -49,8 +72,12 @@
 }
 
 .order-modal__list {
-  max-height: 454px;
+  max-height: 331px;
   overflow: auto;
+  margin-bottom: 20px;
+  @media (min-width: 1090px) {
+    max-height: 514px;
+  }
 }
 
 .order-modal__item {
@@ -61,10 +88,24 @@
 }
 
 .order-thanks__content {
-  padding: 50px;
-  min-height: 400px;
+  padding: 78px 20px 50px;
   display: flex;
   align-items: center;
   justify-content: center;
-  text-align: center;
+  text-align: left;
+  @media (min-width: 720px) {
+    padding: 50px;
+    min-height: 400px;
+    text-align: center;
+  }
+}
+
+.order-thanks__bg {
+  bottom: 0;
+  left: 0;
+  max-width: 190px;
+  width: 100%;
+  @media (min-width: 720px) {
+    max-width: 250px;
+  }
 }

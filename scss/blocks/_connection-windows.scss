@@ -1,34 +1,49 @@
 .connection-modal {
-  max-width: 700px;
+  max-width: 420px;
+  @media (min-width: 720px) {
+    max-width: 700px;
+  }
 }
 
 .connection-modal__content {
   position: relative;
-  padding: 50px;
+  padding: 25px 20px 16px;
   width: 100%;
+  @media (min-width: 720px) {
+    padding: 50px;
+  }
 }
 
 .connection-modal__bg {
   bottom: 0;
   right: 0;
+  max-width: 190px;
+  @media (min-width: 720px) {
+    max-width: 250px;
+  }
 }
 
 .connection-modal__img {
-  max-height: 380px;
   height: auto;
-  width: auto;
-  max-width: 250px;
+  width: 100%;
 }
 
 .connection-thanks {
   position: relative;
-  max-width: 700px;
-  min-height: 400px;
+  max-width: 420px;
+  min-height: 450px;
+  @media (min-width: 720px) {
+    max-width: 700px;
+    min-height: 400px;
+  }
 }
 
 .connection-thanks__content {
-  padding: 50px;
-  min-height: 400px;
-  display: flex;
-  align-items: center;
+  padding: 78px 20px 50px;
+  @media (min-width: 720px) {
+    padding: 50px;
+    min-height: 400px;
+    display: flex;
+    align-items: center;
+  }
 }

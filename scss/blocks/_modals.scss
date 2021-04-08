@@ -6,6 +6,7 @@
   width: 100%;
   height: 100vh;
   z-index: 1000;
+  overflow-y: auto;
 }
 
 .bg-modals {
@@ -13,14 +14,19 @@
   height: 100%;
   background: $bgForModals;
   display: flex;
-  align-items: center;
+  align-items: flex-start;
   justify-content: center;
+  padding: $flank;
+  @media (min-width: 720px) {
+    padding: 0;
+  }
 }
 
 .modal {
   display: none;
   overflow: hidden;
   width: 100%;
+  margin-top: 100px;
   border-radius: 20px;
   background: $white;
 }
@@ -31,22 +37,32 @@
 
 .modal__text {
   position: relative;
-  width: 450px;
-  margin-bottom: 30px;
+  max-width: 450px;
+  width: 100%;
+  margin-bottom: 20px;
   z-index: 10;
+  @media (min-width: 720px) {
+    margin-bottom: 30px;
+  }
 }
 
 .modal__title {
   font-weight: 600;
-  font-size: 36px;
+  font-size: 24px;
   line-height: 95.2%;
   margin-bottom: 10px;
+  @media (min-width: 720px) {
+    font-size: 36px;
+  }
 }
 
 .modal__desc {
   font-weight: 300;
-  font-size: 18px;
+  font-size: 14px;
   line-height: 110%;
+  @media (min-width: 720px) {
+    font-size: 18px;
+  }
 }
 
 .modal-form {
@@ -67,6 +83,10 @@
 
 .modal__bg {
   position: absolute;
+  display: none;
+  @media (min-width: 720px) {
+    display: block;
+  }
 }
 
 .modal__link {
@@ -77,6 +97,14 @@
 
 .modal-thanks__text {
   position: relative;
-  width: 450px;
+  max-width: 450px;
+  width: 100%;
   z-index: 10;
+}
+
+.modal-thanks__bg {
+  display: block;
+  @media (min-width: 720px) {
+    display: block;
+  }
 }
