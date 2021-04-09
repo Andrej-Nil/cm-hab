@@ -175,6 +175,10 @@ body {
   background: #e5e5e5;
 }
 
+.no-scroll {
+  overflow-y: hidden;
+}
+
 h1,
 h2,
 h3,
@@ -5783,9 +5787,22 @@ ul {
   background: #4a525f;
   padding: 55px 0 45px;
   z-index: 1000;
+  -webkit-transition: 0.2s ease-in-out;
+  transition: 0.2s ease-in-out;
+}
+
+@media (min-width: 1090px) {
+  .mobile-menu {
+    display: none;
+  }
 }
 
 .mobile-menu--is-open {
+  width: 100%;
+}
+
+.mobile-menu__list {
+  min-width: 320px;
   width: 100%;
 }
 
@@ -5846,7 +5863,7 @@ ul {
   background: #f0f1f3;
 }
 
-.modals {
+.modals-wrap {
   display: none;
   position: fixed;
   top: 0;
@@ -5857,9 +5874,13 @@ ul {
   overflow-y: auto;
 }
 
+.modals--is-show {
+  display: block;
+}
+
 .bg-modals {
   width: 100%;
-  height: 100%;
+  min-height: 100%;
   background: rgba(0, 0, 0, 0.5);
   display: -webkit-box;
   display: -ms-flexbox;
@@ -5870,20 +5891,13 @@ ul {
   -webkit-box-pack: center;
       -ms-flex-pack: center;
           justify-content: center;
-  padding: 0 15px;
-}
-
-@media (min-width: 720px) {
-  .bg-modals {
-    padding: 0;
-  }
+  padding: 100px 15px;
 }
 
 .modal {
   display: none;
   overflow: hidden;
   width: 100%;
-  margin-top: 100px;
   border-radius: 20px;
   background: #ffffff;
 }
@@ -6011,7 +6025,7 @@ ul {
 
 @media (min-width: 720px) {
   .connection-modal__bg {
-    max-width: 250px;
+    max-width: 200px;
   }
 }
 
