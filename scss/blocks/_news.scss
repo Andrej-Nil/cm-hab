@@ -1,11 +1,17 @@
 .news-list {
   display: flex;
-  justify-content: space-between;
+  flex-direction: column;
+  @media (min-width: 545px) {
+    flex-direction: row;
+    justify-content: space-between;
+  }
 }
 
 .news-col {
-  margin-right: 10px;
-  &:last-child {
-    margin-right: 0;
+  @media (min-width: 545px) {
+    margin-right: 10px;
+    &:last-child {
+      margin-right: 0;
+    }
   }
 }

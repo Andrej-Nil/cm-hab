@@ -17,7 +17,11 @@
 
 .news-card__preview {
   overflow: hidden;
-  height: 300px;
+  max-height: 300px;
+  margin-bottom: 30px;
+  @media (min-width: 1500px) {
+    margin-bottom: 21px;
+  }
 }
 
 .news-card__img {
@@ -27,11 +31,19 @@
 }
 
 .news-card__desc {
-  padding: 21px 32px;
+  padding: 0 15px 35px;
+  @media (min-width: 1500px) {
+    padding: 0 32px 21px;
+  }
 }
 
 .news-card__title {
-  font-weight: 500;
-  font-size: 24px;
+  font-weight: 600;
+  font-size: 18px;
   line-height: 95.2%;
+  @media (min-width: 1500px) {
+    font-weight: 500;
+    font-size: 24px;
+    line-height: 110%;
+  }
 }
