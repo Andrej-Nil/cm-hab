@@ -129,9 +129,14 @@
 
 // up-btn
 .up {
+  display: none;
   position: fixed;
   right: 114px;
   bottom: 100px;
+}
+
+.up--is-show {
+  display: block;
 }
 
 .up-btn {

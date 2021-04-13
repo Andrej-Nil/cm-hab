@@ -5,9 +5,9 @@
 }
 
 .category {
-  &:hover .subcategories {
-    height: auto;
-  }
+  //&:hover .subcategories {
+  //  height: auto;
+  //}
   &:hover .category__btn {
     opacity: 1;
   }
@@ -25,14 +25,18 @@
   top: 50%;
   right: -10px;
   transform: translate(0, -50%);
-  transition: 0.2s ease-in-out;
+  user-select: none;
 }
-
 .category__arrow {
   width: 14px;
   height: auto;
   transform: rotate(-180deg);
+  transition: 0.2s ease-in-out;
   cursor: pointer;
+}
+
+.category__arrow--is-up {
+  transform: rotate(0);
 }
 
 .category__link {
@@ -51,6 +55,7 @@
 .subcategories {
   overflow: hidden;
   height: 0;
+  transition: 0.2s ease-in-out;
 }
 
 .subcategories__list {
