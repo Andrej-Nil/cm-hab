@@ -282,6 +282,10 @@ ul {
   }
 }
 
+.nowrap {
+  white-space: nowrap;
+}
+
 .yellow-btn {
   position: relative;
   display: inline-block;
@@ -5080,7 +5084,13 @@ ul {
 }
 
 .contacts__list {
-  padding: 43px 0 23px 58px;
+  padding: 28px 16px 25px;
+}
+
+@media (min-width: 1090px) {
+  .contacts__list {
+    padding: 43px 0 23px 58px;
+  }
 }
 
 .contants__item {
@@ -5095,18 +5105,59 @@ ul {
 
 .contants__title {
   font-weight: 500;
-  font-size: 24px;
+  font-size: 18px;
   line-height: 130%;
+}
+
+@media (min-width: 1090px) {
+  .contants__title {
+    font-size: 24px;
+  }
 }
 
 .contants__text {
-  font-size: 24px;
+  font-size: 18px;
   line-height: 130%;
 }
 
-.contacts__img {
+@media (min-width: 1090px) {
+  .contants__text {
+    font-size: 24px;
+  }
+}
+
+.contacts__map {
+  position: relative;
   width: 100%;
-  height: auto;
+  height: 274px;
+}
+
+@media (min-width: 700px) {
+  .contacts__map {
+    right: 0;
+    height: 400px;
+  }
+}
+
+.contacts__img {
+  position: absolute;
+  right: -50px;
+  top: 0;
+  width: auto;
+  height: 274px;
+}
+
+@media (min-width: 700px) {
+  .contacts__img {
+    right: 0;
+    height: 400px;
+  }
+}
+
+@media (min-width: 1500px) {
+  .contacts__img {
+    width: 100%;
+  }
 }
 
 .branches {

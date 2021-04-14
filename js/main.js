@@ -288,3 +288,19 @@ function toggleSwitch() {
   }
 }
 
+//map
+let map;
+let marker;
+function initMap() {
+  map = new ymaps.Map("map", {
+    center: [56.836101, 60.614578],
+    zoom: 16
+  });
+  marker = new ymaps.Placemark([56.836101, 60.614578], {
+    hintContent: 'Расположение',
+    balloonContent: 'Это наша организация'
+  });
+  map.geoObjects.add(marker);
+}
+ymaps.ready(initMap);
+
