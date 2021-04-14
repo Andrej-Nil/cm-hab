@@ -2,10 +2,10 @@
   display: flex;
   flex-wrap: wrap;
   padding-right: 30px;
-  padding: 10px 0 20px;
+  padding: 10px 10px 20px 0;
   border-bottom: 1px solid $milky;
   @media (min-width: 1090px) {
-    padding: 9px 0 10px;
+    padding: 9px 20px 10px 0;
   }
   @media (min-width: 1500px) {
     display: flex;
@@ -65,7 +65,7 @@
 .basket-card__counter {
   order: 2;
   margin: 0 10px 0 0;
-  @media (min-width: 520px) {
+  @media (min-width: 576px) {
     margin: 0 10px 0 auto;
   }
   @media (min-width: 1500px) {
@@ -80,7 +80,7 @@
   margin: 0 0 15px 0;
   width: 100%;
   order: 1;
-  @media (min-width: 520px) {
+  @media (min-width: 576px) {
     width: 195px;
     margin: 0 0 0 0;
   }
@@ -93,7 +93,7 @@
 
 .basket-card__discount {
   margin-right: 17px;
-  @media (min-width: 520px) {
+  @media (min-width: 576px) {
     margin-right: 10px;
   }
   @media (min-width: 1500px) {
@@ -109,6 +109,10 @@
 .basket-card__btns {
   order: 3;
   display: flex;
+  margin-left: auto;
+  @media (min-width: 576px) {
+    margin-left: 0;
+  }
 }
 .basket-card__btn {
   width: 40px;

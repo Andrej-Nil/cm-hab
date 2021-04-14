@@ -47,6 +47,7 @@
   margin-bottom: 30px;
   height: 764px;
   overflow-y: auto;
+
   @media (min-width: 1090px) {
     height: 650px;
   }
@@ -88,7 +89,6 @@
 
 .basket-buy {
   width: 100%;
-  //text-align: right;
 }
 
 .basket-buy__btn {

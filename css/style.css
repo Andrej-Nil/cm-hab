@@ -912,6 +912,26 @@ ul {
   background: #fbc000;
 }
 
+.scroll-bar::-webkit-scrollbar {
+  width: 8px;
+}
+
+.scroll-bar::-webkit-scrollbar-track {
+  background-color: #f0f1f3;
+  border-radius: 20px;
+}
+
+.scroll-bar::-webkit-scrollbar-thumb {
+  background-color: #f0f1f3;
+  border-radius: 20px;
+  border: 1px solid #cccccc;
+}
+
+.scroll-bar {
+  scrollbar-width: thin;
+  scrollbar-color: #cccccc #f0f1f3;
+}
+
 .view-list {
   display: -webkit-box;
   display: -ms-flexbox;
@@ -5323,13 +5343,13 @@ ul {
   -ms-flex-wrap: wrap;
       flex-wrap: wrap;
   padding-right: 30px;
-  padding: 10px 0 20px;
+  padding: 10px 10px 20px 0;
   border-bottom: 1px solid #f0f1f3;
 }
 
 @media (min-width: 1090px) {
   .basket-card {
-    padding: 9px 0 10px;
+    padding: 9px 20px 10px 0;
   }
 }
 
@@ -5413,7 +5433,7 @@ ul {
   margin: 0 10px 0 0;
 }
 
-@media (min-width: 520px) {
+@media (min-width: 576px) {
   .basket-card__counter {
     margin: 0 10px 0 auto;
   }
@@ -5442,7 +5462,7 @@ ul {
           order: 1;
 }
 
-@media (min-width: 520px) {
+@media (min-width: 576px) {
   .basket-card__price {
     width: 195px;
     margin: 0 0 0 0;
@@ -5462,7 +5482,7 @@ ul {
   margin-right: 17px;
 }
 
-@media (min-width: 520px) {
+@media (min-width: 576px) {
   .basket-card__discount {
     margin-right: 10px;
   }
@@ -5487,6 +5507,13 @@ ul {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
+  margin-left: auto;
+}
+
+@media (min-width: 576px) {
+  .basket-card__btns {
+    margin-left: 0;
+  }
 }
 
 .basket-card__btn {

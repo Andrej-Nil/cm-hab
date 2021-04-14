@@ -32,38 +32,6 @@ if (switchToggle) {
   switchToggle.addEventListener('click', toggleSwitch);
 }
 
-function toggleSwitch() {
-  const left = switchToggle.classList.contains('switch__toggle--is-left');
-  const right = switchToggle.classList.contains('switch__toggle--is-right');
-  if (!left) {
-    switchToggle.classList.remove('switch__toggle--is-right');
-    switchToggle.classList.add('switch__toggle--is-left');
-    switchSection('left')
-    return;
-  }
-  if (!right) {
-    switchToggle.classList.remove('switch__toggle--is-left');
-    switchToggle.classList.add('switch__toggle--is-right');
-    switchSection('right')
-    return;
-  }
-
-  function switchSection(section) {
-    const switchLeft = document.querySelector('#switchLeft');
-    const switchRight = document.querySelector('#switchRight');
-
-    if (section === 'left') {
-      switchLeft.style.display = 'block';
-      switchRight.style.display = 'none';
-    }
-    if (section === 'right') {
-
-      switchRight.style.display = 'block';
-      switchLeft.style.display = 'none';
-    }
-  }
-}
-
 if (mainSlider) {
   slider(mainSlider);
 }
@@ -286,5 +254,37 @@ function rotateArrowDropdownsBtn(btn) {
 function findChildren(el, domClass) {
   const children = el.querySelector(domClass);
   return children;
+}
+
+function toggleSwitch() {
+  const left = switchToggle.classList.contains('switch__toggle--is-left');
+  const right = switchToggle.classList.contains('switch__toggle--is-right');
+  if (!left) {
+    switchToggle.classList.remove('switch__toggle--is-right');
+    switchToggle.classList.add('switch__toggle--is-left');
+    switchSection('left')
+    return;
+  }
+  if (!right) {
+    switchToggle.classList.remove('switch__toggle--is-left');
+    switchToggle.classList.add('switch__toggle--is-right');
+    switchSection('right')
+    return;
+  }
+
+  function switchSection(section) {
+    const switchLeft = document.querySelector('#switchLeft');
+    const switchRight = document.querySelector('#switchRight');
+
+    if (section === 'left') {
+      switchLeft.style.display = 'block';
+      switchRight.style.display = 'none';
+    }
+    if (section === 'right') {
+
+      switchRight.style.display = 'block';
+      switchLeft.style.display = 'none';
+    }
+  }
 }
 
