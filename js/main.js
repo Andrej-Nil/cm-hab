@@ -1,29 +1,176 @@
 'use strict';
 const body = document.querySelector('body');
-const app = document.querySelector('#app');
+
 
 //modal
-const modalsWrap = app.querySelector('#modalsWrap');
-const feetbackBtn = app.querySelector('#feetbackBtn');
-const fastOrdenBtns = app.querySelectorAll('.js-fast-order');
-const feetbackModal = app.querySelector('#feetback');
-const fastOrderModal = app.querySelector('#fastOrder');
-const modalCloseBtns = app.querySelectorAll('.js-close-modal');
-const ordenBtn = app.querySelector('#orderBtn');
-const ordenModal = app.querySelector('#order');
+const modalsWrap = document.querySelector('#modalsWrap');
+const feetbackBtn = document.querySelector('#feetbackBtn');
+const fastOrdenBtns = document.querySelectorAll('.js-fast-order');
+const feetbackModal = document.querySelector('#feetback');
+const fastOrderModal = document.querySelector('#fastOrder');
+const modalCloseBtns = document.querySelectorAll('.js-close-modal');
+const ordenBtn = document.querySelector('#orderBtn');
+const ordenModal = document.querySelector('#order');
 
 //mobileMenu
-const mobileMenuBtn = app.querySelector('#menuBtn');
-const mobileMenu = app.querySelector('#mobileMenu');
-const mobileMenuCloseBtn = app.querySelector('#mobileMenuClose');
+const mobileMenuBtn = document.querySelector('#menuBtn');
+const mobileMenu = document.querySelector('#mobileMenu');
+const mobileMenuCloseBtn = document.querySelector('#mobileMenuClose');
 
 
-const upwardBtn = app.querySelector('#upwardBtn');
-const upBtn = app.querySelector('#up');
+const upwardBtn = document.querySelector('#upwardBtn');
+const upBtn = document.querySelector('#up');
 
-const dropdownsBtn = app.querySelectorAll('.js-dropdown-btn');
+const dropdownsBtn = document.querySelectorAll('.js-dropdown-btn');
 
-let timeOut;
+
+const mainSlider = document.querySelector('#mainSlider');
+
+const switchToggle = document.querySelector('#switchToggle');
+
+if (switchToggle) {
+  switchToggle.addEventListener('click', toggleSwitch);
+}
+
+function toggleSwitch() {
+  const left = switchToggle.classList.contains('switch__toggle--is-left');
+  const right = switchToggle.classList.contains('switch__toggle--is-right');
+  if (!left) {
+    switchToggle.classList.remove('switch__toggle--is-right');
+    switchToggle.classList.add('switch__toggle--is-left');
+    switchSection('left')
+    return;
+  }
+  if (!right) {
+    switchToggle.classList.remove('switch__toggle--is-left');
+    switchToggle.classList.add('switch__toggle--is-right');
+    switchSection('right')
+    return;
+  }
+
+  function switchSection(section) {
+    const switchLeft = document.querySelector('#switchLeft');
+    const switchRight = document.querySelector('#switchRight');
+
+    if (section === 'left') {
+      switchLeft.style.display = 'block';
+      switchRight.style.display = 'none';
+    }
+    if (section === 'right') {
+
+      switchRight.style.display = 'block';
+      switchLeft.style.display = 'none';
+    }
+  }
+}
+
+if (mainSlider) {
+  slider(mainSlider);
+}
+
+
+function slider(el) {
+  const slideList = el.querySelector('.slides');
+  const slides = el.querySelectorAll('.slide');
+  let newSlidesArrey = slides
+  const arrowNext = el.querySelector('.next');
+  const arrowPrev = el.querySelector('.prev');
+
+  const sensitivity = 30;
+  let touchStart = null;
+  let touchPosition = null;
+
+  let isMove = false;
+  const speed = 200;
+  //const intervalTime = 0;
+  if (slides.length == 1) {
+    return;
+  }
+  arrowNext.addEventListener('click', next);
+  arrowPrev.addEventListener('click', prev);
+  //Начало движения
+  el.addEventListener('touchstart', function (e) { startTouchMove(e) });
+  el.addEventListener('touchmove', function (e) { touchMove(e) });
+  el.addEventListener('touchend', function () { touchEnd(next, prev) });
+
+  // управление стрелками
+  function next() {
+    if (isMove) {
+      return
+    }
+    isMove = true;
+    const slideWidth = slides[0].offsetWidth;
+    //clearInterval(interval);
+
+    slideList.style.cssText = `transition: ${speed}ms ease;`;
+    slideList.style.transform = `translate(-${slideWidth}px, 0)`;
+
+    setTimeout(() => {
+      slideList.style.cssText = 'transition: none;';
+      slideList.style.transform = `translate(0, 0)`;
+      newSlidesArrey[newSlidesArrey.length - 1].after(newSlidesArrey[0]);
+      newSlidesArrey = el.querySelectorAll('.slide');
+      isMove = false;
+      //interval = setInterval(next, intervalTime);
+    }, speed);
+  }
+
+  function prev() {
+    if (isMove) {
+      return
+    }
+    const slideWidth = slides[0].offsetWidth;
+    //isMove = true;
+    //clearInterval(interval);
+    newSlidesArrey[0].before(newSlidesArrey[newSlidesArrey.length - 1]);
+    slideList.style.transform = `translate(-${slideWidth}px, 0)`;
+
+    //slideList.style.cssText = `transition: ${speed}ms ease;`;
+    //slideList.style.transform = `translate(0, 0)`;
+    //setTimeout(() => {
+
+
+    //}, speed);
+
+    //setTimeout(() => {
+    //  slideList.style.cssText = 'transition: none;';
+    //  slideList.style.transform = `translate(0, 0)`;
+    //isMove = false;
+    //interval = setInterval(next, intervalTime);
+    //}, speed + 1);
+
+    newSlidesArrey = el.querySelectorAll('.slide');
+  }
+
+  //let interval = setInterval(next, intervalTime);
+
+  function startTouchMove(e) {
+    touchStart = e.changedTouches[0].clientX;
+    touchPosition = touchStart;
+  }
+
+  //Отслеживает джижение
+  function touchMove(e) {
+    touchPosition = e.changedTouches[0].clientX;
+  }
+
+  // Конец движения
+  function touchEnd(next, prev) {
+    let distance = touchStart - touchPosition;
+    if (distance > 0 && distance >= sensitivity) {
+      next();
+    }
+    if (distance < 0 && distance * -1 >= sensitivity) {
+      prev();
+    }
+  }
+
+  function test() {
+    slideList.style.cssText = `transition: ${speed}ms ease;`;
+  }
+}
+
+
 
 if (mobileMenuBtn) {
   mobileMenuBtn.addEventListener('click', mobileMenuOpen);
@@ -43,7 +190,6 @@ if (feetbackModal && modalsWrap) {
 if (fastOrderModal && modalsWrap) {
   Array.from(modalCloseBtns).forEach((btn) => {
     btn.addEventListener('click', () => modalClose(btn));
-
   });
 }
 
@@ -62,9 +208,8 @@ if (ordenModal && modalsWrap) {
     btn.addEventListener('click', () => modalClose(btn));
   });
 }
-
-
 // modals end
+
 
 if (upwardBtn) {
   upwardBtn.addEventListener('click', goTop);
