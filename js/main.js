@@ -1,7 +1,6 @@
 'use strict';
 const body = document.querySelector('body');
 
-
 //modal
 const modalsWrap = document.querySelector('#modalsWrap');
 const feetbackBtn = document.querySelector('#feetbackBtn');
@@ -16,17 +15,32 @@ const ordenModal = document.querySelector('#order');
 const mobileMenuBtn = document.querySelector('#menuBtn');
 const mobileMenu = document.querySelector('#mobileMenu');
 const mobileMenuCloseBtn = document.querySelector('#mobileMenuClose');
-
+const elementLinks = document.querySelectorAll('.js-element-link');
 
 const upwardBtn = document.querySelector('#upwardBtn');
 const upBtn = document.querySelector('#up');
 
 const dropdownsBtn = document.querySelectorAll('.js-dropdown-btn');
 
-
 const mainSlider = document.querySelector('#mainSlider');
 
 const switchToggle = document.querySelector('#switchToggle');
+const map = document.querySelector('#map');
+let yandexMap;
+let marker;
+
+
+if (elementLinks.length) {
+  Array.from(elementLinks).forEach((link) => {
+    link.addEventListener('click', () => showIElement(link));
+  });
+}
+
+
+
+if (map) {
+  ymaps.ready(initMap);
+}
 
 if (switchToggle) {
   switchToggle.addEventListener('click', toggleSwitch);
@@ -35,6 +49,7 @@ if (switchToggle) {
 if (mainSlider) {
   slider(mainSlider);
 }
+
 
 
 function slider(el) {
@@ -138,8 +153,6 @@ function slider(el) {
   }
 }
 
-
-
 if (mobileMenuBtn) {
   mobileMenuBtn.addEventListener('click', mobileMenuOpen);
 }
@@ -161,7 +174,7 @@ if (fastOrderModal && modalsWrap) {
   });
 }
 
-if (fastOrdenBtns) {
+if (fastOrdenBtns.length) {
   Array.from(fastOrdenBtns).forEach((btn) => {
     btn.addEventListener('click', () => modalOpen(fastOrderModal));
   });
@@ -184,14 +197,12 @@ if (upwardBtn) {
   window.addEventListener('scroll', showUpBtn);
 }
 
-
 if (dropdownsBtn) {
   Array.from(dropdownsBtn).forEach((btn) => {
     btn.addEventListener('click', () => dropdownOpen(btn));
     btn.addEventListener('click', () => rotateArrowDropdownsBtn(btn));
   });
 }
-
 
 //Функции
 function modalOpen(modal) {
@@ -214,7 +225,6 @@ function mobileMenuOpen() {
 function mobileMenuClose() {
   mobileMenu.classList.remove('mobile-menu--is-open');
 }
-
 
 function goTop() {
   let top = Math.max(document.body.scrollTop, document.documentElement.scrollTop);
@@ -288,11 +298,29 @@ function toggleSwitch() {
   }
 }
 
+function showIElement(elementLink) {
+  const elements = document.querySelectorAll('.js-element');
+  const idElement = elementLink.dataset.type;
+
+  Array.from(elementLinks).forEach((el) => {
+    el.classList.remove('product-info__item--is-active')
+  });
+
+  elementLink.classList.add('product-info__item--is-active');
+
+  Array.from(elements).forEach((el) => {
+    const elId = el.getAttribute('id');
+    el.classList.remove('product-info__text--is-active')
+    if (elId == idElement) {
+      el.classList.add('product-info__text--is-active')
+    }
+  });
+}
+
+
 //map
-let map;
-let marker;
 function initMap() {
-  map = new ymaps.Map("map", {
+  yandexMap = new ymaps.Map("map", {
     center: [56.836101, 60.614578],
     zoom: 16
   });
@@ -300,7 +328,7 @@ function initMap() {
     hintContent: 'Расположение',
     balloonContent: 'Это наша организация'
   });
-  map.geoObjects.add(marker);
+  yandexMap.geoObjects.add(marker);
 }
-ymaps.ready(initMap);
+
 

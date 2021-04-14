@@ -4724,10 +4724,13 @@ ul {
   background: #ffc91c;
 }
 
+.product-info__desc {
+  min-height: 280px;
+}
+
 .product-info__text {
   display: none;
   padding: 16px 10px 20px;
-  min-height: 280px;
   font-size: 16px;
   line-height: 130%;
 }
