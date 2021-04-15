@@ -6,7 +6,6 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="stylesheet" href="./css/style.min.css">
-  <script src="https://api-maps.yandex.ru/2.1/?apikey=ваш API-ключ&lang=ru_RU" type="text/javascript">
   </script>
   <title>Главная</title>
 </head>
@@ -143,9 +142,9 @@
       <div class="left">
         <!-- main-slider -->
         <div id='mainSlider' class="main-slider slider">
-          <div class="slides">
+          <div id='sliderWrap' class="slides">
             <!-- slide -->
-            <div class="slide">
+            <div data-slide='0' class="slide js-slide">
               <a href="#!" class="main-slide__link">
                 <div class="main-slide">
                   <img class="main-slide__img" src="./img/image/main-slide-img-1.png" alt="">
@@ -170,7 +169,7 @@
             <!-- slide -->
 
             <!-- slide -->
-            <div class="slide">
+            <div data-slide='1' class="slide js-slide">
               <a href="#!" class="main-slide__link">
                 <div class="main-slide">
                   <img class="main-slide__img" src="./img/image/main-slide-img-1.png" alt="">
@@ -195,7 +194,7 @@
             <!-- slide -->
 
             <!-- slide -->
-            <div class="slide">
+            <div data-slide='3' class="slide js-slide">
               <a href="#!" class="main-slide__link">
                 <div class="main-slide">
                   <img class="main-slide__img" src="./img/image/main-slide-img-1.png" alt="">
@@ -220,7 +219,7 @@
             <!-- slide -->
 
             <!-- slide -->
-            <div class="slide">
+            <div data-slide='4' class="slide js-slide">
               <a href="#!" class="main-slide__link">
                 <div class="main-slide">
                   <img class="main-slide__img" src="./img/image/main-slide-img-1.png" alt="">
@@ -245,7 +244,7 @@
             <!-- slide -->
 
             <!-- slide -->
-            <div class="slide">
+            <div data-slide='5' class="slide js-slide">
               <a href="#!" class="main-slide__link">
                 <div class="main-slide">
                   <img class="main-slide__img" src="./img/image/main-slide-img-1.png" alt="">
@@ -270,7 +269,7 @@
             <!-- slide -->
 
             <!-- slide -->
-            <div class="slide">
+            <div data-slide='6' class="slide js-slide">
               <a href="#!" class="main-slide__link">
                 <div class="main-slide">
                   <img class="main-slide__img" src="./img/image/main-slide-img-1.png" alt="">
@@ -297,15 +296,13 @@
 
           </div>
 
-          <div class="main-slider__control main-slider__control--prev prev">
+          <div id='prevSlideBtn' class="main-slider__control main-slider__control--prev">
             <img class="main-slider__arrow" src="./img/controls/slider-arrow-prev.svg" alt="">
           </div>
 
-          <div class="main-slider__control main-slider__control--next next">
+          <div id='nextSlideBtn' class="main-slider__control main-slider__control--next">
             <img class="main-slider__arrow" src="./img/controls/slider-arrow-next.svg" alt="">
           </div>
-
-
         </div>
         <!-- main-slider -->
 

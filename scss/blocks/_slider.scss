@@ -5,7 +5,10 @@
 
 .slides {
   display: flex;
-  //overflow: hidden;
+}
+
+.slides--is-move {
+  transition: 0.2s ease-in-out;
 }
 
 .slide {
