@@ -26,8 +26,11 @@ const mainSlider = document.querySelector('#mainSlider');
 
 const switchToggle = document.querySelector('#switchToggle');
 const map = document.querySelector('#map');
+const productCarusel = document.querySelector('#productCarusel');
 let yandexMap;
 let marker;
+
+
 
 
 if (elementLinks.length) {
@@ -36,7 +39,118 @@ if (elementLinks.length) {
   });
 }
 
+if (productCarusel) {
+  carusel(productCarusel);
+}
 
+function carusel(el) {
+  const slideWrap = el.querySelector('#caruselSlidesWrap');
+  const slideTreck = el.querySelector('#caruselSlides');
+  const slides = el.querySelectorAll('.js-carusel-slide');
+  const slidesLenght = slides.length;
+  const prevArrow = el.querySelector('#caruselArrowPrev');
+  const nextArrow = el.querySelector('#caruselArrowNext');
+  const dotList = el.querySelectorAll('.js-carusel-dote');
+  const caruselDotsWrap = el.querySelector('#caruselDots');
+  const caruselDotsTreck = el.querySelector('#caruselDotsTreck');
+  const caruselDotsSlides = el.querySelectorAll('.js-carusel-dote-slide');
+
+  let i = 0;
+  let isMove = false;
+
+  window.addEventListener('resize', treckShift, false);
+
+  // управление стрелками
+  if (nextArrow) {
+    nextArrow.addEventListener('click', next);
+  }
+
+  if (prevArrow) {
+    prevArrow.addEventListener('click', prev);
+  }
+
+  // управление стрелками
+  if (dotList.length) {
+    Array.from(dotList).forEach((el, idx) => {
+      el.addEventListener('click', () => {
+        dotNavigation(idx)
+      })
+    })
+  }
+
+  if (caruselDotsWrap) {
+    Array.from(caruselDotsSlides).forEach((dot, idx) => {
+      dot.addEventListener('click', () => {
+        dotNavigation(idx);
+      })
+    });
+  }
+
+  // функции управление стрелками
+  function next() {
+    if (i == slidesLenght - 1) {
+      return;
+    }
+    i++;
+    treckShift();
+    setActiveDot(dotList, 'dot--is-active');
+    treckDotsShift();
+    setActiveDot(caruselDotsSlides, 'pic-dots__item--is-active');
+
+  }
+
+  function prev() {
+    if (i == 0) {
+      return;
+    }
+    i--;
+    treckShift();
+    setActiveDot(dotList, 'dot--is-active');
+    treckDotsShift();
+    setActiveDot(caruselDotsSlides, 'pic-dots__item--is-active');
+  }
+  // функции управление точками
+  function dotNavigation(idx) {
+    i = idx;
+    treckShift();
+    setActiveDot(dotList, 'dot--is-active');
+    treckDotsShift();
+    setActiveDot(caruselDotsSlides, 'pic-dots__item--is-active');
+  }
+
+  //прочии функции
+  function treckShift() {
+    const step = slideWrap.offsetWidth;
+    const slideTreckShift = i * step;
+    slideTreck.style.transform = `translate(-${slideTreckShift}px, 0)`;
+  }
+
+  function treckDotsShift() {
+    let countDot = i - 1;
+
+    if (countDot < 0) {
+      countDot = 0;
+    }
+    if (i >= caruselDotsSlides.length - 1) {
+      countDot = caruselDotsSlides.length - 3
+    }
+
+    const dotHeight = caruselDotsSlides[0].offsetHeight;
+    const dotMarginBottom = parseInt(getComputedStyle(caruselDotsSlides[0], true).marginBottom);
+    const step = dotHeight + dotMarginBottom;
+    const dotsTreckShift = countDot * step;
+    caruselDotsTreck.style.transform = `translate(0, -${dotsTreckShift}px)`;
+  }
+
+  function setActiveDot(dots, cls) {
+    Array.from(dots).forEach((dot, idx) => {
+      dot.classList.remove(cls);
+      if (idx == i) {
+        dot.classList.add(cls);
+      }
+    });
+  }
+}
 
 if (map) {
   ymaps.ready(initMap);
