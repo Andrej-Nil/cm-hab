@@ -133,10 +133,14 @@
   position: fixed;
   right: 114px;
   bottom: 100px;
+  z-index: 10000;
 }
 
 .up--is-show {
-  display: block;
+  display: none;
+  @media (min-width: 1090px) {
+    display: block;
+  }
 }
 
 .up-btn {

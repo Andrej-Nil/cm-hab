@@ -21,9 +21,12 @@ const upwardBtn = document.querySelector('#upwardBtn');
 const upBtn = document.querySelector('#up');
 
 const dropdownsBtn = document.querySelectorAll('.js-dropdown-btn');
-
+//Карусели
 const mainSlider = document.querySelector('#mainSlider');
 const productCarusel = document.querySelector('#productCarusel');
+const popularGoods = document.querySelector('#popularGoods');
+const sectionSlider = document.querySelector('#sectionSlider');
+const newsSlider = document.querySelector('#newsSlider');
 
 const switchToggle = document.querySelector('#switchToggle');
 
@@ -43,12 +46,6 @@ if (elementLinks.length) {
   });
 }
 
-if (productCarusel) {
-  carusel(productCarusel);
-}
-
-
-
 if (map) {
   ymaps.ready(initMap);
 }
@@ -57,27 +54,59 @@ if (switchToggle) {
   switchToggle.addEventListener('click', toggleSwitch);
 }
 
+//карусели
+
 if (mainSlider) {
   slider(mainSlider, true);
 }
 
+if (popularGoods) {
+  slider(popularGoods, false);
+}
+
+
+if (newsSlider) {
+  slider(newsSlider, false);
+}
+if (sectionSlider) {
+  slider(sectionSlider);
+}
+if (productCarusel) {
+  carusel(productCarusel);
+}
+
+
+
+
 function slider(el, autoplay = false) {
-  const slideWrap = el.querySelector('#sliderWrap');
+  const slideWrap = el.querySelector('.js-slider-wrap');
   const slides = el.querySelectorAll('.js-slide');
   const numLastSlide = slides.length - 1;
-  const arrowNext = el.querySelector('#nextSlideBtn');
-  const arrowPrev = el.querySelector('#prevSlideBtn');
+  const arrowNext = el.querySelector('.js-next');
+  const arrowPrev = el.querySelector('.js-prev');
+  const dots = el.querySelectorAll('.js-dot');
+  let dataSlide = null;
+  let i = 0;
+  let newSlidesArr = null;
   let isMove = false;
-  const timeInterval = 8000;
-  let moveInterval = setInterval(next, timeInterval);
+  let moveInterval = null
+  const timeInterval = 8000
+  if (slides.length == 1) {
+    return;
+  }
+
+  //управление интервалом
+  intervalSwitch(autoplay, true, timeInterval);
 
   slideWrap.addEventListener('mouseover', () => {
-    clearInterval(moveInterval);
+    intervalSwitch(autoplay);
   });
   slideWrap.addEventListener('mouseout', () => {
-    moveInterval = setInterval(next, timeInterval);
+    intervalSwitch(autoplay, true, timeInterval);
   });
 
+
+  console.log(arrowNext)
   //управление стрелками
   if (arrowNext) {
     arrowNext.addEventListener('click', next);
@@ -92,62 +121,131 @@ function slider(el, autoplay = false) {
   slideWrap.addEventListener('touchmove', function (e) { touchMove(e) });
   slideWrap.addEventListener('touchend', function () { touchEnd(next, prev) });
 
-  if (!autoplay) {
-    clearInterval(moveInterval);
+  //управление точками
+  //if (dots.length) {
+  //  Array.from(dots).forEach((dot, idx) => {
+  //    dot.addEventListener('click', () => {
+  //      dotsNavigation(idx);
+  //    });
+  //  })
+  //}
+
+  function dotsNavigation(idx) {
+    newSlidesArr = el.querySelectorAll('.js-slide');
+    const numFirstSlide = +newSlidesArr[0].getAttribute('data-slide');
+    const numberOfSteps = numFirstSlide - idx * 1;
+    if (numFirstSlide === idx) {
+      return;
+    }
+    if (numFirstSlide < idx) {
+      movingForward(numberOfSteps);
+    }
+
+    if (numFirstSlide > idx) {
+      movingBackwards()
+      console.log(numFirstSlide, idx)
+    }
   }
+
+  function movingForward(num) {
+    const slideWidth = newSlidesArr[0].offsetWidth;
+    const numberOfSteps = Math.abs(num);
+    const step = numberOfSteps * slideWidth;
+
+    slideWrap.classList.add('slides--is-move');
+    slideWrap.style.transform = `translate(-${step}px, 0)`;
+    setTimeout(() => {
+      for (numberOfSteps; numberOfSteps == 1; numberOfSteps--) {
+        newSlidesArr = el.querySelectorAll('.js-slide');
+        newSlidesArr[numLastSlide].after(newSlidesArr[0]);
+      }
+    }, 200);
+
+  }
+
+  function movingBackwards() {
+    console.log('<---');
+  }
+
+  function setActiveDot(cls) {
+    Array.from(dots).forEach((dot, idx) => {
+      dot.classList.remove(cls)
+      if (i > dots.length - 1) {
+        i = 0
+      }
+      if (i < 0) {
+        i = dots.length - 1;
+      }
+      if (i == idx) {
+        dot.classList.add(cls)
+      }
+    })
+  }
+
 
   // функции управление стрелками
   function next() {
     if (isMove) {
       return;
     }
-    if (autoplay) {
-      clearInterval(moveInterval);
-    }
-
+    intervalSwitch(autoplay);
+    i++;
     isMove = true;
-    const step = slides[0].offsetWidth;
-    let newSlidesArr = el.querySelectorAll('.js-slide');
+    const step = slideWrap.offsetWidth;
+    newSlidesArr = el.querySelectorAll('.js-slide');
     slideWrap.style.transform = `translate(-${step}px, 0)`;
     slideWrap.classList.add('slides--is-move');
+    setActiveDot('dot--is-active');
     setTimeout(() => {
       slideWrap.style.transform = `translate(0, 0)`;
       slideWrap.classList.remove('slides--is-move');
       newSlidesArr[numLastSlide].after(newSlidesArr[0]);
       isMove = false;
-      if (autoplay) {
-        moveInterval = setInterval(next, timeInterval);
-      }
+      intervalSwitch(autoplay, true, timeInterval);
     }, 200);
   }
+
+
 
   function prev() {
     if (isMove) {
       return;
     }
-    if (autoplay) {
-      clearInterval(moveInterval);
-    }
+    intervalSwitch(autoplay);
+    i--;
     isMove = true;
-    const step = slides[0].offsetWidth;
+    const step = slideWrap.offsetWidth;
     slideWrap.classList.remove('slides--is-move');
-    let newSlidesArr = el.querySelectorAll('.js-slide');
+    newSlidesArr = el.querySelectorAll('.js-slide');
     newSlidesArr[0].before(newSlidesArr[numLastSlide]);
     slideWrap.style.transform = `translate(-${step}px, 0)`;
+    setActiveDot('dot--is-active');
     setTimeout(() => {
       slideWrap.classList.add('slides--is-move');
       slideWrap.style.transform = `translate(0, 0)`;
     }, 20);
     setTimeout(() => {
       isMove = false;
-      if (autoplay) {
-        moveInterval = setInterval(next, timeInterval);
-      }
+      intervalSwitch(autoplay, true, timeInterval);
     }, 220);
   }
 
-}
+  // функции управление точками
 
+
+  //прочие функции
+  function intervalSwitch(autoplay, toggle = false, timeInterval = 8000) {
+    if (!autoplay) {
+      return;
+    }
+    if (toggle) {
+      moveInterval = setInterval(next, timeInterval);
+    } else {
+      clearInterval(moveInterval);
+    }
+  }
+
+}
 
 if (mobileMenuBtn) {
   mobileMenuBtn.addEventListener('click', mobileMenuOpen);
@@ -204,20 +302,20 @@ if (dropdownsBtn) {
 //Слайдеры
 function carusel(el) {
   const slideWrap = el.querySelector('#caruselSlidesWrap');
-  const slideTreck = el.querySelector('#caruselSlides');
+  const slideTrack = el.querySelector('#caruselSlides');
   const slides = el.querySelectorAll('.js-carusel-slide');
   const slidesLenght = slides.length;
   const prevArrow = el.querySelector('#caruselArrowPrev');
   const nextArrow = el.querySelector('#caruselArrowNext');
   const dotList = el.querySelectorAll('.js-carusel-dote');
   const caruselDotsWrap = el.querySelector('#caruselDots');
-  const caruselDotsTreck = el.querySelector('#caruselDotsTreck');
+  const caruselDotsTrack = el.querySelector('#caruselDotsTrack');
   const caruselDotsSlides = el.querySelectorAll('.js-carusel-dote-slide');
 
   let i = 0;
   let isMove = false;
 
-  window.addEventListener('resize', treckShift, false);
+  window.addEventListener('resize', trackShift, false);
 
 
   // управление стрелками
@@ -257,9 +355,9 @@ function carusel(el) {
       return;
     }
     i++;
-    treckShift();
+    trackShift();
     setActiveDot(dotList, 'dot--is-active');
-    treckDotsShift();
+    trackDotsShift();
     setActiveDot(caruselDotsSlides, 'pic-dots__item--is-active');
 
   }
@@ -269,28 +367,28 @@ function carusel(el) {
       return;
     }
     i--;
-    treckShift();
+    trackShift();
     setActiveDot(dotList, 'dot--is-active');
-    treckDotsShift();
+    trackDotsShift();
     setActiveDot(caruselDotsSlides, 'pic-dots__item--is-active');
   }
   // функции управление точками
   function dotNavigation(idx) {
     i = idx;
-    treckShift();
+    trackShift();
     setActiveDot(dotList, 'dot--is-active');
-    treckDotsShift();
+    trackDotsShift();
     setActiveDot(caruselDotsSlides, 'pic-dots__item--is-active');
   }
 
   //функции движения
-  function treckShift() {
+  function trackShift() {
     const step = slideWrap.offsetWidth;
-    const slideTreckShift = i * step;
-    slideTreck.style.transform = `translate(-${slideTreckShift}px, 0)`;
+    const slideTrackShift = i * step;
+    slideTrack.style.transform = `translate(-${slideTrackShift}px, 0)`;
   }
 
-  function treckDotsShift() {
+  function trackDotsShift() {
     let countDot = i - 1;
 
     if (countDot < 0) {
@@ -303,8 +401,8 @@ function carusel(el) {
     const dotHeight = caruselDotsSlides[0].offsetHeight;
     const dotMarginBottom = parseInt(getComputedStyle(caruselDotsSlides[0], true).marginBottom);
     const step = dotHeight + dotMarginBottom;
-    const dotsTreckShift = countDot * step;
-    caruselDotsTreck.style.transform = `translate(0, -${dotsTreckShift}px)`;
+    const dotsTrackShift = countDot * step;
+    caruselDotsTrack.style.transform = `translate(0, -${dotsTrackShift}px)`;
   }
   //функция присваивающая активный клас точке
   function setActiveDot(dots, cls) {

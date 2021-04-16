@@ -91,15 +91,20 @@
 }
 
 .section-slider {
+  padding-top: 20px;
   position: relative;
+  @media (min-width: 1280px) {
+    padding-top: 0;
+  }
 }
 
 .section-slider__controls {
   position: absolute;
   display: flex;
-  right: 0;
-  top: -10px;
-  @media (min-width: 1280px) {
+  right: 15px;
+  top: 10px;
+  z-index: 100;
+  @media (min-width: 1090px) {
     top: 7px;
   }
 }

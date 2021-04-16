@@ -1,12 +1,13 @@
+.news-slider {
+  overflow: hidden;
+}
 .news-slides {
   display: flex;
-  overflow: hidden;
 }
 
 .news-slide {
   display: flex;
   flex-direction: column;
-  overflow: hidden;
   min-width: 100%;
   @media (min-width: 500px) {
     flex-direction: row;
