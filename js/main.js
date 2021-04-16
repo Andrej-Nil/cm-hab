@@ -71,6 +71,13 @@ function slider(el, autoplay = false) {
   const timeInterval = 8000;
   let moveInterval = setInterval(next, timeInterval);
 
+  slideWrap.addEventListener('mouseover', () => {
+    clearInterval(moveInterval);
+  });
+  slideWrap.addEventListener('mouseout', () => {
+    moveInterval = setInterval(next, timeInterval);
+  });
+
   //управление стрелками
   if (arrowNext) {
     arrowNext.addEventListener('click', next);
@@ -142,12 +149,6 @@ function slider(el, autoplay = false) {
 }
 
 
-
-
-
-
-
-
 if (mobileMenuBtn) {
   mobileMenuBtn.addEventListener('click', mobileMenuOpen);
 }
@@ -217,6 +218,7 @@ function carusel(el) {
   let isMove = false;
 
   window.addEventListener('resize', treckShift, false);
+
 
   // управление стрелками
   if (nextArrow) {
