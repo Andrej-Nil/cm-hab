@@ -11,6 +11,9 @@ const modalCloseBtns = document.querySelectorAll('.js-close-modal');
 const ordenBtn = document.querySelector('#orderBtn');
 const ordenModal = document.querySelector('#order');
 
+// Forms
+const callbackForm = document.querySelector('#callbackForm');
+
 //mobileMenu
 const mobileMenuBtn = document.querySelector('#menuBtn');
 const mobileMenu = document.querySelector('#mobileMenu');
@@ -31,6 +34,9 @@ const newsSlider = document.querySelector('#newsSlider');
 const switchToggle = document.querySelector('#switchToggle');
 
 const map = document.querySelector('#map');
+
+const regTel = /^((8|\+7)[\- ]?)?(\(?\d{3}\)?[\- ]?)?[\d\- ]{5,10}$/;
+const regMail = /^([a-z0-9_-]+\.)*[a-z0-9_-]+@[a-z0-9_-]+(\.[a-z0-9_-]+)*\.[a-z]{2,6}$/;
 
 let yandexMap;
 let marker;
@@ -55,7 +61,6 @@ if (switchToggle) {
 }
 
 //карусели
-
 if (mainSlider) {
   slider(mainSlider, true);
 }
@@ -63,7 +68,6 @@ if (mainSlider) {
 if (popularGoods) {
   slider(popularGoods, false);
 }
-
 
 if (newsSlider) {
   slider(newsSlider, false);
@@ -75,8 +79,50 @@ if (productCarusel) {
   carusel(productCarusel);
 }
 
+// Forms
+if (callbackForm) {
+  callbackForm.addEventListener('submit', (e) => {
+    e.preventDefault();
+  })
+  sendCallbackForm();
+}
 
+function sendCallbackForm() {
+  const nameInput = callbackForm.querySelector('.js-name-input');
+  const mailInput = callbackForm.querySelector('.js-mail-input');
+  const fileInput = callbackForm.querySelector('.js-file-input');
+  const fileName = callbackForm.querySelector('.js-file-name');
+  const textInput = callbackForm.querySelector('.js-text-input');
+  const checkboxInput = callbackForm.querySelector('.js-checkbox-input');
+  const submitBtn = callbackForm.querySelector('.js-submit');
+  test(fileName)
+  mailInput.addEventListener('blur', () => checkInput(mailInput))
+  fileInput.addEventListener('change', () => setFileName(fileInput, fileName));
+  //if (checkboxInput.checked) {
+  //  test('send');
+  //} else {
+  //  test('not send');
+  //}
 
+}
+
+function setFileName(input, el) {
+  const fileName = input.files[0].name;
+  el.innerHTML = fileName;
+}
+function checkInput(input) {
+  const resChecking = checkValue(input.value, regMail);
+  if (resChecking) {
+    input.classList.remove('input--is-error');
+    input.classList.add('input--is-success');
+  } else {
+    input.classList.remove('input--is-success');
+    input.classList.add('input--is-error');
+  }
+}
+function checkValue(value, reg) {
+  return reg.test(value)
+}
 
 function slider(el, autoplay = false) {
   const slideWrap = el.querySelector('.js-slider-wrap');
@@ -105,8 +151,6 @@ function slider(el, autoplay = false) {
     intervalSwitch(autoplay, true, timeInterval);
   });
 
-
-  console.log(arrowNext)
   //управление стрелками
   if (arrowNext) {
     arrowNext.addEventListener('click', next);
@@ -130,42 +174,42 @@ function slider(el, autoplay = false) {
   //  })
   //}
 
-  function dotsNavigation(idx) {
-    newSlidesArr = el.querySelectorAll('.js-slide');
-    const numFirstSlide = +newSlidesArr[0].getAttribute('data-slide');
-    const numberOfSteps = numFirstSlide - idx * 1;
-    if (numFirstSlide === idx) {
-      return;
-    }
-    if (numFirstSlide < idx) {
-      movingForward(numberOfSteps);
-    }
+  //function dotsNavigation(idx) {
+  //  newSlidesArr = el.querySelectorAll('.js-slide');
+  //  const numFirstSlide = +newSlidesArr[0].getAttribute('data-slide');
+  //  const numberOfSteps = numFirstSlide - idx * 1;
+  //  if (numFirstSlide === idx) {
+  //    return;
+  //  }
+  //  if (numFirstSlide < idx) {
+  //    movingForward(numberOfSteps);
+  //  }
 
-    if (numFirstSlide > idx) {
-      movingBackwards()
-      console.log(numFirstSlide, idx)
-    }
-  }
+  //  if (numFirstSlide > idx) {
+  //    movingBackwards()
+  //    console.log(numFirstSlide, idx)
+  //  }
+  //}
 
-  function movingForward(num) {
-    const slideWidth = newSlidesArr[0].offsetWidth;
-    const numberOfSteps = Math.abs(num);
-    const step = numberOfSteps * slideWidth;
+  //function movingForward(num) {
+  //  const slideWidth = newSlidesArr[0].offsetWidth;
+  //  const numberOfSteps = Math.abs(num);
+  //  const step = numberOfSteps * slideWidth;
 
-    slideWrap.classList.add('slides--is-move');
-    slideWrap.style.transform = `translate(-${step}px, 0)`;
-    setTimeout(() => {
-      for (numberOfSteps; numberOfSteps == 1; numberOfSteps--) {
-        newSlidesArr = el.querySelectorAll('.js-slide');
-        newSlidesArr[numLastSlide].after(newSlidesArr[0]);
-      }
-    }, 200);
+  //  slideWrap.classList.add('slides--is-move');
+  //  slideWrap.style.transform = `translate(-${step}px, 0)`;
+  //  setTimeout(() => {
+  //    for (numberOfSteps; numberOfSteps == 1; numberOfSteps--) {
+  //      newSlidesArr = el.querySelectorAll('.js-slide');
+  //      newSlidesArr[numLastSlide].after(newSlidesArr[0]);
+  //    }
+  //  }, 200);
 
-  }
+  //}
 
-  function movingBackwards() {
-    console.log('<---');
-  }
+  //function movingBackwards() {
+  //  console.log('<---');
+  //}
 
   function setActiveDot(cls) {
     Array.from(dots).forEach((dot, idx) => {
@@ -560,4 +604,8 @@ function initMap() {
     balloonContent: 'Это наша организация'
   });
   yandexMap.geoObjects.add(marker);
+}
+
+function test(data) {
+  console.log(data);
 }
