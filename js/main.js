@@ -1,7 +1,11 @@
 'use strict';
-const body = document.querySelector('body');
 
+const _token = getToken();
+const POST = 'POST';
+const GET = 'GET';
+const body = document.querySelector('body');
 //modal
+
 const modalsWrap = document.querySelector('#modalsWrap');
 const feetbackBtn = document.querySelector('#feetbackBtn');
 const fastOrdenBtns = document.querySelectorAll('.js-fast-order');
@@ -88,23 +92,83 @@ if (callbackForm) {
 }
 
 function sendCallbackForm() {
-  const nameInput = callbackForm.querySelector('.js-name-input');
+  const api = callbackForm.action;
   const mailInput = callbackForm.querySelector('.js-mail-input');
   const fileInput = callbackForm.querySelector('.js-file-input');
   const fileName = callbackForm.querySelector('.js-file-name');
-  const textInput = callbackForm.querySelector('.js-text-input');
+  const checkbox = callbackForm.querySelector('.js-checkbox');
   const checkboxInput = callbackForm.querySelector('.js-checkbox-input');
   const submitBtn = callbackForm.querySelector('.js-submit');
-  test(fileName)
-  mailInput.addEventListener('blur', () => checkInput(mailInput))
+  const formMessage = callbackForm.querySelector('.js-message');
+  mailInput.addEventListener('blur', () => {
+    checkInput(mailInput);
+  })
   fileInput.addEventListener('change', () => setFileName(fileInput, fileName));
-  //if (checkboxInput.checked) {
-  //  test('send');
-  //} else {
-  //  test('not send');
-  //}
+  submitBtn.addEventListener('click', formCheck)
+  function formCheck() {
+    let res = true;
+    let formData = null;
+    res = checkInput(mailInput);
 
+    if (!checkboxInput.checked) {
+      test('not send, checked false');
+      checkbox.classList.add('animation-shake');
+      setTimeout(() => {
+        checkbox.classList.remove('animation-shake');
+      }, 800)
+      return;
+    }
+
+    if (!res) {
+      test('not send, input false, checked true');
+      return;
+    }
+    formData = new FormData(callbackForm);
+    //formData
+    send(POST, formData, api)
+      .then((data) => setMessage(data, formMessage))
+  }
 }
+
+function setMessage(data, el) {
+  el.innerHTML = data.desc;
+  if (data.rez == 1) {
+    el.classList.add('form-error--is-success');
+    el.classList.remove('form-error--is-error');
+  }
+  if (data.rez != 1) {
+    el.classList.remove('form-error--is-success');
+    el.classList.add('form-error--is-error');
+  }
+}
+
+function send(method, data, api) {
+  return new Promise(function (resolve, reject) {
+    const xhr = new XMLHttpRequest();
+
+    xhr.open(method, api, true);
+    xhr.send(data);
+
+    xhr.onload = function () {
+      if (xhr.status != 200) {
+        console.log('Ошибка: ' + xhr.status);
+        return;
+      } else {
+        let response = JSON.parse(xhr.response);
+        resolve(response);
+        if (response) {
+          console.log("Форма отправилась");
+        } else {
+          console.log("Неудачная отправка");
+        }
+      }
+    };
+    xhr.onerror = function () {
+      reject(new Error("Network Error"))
+    };
+  })
+}
+
 
 function setFileName(input, el) {
   const fileName = input.files[0].name;
@@ -115,10 +179,13 @@ function checkInput(input) {
   if (resChecking) {
     input.classList.remove('input--is-error');
     input.classList.add('input--is-success');
+    return true;
   } else {
     input.classList.remove('input--is-success');
     input.classList.add('input--is-error');
+    return false;
   }
+
 }
 function checkValue(value, reg) {
   return reg.test(value)
@@ -604,6 +671,11 @@ function initMap() {
     balloonContent: 'Это наша организация'
   });
   yandexMap.geoObjects.add(marker);
+}
+
+function getToken() {
+  const meta = document.querySelector('meta[name="csrf-token"]');
+  return meta.getAttribute('content')
 }
 
 function test(data) {

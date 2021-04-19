@@ -792,23 +792,26 @@ ul {
   display: block;
 }
 
-.form-error {
-  display: none;
-  margin-top: 15px;
-}
-
-.form-error--is-show {
-  display: block;
-}
-
 .form-error__message {
+  display: none;
   max-width: 250px;
   width: 100%;
   margin-left: auto;
+  margin-top: 15px;
   text-align: center;
   font-weight: normal;
   font-size: 18px;
   line-height: 95.2%;
+  color: #ea1601;
+}
+
+.form-error--is-success {
+  display: block;
+  color: #64bc26;
+}
+
+.form-error--is-error {
+  display: block;
   color: #ea1601;
 }
 
@@ -941,6 +944,83 @@ ul {
 .scroll-bar {
   scrollbar-width: thin;
   scrollbar-color: #cccccc #f0f1f3;
+}
+
+@-webkit-keyframes shake {
+  0% {
+    -webkit-transform: translate(0, 0);
+            transform: translate(0, 0);
+  }
+  15% {
+    -webkit-transform: translate(7px, 0);
+            transform: translate(7px, 0);
+  }
+  30% {
+    -webkit-transform: translate(-7px, 0);
+            transform: translate(-7px, 0);
+  }
+  45% {
+    -webkit-transform: translate(7px, 0);
+            transform: translate(7px, 0);
+  }
+  60% {
+    -webkit-transform: translate(-7px, 0);
+            transform: translate(-7px, 0);
+  }
+  75% {
+    -webkit-transform: translate(7px, 0);
+            transform: translate(7px, 0);
+  }
+  90% {
+    -webkit-transform: translate(-7px, 0);
+            transform: translate(-7px, 0);
+  }
+  100% {
+    -webkit-transform: translate(0, 0);
+            transform: translate(0, 0);
+  }
+}
+
+@keyframes shake {
+  0% {
+    -webkit-transform: translate(0, 0);
+            transform: translate(0, 0);
+  }
+  15% {
+    -webkit-transform: translate(7px, 0);
+            transform: translate(7px, 0);
+  }
+  30% {
+    -webkit-transform: translate(-7px, 0);
+            transform: translate(-7px, 0);
+  }
+  45% {
+    -webkit-transform: translate(7px, 0);
+            transform: translate(7px, 0);
+  }
+  60% {
+    -webkit-transform: translate(-7px, 0);
+            transform: translate(-7px, 0);
+  }
+  75% {
+    -webkit-transform: translate(7px, 0);
+            transform: translate(7px, 0);
+  }
+  90% {
+    -webkit-transform: translate(-7px, 0);
+            transform: translate(-7px, 0);
+  }
+  100% {
+    -webkit-transform: translate(0, 0);
+            transform: translate(0, 0);
+  }
+}
+
+.animation-shake {
+  -webkit-animation-duration: 800ms;
+          animation-duration: 800ms;
+  -webkit-animation-name: shake;
+          animation-name: shake;
 }
 
 .view-list {

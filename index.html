@@ -5,6 +5,7 @@
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="csrf-token" content="p5q8mFhMdAS9z3KSayI05bO34EEXjhMl9ysZOAS3">
   <link rel="stylesheet" href="./css/style.min.css">
   </script>
   <title>Главная</title>
@@ -1225,8 +1226,8 @@
               <!-- callback-form__top -->
               <!--callback-form__content-->
               <div class="callback-form__content">
-                <form id='callbackForm' enctype="multipart/form-data" action="test-form.html" method="POST"
-                  class='callback-form'>
+                <form id='callbackForm' enctype="multipart/form-data" action="testAjax/test-simple-form.json"
+                  method="POST" class='callback-form'>
 
                   <!--callback__inputs-->
                   <div class="callback__inputs inputs-block">
@@ -1261,7 +1262,7 @@
                     </div>
                     <button class='input-submit yellow-btn js-submit' type='submit'>Отправить</button>
 
-                    <div class="input-check">
+                    <div class="input-check js-checkbox">
                       <label class="input-check__label">
                         <input class='input-check__checkbox js-checkbox-input' type="checkbox" name='consent'>
                         <span class="input-check__fake">
@@ -1277,8 +1278,8 @@
                   </div>
                   <!--callback__inputs-->
 
-                  <div class='callback-form__error form-error'>
-                    <p class="callback-form__error form-error__message">
+                  <div class=' form-error'>
+                    <p class="form-error__message js-message">
                       Ошибка отправки
                     </p>
                   </div>
@@ -2524,8 +2525,8 @@
               </p>
             </div>
 
-            <form id='calculatorForm' enctype="multipart/form-data" action="test-form.html" method="POST"
-              class='modal-form'>
+            <form id='calculatorForm' enctype="multipart/form-data" action="testAjax/test-simple-form.json"
+              method="POST" class='modal-form'>
               <!--modal__inputs-->
               <div class="modal__inputs inputs-block">
 

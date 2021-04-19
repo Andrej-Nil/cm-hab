@@ -1,20 +1,22 @@
-.form-error {
-  display: none;
-  margin-top: 15px;
-}
-
-.form-error--is-show {
-  display: block;
-}
-
 .form-error__message {
+  display: none;
   max-width: 250px;
   width: 100%;
   margin-left: auto;
-
+  margin-top: 15px;
   text-align: center;
   font-weight: normal;
   font-size: 18px;
   line-height: 95.2%;
+  color: $red;
+}
+
+.form-error--is-success {
+  display: block;
+  color: $green;
+}
+
+.form-error--is-error {
+  display: block;
   color: $red;
 }
