@@ -6046,6 +6046,7 @@ ul {
 
 .f-contact__link {
   color: #666666;
+  cursor: pointer;
 }
 
 .f-contact__link--underline {

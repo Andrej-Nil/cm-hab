@@ -4,8 +4,8 @@ const _token = getToken();
 const POST = 'POST';
 const GET = 'GET';
 const body = document.querySelector('body');
-//modal
 
+//modal
 const modalsWrap = document.querySelector('#modalsWrap');
 const feetbackBtn = document.querySelector('#feetbackBtn');
 const fastOrdenBtns = document.querySelectorAll('.js-fast-order');
@@ -14,6 +14,8 @@ const fastOrderModal = document.querySelector('#fastOrder');
 const modalCloseBtns = document.querySelectorAll('.js-close-modal');
 const ordenBtn = document.querySelector('#orderBtn');
 const ordenModal = document.querySelector('#order');
+const helpModal = document.querySelector('#help');
+const helpBtn = document.querySelector('#helpBtn');
 
 // Forms
 const callbackForm = document.querySelector('#callbackForm');
@@ -91,106 +93,176 @@ if (callbackForm) {
   sendCallbackForm();
 }
 
-function sendCallbackForm() {
-  const api = callbackForm.action;
-  const mailInput = callbackForm.querySelector('.js-mail-input');
-  const fileInput = callbackForm.querySelector('.js-file-input');
-  const fileName = callbackForm.querySelector('.js-file-name');
-  const checkbox = callbackForm.querySelector('.js-checkbox');
-  const checkboxInput = callbackForm.querySelector('.js-checkbox-input');
-  const submitBtn = callbackForm.querySelector('.js-submit');
-  const formMessage = callbackForm.querySelector('.js-message');
-  mailInput.addEventListener('blur', () => {
-    checkInput(mailInput);
-  })
-  fileInput.addEventListener('change', () => setFileName(fileInput, fileName));
-  submitBtn.addEventListener('click', formCheck)
-  function formCheck() {
-    let res = true;
-    let formData = null;
-    res = checkInput(mailInput);
 
-    if (!checkboxInput.checked) {
-      test('not send, checked false');
-      checkbox.classList.add('animation-shake');
-      setTimeout(() => {
-        checkbox.classList.remove('animation-shake');
-      }, 800)
-      return;
-    }
 
-    if (!res) {
-      test('not send, input false, checked true');
-      return;
-    }
-    formData = new FormData(callbackForm);
-    //formData
-    send(POST, formData, api)
-      .then((data) => setMessage(data, formMessage))
-  }
+if (mobileMenuBtn) {
+  mobileMenuBtn.addEventListener('click', mobileMenuOpen);
 }
 
-function setMessage(data, el) {
-  el.innerHTML = data.desc;
-  if (data.rez == 1) {
-    el.classList.add('form-error--is-success');
-    el.classList.remove('form-error--is-error');
-  }
-  if (data.rez != 1) {
-    el.classList.remove('form-error--is-success');
-    el.classList.add('form-error--is-error');
-  }
+if (mobileMenuCloseBtn) {
+  mobileMenuCloseBtn.addEventListener('click', mobileMenuClose);
 }
 
-function send(method, data, api) {
-  return new Promise(function (resolve, reject) {
-    const xhr = new XMLHttpRequest();
+//modals
+if (feetbackModal && modalsWrap) {
+  feetbackBtn.addEventListener('click', () => {
+    modalOpen(feetbackModal);
+  });
+}
 
-    xhr.open(method, api, true);
-    xhr.send(data);
+if (fastOrdenBtns.length && modalsWrap) {
+  Array.from(fastOrdenBtns).forEach((btn) => {
+    btn.addEventListener('click', () => modalOpen(fastOrderModal));
+  });
+}
 
-    xhr.onload = function () {
-      if (xhr.status != 200) {
-        console.log('Ошибка: ' + xhr.status);
-        return;
-      } else {
-        let response = JSON.parse(xhr.response);
-        resolve(response);
-        if (response) {
-          console.log("Форма отправилась");
-        } else {
-          console.log("Неудачная отправка");
-        }
+
+if (ordenBtn) {
+  ordenBtn.addEventListener('click', () => modalOpen(ordenModal));
+}
+
+if (helpBtn) {
+
+  helpBtn.addEventListener('click', () => modalOpen(helpModal));
+}
+
+
+if (modalCloseBtns.length) {
+  Array.from(modalCloseBtns).forEach((btn) => {
+    btn.addEventListener('click', () => modalClose(btn));
+  });
+}
+// modals end
+
+
+if (upwardBtn) {
+  upwardBtn.addEventListener('click', goTop);
+  window.addEventListener('scroll', showUpBtn);
+}
+
+if (dropdownsBtn) {
+  Array.from(dropdownsBtn).forEach((btn) => {
+    btn.addEventListener('click', () => dropdownOpen(btn));
+    btn.addEventListener('click', () => rotateArrowDropdownsBtn(btn));
+  });
+}
+
+//Функции
+//Слайдеры
+function carusel(el) {
+  const slideWrap = el.querySelector('#caruselSlidesWrap');
+  const slideTrack = el.querySelector('#caruselSlides');
+  const slides = el.querySelectorAll('.js-carusel-slide');
+  const slidesLenght = slides.length;
+  const prevArrow = el.querySelector('#caruselArrowPrev');
+  const nextArrow = el.querySelector('#caruselArrowNext');
+  const dotList = el.querySelectorAll('.js-carusel-dote');
+  const caruselDotsWrap = el.querySelector('#caruselDots');
+  const caruselDotsTrack = el.querySelector('#caruselDotsTrack');
+  const caruselDotsSlides = el.querySelectorAll('.js-carusel-dote-slide');
+
+  let i = 0;
+  let isMove = false;
+
+  window.addEventListener('resize', trackShift, false);
+
+
+  // управление стрелками
+  if (nextArrow) {
+    nextArrow.addEventListener('click', next);
+  }
+
+  if (prevArrow) {
+    prevArrow.addEventListener('click', prev);
+  }
+
+  // управление точками
+  if (dotList.length) {
+    Array.from(dotList).forEach((el, idx) => {
+      el.addEventListener('click', () => {
+        dotNavigation(idx)
+      })
+    })
+  }
+
+  if (caruselDotsWrap) {
+    Array.from(caruselDotsSlides).forEach((dot, idx) => {
+      dot.addEventListener('click', () => {
+        dotNavigation(idx);
+      })
+    });
+  }
+
+  //Управление сенсером
+  slideWrap.addEventListener('touchstart', function (e) { startTouchMove(e) });
+  slideWrap.addEventListener('touchmove', function (e) { touchMove(e) });
+  slideWrap.addEventListener('touchend', function () { touchEnd(next, prev) });
+
+  // функции управление стрелками
+  function next() {
+    if (i == slidesLenght - 1) {
+      return;
+    }
+    i++;
+    trackShift();
+    setActiveDot(dotList, 'dot--is-active');
+    trackDotsShift();
+    setActiveDot(caruselDotsSlides, 'pic-dots__item--is-active');
+
+  }
+
+  function prev() {
+    if (i == 0) {
+      return;
+    }
+    i--;
+    trackShift();
+    setActiveDot(dotList, 'dot--is-active');
+    trackDotsShift();
+    setActiveDot(caruselDotsSlides, 'pic-dots__item--is-active');
+  }
+  // функции управление точками
+  function dotNavigation(idx) {
+    i = idx;
+    trackShift();
+    setActiveDot(dotList, 'dot--is-active');
+    trackDotsShift();
+    setActiveDot(caruselDotsSlides, 'pic-dots__item--is-active');
+  }
+
+  //функции движения
+  function trackShift() {
+    const step = slideWrap.offsetWidth;
+    const slideTrackShift = i * step;
+    slideTrack.style.transform = `translate(-${slideTrackShift}px, 0)`;
+  }
+
+  function trackDotsShift() {
+    let countDot = i - 1;
+
+    if (countDot < 0) {
+      countDot = 0;
+    }
+    if (i >= caruselDotsSlides.length - 1) {
+      countDot = caruselDotsSlides.length - 3
+    }
+
+    const dotHeight = caruselDotsSlides[0].offsetHeight;
+    const dotMarginBottom = parseInt(getComputedStyle(caruselDotsSlides[0], true).marginBottom);
+    const step = dotHeight + dotMarginBottom;
+    const dotsTrackShift = countDot * step;
+    caruselDotsTrack.style.transform = `translate(0, -${dotsTrackShift}px)`;
+  }
+  //функция присваивающая активный клас точке
+  function setActiveDot(dots, cls) {
+    Array.from(dots).forEach((dot, idx) => {
+      dot.classList.remove(cls);
+      if (idx == i) {
+        dot.classList.add(cls);
       }
-    };
-    xhr.onerror = function () {
-      reject(new Error("Network Error"))
-    };
-  })
-}
-
-
-function setFileName(input, el) {
-  const fileName = input.files[0].name;
-  el.innerHTML = fileName;
-}
-function checkInput(input) {
-  const resChecking = checkValue(input.value, regMail);
-  if (resChecking) {
-    input.classList.remove('input--is-error');
-    input.classList.add('input--is-success');
-    return true;
-  } else {
-    input.classList.remove('input--is-success');
-    input.classList.add('input--is-error');
-    return false;
+    });
   }
-
 }
-function checkValue(value, reg) {
-  return reg.test(value)
-}
-
 function slider(el, autoplay = false) {
   const slideWrap = el.querySelector('.js-slider-wrap');
   const slides = el.querySelectorAll('.js-slide');
@@ -357,174 +429,6 @@ function slider(el, autoplay = false) {
   }
 
 }
-
-if (mobileMenuBtn) {
-  mobileMenuBtn.addEventListener('click', mobileMenuOpen);
-}
-
-if (mobileMenuCloseBtn) {
-  mobileMenuCloseBtn.addEventListener('click', mobileMenuClose);
-}
-
-//modals
-if (feetbackModal && modalsWrap) {
-  feetbackBtn.addEventListener('click', () => {
-    modalOpen(feetbackModal);
-  });
-}
-
-if (fastOrderModal && modalsWrap) {
-  Array.from(modalCloseBtns).forEach((btn) => {
-    btn.addEventListener('click', () => modalClose(btn));
-  });
-}
-
-if (fastOrdenBtns.length) {
-  Array.from(fastOrdenBtns).forEach((btn) => {
-    btn.addEventListener('click', () => modalOpen(fastOrderModal));
-  });
-}
-
-if (ordenBtn) {
-  ordenBtn.addEventListener('click', () => modalOpen(ordenModal));
-}
-
-if (ordenModal && modalsWrap) {
-  Array.from(modalCloseBtns).forEach((btn) => {
-    btn.addEventListener('click', () => modalClose(btn));
-  });
-}
-// modals end
-
-
-if (upwardBtn) {
-  upwardBtn.addEventListener('click', goTop);
-  window.addEventListener('scroll', showUpBtn);
-}
-
-if (dropdownsBtn) {
-  Array.from(dropdownsBtn).forEach((btn) => {
-    btn.addEventListener('click', () => dropdownOpen(btn));
-    btn.addEventListener('click', () => rotateArrowDropdownsBtn(btn));
-  });
-}
-
-//Функции
-//Слайдеры
-function carusel(el) {
-  const slideWrap = el.querySelector('#caruselSlidesWrap');
-  const slideTrack = el.querySelector('#caruselSlides');
-  const slides = el.querySelectorAll('.js-carusel-slide');
-  const slidesLenght = slides.length;
-  const prevArrow = el.querySelector('#caruselArrowPrev');
-  const nextArrow = el.querySelector('#caruselArrowNext');
-  const dotList = el.querySelectorAll('.js-carusel-dote');
-  const caruselDotsWrap = el.querySelector('#caruselDots');
-  const caruselDotsTrack = el.querySelector('#caruselDotsTrack');
-  const caruselDotsSlides = el.querySelectorAll('.js-carusel-dote-slide');
-
-  let i = 0;
-  let isMove = false;
-
-  window.addEventListener('resize', trackShift, false);
-
-
-  // управление стрелками
-  if (nextArrow) {
-    nextArrow.addEventListener('click', next);
-  }
-
-  if (prevArrow) {
-    prevArrow.addEventListener('click', prev);
-  }
-
-  // управление точками
-  if (dotList.length) {
-    Array.from(dotList).forEach((el, idx) => {
-      el.addEventListener('click', () => {
-        dotNavigation(idx)
-      })
-    })
-  }
-
-  if (caruselDotsWrap) {
-    Array.from(caruselDotsSlides).forEach((dot, idx) => {
-      dot.addEventListener('click', () => {
-        dotNavigation(idx);
-      })
-    });
-  }
-
-  //Управление сенсером
-  slideWrap.addEventListener('touchstart', function (e) { startTouchMove(e) });
-  slideWrap.addEventListener('touchmove', function (e) { touchMove(e) });
-  slideWrap.addEventListener('touchend', function () { touchEnd(next, prev) });
-
-  // функции управление стрелками
-  function next() {
-    if (i == slidesLenght - 1) {
-      return;
-    }
-    i++;
-    trackShift();
-    setActiveDot(dotList, 'dot--is-active');
-    trackDotsShift();
-    setActiveDot(caruselDotsSlides, 'pic-dots__item--is-active');
-
-  }
-
-  function prev() {
-    if (i == 0) {
-      return;
-    }
-    i--;
-    trackShift();
-    setActiveDot(dotList, 'dot--is-active');
-    trackDotsShift();
-    setActiveDot(caruselDotsSlides, 'pic-dots__item--is-active');
-  }
-  // функции управление точками
-  function dotNavigation(idx) {
-    i = idx;
-    trackShift();
-    setActiveDot(dotList, 'dot--is-active');
-    trackDotsShift();
-    setActiveDot(caruselDotsSlides, 'pic-dots__item--is-active');
-  }
-
-  //функции движения
-  function trackShift() {
-    const step = slideWrap.offsetWidth;
-    const slideTrackShift = i * step;
-    slideTrack.style.transform = `translate(-${slideTrackShift}px, 0)`;
-  }
-
-  function trackDotsShift() {
-    let countDot = i - 1;
-
-    if (countDot < 0) {
-      countDot = 0;
-    }
-    if (i >= caruselDotsSlides.length - 1) {
-      countDot = caruselDotsSlides.length - 3
-    }
-
-    const dotHeight = caruselDotsSlides[0].offsetHeight;
-    const dotMarginBottom = parseInt(getComputedStyle(caruselDotsSlides[0], true).marginBottom);
-    const step = dotHeight + dotMarginBottom;
-    const dotsTrackShift = countDot * step;
-    caruselDotsTrack.style.transform = `translate(0, -${dotsTrackShift}px)`;
-  }
-  //функция присваивающая активный клас точке
-  function setActiveDot(dots, cls) {
-    Array.from(dots).forEach((dot, idx) => {
-      dot.classList.remove(cls);
-      if (idx == i) {
-        dot.classList.add(cls);
-      }
-    });
-  }
-}
 //Слайдеры конец
 
 function modalOpen(modal) {
@@ -677,6 +581,129 @@ function getToken() {
   const meta = document.querySelector('meta[name="csrf-token"]');
   return meta.getAttribute('content')
 }
+
+function checkValue(value, reg) {
+  return reg.test(value)
+}
+
+//отправка форм
+
+function sendCallbackForm() {
+  const api = callbackForm.action;
+  const inputs = callbackForm.querySelectorAll('.js-input');
+  const mailInput = callbackForm.querySelector('.js-mail-input');
+  const fileInput = callbackForm.querySelector('.js-file-input');
+  const fileName = callbackForm.querySelector('.js-file-name');
+  const checkbox = callbackForm.querySelector('.js-checkbox');
+  const checkboxInput = callbackForm.querySelector('.js-checkbox-input');
+  const submitBtn = callbackForm.querySelector('.js-submit');
+  const formMessage = callbackForm.querySelector('.js-message');
+
+  mailInput.addEventListener('blur', () => {
+    checkInput(mailInput);
+  })
+  fileInput.addEventListener('change', () => setFileName(fileInput, fileName));
+  submitBtn.addEventListener('click', formCheck);
+
+  function formCheck() {
+    let res = true;
+    let formData = null;
+    res = checkInput(mailInput, 'mail');
+
+    if (!checkboxInput.checked) {
+      checkbox.classList.add('animation-shake');
+      setTimeout(() => {
+        checkbox.classList.remove('animation-shake');
+      }, 800)
+      return;
+    }
+    if (!res) {
+      return;
+    }
+    formData = new FormData(callbackForm);
+    sendForm(POST, formData, api)
+      .then((data) => {
+        responseProcessing(data, formMessage, inputs)
+      });
+  }
+
+  function responseProcessing(data, el, inputs) {
+    el.innerHTML = data.desc;
+    if (data.rez == 1) {
+      el.classList.add('form-error--is-success');
+      el.classList.remove('form-error--is-error');
+      clearInput(inputs);
+    }
+    if (data.rez != 1) {
+      el.classList.remove('form-error--is-success');
+      el.classList.add('form-error--is-error');
+    }
+  }
+}
+//функции для работой с формой
+function clearInput(inputs) {
+  Array.from(inputs).forEach(input => {
+    input.value = '';
+    input.classList.remove('input--is-error');
+    input.classList.remove('input--is-success');
+  })
+}
+
+function setFileName(input, el) {
+  const fileName = input.files[0].name;
+  el.innerHTML = fileName;
+}
+
+
+
+function checkInput(input, type) {
+  let resChecking = null;
+  if (type == 'mail') {
+    resChecking = checkValue(input.value, regMail);
+  } else if ('tel') {
+    resChecking = checkValue(input.value, regTel);
+  }
+
+  if (resChecking) {
+    input.classList.remove('input--is-error');
+    input.classList.add('input--is-success');
+    return true;
+  } else {
+    input.classList.remove('input--is-success');
+    input.classList.add('input--is-error');
+    return false;
+  }
+
+}
+
+function sendForm(method, data, api) {
+  return new Promise(function (resolve, reject) {
+    const xhr = new XMLHttpRequest();
+    let response = null
+    xhr.open(method, api, true);
+    xhr.send(data);
+
+    xhr.onload = function () {
+      if (xhr.status != 200) {
+        console.log('Ошибка: ' + xhr.status);
+        return;
+      } else {
+        response = JSON.parse(xhr.response);
+        resolve(response);
+        if (response) {
+          console.log("Форма отправилась");
+        } else {
+          console.log("Неудачная отправка");
+        }
+      }
+    };
+    xhr.onerror = function () {
+      reject(new Error("Network Error"))
+    };
+  })
+
+}
+
 
 function test(data) {
   console.log(data);
