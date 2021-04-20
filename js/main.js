@@ -16,10 +16,13 @@ const ordenBtn = document.querySelector('#orderBtn');
 const ordenModal = document.querySelector('#order');
 const helpModal = document.querySelector('#help');
 const helpBtn = document.querySelector('#helpBtn');
+const connectionThanksModal = document.querySelector('#connectionThanks');
+
 
 // Forms
 const callbackForm = document.querySelector('#callbackForm');
 const feetbackForm = document.querySelector('#feetbackForm');
+const helpForm = document.querySelector('#helpForm');
 
 //mobileMenu
 const mobileMenuBtn = document.querySelector('#menuBtn');
@@ -101,6 +104,47 @@ if (feetbackForm) {
   sendFeetbackForm();
 }
 
+if (helpForm) {
+  helpForm.addEventListener('submit', (e) => {
+    e.preventDefault();
+  })
+  sendHelpForm();
+}
+
+function sendHelpForm() {
+  const api = helpForm.action;
+  const inputs = helpForm.querySelectorAll('.js-input');
+  const mailInput = helpForm.querySelector('.js-input-email');
+  const textareaInput = helpForm.querySelector('.js-input-textarea');
+  const checkboxInput = helpForm.querySelector('.js-checkbox-input');
+  const submitBtn = helpForm.querySelector('.js-submit');
+  const formMessage = helpForm.querySelector('.js-message');
+  mailInput.addEventListener('blur', () => {
+    checkInput(mailInput);
+  });
+  textareaInput.addEventListener('blur', () => {
+    checkInput(textareaInput);
+  });
+  submitBtn.addEventListener('click', () => {
+    const result = formCheck(mailInput, textareaInput, checkboxInput);
+
+    if (result) {
+      postHelp(POST, api)
+    }
+  });
+  async function postHelp(method, api) {
+    const data = new FormData(helpForm);
+    data.append('_token', _token);
+    const response = await sendForm(method, data, api);
+    const res = showMessageError(response, formMessage);
+    if (res) {
+      clearInput(inputs);
+      helpModal.classList.remove('modal--is-show');
+      connectionThanksModal.classList.add('modal--is-show');
+    }
+  }
+}
+
 function sendFeetbackForm() {
   const api = feetbackForm.action;
   const inputs = feetbackForm.querySelectorAll('.js-input');
@@ -108,11 +152,9 @@ function sendFeetbackForm() {
   const checkboxInput = feetbackForm.querySelector('.js-checkbox-input');
   const submitBtn = feetbackForm.querySelector('.js-submit');
   const formMessage = feetbackForm.querySelector('.js-message');
-
   phoneInput.addEventListener('blur', () => {
     checkInput(phoneInput);
   })
-  test(submitBtn);
   submitBtn.addEventListener('click', () => {
     const result = formCheck(phoneInput, checkboxInput);
     if (result) {
@@ -123,14 +165,14 @@ function sendFeetbackForm() {
     const data = new FormData(feetbackForm);
     data.append('_token', _token);
     const response = await sendForm(method, data, api);
-    const res = showMessage(response, formMessage);
+    const res = showMessageError(response, formMessage);
     if (res) {
       clearInput(inputs);
+      feetbackModal.classList.remove('modal--is-show');
+      connectionThanksModal.classList.add('modal--is-show');
     }
   }
 }
-
-
 
 if (mobileMenuBtn) {
   mobileMenuBtn.addEventListener('click', mobileMenuOpen);
@@ -723,11 +765,15 @@ function checkInput(input) {
   switch (name) {
     case 'email':
       result = checkValue(input.value, regMail);
-      statusVisualInput(input, result)
+      statusVisualInput(input, result);
       break;
     case 'phone':
-      result = checkValue(input.value, regTel);;
-      statusVisualInput(input, result)
+      result = checkValue(input.value, regTel);
+      statusVisualInput(input, result);
+      break;
+    case 'message':
+      result = isEmptyInput(input.value)
+      statusVisualInput(input, result);
       break;
     case 'consent':
       result = checkCheckbox(input);
@@ -738,11 +784,32 @@ function checkInput(input) {
   return result;
 }
 
+function isEmptyInput(value) {
+  const str = value.trim();
+  if (str) {
+    return true;
+  } else {
+    return false;
+  }
+}
+
 function showMessage(response, el) {
   el.innerHTML = response.desc;
   if (response.rez == 1) {
     el.classList.add('form-error--is-success');
     el.classList.remove('form-error--is-error');
+    return true;
+  }
+  if (response.rez != 1) {
+    el.classList.remove('form-error--is-success');
+    el.classList.add('form-error--is-error');
+    return false;
+  }
+}
+
+function showMessageError(response, el) {
+  el.innerHTML = response.desc;
+  if (response.rez == 1) {
     return true;
   }
   if (response.rez != 1) {
