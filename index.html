@@ -1265,7 +1265,7 @@
 
                     <div class="input-check js-checkbox">
                       <label class="input-check__label">
-                        <input class='input-check__checkbox js-checkbox-input' type="checkbox" name='consent'>
+                        <input type="checkbox" class='input-check__checkbox js-checkbox-input' name='consent' checked>
                         <span class="input-check__fake">
 
                         </span>
@@ -1279,7 +1279,7 @@
                   </div>
                   <!--callback__inputs-->
 
-                  <div class=' form-error'>
+                  <div class='form-error'>
                     <p class="form-error__message js-message">
                       Ошибка отправки
                     </p>
@@ -1895,7 +1895,6 @@
 
       <!-- right -->
       <div class="right">
-
         <!-- search-form -->
         <form id='search' action="search.html" class="search-form">
           <input class='search__input' type="text" name="search" id="searchInput" placeholder="Поиск">
@@ -2514,7 +2513,7 @@
         <!-- connection windows-->
 
         <!-- feetback -->
-        <div id='feetback' class=" connection-modal modal js-modal">
+        <div id='feetback ' class="connection-modal modal modal--is-show js-modal">
           <!--connection-modal__content-->
           <div class="connection-modal__content">
             <div class="modal__text">
@@ -2527,7 +2526,7 @@
               </p>
             </div>
 
-            <form id='feetbackForm' action="test-form.html" method="POST" class='modal-form'>
+            <form id='feetbackForm' action="testAjax/test-simple-form.json" method="POST" class='modal-form'>
               <!--modal__inputs-->
               <div class="modal__inputs inputs-block">
 
@@ -2536,26 +2535,25 @@
                   <label class="input-label">
                     Имя
                   </label>
-                  <input type="text" class="input js-input-name" name='name' placeholder="Константин">
+                  <input type="text" class="input js-input js-input-name" name='name' placeholder="Константин">
                 </div>
                 <!--input-with-name-->
 
                 <!--input-with-name-->
                 <div class="input-with-name">
                   <label class="input-label">
-                    Почта
+                    Телефон
                   </label>
-                  <input type="text" class="input input--is-success js-input-phone" name='phone'
-                    placeholder="+7 922 888 88 88">
+                  <input type="text" class="input js-input js-input-phone" name='phone' placeholder="+7 922 888 88 88">
                 </div>
                 <!--input-with-name-->
 
-                <button class='input-submit yellow-btn' type='submit'>Отправить</button>
+                <button class='input-submit yellow-btn js-submit' type='submit'>Отправить</button>
 
                 <!--input-check-->
-                <div class="input-check">
+                <div class="input-check js-checkbox">
                   <label class="input-check__label">
-                    <input class='input-check__checkbox js-input-checkbox' type="checkbox" name='consent'>
+                    <input class='input-check__checkbox js-checkbox-input' type="checkbox" name='consent'>
                     <span class="input-check__fake">
 
                     </span>
@@ -2571,8 +2569,8 @@
 
 
               <!--modal-form__error-->
-              <div class='modal-form__error form-error'>
-                <p class="modal-form__error form-error__message">
+              <div class='form-error'>
+                <p class="form-error__message js-message">
                   Ошибка отправки
                 </p>
               </div>

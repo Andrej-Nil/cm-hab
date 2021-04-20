@@ -19,6 +19,7 @@ const helpBtn = document.querySelector('#helpBtn');
 
 // Forms
 const callbackForm = document.querySelector('#callbackForm');
+const feetbackForm = document.querySelector('#feetbackForm');
 
 //mobileMenu
 const mobileMenuBtn = document.querySelector('#menuBtn');
@@ -91,6 +92,42 @@ if (callbackForm) {
     e.preventDefault();
   })
   sendCallbackForm();
+}
+
+if (feetbackForm) {
+  feetbackForm.addEventListener('submit', (e) => {
+    e.preventDefault();
+  })
+  sendFeetbackForm();
+}
+
+function sendFeetbackForm() {
+  const api = feetbackForm.action;
+  const inputs = feetbackForm.querySelectorAll('.js-input');
+  const phoneInput = feetbackForm.querySelector('.js-input-phone');
+  const checkboxInput = feetbackForm.querySelector('.js-checkbox-input');
+  const submitBtn = feetbackForm.querySelector('.js-submit');
+  const formMessage = feetbackForm.querySelector('.js-message');
+
+  phoneInput.addEventListener('blur', () => {
+    checkInput(phoneInput);
+  })
+  test(submitBtn);
+  submitBtn.addEventListener('click', () => {
+    const result = formCheck(phoneInput, checkboxInput);
+    if (result) {
+      postFeetback(POST, api)
+    }
+  });
+  async function postFeetback(method, api) {
+    const data = new FormData(feetbackForm);
+    data.append('_token', _token);
+    const response = await sendForm(method, data, api);
+    const res = showMessage(response, formMessage);
+    if (res) {
+      clearInput(inputs);
+    }
+  }
 }
 
 
@@ -582,19 +619,15 @@ function getToken() {
   return meta.getAttribute('content')
 }
 
-function checkValue(value, reg) {
-  return reg.test(value)
-}
+
 
 //отправка форм
-
 function sendCallbackForm() {
   const api = callbackForm.action;
   const inputs = callbackForm.querySelectorAll('.js-input');
   const mailInput = callbackForm.querySelector('.js-mail-input');
   const fileInput = callbackForm.querySelector('.js-file-input');
   const fileName = callbackForm.querySelector('.js-file-name');
-  const checkbox = callbackForm.querySelector('.js-checkbox');
   const checkboxInput = callbackForm.querySelector('.js-checkbox-input');
   const submitBtn = callbackForm.querySelector('.js-submit');
   const formMessage = callbackForm.querySelector('.js-message');
@@ -603,80 +636,26 @@ function sendCallbackForm() {
     checkInput(mailInput);
   })
   fileInput.addEventListener('change', () => setFileName(fileInput, fileName));
-  submitBtn.addEventListener('click', formCheck);
-
-  function formCheck() {
-    let res = true;
-    let formData = null;
-    res = checkInput(mailInput, 'mail');
-
-    if (!checkboxInput.checked) {
-      checkbox.classList.add('animation-shake');
-      setTimeout(() => {
-        checkbox.classList.remove('animation-shake');
-      }, 800)
-      return;
+  submitBtn.addEventListener('click', () => {
+    const result = formCheck(mailInput, checkboxInput);
+    if (result) {
+      postCallback(POST, api)
     }
-    if (!res) {
-      return;
-    }
-    formData = new FormData(callbackForm);
-    sendForm(POST, formData, api)
-      .then((data) => {
-        responseProcessing(data, formMessage, inputs)
-      });
-  }
-
-  function responseProcessing(data, el, inputs) {
-    el.innerHTML = data.desc;
-    if (data.rez == 1) {
-      el.classList.add('form-error--is-success');
-      el.classList.remove('form-error--is-error');
+  });
+  async function postCallback(method, api) {
+    const data = new FormData(callbackForm);
+    data.append('_token', _token);
+    const response = await sendForm(method, data, api);
+    const res = showMessage(response, formMessage);
+    if (res) {
       clearInput(inputs);
     }
-    if (data.rez != 1) {
-      el.classList.remove('form-error--is-success');
-      el.classList.add('form-error--is-error');
-    }
   }
 }
-//функции для работой с формой
-function clearInput(inputs) {
-  Array.from(inputs).forEach(input => {
-    input.value = '';
-    input.classList.remove('input--is-error');
-    input.classList.remove('input--is-success');
-  })
-}
 
-function setFileName(input, el) {
-  const fileName = input.files[0].name;
-  el.innerHTML = fileName;
-}
-
-
-
-function checkInput(input, type) {
-  let resChecking = null;
-  if (type == 'mail') {
-    resChecking = checkValue(input.value, regMail);
-  } else if ('tel') {
-    resChecking = checkValue(input.value, regTel);
-  }
-
-  if (resChecking) {
-    input.classList.remove('input--is-error');
-    input.classList.add('input--is-success');
-    return true;
-  } else {
-    input.classList.remove('input--is-success');
-    input.classList.add('input--is-error');
-    return false;
-  }
-
-}
 
 function sendForm(method, data, api) {
+
   return new Promise(function (resolve, reject) {
     const xhr = new XMLHttpRequest();
     let response = null
@@ -703,6 +682,105 @@ function sendForm(method, data, api) {
   })
 
 }
+
+
+//функции для работой с формой
+function clearInput(inputs) {
+  Array.from(inputs).forEach(input => {
+    input.value = '';
+    input.classList.remove('input--is-error');
+    input.classList.remove('input--is-success');
+  })
+}
+
+function formCheck(...inputs) {
+  let res = true;
+  inputs.forEach((item) => {
+    res = checkInput(item) && res;
+  })
+  if (!res) {
+    console.log('not sent');
+    return res;
+  }
+  if (res) {
+    console.log('sent');
+    return res;
+  }
+}
+
+function setFileName(input, el) {
+  const fileName = input.files[0].name;
+  el.innerHTML = fileName;
+}
+
+function checkValue(value, reg) {
+  return reg.test(value)
+}
+
+function checkInput(input) {
+  const name = input.getAttribute('name');
+  let result;
+  switch (name) {
+    case 'email':
+      result = checkValue(input.value, regMail);
+      statusVisualInput(input, result)
+      break;
+    case 'phone':
+      result = checkValue(input.value, regTel);;
+      statusVisualInput(input, result)
+      break;
+    case 'consent':
+      result = checkCheckbox(input);
+      statusVisualCheckbox(input, result);
+      break;
+  }
+
+  return result;
+}
+
+function showMessage(response, el) {
+  el.innerHTML = response.desc;
+  if (response.rez == 1) {
+    el.classList.add('form-error--is-success');
+    el.classList.remove('form-error--is-error');
+    return true;
+  }
+  if (response.rez != 1) {
+    el.classList.remove('form-error--is-success');
+    el.classList.add('form-error--is-error');
+    return false;
+  }
+}
+
+function checkCheckbox(checkbox) {
+  return checkbox.checked
+}
+
+function statusVisualCheckbox(checkbox, result = false) {
+  const parent = checkbox.closest('.js-checkbox')
+  if (!result) {
+    parent.classList.add('animation-shake');
+    setTimeout(() => {
+      parent.classList.remove('animation-shake');
+
+    }, 800)
+    return;
+  }
+}
+
+function statusVisualInput(input, result = false) {
+  if (result) {
+    input.classList.remove('input--is-error');
+    input.classList.add('input--is-success');
+    return true;
+  } else {
+    input.classList.remove('input--is-success');
+    input.classList.add('input--is-error');
+    return false;
+  }
+}
+
+
 
 
 function test(data) {
