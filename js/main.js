@@ -41,6 +41,8 @@ const popularGoods = document.querySelector('#popularGoods');
 const sectionSlider = document.querySelector('#sectionSlider');
 const newsSlider = document.querySelector('#newsSlider');
 
+const catalogNav = document.querySelector('#catalogNav');
+
 const switchToggle = document.querySelector('#switchToggle');
 
 const map = document.querySelector('#map');
@@ -56,29 +58,106 @@ let touchStart = null;
 let touchPosition = null;
 
 
+if (catalogNav) {
+  window.addEventListener('load', renderCatalogNav);
+}
+
+async function renderCatalogNav() {
+  const api = catalogNav.getAttribute('data-link');
+  const data = {
+    _token: _token,
+  }
+  const response = await getData(GET, data, api);
+
+  render(catalogNav, response.desc, getMarkupEl);
+  const btns = document.querySelectorAll('.js-dropdown-btn');
+
+  Array.from(btns).forEach((btn) => {
+    btn.addEventListener('click', () => renderSubCatalogNav(btn));
+  });
+
+  function getMarkupEl(obj) {
+    const { link, text, article } = obj;
+    return (`
+            <div class="category js-dropdown">
+              <div class="category__name">
+                <a href='${link}' class='category__link'>
+                  ${text}
+                </a >
+                <div class="category__btn js-dropdown-btn" data-article="${article}">
+                  <img src="./img/controls/dropdown-btn.svg" alt="" class="category__arrow">
+                </div>
+              </div>
+              <div class="subcategories js-dropdown-body">
+                <ul class="subcategories__list js-dropdown-content">
+                  
+                </ul>
+              </div>
+            </div >
+    `)
+  }
+
+}
+
+
+
+async function renderSubCatalogNav(btn) {
+  const api = 'testAjax/sidebarSubMenu.json';
+  const article = btn.getAttribute('data-article');
+  const parent = btn.closest('.js-dropdown');
+  const ul = parent.querySelector('.js-dropdown-content');
+  const liList = ul.querySelectorAll('.js-item');
+  const data = {
+    _token: _token,
+    article: article
+  }
+
+  if (!parent) {
+    return;
+  }
+  if (liList.length) {
+    return;
+  }
+  const response = await getData(GET, data, api);
+  render(ul, response.desc, getMarkupEl);
+  dropdownOpen(btn);
+  rotateArrowDropdownsBtn(btn);
+
+  btn.addEventListener('click', () => dropdownOpen(btn));
+  btn.addEventListener('click', () => rotateArrowDropdownsBtn(btn));
+
+  function getMarkupEl(obj) {
+    const { link, text } = obj;
+    return (`
+    <li class="subcategories__item js-item">
+      <a href="${link}" class="subcategories__link">
+      ${text}
+      </a>
+    </li>
+    `)
+  }
+
+}
+
+
 if (elementLinks.length) {
   Array.from(elementLinks).forEach((link) => {
     link.addEventListener('click', () => showIElement(link));
   });
 }
-
 if (map) {
   ymaps.ready(initMap);
 }
-
 if (switchToggle) {
   switchToggle.addEventListener('click', toggleSwitch);
 }
-
 //карусели
 if (mainSlider) {
   slider(mainSlider, true);
 }
-
 if (popularGoods) {
   slider(popularGoods, false);
 }
-
 if (newsSlider) {
   slider(newsSlider, false);
 }
@@ -109,69 +188,6 @@ if (helpForm) {
     e.preventDefault();
   })
   sendHelpForm();
-}
-
-function sendHelpForm() {
-  const api = helpForm.action;
-  const inputs = helpForm.querySelectorAll('.js-input');
-  const mailInput = helpForm.querySelector('.js-input-email');
-  const textareaInput = helpForm.querySelector('.js-input-textarea');
-  const checkboxInput = helpForm.querySelector('.js-checkbox-input');
-  const submitBtn = helpForm.querySelector('.js-submit');
-  const formMessage = helpForm.querySelector('.js-message');
-  mailInput.addEventListener('blur', () => {
-    checkInput(mailInput);
-  });
-  textareaInput.addEventListener('blur', () => {
-    checkInput(textareaInput);
-  });
-  submitBtn.addEventListener('click', () => {
-    const result = formCheck(mailInput, textareaInput, checkboxInput);
-
-    if (result) {
-      postHelp(POST, api)
-    }
-  });
-  async function postHelp(method, api) {
-    const data = new FormData(helpForm);
-    data.append('_token', _token);
-    const response = await sendForm(method, data, api);
-    const res = showMessageError(response, formMessage);
-    if (res) {
-      clearInput(inputs);
-      helpModal.classList.remove('modal--is-show');
-      connectionThanksModal.classList.add('modal--is-show');
-    }
-  }
-}
-
-function sendFeetbackForm() {
-  const api = feetbackForm.action;
-  const inputs = feetbackForm.querySelectorAll('.js-input');
-  const phoneInput = feetbackForm.querySelector('.js-input-phone');
-  const checkboxInput = feetbackForm.querySelector('.js-checkbox-input');
-  const submitBtn = feetbackForm.querySelector('.js-submit');
-  const formMessage = feetbackForm.querySelector('.js-message');
-  phoneInput.addEventListener('blur', () => {
-    checkInput(phoneInput);
-  })
-  submitBtn.addEventListener('click', () => {
-    const result = formCheck(phoneInput, checkboxInput);
-    if (result) {
-      postFeetback(POST, api)
-    }
-  });
-  async function postFeetback(method, api) {
-    const data = new FormData(feetbackForm);
-    data.append('_token', _token);
-    const response = await sendForm(method, data, api);
-    const res = showMessageError(response, formMessage);
-    if (res) {
-      clearInput(inputs);
-      feetbackModal.classList.remove('modal--is-show');
-      connectionThanksModal.classList.add('modal--is-show');
-    }
-  }
 }
 
 if (mobileMenuBtn) {
@@ -219,15 +235,14 @@ if (upwardBtn) {
   window.addEventListener('scroll', showUpBtn);
 }
 
-if (dropdownsBtn) {
-  Array.from(dropdownsBtn).forEach((btn) => {
-    btn.addEventListener('click', () => dropdownOpen(btn));
-    btn.addEventListener('click', () => rotateArrowDropdownsBtn(btn));
-  });
-}
+//if (dropdownsBtn) {
+//  Array.from(dropdownsBtn).forEach((btn) => {
+//    btn.addEventListener('click', () => dropdownOpen(btn));
+//    btn.addEventListener('click', () => rotateArrowDropdownsBtn(btn));
+//  });
+//}
 
-//Функции
-//Слайдеры
+// Функции для работы слайдеров
 function carusel(el) {
   const slideWrap = el.querySelector('#caruselSlidesWrap');
   const slideTrack = el.querySelector('#caruselSlides');
@@ -415,7 +430,7 @@ function slider(el, autoplay = false) {
   //  const step = numberOfSteps * slideWidth;
 
   //  slideWrap.classList.add('slides--is-move');
-  //  slideWrap.style.transform = `translate(-${step}px, 0)`;
+  //  slideWrap.style.transform = `translate(-${ step }px, 0)`;
   //  setTimeout(() => {
   //    for (numberOfSteps; numberOfSteps == 1; numberOfSteps--) {
   //      newSlidesArr = el.querySelectorAll('.js-slide');
@@ -508,8 +523,7 @@ function slider(el, autoplay = false) {
   }
 
 }
-//Слайдеры конец
-
+// Функции для открытия/закрытия модульных окон
 function modalOpen(modal) {
   body.classList.add('no-scroll');
   modalsWrap.classList.add('modals--is-show');
@@ -523,103 +537,14 @@ function modalClose(btn) {
   modalsWrap.classList.remove('modals--is-show');
 }
 
+// Функции для открытия/закрытия мобильного меня
+
 function mobileMenuOpen() {
   mobileMenu.classList.add('mobile-menu--is-open');
 }
 
 function mobileMenuClose() {
   mobileMenu.classList.remove('mobile-menu--is-open');
-}
-
-function goTop() {
-  let top = Math.max(document.body.scrollTop, document.documentElement.scrollTop);
-  if (top > 0) {
-    window.scrollBy(0, -150);
-    timeOut = setTimeout('goTop()', 5);
-  } else clearTimeout(timeOut);
-}
-
-function showUpBtn() {
-  const coord = body.getBoundingClientRect();
-  if (coord.top < -1000) {
-    upBtn.classList.add('up--is-show');
-  } else {
-    upBtn.classList.remove('up--is-show');
-  }
-}
-
-function dropdownOpen(btn) {
-  const dropdown = btn.closest('.js-dropdown');
-  const dropdownBody = dropdown.querySelector('.js-dropdown-body');
-  const dropdownContent = dropdown.querySelector('.js-dropdown-content');
-  const dropdownContentHeight = dropdownContent.offsetHeight;
-  if (dropdownBody.offsetHeight == 0) {
-    dropdownBody.style.height = dropdownContentHeight + 'px';
-  } else {
-    dropdownBody.style.height = 0;
-  }
-
-}
-
-function rotateArrowDropdownsBtn(btn) {
-  const arrow = findChildren(btn, '.category__arrow');
-  arrow.classList.toggle('category__arrow--is-up')
-}
-
-function findChildren(el, domClass) {
-  const children = el.querySelector(domClass);
-  return children;
-}
-
-function toggleSwitch() {
-  const left = switchToggle.classList.contains('switch__toggle--is-left');
-  const right = switchToggle.classList.contains('switch__toggle--is-right');
-  if (!left) {
-    switchToggle.classList.remove('switch__toggle--is-right');
-    switchToggle.classList.add('switch__toggle--is-left');
-    switchSection('left')
-    return;
-  }
-  if (!right) {
-    switchToggle.classList.remove('switch__toggle--is-left');
-    switchToggle.classList.add('switch__toggle--is-right');
-    switchSection('right')
-    return;
-  }
-
-  function switchSection(section) {
-    const switchLeft = document.querySelector('#switchLeft');
-    const switchRight = document.querySelector('#switchRight');
-
-    if (section === 'left') {
-      switchLeft.style.display = 'block';
-      switchRight.style.display = 'none';
-    }
-    if (section === 'right') {
-
-      switchRight.style.display = 'block';
-      switchLeft.style.display = 'none';
-    }
-  }
-}
-
-function showIElement(elementLink) {
-  const elements = document.querySelectorAll('.js-element');
-  const idElement = elementLink.dataset.type;
-
-  Array.from(elementLinks).forEach((el) => {
-    el.classList.remove('product-info__item--is-active')
-  });
-
-  elementLink.classList.add('product-info__item--is-active');
-
-  Array.from(elements).forEach((el) => {
-    const elId = el.getAttribute('id');
-    el.classList.remove('product-info__text--is-active')
-    if (elId == idElement) {
-      el.classList.add('product-info__text--is-active')
-    }
-  });
 }
 
 //Функции Отслеживающие джижение по сенсеру
@@ -661,42 +586,8 @@ function getToken() {
   return meta.getAttribute('content')
 }
 
-
-
-//отправка форм
-function sendCallbackForm() {
-  const api = callbackForm.action;
-  const inputs = callbackForm.querySelectorAll('.js-input');
-  const mailInput = callbackForm.querySelector('.js-mail-input');
-  const fileInput = callbackForm.querySelector('.js-file-input');
-  const fileName = callbackForm.querySelector('.js-file-name');
-  const checkboxInput = callbackForm.querySelector('.js-checkbox-input');
-  const submitBtn = callbackForm.querySelector('.js-submit');
-  const formMessage = callbackForm.querySelector('.js-message');
-
-  mailInput.addEventListener('blur', () => {
-    checkInput(mailInput);
-  })
-  fileInput.addEventListener('change', () => setFileName(fileInput, fileName));
-  submitBtn.addEventListener('click', () => {
-    const result = formCheck(mailInput, checkboxInput);
-    if (result) {
-      postCallback(POST, api)
-    }
-  });
-  async function postCallback(method, api) {
-    const data = new FormData(callbackForm);
-    data.append('_token', _token);
-    const response = await sendForm(method, data, api);
-    const res = showMessage(response, formMessage);
-    if (res) {
-      clearInput(inputs);
-    }
-  }
-}
-
-
-function sendForm(method, data, api) {
+//Функция для получения ответа с сервира
+function getData(method, data, api) {
 
   return new Promise(function (resolve, reject) {
     const xhr = new XMLHttpRequest();
@@ -712,7 +603,7 @@ function sendForm(method, data, api) {
         response = JSON.parse(xhr.response);
         resolve(response);
         if (response) {
-          console.log("Форма отправилась");
+          console.log("Запрос отправлен");
         } else {
           console.log("Неудачная отправка");
         }
@@ -724,7 +615,6 @@ function sendForm(method, data, api) {
   })
 
 }
-
 
 //функции для работой с формой
 function clearInput(inputs) {
@@ -847,9 +737,199 @@ function statusVisualInput(input, result = false) {
   }
 }
 
+//отправка форм
+function sendCallbackForm() {
+  const api = callbackForm.action;
+  const inputs = callbackForm.querySelectorAll('.js-input');
+  const mailInput = callbackForm.querySelector('.js-mail-input');
+  const fileInput = callbackForm.querySelector('.js-file-input');
+  const fileName = callbackForm.querySelector('.js-file-name');
+  const checkboxInput = callbackForm.querySelector('.js-checkbox-input');
+  const submitBtn = callbackForm.querySelector('.js-submit');
+  const formMessage = callbackForm.querySelector('.js-message');
+
+  mailInput.addEventListener('blur', () => {
+    checkInput(mailInput);
+  })
+  fileInput.addEventListener('change', () => setFileName(fileInput, fileName));
+  submitBtn.addEventListener('click', () => {
+    const result = formCheck(mailInput, checkboxInput);
+    if (result) {
+      postCallback(POST, api)
+    }
+  });
+  async function postCallback(method, api) {
+    const data = new FormData(callbackForm);
+    data.append('_token', _token);
+    const response = await getData(method, data, api);
+    const res = showMessage(response, formMessage);
+    if (res) {
+      clearInput(inputs);
+    }
+  }
+}
+
+function sendHelpForm() {
+  const api = helpForm.action;
+  const inputs = helpForm.querySelectorAll('.js-input');
+  const mailInput = helpForm.querySelector('.js-input-email');
+  const textareaInput = helpForm.querySelector('.js-input-textarea');
+  const checkboxInput = helpForm.querySelector('.js-checkbox-input');
+  const submitBtn = helpForm.querySelector('.js-submit');
+  const formMessage = helpForm.querySelector('.js-message');
+  mailInput.addEventListener('blur', () => {
+    checkInput(mailInput);
+  });
+  textareaInput.addEventListener('blur', () => {
+    checkInput(textareaInput);
+  });
+  submitBtn.addEventListener('click', () => {
+    const result = formCheck(mailInput, textareaInput, checkboxInput);
+
+    if (result) {
+      postHelp(POST, api)
+    }
+  });
+  async function postHelp(method, api) {
+    const data = new FormData(helpForm);
+    data.append('_token', _token);
+    const response = await getData(method, data, api);
+    const res = showMessageError(response, formMessage);
+    if (res) {
+      clearInput(inputs);
+      helpModal.classList.remove('modal--is-show');
+      connectionThanksModal.classList.add('modal--is-show');
+    }
+  }
+}
+
+function sendFeetbackForm() {
+  const api = feetbackForm.action;
+  const inputs = feetbackForm.querySelectorAll('.js-input');
+  const phoneInput = feetbackForm.querySelector('.js-input-phone');
+  const checkboxInput = feetbackForm.querySelector('.js-checkbox-input');
+  const submitBtn = feetbackForm.querySelector('.js-submit');
+  const formMessage = feetbackForm.querySelector('.js-message');
+  phoneInput.addEventListener('blur', () => {
+    checkInput(phoneInput);
+  })
+  submitBtn.addEventListener('click', () => {
+    const result = formCheck(phoneInput, checkboxInput);
+    if (result) {
+      postFeetback(POST, api)
+    }
+  });
+  async function postFeetback(method, api) {
+    const data = new FormData(feetbackForm);
+    data.append('_token', _token);
+    const response = await getData(method, data, api);
+    const res = showMessageError(response, formMessage);
+    if (res) {
+      clearInput(inputs);
+      feetbackModal.classList.remove('modal--is-show');
+      connectionThanksModal.classList.add('modal--is-show');
+    }
+  }
+}
 
 
+// Прочие функции
+function goTop() {
+  let top = Math.max(document.body.scrollTop, document.documentElement.scrollTop);
+  if (top > 0) {
+    window.scrollBy(0, -150);
+    timeOut = setTimeout('goTop()', 5);
+  } else clearTimeout(timeOut);
+}
 
-function test(data) {
-  console.log(data);
+function showUpBtn() {
+  const coord = body.getBoundingClientRect();
+  if (coord.top < -1000) {
+    upBtn.classList.add('up--is-show');
+  } else {
+    upBtn.classList.remove('up--is-show');
+  }
+}
+
+function dropdownOpen(btn) {
+  const dropdown = btn.closest('.js-dropdown');
+  const dropdownBody = dropdown.querySelector('.js-dropdown-body');
+  const dropdownContent = dropdown.querySelector('.js-dropdown-content');
+  const dropdownContentHeight = dropdownContent.offsetHeight;
+  if (dropdownBody.offsetHeight == 0) {
+    dropdownBody.style.height = dropdownContentHeight + 'px';
+  } else {
+    dropdownBody.style.height = 0;
+  }
+
+}
+
+function rotateArrowDropdownsBtn(btn) {
+  const arrow = findChildren(btn, '.category__arrow');
+  arrow.classList.toggle('category__arrow--is-up')
+}
+
+function findChildren(el, domClass) {
+  const children = el.querySelector(domClass);
+  return children;
+}
+
+function toggleSwitch() {
+  const left = switchToggle.classList.contains('switch__toggle--is-left');
+  const right = switchToggle.classList.contains('switch__toggle--is-right');
+  if (!left) {
+    switchToggle.classList.remove('switch__toggle--is-right');
+    switchToggle.classList.add('switch__toggle--is-left');
+    switchSection('left')
+    return;
+  }
+  if (!right) {
+    switchToggle.classList.remove('switch__toggle--is-left');
+    switchToggle.classList.add('switch__toggle--is-right');
+    switchSection('right')
+    return;
+  }
+
+  function switchSection(section) {
+    const switchLeft = document.querySelector('#switchLeft');
+    const switchRight = document.querySelector('#switchRight');
+
+    if (section === 'left') {
+      switchLeft.style.display = 'block';
+      switchRight.style.display = 'none';
+    }
+    if (section === 'right') {
+
+      switchRight.style.display = 'block';
+      switchLeft.style.display = 'none';
+    }
+  }
+}
+
+function showIElement(elementLink) {
+  const elements = document.querySelectorAll('.js-element');
+  const idElement = elementLink.dataset.type;
+
+  Array.from(elementLinks).forEach((el) => {
+    el.classList.remove('product-info__item--is-active')
+  });
+
+  elementLink.classList.add('product-info__item--is-active');
+
+  Array.from(elements).forEach((el) => {
+    const elId = el.getAttribute('id');
+    el.classList.remove('product-info__text--is-active')
+    if (elId == idElement) {
+      el.classList.add('product-info__text--is-active')
+    }
+  });
+}
+
+// Функции для отрисовки элементов
+function render(el, array, getMarkupStrFunct) {
+  let markupAsStr = '';
+  array.forEach((item) => {
+    markupAsStr = markupAsStr + getMarkupStrFunct(item);
+  })
+  el.insertAdjacentHTML('beforeEnd', markupAsStr);
 }

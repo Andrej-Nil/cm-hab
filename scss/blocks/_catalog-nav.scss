@@ -21,10 +21,11 @@
 .category__btn {
   opacity: 0;
   position: absolute;
-  padding: 10px 5px;
+  padding: 10px 10px;
   top: 50%;
-  right: -10px;
+  right: -20px;
   transform: translate(0, -50%);
+  cursor: pointer;
   user-select: none;
 }
 .category__arrow {
@@ -32,7 +33,6 @@
   height: auto;
   transform: rotate(-180deg);
   transition: 0.2s ease-in-out;
-  cursor: pointer;
 }
 
 .category__arrow--is-up {
