@@ -28,18 +28,23 @@ const helpForm = document.querySelector('#helpForm');
 const mobileMenuBtn = document.querySelector('#menuBtn');
 const mobileMenu = document.querySelector('#mobileMenu');
 const mobileMenuCloseBtn = document.querySelector('#mobileMenuClose');
+
 const elementLinks = document.querySelectorAll('.js-element-link');
 
-const upwardBtn = document.querySelector('#upwardBtn');
-const upBtn = document.querySelector('#up');
-
 const dropdownsBtn = document.querySelectorAll('.js-dropdown-btn');
+
 //Карусели
 const mainSlider = document.querySelector('#mainSlider');
 const productCarusel = document.querySelector('#productCarusel');
 const popularGoods = document.querySelector('#popularGoods');
 const sectionSlider = document.querySelector('#sectionSlider');
 const newsSlider = document.querySelector('#newsSlider');
+
+//btns
+const favoriteBtns = document.querySelectorAll('.js-favorite');
+const upwardBtn = document.querySelector('#upwardBtn');
+const upBtn = document.querySelector('#up');
+
 
 const catalogNav = document.querySelector('#catalogNav');
 
@@ -57,88 +62,40 @@ const sensitivity = 20;
 let touchStart = null;
 let touchPosition = null;
 
-
-if (catalogNav) {
-  window.addEventListener('load', renderCatalogNav);
-}
-
-async function renderCatalogNav() {
-  const api = catalogNav.getAttribute('data-link');
-  const data = {
-    _token: _token,
-  }
-  const response = await getData(GET, data, api);
-
-  render(catalogNav, response.desc, getMarkupEl);
-  const btns = document.querySelectorAll('.js-dropdown-btn');
-
-  Array.from(btns).forEach((btn) => {
-    btn.addEventListener('click', () => renderSubCatalogNav(btn));
+if (favoriteBtns.length) {
+  Array.from(favoriteBtns).forEach((btn) => {
+    btn.addEventListener('click', () => {
+      addFafavorite(btn)
+    })
   });
-
-  function getMarkupEl(obj) {
-    const { link, text, article } = obj;
-    return (`
-            <div class="category js-dropdown">
-              <div class="category__name">
-                <a href='${link}' class='category__link'>
-                  ${text}
-                </a >
-                <div class="category__btn js-dropdown-btn" data-article="${article}">
-                  <img src="./img/controls/dropdown-btn.svg" alt="" class="category__arrow">
-                </div>
-              </div>
-              <div class="subcategories js-dropdown-body">
-                <ul class="subcategories__list js-dropdown-content">
-                  
-                </ul>
-              </div>
-            </div >
-    `)
-  }
-
 }
 
 
-
-async function renderSubCatalogNav(btn) {
-  const api = 'testAjax/sidebarSubMenu.json';
+async function addFafavorite(btn) {
+  const api = btn.getAttribute('data-link');
   const article = btn.getAttribute('data-article');
-  const parent = btn.closest('.js-dropdown');
-  const ul = parent.querySelector('.js-dropdown-content');
-  const liList = ul.querySelectorAll('.js-item');
   const data = {
     _token: _token,
     article: article
   }
-
-  if (!parent) {
-    return;
-  }
-  if (liList.length) {
-    return;
-  }
   const response = await getData(GET, data, api);
-  render(ul, response.desc, getMarkupEl);
-  dropdownOpen(btn);
-  rotateArrowDropdownsBtn(btn);
-
-  btn.addEventListener('click', () => dropdownOpen(btn));
-  btn.addEventListener('click', () => rotateArrowDropdownsBtn(btn));
-
-  function getMarkupEl(obj) {
-    const { link, text } = obj;
-    return (`
-    <li class="subcategories__item js-item">
-      <a href="${link}" class="subcategories__link">
-      ${text}
-      </a>
-    </li>
-    `)
-  }
-
+  setFafavoriteIcon(btn, response.toggle);
 }
 
+function setFafavoriteIcon(el, boolean) {
+  const imgEl = el.querySelector('.js-favorite-img');
+  const pathToImage = './img/icon/favorite-icon.svg';
+  const pathToImageActive = './img/icon/favorite-active-icon.svg';
+  if (!boolean) {
+    imgEl.src = pathToImage;
+    return;
+  }
+  imgEl.src = pathToImageActive;
+}
+
+if (catalogNav) {
+  window.addEventListener('load', renderCatalogNav);
+}
 
 if (elementLinks.length) {
   Array.from(elementLinks).forEach((link) => {
@@ -211,7 +168,6 @@ if (fastOrdenBtns.length && modalsWrap) {
   });
 }
 
-
 if (ordenBtn) {
   ordenBtn.addEventListener('click', () => modalOpen(ordenModal));
 }
@@ -220,7 +176,6 @@ if (helpBtn) {
 
   helpBtn.addEventListener('click', () => modalOpen(helpModal));
 }
-
 
 if (modalCloseBtns.length) {
   Array.from(modalCloseBtns).forEach((btn) => {
@@ -234,13 +189,6 @@ if (upwardBtn) {
   upwardBtn.addEventListener('click', goTop);
   window.addEventListener('scroll', showUpBtn);
 }
-
-//if (dropdownsBtn) {
-//  Array.from(dropdownsBtn).forEach((btn) => {
-//    btn.addEventListener('click', () => dropdownOpen(btn));
-//    btn.addEventListener('click', () => rotateArrowDropdownsBtn(btn));
-//  });
-//}
 
 // Функции для работы слайдеров
 function carusel(el) {
@@ -932,4 +880,79 @@ function render(el, array, getMarkupStrFunct) {
     markupAsStr = markupAsStr + getMarkupStrFunct(item);
   })
   el.insertAdjacentHTML('beforeEnd', markupAsStr);
+}
+
+async function renderCatalogNav() {
+  const api = catalogNav.getAttribute('data-link');
+  const data = {
+    _token: _token,
+  }
+  const response = await getData(GET, data, api);
+
+  render(catalogNav, response.desc, getMarkupEl);
+  const btns = document.querySelectorAll('.js-dropdown-btn');
+
+  Array.from(btns).forEach((btn) => {
+    btn.addEventListener('click', () => renderSubCatalogNav(btn));
+  });
+
+  function getMarkupEl(obj) {
+    const { link, text, article } = obj;
+    return (`
+            <div class="category js-dropdown">
+              <div class="category__name">
+                <a href='${link}' class='category__link'>
+                  ${text}
+                </a >
+                <div class="category__btn js-dropdown-btn" data-article="${article}">
+                  <img src="./img/controls/dropdown-btn.svg" alt="" class="category__arrow">
+                </div>
+              </div>
+              <div class="subcategories js-dropdown-body">
+                <ul class="subcategories__list js-dropdown-content">
+                  
+                </ul>
+              </div>
+            </div >
+    `)
+  }
+
+}
+
+async function renderSubCatalogNav(btn) {
+  const api = 'testAjax/sidebarSubMenu.json';
+  const article = btn.getAttribute('data-article');
+  const parent = btn.closest('.js-dropdown');
+  const ul = parent.querySelector('.js-dropdown-content');
+  const liList = ul.querySelectorAll('.js-item');
+  const data = {
+    _token: _token,
+    article: article
+  }
+
+  if (!parent) {
+    return;
+  }
+  if (liList.length) {
+    return;
+  }
+  const response = await getData(GET, data, api);
+  render(ul, response.desc, getMarkupEl);
+  dropdownOpen(btn);
+  rotateArrowDropdownsBtn(btn);
+
+  btn.addEventListener('click', () => dropdownOpen(btn));
+  btn.addEventListener('click', () => rotateArrowDropdownsBtn(btn));
+
+  function getMarkupEl(obj) {
+    const { link, text } = obj;
+    return (`
+    <li class="subcategories__item js-item">
+      <a href="${link}" class="subcategories__link">
+      ${text}
+      </a>
+    </li>
+    `)
+  }
+
 }
