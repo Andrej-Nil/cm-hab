@@ -297,6 +297,7 @@ ul {
   border: none;
   outline: none;
   cursor: pointer;
+  border: 1px solid rgba(0, 0, 0, 0);
   font-size: 18px;
   font-weight: normal;
   line-height: 95.2%;
@@ -2534,6 +2535,8 @@ ul {
 
 .product-slide__in-basket {
   width: 100%;
+  text-align: center;
+  padding: 15px 0;
 }
 
 @media (min-width: 1090px) {

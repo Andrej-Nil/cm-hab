@@ -1,7 +1,7 @@
 'use strict';
 
 const _token = getToken();
-const POST = 'POST';
+const POST = 'GET';
 const GET = 'GET';
 const body = document.querySelector('body');
 
@@ -42,6 +42,7 @@ const newsSlider = document.querySelector('#newsSlider');
 
 //btns
 const favoriteBtns = document.querySelectorAll('.js-favorite');
+const inBasketBns = document.querySelectorAll('.js-in-basket');
 const upwardBtn = document.querySelector('#upwardBtn');
 const upBtn = document.querySelector('#up');
 
@@ -70,28 +71,35 @@ if (favoriteBtns.length) {
   });
 }
 
-
-async function addFafavorite(btn) {
-  const api = btn.getAttribute('data-link');
-  const article = btn.getAttribute('data-article');
-  const data = {
-    _token: _token,
-    article: article
-  }
-  const response = await getData(GET, data, api);
-  setFafavoriteIcon(btn, response.toggle);
+if (inBasketBns.length) {
+  Array.from(inBasketBns).forEach((btn) => {
+    btn.addEventListener('click', () => {
+      addInBasketBns(btn)
+    })
+  });
 }
 
-function setFafavoriteIcon(el, boolean) {
-  const imgEl = el.querySelector('.js-favorite-img');
-  const pathToImage = './img/icon/favorite-icon.svg';
-  const pathToImageActive = './img/icon/favorite-active-icon.svg';
-  if (!boolean) {
-    imgEl.src = pathToImage;
+async function addInBasketBns(btn) {
+  const info = getInfoFromBtnToSend(btn);
+  const response = await getData(POST, info.data, info.api);
+  setInBasketBtn(btn, response.toggle, response.desc)
+}
+
+function setInBasketBtn(el, toggle, desc) {
+  console.log(toggle, desc)
+  if (toggle) {
+    el.classList.remove('yellow-btn');
+    el.classList.add('white-btn');
+    el.innerHTML = desc;
     return;
   }
-  imgEl.src = pathToImageActive;
+  el.classList.add('yellow-btn');
+  el.classList.remove('white-btn');
+  el.innerHTML = desc;
 }
+
+
+
 
 if (catalogNav) {
   window.addEventListener('load', renderCatalogNav);
@@ -182,7 +190,7 @@ if (modalCloseBtns.length) {
     btn.addEventListener('click', () => modalClose(btn));
   });
 }
-// modals end
+
 
 
 if (upwardBtn) {
@@ -873,6 +881,42 @@ function showIElement(elementLink) {
   });
 }
 
+
+
+function setFafavoriteIcon(el, boolean) {
+  const imgEl = el.querySelector('.js-favorite-img');
+  const pathToImage = './img/icon/favorite-icon.svg';
+  const pathToImageActive = './img/icon/favorite-active-icon.svg';
+  if (!boolean) {
+    imgEl.src = pathToImage;
+    return;
+  }
+  imgEl.src = pathToImageActive;
+}
+
+// функции для отправки запросов с кнопок
+// фаврит, в корзину, удалит
+function getInfoFromBtnToSend(btn) {
+  const info = {};
+  const api = btn.getAttribute('data-link');
+  const article = btn.getAttribute('data-article');
+  const data = {
+    _token: _token,
+    article: article
+  }
+
+  info.api = api;
+  info.article = article;
+  info.data = data;
+  return info;
+}
+
+async function addFafavorite(btn) {
+  const info = getInfoFromBtnToSend(btn);
+  const response = await getData(POST, info.data, info.api);
+  setFafavoriteIcon(btn, response.toggle);
+}
+
 // Функции для отрисовки элементов
 function render(el, array, getMarkupStrFunct) {
   let markupAsStr = '';
@@ -887,7 +931,7 @@ async function renderCatalogNav() {
   const data = {
     _token: _token,
   }
-  const response = await getData(GET, data, api);
+  const response = await getData(POST, data, api);
 
   render(catalogNav, response.desc, getMarkupEl);
   const btns = document.querySelectorAll('.js-dropdown-btn');
@@ -936,7 +980,7 @@ async function renderSubCatalogNav(btn) {
   if (liList.length) {
     return;
   }
-  const response = await getData(GET, data, api);
+  const response = await getData(POST, data, api);
   render(ul, response.desc, getMarkupEl);
   dropdownOpen(btn);
   rotateArrowDropdownsBtn(btn);
