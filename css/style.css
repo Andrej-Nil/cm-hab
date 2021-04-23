@@ -932,12 +932,12 @@ ul {
 }
 
 .scroll-bar::-webkit-scrollbar-track {
-  background-color: #f0f1f3;
+  background-color: #e5e5e5;
   border-radius: 20px;
 }
 
 .scroll-bar::-webkit-scrollbar-thumb {
-  background-color: #f0f1f3;
+  background-color: #e5e5e5;
   border-radius: 20px;
   border: 1px solid #cccccc;
 }
@@ -6530,6 +6530,7 @@ ul {
 }
 
 .order-modal {
+  position: relative;
   max-width: 570px;
   width: 100%;
 }
@@ -6677,7 +6678,7 @@ ul {
 }
 
 .modal-card {
-  padding: 10px 0;
+  padding: 10px 15px 10px 0;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -6815,6 +6816,10 @@ ul {
   font-weight: 500;
   font-size: 24px;
   line-height: 95.2%;
+  -webkit-user-select: none;
+     -moz-user-select: none;
+      -ms-user-select: none;
+          user-select: none;
 }
 
 .counter__sing {
@@ -6829,6 +6834,7 @@ ul {
           justify-content: center;
   width: 30px;
   height: 30px;
+  cursor: pointer;
 }
 
 .counter__quantity {

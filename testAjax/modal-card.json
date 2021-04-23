@@ -1,0 +1,19 @@
+{
+	"rez": 1,
+	"desc": "",
+  "prod":[{
+    "article": 1,
+    "count": 2,
+    "title": "Алюминиевая прессованная труба 100х10 мм В95Т1 ГОСТ 18482-79",
+    "link": "product-page.html",
+    "img": "./img/image/product-card-img-1.jpg",
+    "sale": "-10%",
+    "price": 10000,
+    "favorite": true,
+    "favorite_link": "testAjax/favorite-test.json",
+    "count_link": "testAjax/counter-test.json"
+  }],
+  "card": {
+    "totle_price": 20000
+  }
+}

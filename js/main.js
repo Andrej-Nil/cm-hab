@@ -12,26 +12,26 @@ const fastOrdenBtns = document.querySelectorAll('.js-fast-order');
 const feetbackModal = document.querySelector('#feetback');
 const fastOrderModal = document.querySelector('#fastOrder');
 const modalCloseBtns = document.querySelectorAll('.js-close-modal');
+const closeFastOrderBtn = document.querySelector('#closeFastOrderBtn');
 const ordenBtn = document.querySelector('#orderBtn');
 const ordenModal = document.querySelector('#order');
 const helpModal = document.querySelector('#help');
 const helpBtn = document.querySelector('#helpBtn');
 const connectionThanksModal = document.querySelector('#connectionThanks');
+const orderThanksModal = document.querySelector('#orderThanks');
 
+const fastOrderTotalPrice = document.querySelector('#fastOrderTotalPrice');
 
 // Forms
 const callbackForm = document.querySelector('#callbackForm');
 const feetbackForm = document.querySelector('#feetbackForm');
 const helpForm = document.querySelector('#helpForm');
+const fastOrderForm = document.querySelector('#fastOrderForm');
 
 //mobileMenu
 const mobileMenuBtn = document.querySelector('#menuBtn');
 const mobileMenu = document.querySelector('#mobileMenu');
 const mobileMenuCloseBtn = document.querySelector('#mobileMenuClose');
-
-const elementLinks = document.querySelectorAll('.js-element-link');
-
-const dropdownsBtn = document.querySelectorAll('.js-dropdown-btn');
 
 //Карусели
 const mainSlider = document.querySelector('#mainSlider');
@@ -46,10 +46,11 @@ const inBasketBns = document.querySelectorAll('.js-in-basket');
 const upwardBtn = document.querySelector('#upwardBtn');
 const upBtn = document.querySelector('#up');
 
-
-const catalogNav = document.querySelector('#catalogNav');
-
+const elementLinks = document.querySelectorAll('.js-element-link');
+const dropdownsBtn = document.querySelectorAll('.js-dropdown-btn');
 const switchToggle = document.querySelector('#switchToggle');
+const counters = document.querySelectorAll('.js-counter')
+const catalogNav = document.querySelector('#catalogNav');
 
 const map = document.querySelector('#map');
 
@@ -63,6 +64,12 @@ const sensitivity = 20;
 let touchStart = null;
 let touchPosition = null;
 
+if (counters.length) {
+  Array.from(counters).forEach((counter) => {
+    managingСounter(counter);
+  })
+}
+
 if (favoriteBtns.length) {
   Array.from(favoriteBtns).forEach((btn) => {
     btn.addEventListener('click', () => {
@@ -70,7 +77,6 @@ if (favoriteBtns.length) {
     })
   });
 }
-
 if (inBasketBns.length) {
   Array.from(inBasketBns).forEach((btn) => {
     btn.addEventListener('click', () => {
@@ -79,32 +85,9 @@ if (inBasketBns.length) {
   });
 }
 
-async function addInBasketBns(btn) {
-  const info = getInfoFromBtnToSend(btn);
-  const response = await getData(POST, info.data, info.api);
-  setInBasketBtn(btn, response.toggle, response.desc)
-}
-
-function setInBasketBtn(el, toggle, desc) {
-  console.log(toggle, desc)
-  if (toggle) {
-    el.classList.remove('yellow-btn');
-    el.classList.add('white-btn');
-    el.innerHTML = desc;
-    return;
-  }
-  el.classList.add('yellow-btn');
-  el.classList.remove('white-btn');
-  el.innerHTML = desc;
-}
-
-
-
-
 if (catalogNav) {
   window.addEventListener('load', renderCatalogNav);
 }
-
 if (elementLinks.length) {
   Array.from(elementLinks).forEach((link) => {
     link.addEventListener('click', () => showIElement(link));
@@ -140,27 +123,27 @@ if (callbackForm) {
   })
   sendCallbackForm();
 }
-
 if (feetbackForm) {
   feetbackForm.addEventListener('submit', (e) => {
     e.preventDefault();
   })
   sendFeetbackForm();
 }
-
 if (helpForm) {
   helpForm.addEventListener('submit', (e) => {
     e.preventDefault();
   })
   sendHelpForm();
 }
-
 if (mobileMenuBtn) {
   mobileMenuBtn.addEventListener('click', mobileMenuOpen);
 }
 
-if (mobileMenuCloseBtn) {
-  mobileMenuCloseBtn.addEventListener('click', mobileMenuClose);
+if (fastOrderForm) {
+  fastOrderForm.addEventListener('submit', (e) => {
+    e.preventDefault();
+  })
+  sendOrderForm()
 }
 
 //modals
@@ -173,6 +156,7 @@ if (feetbackModal && modalsWrap) {
 if (fastOrdenBtns.length && modalsWrap) {
   Array.from(fastOrdenBtns).forEach((btn) => {
     btn.addEventListener('click', () => modalOpen(fastOrderModal));
+    btn.addEventListener('click', () => renderModalProduct(fastOrderModal, btn));
   });
 }
 
@@ -181,7 +165,6 @@ if (ordenBtn) {
 }
 
 if (helpBtn) {
-
   helpBtn.addEventListener('click', () => modalOpen(helpModal));
 }
 
@@ -191,11 +174,40 @@ if (modalCloseBtns.length) {
   });
 }
 
+if (closeFastOrderBtn) {
+  closeFastOrderBtn.addEventListener('click', clearFastOrderList)
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 if (upwardBtn) {
   upwardBtn.addEventListener('click', goTop);
   window.addEventListener('scroll', showUpBtn);
+}
+
+if (mobileMenuCloseBtn) {
+  mobileMenuCloseBtn.addEventListener('click', mobileMenuClose);
 }
 
 // Функции для работы слайдеров
@@ -479,7 +491,7 @@ function slider(el, autoplay = false) {
   }
 
 }
-// Функции для открытия/закрытия модульных окон
+// Функции работы модульных окон
 function modalOpen(modal) {
   body.classList.add('no-scroll');
   modalsWrap.classList.add('modals--is-show');
@@ -493,8 +505,12 @@ function modalClose(btn) {
   modalsWrap.classList.remove('modals--is-show');
 }
 
-// Функции для открытия/закрытия мобильного меня
+function clearFastOrderList() {
+  const lisrWrap = fastOrderModal.querySelector('.js-list-wrap');
+  lisrWrap.innerHTML = '';
+}
 
+// Функции для открытия/закрытия мобильного меня
 function mobileMenuOpen() {
   mobileMenu.classList.add('mobile-menu--is-open');
 }
@@ -546,11 +562,11 @@ function getToken() {
 function getData(method, data, api) {
 
   return new Promise(function (resolve, reject) {
+
     const xhr = new XMLHttpRequest();
     let response = null
     xhr.open(method, api, true);
     xhr.send(data);
-
     xhr.onload = function () {
       if (xhr.status != 200) {
         console.log('Ошибка: ' + xhr.status);
@@ -788,6 +804,46 @@ function sendFeetbackForm() {
   }
 }
 
+function sendOrderForm() {
+  const api = fastOrderForm.action;
+  const inputs = fastOrderForm.querySelectorAll('.js-input');
+  const mailInput = fastOrderForm.querySelector('.js-input-email');
+  const mailPhine = fastOrderForm.querySelector('.js-input-phone');
+  const checkboxInput = fastOrderForm.querySelector('.js-input-checkbox');
+  const submitBtn = fastOrderForm.querySelector('.js-submit');
+  const formMessage = fastOrderForm.querySelector('.js-message');
+  const modalCards = fastOrderForm.querySelectorAll('.modal-card');
+
+  mailInput.addEventListener('blur', () => {
+    checkInput(mailInput);
+  })
+
+  mailPhine.addEventListener('blur', () => {
+    checkInput(mailPhine);
+  })
+
+  submitBtn.addEventListener('click', () => {
+    const result = formCheck(mailInput, mailPhine, checkboxInput);
+    if (result) {
+      postOrder(POST, api)
+    }
+  });
+
+  async function postOrder(method, api) {
+    const data = new FormData(fastOrderForm);
+    data.append('_token', _token);
+    data.append('prod', getArticlesAndQuantityArr(modalCards));
+    const response = await getData(method, data, api);
+    const res = showMessage(response, formMessage);
+
+    if (res) {
+      clearInput(inputs);
+      orderThanksModal.classList.add('modal--is-show');
+      fastOrderModal.classList.remove('modal--is-show');
+      clearFastOrderList();
+    }
+  }
+}
 
 // Прочие функции
 function goTop() {
@@ -798,12 +854,71 @@ function goTop() {
   } else clearTimeout(timeOut);
 }
 
+function setTotlePrice(el, totlePrice) {
+  el.innerHTML = totlePrice
+}
+
 function showUpBtn() {
   const coord = body.getBoundingClientRect();
   if (coord.top < -1000) {
     upBtn.classList.add('up--is-show');
   } else {
     upBtn.classList.remove('up--is-show');
+  }
+}
+
+function managingСounter(counter) {
+  const api = counter.getAttribute('data-link')
+  const article = counter.getAttribute('data-article')
+  const decBtn = counter.querySelector('.js-dec');
+  const incBtn = counter.querySelector('.js-inc');
+  const quantityInput = counter.querySelector('.js-quantity');
+  let response = null;
+  let data = {
+    _token: _token,
+    article: article
+  }
+
+  decBtn.addEventListener('click', dec);
+  incBtn.addEventListener('click', inc);
+  quantityInput.addEventListener('change', checkingValue);
+
+
+  async function dec() {
+    let quantity = +quantityInput.value;
+    quantity -= 1;
+    if (quantity === 0) {
+      quantity = 1
+      quantityInput.value = quantity;
+      return;
+    }
+    data.count = quantity;
+    response = await getData(POST, data, api);
+    quantityInput.value = response.prod.count;
+    setTotlePrice(fastOrderTotalPrice, response.card.totle_price);
+  }
+
+  async function inc() {
+    let quantity = +quantityInput.value;
+    quantity += 1;
+    data.count = quantity;
+    response = await getData(POST, data, api);
+    quantityInput.value = response.prod.count;
+    setTotlePrice(fastOrderTotalPrice, response.card.totle_price);
+  }
+
+  function checkingValue() {
+    const value = +quantityInput.value;
+    if (value <= 0) {
+      quantityInput.value = 1;
+      return;
+    }
+    if (isNaN(value)) {
+      quantityInput.value = 1;
+      return;
+    }
+
+    console.log(value);
   }
 }
 
@@ -881,8 +996,6 @@ function showIElement(elementLink) {
   });
 }
 
-
-
 function setFafavoriteIcon(el, boolean) {
   const imgEl = el.querySelector('.js-favorite-img');
   const pathToImage = './img/icon/favorite-icon.svg';
@@ -899,6 +1012,7 @@ function setFafavoriteIcon(el, boolean) {
 function getInfoFromBtnToSend(btn) {
   const info = {};
   const api = btn.getAttribute('data-link');
+  console.log(api);
   const article = btn.getAttribute('data-article');
   const data = {
     _token: _token,
@@ -908,10 +1022,54 @@ function getInfoFromBtnToSend(btn) {
   info.api = api;
   info.article = article;
   info.data = data;
+  console.log(info);
   return info;
+
+}
+
+async function addInBasketBns(btn) {
+  const info = getInfoFromBtnToSend(btn);
+  const response = await getData(POST, info.data, info.api);
+  setInBasketBtn(btn, response.toggle, response.desc)
+}
+
+function setInBasketBtn(el, toggle, desc) {
+  console.log(toggle, desc)
+  if (toggle) {
+    el.classList.remove('yellow-btn');
+    el.classList.add('white-btn');
+    el.innerHTML = desc;
+    return;
+  }
+  el.classList.add('yellow-btn');
+  el.classList.remove('white-btn');
+  el.innerHTML = desc;
+}
+
+function getArticlesAndQuantityArr(modalCards) {
+  const arr = []
+  Array.from(modalCards).forEach((item) => {
+    let obj = {
+      articles: getArticles(item),
+      quantity: getQuantity(item)
+    }
+    arr.push(obj);
+
+  })
+  return arr;
+}
+
+function getArticles(product) {
+  return product.getAttribute('data-article');
+}
+
+function getQuantity(product) {
+  const quantityInput = product.querySelector('.js-quantity');
+  return quantityInput.value;
 }
 
 async function addFafavorite(btn) {
+  console.log(btn)
   const info = getInfoFromBtnToSend(btn);
   const response = await getData(POST, info.data, info.api);
   setFafavoriteIcon(btn, response.toggle);
@@ -961,6 +1119,97 @@ async function renderCatalogNav() {
     `)
   }
 
+}
+
+async function renderModalProduct(modal, btn) {
+  const api = btn.getAttribute('data-link');
+  const article = btn.getAttribute('data-article');
+  const listWrap = modal.querySelector('.js-list-wrap');
+
+  const data = {
+    _token: _token,
+    article: article
+  }
+  let counters = null
+  let favoriteBtns = null
+  const response = await getData(POST, data, api);
+
+  render(listWrap, response.prod, getMarkupEl);
+
+  counters = listWrap.querySelectorAll('.js-counter');
+  favoriteBtns = listWrap.querySelectorAll('.js-favorite');
+
+  if (counters.length) {
+    Array.from(counters).forEach((counter) => {
+      managingСounter(counter);
+    })
+  }
+
+  if (favoriteBtns.length) {
+    Array.from(favoriteBtns).forEach((btn) => {
+      btn.addEventListener('click', () => {
+        addFafavorite(btn)
+      })
+    });
+  }
+
+  setTotlePrice(fastOrderTotalPrice, response.card.totle_price)
+
+  function getMarkupEl(obj) {
+    const { article, count, link, title,
+      img, favorite_link, count_link, sale,
+      price, favorite } = obj;
+    let favoriteIcon = null;
+    if (favorite) {
+      favoriteIcon = "./img/icon/favorite-active-icon.svg"
+    } else {
+      favoriteIcon = "./img/icon/favorite-icon.svg"
+    }
+
+    return (`
+    <div class="modal-card" data-article='${article}'>
+    <div class="modal-card__desc">
+      <div class="modal-card__preview">
+        <a href="${link}" class="modal-card__preview">
+          <img src="${img}" alt="" class="modal-card__img">
+        </a>
+      </div>
+      <h3 class='modal-card__title'>
+        <a href="${link}" class="modal-card__link link">${title}</a>
+      </h3>
+    </div>
+    <div class="modal-card__price">
+      <div class="modal-card__discount">
+        <span class="discount-sticker">${sale}</span>
+      </div>
+      <span class="modal-card__num">${price}</span>
+    </div>
+    <!--modal-card__control-->
+    <div class="modal-card__control">
+
+      <!--modal-card__counter-->
+      <div class="modal-card__counter">
+        <div class="counter js-counter" data-article="${article}" data-link="${count_link}">
+          <span class="counter__sing js-dec">-</span>
+
+          <input type='text' class="counter__quantity js-quantity" value='${count}'>
+
+          <span class="counter__sing js-inc">+</span>
+        </div>
+      </div>
+      <!--modal-card__counter-->
+
+      <div class="modal-card__icon ">
+        <span class="btn js-favorite" data-article='${article}' data-link="${favorite_link}">
+          <img class="btn__icon js-favorite-img" src="${favoriteIcon}" alt="">
+        </span>
+      </div>
+
+    </div>
+    <!--modal-card__control-->
+  </div>
+    `)
+  }
 }
 
 async function renderSubCatalogNav(btn) {

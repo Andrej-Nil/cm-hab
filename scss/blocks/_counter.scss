@@ -10,6 +10,7 @@
   font-weight: 500;
   font-size: 24px;
   line-height: 95.2%;
+  user-select: none;
 }
 
 .counter__sing {
@@ -18,6 +19,7 @@
   justify-content: center;
   width: 30px;
   height: 30px;
+  cursor: pointer;
 }
 
 .counter__quantity {
