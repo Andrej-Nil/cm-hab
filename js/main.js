@@ -73,7 +73,7 @@ if (counters.length) {
 if (favoriteBtns.length) {
   Array.from(favoriteBtns).forEach((btn) => {
     btn.addEventListener('click', () => {
-      addFafavorite(btn)
+      addFavorite(btn)
     })
   });
 }
@@ -847,6 +847,7 @@ function sendOrderForm() {
 
 // Прочие функции
 function goTop() {
+  let timeOut = null;
   let top = Math.max(document.body.scrollTop, document.documentElement.scrollTop);
   if (top > 0) {
     window.scrollBy(0, -150);
@@ -1027,12 +1028,6 @@ function getInfoFromBtnToSend(btn) {
 
 }
 
-async function addInBasketBns(btn) {
-  const info = getInfoFromBtnToSend(btn);
-  const response = await getData(POST, info.data, info.api);
-  setInBasketBtn(btn, response.toggle, response.desc)
-}
-
 function setInBasketBtn(el, toggle, desc) {
   console.log(toggle, desc)
   if (toggle) {
@@ -1068,11 +1063,45 @@ function getQuantity(product) {
   return quantityInput.value;
 }
 
-async function addFafavorite(btn) {
-  console.log(btn)
+async function addInBasketBns(btn) {
+  const info = getInfoFromBtnToSend(btn);
+  const response = await getData(POST, info.data, info.api);
+  setInBasketBtn(btn, response.toggle, response.desc)
+  setBasketIndicator(response.count)
+}
+
+async function addFavorite(btn) {
   const info = getInfoFromBtnToSend(btn);
   const response = await getData(POST, info.data, info.api);
   setFafavoriteIcon(btn, response.toggle);
+  setFavoriteIndicator(response.count)
+}
+
+function setBasketIndicator(count) {
+  const iconIndicator = document.querySelector('#basketIndicator');
+  const basketCount = document.querySelector('#basketCount');
+  if (count === 0) {
+    iconIndicator.classList.remove('h-icon__indicator--is-show');
+    basketCount.innerHTML = 0;
+  }
+  if (count) {
+    iconIndicator.classList.add('h-icon__indicator--is-show');
+    basketCount.innerHTML = count;
+  }
+}
+
+function setFavoriteIndicator(count) {
+  const iconIndicator = document.querySelector('#favoriteIndicator');
+  const favoriteCount = document.querySelector('#favoriteCount');
+  console.log(favoriteCount);
+  if (count === 0) {
+    iconIndicator.classList.remove('h-icon__indicator--is-show');
+    favoriteCount.innerHTML = 0;
+  }
+  if (count) {
+    iconIndicator.classList.add('h-icon__indicator--is-show');
+    favoriteCount.innerHTML = count;
+  }
 }
 
 // Функции для отрисовки элементов
@@ -1148,7 +1177,7 @@ async function renderModalProduct(modal, btn) {
   if (favoriteBtns.length) {
     Array.from(favoriteBtns).forEach((btn) => {
       btn.addEventListener('click', () => {
-        addFafavorite(btn)
+        addFavorite(btn)
       })
     });
   }
