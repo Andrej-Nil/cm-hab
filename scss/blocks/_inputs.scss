@@ -201,3 +201,9 @@
     }
   }
 }
+
+.input-check__fake--is-active {
+  &::before {
+    display: block;
+  }
+}

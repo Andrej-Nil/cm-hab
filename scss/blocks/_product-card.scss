@@ -111,6 +111,8 @@
 
 .product-card__in-basket {
   display: none;
+  padding: 15px 0;
+  width: 160px;
   @media (min-width: 1090px) {
     display: block;
   }

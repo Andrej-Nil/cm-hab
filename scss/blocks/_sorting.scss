@@ -3,20 +3,11 @@
   width: 200px;
   z-index: 1000;
   background: $pearl;
-  &:hover .sorting__body {
-    height: auto;
-  }
 
   @media (min-width: 600px) {
     width: 250px;
-    &:hover .sorting__body {
-      height: auto;
-    }
   }
   @media (min-width: 1090px) {
-    &:hover .sorting__body {
-      height: auto;
-    }
   }
 }
 
@@ -26,6 +17,7 @@
   box-sizing: border-box;
   border-radius: 50px;
   padding: 15px 20px;
+  cursor: pointer;
   z-index: 1000;
 }
 
@@ -35,10 +27,22 @@
 }
 
 .sorting__arrow {
+  display: flex;
+  align-items: center;
   position: absolute;
   top: 50%;
   right: 21px;
+  width: 16px;
+  height: 16px;
   transform: translate(0, -50%);
+}
+
+.sorting__arrow-img {
+  transition: 0.2s ease-in-out;
+}
+
+.sorting__arrow--is-down {
+  transform: rotate(-180deg);
 }
 
 .sorting__body {
@@ -47,6 +51,7 @@
   position: absolute;
   top: 50%;
   width: 100%;
+  transition: 0.2s ease-in-out;
 }
 
 .sorting___item {
@@ -63,6 +68,10 @@
   box-sizing: border-box;
   border-radius: 0 0 5px 5px;
   background: $pearl;
+}
+
+.sorting___link {
+  position: relative;
 }
 
 .sorting__text {

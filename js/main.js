@@ -47,7 +47,7 @@ const upBtn = document.querySelector('#up');
 const removeProductBtns = document.querySelectorAll('.js-remove-product');
 
 const elementLinks = document.querySelectorAll('.js-element-link');
-const dropdownsBtn = document.querySelectorAll('.js-dropdown-btn');
+const dropdownsBtns = document.querySelectorAll('.js-dropdown-btn');
 const switchToggle = document.querySelector('#switchToggle');
 const counters = document.querySelectorAll('.js-counter')
 const catalogNav = document.querySelector('#catalogNav');
@@ -84,6 +84,16 @@ if (inBasketBns.length) {
     })
   });
 }
+if (dropdownsBtns.length) {
+  Array.from(dropdownsBtns).forEach((btn) => {
+    btn.addEventListener('click', () => {
+      dropdownOpen(btn);
+      rotateSortingArrow(btn);
+    })
+  })
+}
+
+
 
 if (catalogNav) {
   window.addEventListener('load', renderCatalogNav);
@@ -146,7 +156,6 @@ if (fastOrderForm) {
   sendFastOrderForm()
 }
 
-
 if (orderForm) {
   orderForm.addEventListener('submit', (e) => {
     e.preventDefault();
@@ -154,29 +163,15 @@ if (orderForm) {
   sendOrderForm();
 }
 
+
+
 if (removeProductBtns.length) {
   Array.from(removeProductBtns).forEach((btn) => {
     btn.addEventListener('click', () => { removeProduct(btn) })
   });
 }
 
-async function removeProduct(btn) {
-  const productCard = btn.closest('.js-product-card');
-  const productList = productCard.parentElement
-  const info = getInfoFromBtnToSend(btn);
-  const response = await getData(POST, info.data, info.api);
-  if (response.toggle) {
-    productList.removeChild(productCard);
-    setTotalPrice(response.total_price);
-  }
-  console.log(response.count)
-  if (response.count === 0) {
 
-  }
-  if (response.count > 0) {
-    setBasketIndicator(response.count)
-  }
-}
 
 
 
@@ -960,6 +955,7 @@ function managingСounter(counter) {
 
 function dropdownOpen(btn) {
   const dropdown = btn.closest('.js-dropdown');
+  console.log(btn)
   const dropdownBody = dropdown.querySelector('.js-dropdown-body');
   const dropdownContent = dropdown.querySelector('.js-dropdown-content');
   const dropdownContentHeight = dropdownContent.offsetHeight;
@@ -974,6 +970,11 @@ function dropdownOpen(btn) {
 function rotateArrowDropdownsBtn(btn) {
   const arrow = findChildren(btn, '.category__arrow');
   arrow.classList.toggle('category__arrow--is-up')
+}
+
+function rotateSortingArrow(btn) {
+  const arrow = findChildren(btn, '.sorting__arrow-img');
+  arrow.classList.toggle('sorting__arrow--is-down')
 }
 
 function findChildren(el, domClass) {
@@ -1032,7 +1033,7 @@ function showIElement(elementLink) {
   });
 }
 
-function setFafavoriteIcon(el, boolean) {
+function setFavoriteIcon(el, boolean) {
   const imgEl = el.querySelector('.js-favorite-img');
   const pathToImage = './img/icon/favorite-icon.svg';
   const pathToImageActive = './img/icon/favorite-active-icon.svg';
@@ -1075,15 +1076,40 @@ function getInfoFromBtnToSend(btn) {
 }
 
 function setInBasketBtn(el, toggle, desc) {
+  const parent = el.closest('.js-product-card');
+  const iconBtn = parent.querySelector('.js-basket-icon');
+  const btn = parent.querySelector('.js-basket-btn');
+  if (btn) {
+    toggleInBasketBtn(btn, toggle, desc)
+  }
+  if (iconBtn) {
+    toggleInBasketIconBtn(iconBtn, toggle)
+  }
+
+}
+
+function toggleInBasketIconBtn(btn, toggle = false) {
+  const pathToImage = './img/icon/card-basket-icon.svg';
+  const pathToImageActive = './img/icon/in-basket-icon.svg';
+  console.log(btn.src)
   if (toggle) {
-    el.classList.remove('yellow-btn');
-    el.classList.add('white-btn');
-    el.innerHTML = desc;
+    btn.src = pathToImageActive;
     return;
   }
-  el.classList.add('yellow-btn');
-  el.classList.remove('white-btn');
-  el.innerHTML = desc;
+  btn.src = pathToImage;
+
+}
+
+function toggleInBasketBtn(btn, toggle = false, desc) {
+  if (toggle) {
+    btn.classList.remove('yellow-btn');
+    btn.classList.add('white-btn');
+    btn.innerHTML = desc;
+    return;
+  }
+  btn.classList.add('yellow-btn');
+  btn.classList.remove('white-btn');
+  btn.innerHTML = desc;
 }
 
 function getArticlesAndQuantityArr(modalCards) {
@@ -1118,8 +1144,26 @@ async function addInBasketBns(btn) {
 async function addFavorite(btn) {
   const info = getInfoFromBtnToSend(btn);
   const response = await getData(POST, info.data, info.api);
-  setFafavoriteIcon(btn, response.toggle);
+  setFavoriteIcon(btn, response.toggle);
   setFavoriteIndicator(response.count)
+}
+
+async function removeProduct(btn) {
+  const productCard = btn.closest('.js-product-card');
+  const productList = productCard.parentElement
+  const info = getInfoFromBtnToSend(btn);
+  const response = await getData(POST, info.data, info.api);
+  if (response.toggle) {
+    productList.removeChild(productCard);
+    setTotalPrice(response.total_price);
+  }
+  if (response.count === 0) {
+
+  }
+  if (response.count > 0) {
+    setBasketIndicator(response.count)
+  }
+  console.log(productCard)
 }
 
 function setBasketIndicator(count) {
@@ -1166,7 +1210,7 @@ async function renderCatalogNav() {
   const response = await getData(POST, data, api);
 
   render(catalogNav, response.desc, getMarkupEl);
-  const btns = document.querySelectorAll('.js-dropdown-btn');
+  const btns = document.querySelectorAll('.js-subcategory-btn');
 
   Array.from(btns).forEach((btn) => {
     btn.addEventListener('click', () => renderSubCatalogNav(btn));
@@ -1180,7 +1224,7 @@ async function renderCatalogNav() {
                 <a href='${link}' class='category__link'>
                   ${text}
                 </a >
-                <div class="category__btn js-dropdown-btn" data-article="${article}">
+                <div class="category__btn js-dropdown-btn js-subcategory-btn" data-article="${article}">
                   <img src="./img/controls/dropdown-btn.svg" alt="" class="category__arrow">
                 </div>
               </div>
@@ -1189,7 +1233,7 @@ async function renderCatalogNav() {
                   
                 </ul>
               </div>
-            </div >
+            </div>
     `)
   }
 
