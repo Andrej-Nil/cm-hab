@@ -8,25 +8,24 @@ const body = document.querySelector('body');
 //modal
 const modalsWrap = document.querySelector('#modalsWrap');
 const feetbackBtn = document.querySelector('#feetbackBtn');
-const fastOrdenBtns = document.querySelectorAll('.js-fast-order');
+const fastOrderBtns = document.querySelectorAll('.js-fast-order');
 const feetbackModal = document.querySelector('#feetback');
 const fastOrderModal = document.querySelector('#fastOrder');
 const modalCloseBtns = document.querySelectorAll('.js-close-modal');
 const closeFastOrderBtn = document.querySelector('#closeFastOrderBtn');
-const ordenBtn = document.querySelector('#orderBtn');
-const ordenModal = document.querySelector('#order');
+const orderBtn = document.querySelector('#orderBtn');
+const orderModal = document.querySelector('#order');
 const helpModal = document.querySelector('#help');
 const helpBtn = document.querySelector('#helpBtn');
 const connectionThanksModal = document.querySelector('#connectionThanks');
 const orderThanksModal = document.querySelector('#orderThanks');
-
-const fastOrderTotalPrice = document.querySelector('#fastOrderTotalPrice');
 
 // Forms
 const callbackForm = document.querySelector('#callbackForm');
 const feetbackForm = document.querySelector('#feetbackForm');
 const helpForm = document.querySelector('#helpForm');
 const fastOrderForm = document.querySelector('#fastOrderForm');
+const orderForm = document.querySelector('#orderForm');
 
 //mobileMenu
 const mobileMenuBtn = document.querySelector('#menuBtn');
@@ -45,6 +44,7 @@ const favoriteBtns = document.querySelectorAll('.js-favorite');
 const inBasketBns = document.querySelectorAll('.js-in-basket');
 const upwardBtn = document.querySelector('#upwardBtn');
 const upBtn = document.querySelector('#up');
+const removeProductBtns = document.querySelectorAll('.js-remove-product');
 
 const elementLinks = document.querySelectorAll('.js-element-link');
 const dropdownsBtn = document.querySelectorAll('.js-dropdown-btn');
@@ -143,8 +143,69 @@ if (fastOrderForm) {
   fastOrderForm.addEventListener('submit', (e) => {
     e.preventDefault();
   })
-  sendOrderForm()
+  sendFastOrderForm()
 }
+
+
+if (orderForm) {
+  orderForm.addEventListener('submit', (e) => {
+    e.preventDefault();
+  })
+  sendOrderForm();
+}
+
+if (removeProductBtns.length) {
+  Array.from(removeProductBtns).forEach((btn) => {
+    btn.addEventListener('click', () => { removeProduct(btn) })
+  });
+}
+
+async function removeProduct(btn) {
+  const productCard = btn.closest('.js-product-card');
+  const productList = productCard.parentElement
+  const info = getInfoFromBtnToSend(btn);
+  const response = await getData(POST, info.data, info.api);
+  if (response.toggle) {
+    productList.removeChild(productCard);
+    setTotalPrice(response.total_price);
+  }
+  console.log(response.count)
+  if (response.count === 0) {
+
+  }
+  if (response.count > 0) {
+    setBasketIndicator(response.count)
+  }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 //modals
 if (feetbackModal && modalsWrap) {
@@ -153,15 +214,15 @@ if (feetbackModal && modalsWrap) {
   });
 }
 
-if (fastOrdenBtns.length && modalsWrap) {
-  Array.from(fastOrdenBtns).forEach((btn) => {
+if (fastOrderBtns.length && modalsWrap) {
+  Array.from(fastOrderBtns).forEach((btn) => {
     btn.addEventListener('click', () => modalOpen(fastOrderModal));
     btn.addEventListener('click', () => renderModalProduct(fastOrderModal, btn));
   });
 }
 
-if (ordenBtn) {
-  ordenBtn.addEventListener('click', () => modalOpen(ordenModal));
+if (orderModal && orderBtn) {
+  orderBtn.addEventListener('click', () => modalOpen(orderModal));
 }
 
 if (helpBtn) {
@@ -177,29 +238,6 @@ if (modalCloseBtns.length) {
 if (closeFastOrderBtn) {
   closeFastOrderBtn.addEventListener('click', clearFastOrderList)
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 if (upwardBtn) {
   upwardBtn.addEventListener('click', goTop);
@@ -366,51 +404,6 @@ function slider(el, autoplay = false) {
   slideWrap.addEventListener('touchmove', function (e) { touchMove(e) });
   slideWrap.addEventListener('touchend', function () { touchEnd(next, prev) });
 
-  //управление точками
-  //if (dots.length) {
-  //  Array.from(dots).forEach((dot, idx) => {
-  //    dot.addEventListener('click', () => {
-  //      dotsNavigation(idx);
-  //    });
-  //  })
-  //}
-
-  //function dotsNavigation(idx) {
-  //  newSlidesArr = el.querySelectorAll('.js-slide');
-  //  const numFirstSlide = +newSlidesArr[0].getAttribute('data-slide');
-  //  const numberOfSteps = numFirstSlide - idx * 1;
-  //  if (numFirstSlide === idx) {
-  //    return;
-  //  }
-  //  if (numFirstSlide < idx) {
-  //    movingForward(numberOfSteps);
-  //  }
-
-  //  if (numFirstSlide > idx) {
-  //    movingBackwards()
-  //    console.log(numFirstSlide, idx)
-  //  }
-  //}
-
-  //function movingForward(num) {
-  //  const slideWidth = newSlidesArr[0].offsetWidth;
-  //  const numberOfSteps = Math.abs(num);
-  //  const step = numberOfSteps * slideWidth;
-
-  //  slideWrap.classList.add('slides--is-move');
-  //  slideWrap.style.transform = `translate(-${ step }px, 0)`;
-  //  setTimeout(() => {
-  //    for (numberOfSteps; numberOfSteps == 1; numberOfSteps--) {
-  //      newSlidesArr = el.querySelectorAll('.js-slide');
-  //      newSlidesArr[numLastSlide].after(newSlidesArr[0]);
-  //    }
-  //  }, 200);
-
-  //}
-
-  //function movingBackwards() {
-  //  console.log('<---');
-  //}
 
   function setActiveDot(cls) {
     Array.from(dots).forEach((dot, idx) => {
@@ -509,6 +502,7 @@ function clearFastOrderList() {
   const lisrWrap = fastOrderModal.querySelector('.js-list-wrap');
   lisrWrap.innerHTML = '';
 }
+
 
 // Функции для открытия/закрытия мобильного меня
 function mobileMenuOpen() {
@@ -746,7 +740,7 @@ function sendHelpForm() {
   const inputs = helpForm.querySelectorAll('.js-input');
   const mailInput = helpForm.querySelector('.js-input-email');
   const textareaInput = helpForm.querySelector('.js-input-textarea');
-  const checkboxInput = helpForm.querySelector('.js-checkbox-input');
+  const checkboxInput = helpForm.querySelector('.js-input-checkbox');
   const submitBtn = helpForm.querySelector('.js-submit');
   const formMessage = helpForm.querySelector('.js-message');
   mailInput.addEventListener('blur', () => {
@@ -779,7 +773,7 @@ function sendFeetbackForm() {
   const api = feetbackForm.action;
   const inputs = feetbackForm.querySelectorAll('.js-input');
   const phoneInput = feetbackForm.querySelector('.js-input-phone');
-  const checkboxInput = feetbackForm.querySelector('.js-checkbox-input');
+  const checkboxInput = feetbackForm.querySelector('.js-input-checkbox');
   const submitBtn = feetbackForm.querySelector('.js-submit');
   const formMessage = feetbackForm.querySelector('.js-message');
   phoneInput.addEventListener('blur', () => {
@@ -804,7 +798,7 @@ function sendFeetbackForm() {
   }
 }
 
-function sendOrderForm() {
+function sendFastOrderForm() {
   const api = fastOrderForm.action;
   const inputs = fastOrderForm.querySelectorAll('.js-input');
   const mailInput = fastOrderForm.querySelector('.js-input-email');
@@ -845,6 +839,42 @@ function sendOrderForm() {
   }
 }
 
+function sendOrderForm() {
+  const api = orderForm.action;
+  const inputs = orderForm.querySelectorAll('.js-input');
+  const mailInput = orderForm.querySelector('.js-input-email');
+  const phoneInput = orderForm.querySelector('.js-input-phone');
+  const checkboxInput = orderForm.querySelector('.js-input-checkbox');
+  const submitBtn = orderForm.querySelector('.js-submit');
+  const formMessage = orderForm.querySelector('.js-message');
+  mailInput.addEventListener('blur', () => {
+    checkInput(mailInput);
+  });
+  phoneInput.addEventListener('blur', () => {
+    checkInput(phoneInput);
+  });
+
+  submitBtn.addEventListener('click', () => {
+    const result = formCheck(mailInput, phoneInput, checkboxInput);
+    if (result) {
+      postOrdet(POST, api)
+    }
+  });
+
+  async function postOrdet(method, api) {
+    const data = new FormData(orderForm);
+    data.append('_token', _token);
+    const response = await getData(method, data, api);
+    const res = showMessage(response, formMessage);
+    if (res) {
+      clearInput(inputs);
+      orderThanksModal.classList.add('modal--is-show');
+      orderModal.classList.remove('modal--is-show');
+      clearBasketList();
+    }
+  }
+}
+
 // Прочие функции
 function goTop() {
   let timeOut = null;
@@ -855,8 +885,13 @@ function goTop() {
   } else clearTimeout(timeOut);
 }
 
-function setTotlePrice(el, totlePrice) {
-  el.innerHTML = totlePrice
+function setTotalPrice(totalPrice) {
+
+  const totalPrices = document.querySelectorAll('.js-total-price');
+  Array.from(totalPrices).forEach((item) => {
+    item.innerHTML = totalPrice + "₽";
+  })
+
 }
 
 function showUpBtn() {
@@ -896,7 +931,7 @@ function managingСounter(counter) {
     data.count = quantity;
     response = await getData(POST, data, api);
     quantityInput.value = response.prod.count;
-    setTotlePrice(fastOrderTotalPrice, response.card.totle_price);
+    setTotalPrice(response.card.total_price);
   }
 
   async function inc() {
@@ -905,7 +940,7 @@ function managingСounter(counter) {
     data.count = quantity;
     response = await getData(POST, data, api);
     quantityInput.value = response.prod.count;
-    setTotlePrice(fastOrderTotalPrice, response.card.totle_price);
+    setTotalPrice(response.card.total_price);
   }
 
   function checkingValue() {
@@ -1008,12 +1043,24 @@ function setFafavoriteIcon(el, boolean) {
   imgEl.src = pathToImageActive;
 }
 
+function clearBasketList() {
+  const basket = document.querySelector('#basket');
+  const totalPrices = document.querySelectorAll('.js-total-price')
+  const basketList = basket.querySelector('#basketList');
+  basketList.innerHTML = '';
+  Array.from(totalPrices).forEach((item) => {
+    console.log(item)
+    item.innerHTML = '0 ₽';
+  })
+
+  console.log(basketList)
+}
+
 // функции для отправки запросов с кнопок
 // фаврит, в корзину, удалит
 function getInfoFromBtnToSend(btn) {
   const info = {};
   const api = btn.getAttribute('data-link');
-  console.log(api);
   const article = btn.getAttribute('data-article');
   const data = {
     _token: _token,
@@ -1023,13 +1070,11 @@ function getInfoFromBtnToSend(btn) {
   info.api = api;
   info.article = article;
   info.data = data;
-  console.log(info);
   return info;
 
 }
 
 function setInBasketBtn(el, toggle, desc) {
-  console.log(toggle, desc)
   if (toggle) {
     el.classList.remove('yellow-btn');
     el.classList.add('white-btn');
@@ -1182,7 +1227,7 @@ async function renderModalProduct(modal, btn) {
     });
   }
 
-  setTotlePrice(fastOrderTotalPrice, response.card.totle_price)
+  setTotalPrice(response.card.total_price)
 
   function getMarkupEl(obj) {
     const { article, count, link, title,

@@ -5,6 +5,7 @@
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="csrf-token" content="p5q8mFhMdAS9z3KSayI05bO34EEXjhMl9ysZOAS3">
   <link rel="stylesheet" href="./css/style.min.css">
   <title>Новости</title>
 </head>
@@ -236,7 +237,6 @@
 
       <!-- right -->
       <div class="right">
-
         <!-- search-form -->
         <form id='search' action="search.html" class="search-form">
           <input class='search__input' type="text" name="search" id="searchInput" placeholder="Поиск">
@@ -245,364 +245,7 @@
         <!-- search-form -->
 
         <!-- catalog -->
-        <nav class="catalog-nav">
-          <!--category-->
-          <div class="category js-dropdown">
-            <div class="category__name">
-              <a href='categories1.html' class='category__link'>
-                Латунный прокат
-              </a>
-              <div class="category__btn js-dropdown-btn">
-                <img src="./img/controls/dropdown-btn.svg" alt="" class="category__arrow">
-              </div>
-            </div>
-
-            <!--category__content-->
-            <div class="subcategories js-dropdown-body">
-              <!-- category__list -->
-              <ul class="subcategories__list js-dropdown-content">
-                <li class="subcategories__item">
-                  <a href="categories2.html" class="subcategories__link">
-                    Свинец
-                  </a>
-                </li>
-
-                <li class="subcategories__item">
-                  <a href="categories2.html" class="subcategories__link">
-                    Металлы и сплавы
-                  </a>
-                </li>
-
-                <li class="subcategories__item">
-                  <a href="categories2.html" class="subcategories__link">
-                    Прием лома
-                  </a>
-                </li>
-
-                <li class="subcategories__item">
-                  <a href="categories2.html" class="subcategories__link">
-                    Прием лома
-                  </a>
-                </li>
-
-                <li class="subcategories__item">
-                  <a href="categories2.html" class="subcategories__link">
-                    Порошок металлический
-                  </a>
-                </li>
-              </ul>
-              <!-- category__list -->
-            </div>
-            <!--category__content-->
-          </div>
-          <!--category-->
-
-          <!--category-->
-          <div class="category js-dropdown">
-            <div class="category__name">
-              <a href='categories1.html' class='category__link'>
-                Латунный прокат
-              </a>
-              <div class="category__btn js-dropdown-btn">
-                <img src="./img/controls/dropdown-btn.svg" alt="" class="category__arrow">
-              </div>
-            </div>
-
-            <!--category__content-->
-            <div class="subcategories js-dropdown-body">
-              <!-- category__list -->
-              <ul class="subcategories__list js-dropdown-content">
-                <li class="subcategories__item">
-                  <a href="categories2.html" class="subcategories__link">
-                    Свинец
-                  </a>
-                </li>
-
-                <li class="subcategories__item">
-                  <a href="categories2.html" class="subcategories__link">
-                    Металлы и сплавы
-                  </a>
-                </li>
-
-                <li class="subcategories__item">
-                  <a href="categories2.html" class="subcategories__link">
-                    Прием лома
-                  </a>
-                </li>
-
-                <li class="subcategories__item">
-                  <a href="categories2.html" class="subcategories__link">
-                    Прием лома
-                  </a>
-                </li>
-
-                <li class="subcategories__item">
-                  <a href="categories2.html" class="subcategories__link">
-                    Порошок металлический
-                  </a>
-                </li>
-              </ul>
-              <!-- category__list -->
-            </div>
-            <!--category__content-->
-          </div>
-          <!--category-->
-
-          <!--category-->
-          <div class="category js-dropdown">
-            <div class="category__name">
-              <a href='categories1.html' class='category__link'>
-                Латунный прокат
-              </a>
-              <div class="category__btn js-dropdown-btn">
-                <img src="./img/controls/dropdown-btn.svg" alt="" class="category__arrow">
-              </div>
-            </div>
-
-            <!--category__content-->
-            <div class="subcategories js-dropdown-body">
-              <!-- category__list -->
-              <ul class="subcategories__list js-dropdown-content">
-                <li class="subcategories__item">
-                  <a href="categories2.html" class="subcategories__link">
-                    Свинец
-                  </a>
-                </li>
-
-                <li class="subcategories__item">
-                  <a href="categories2.html" class="subcategories__link">
-                    Металлы и сплавы
-                  </a>
-                </li>
-
-                <li class="subcategories__item">
-                  <a href="categories2.html" class="subcategories__link">
-                    Прием лома
-                  </a>
-                </li>
-
-                <li class="subcategories__item">
-                  <a href="categories2.html" class="subcategories__link">
-                    Прием лома
-                  </a>
-                </li>
-
-                <li class="subcategories__item">
-                  <a href="categories2.html" class="subcategories__link">
-                    Порошок металлический
-                  </a>
-                </li>
-              </ul>
-              <!-- category__list -->
-            </div>
-            <!--category__content-->
-          </div>
-          <!--category-->
-
-          <!--category-->
-          <div class="category js-dropdown">
-            <div class="category__name">
-              <a href='categories1.html' class='category__link'>
-                Латунный прокат
-              </a>
-              <div class="category__btn js-dropdown-btn">
-                <img src="./img/controls/dropdown-btn.svg" alt="" class="category__arrow">
-              </div>
-            </div>
-
-            <!--category__content-->
-            <div class="subcategories js-dropdown-body">
-              <!-- category__list -->
-              <ul class="subcategories__list js-dropdown-content">
-                <li class="subcategories__item">
-                  <a href="categories2.html" class="subcategories__link">
-                    Свинец
-                  </a>
-                </li>
-
-                <li class="subcategories__item">
-                  <a href="categories2.html" class="subcategories__link">
-                    Металлы и сплавы
-                  </a>
-                </li>
-
-                <li class="subcategories__item">
-                  <a href="categories2.html" class="subcategories__link">
-                    Прием лома
-                  </a>
-                </li>
-
-                <li class="subcategories__item">
-                  <a href="categories2.html" class="subcategories__link">
-                    Прием лома
-                  </a>
-                </li>
-
-                <li class="subcategories__item">
-                  <a href="categories2.html" class="subcategories__link">
-                    Порошок металлический
-                  </a>
-                </li>
-              </ul>
-              <!-- category__list -->
-            </div>
-            <!--category__content-->
-          </div>
-          <!--category-->
-
-          <!--category-->
-          <div class="category js-dropdown">
-            <div class="category__name">
-              <a href='categories1.html' class='category__link'>
-                Латунный прокат
-              </a>
-              <div class="category__btn js-dropdown-btn">
-                <img src="./img/controls/dropdown-btn.svg" alt="" class="category__arrow">
-              </div>
-            </div>
-
-            <!--category__content-->
-            <div class="subcategories js-dropdown-body">
-              <!-- category__list -->
-              <ul class="subcategories__list js-dropdown-content">
-                <li class="subcategories__item">
-                  <a href="categories2.html" class="subcategories__link">
-                    Свинец
-                  </a>
-                </li>
-
-                <li class="subcategories__item">
-                  <a href="categories2.html" class="subcategories__link">
-                    Металлы и сплавы
-                  </a>
-                </li>
-
-                <li class="subcategories__item">
-                  <a href="categories2.html" class="subcategories__link">
-                    Прием лома
-                  </a>
-                </li>
-
-                <li class="subcategories__item">
-                  <a href="categories2.html" class="subcategories__link">
-                    Прием лома
-                  </a>
-                </li>
-
-                <li class="subcategories__item">
-                  <a href="categories2.html" class="subcategories__link">
-                    Порошок металлический
-                  </a>
-                </li>
-              </ul>
-              <!-- category__list -->
-            </div>
-            <!--category__content-->
-          </div>
-          <!--category-->
-
-          <!--category-->
-          <div class="category js-dropdown">
-            <div class="category__name">
-              <a href='categories1.html' class='category__link'>
-                Латунный прокат
-              </a>
-              <div class="category__btn js-dropdown-btn">
-                <img src="./img/controls/dropdown-btn.svg" alt="" class="category__arrow">
-              </div>
-            </div>
-
-            <!--category__content-->
-            <div class="subcategories js-dropdown-body">
-              <!-- category__list -->
-              <ul class="subcategories__list js-dropdown-content">
-                <li class="subcategories__item">
-                  <a href="categories2.html" class="subcategories__link">
-                    Свинец
-                  </a>
-                </li>
-
-                <li class="subcategories__item">
-                  <a href="categories2.html" class="subcategories__link">
-                    Металлы и сплавы
-                  </a>
-                </li>
-
-                <li class="subcategories__item">
-                  <a href="categories2.html" class="subcategories__link">
-                    Прием лома
-                  </a>
-                </li>
-
-                <li class="subcategories__item">
-                  <a href="categories2.html" class="subcategories__link">
-                    Прием лома
-                  </a>
-                </li>
-
-                <li class="subcategories__item">
-                  <a href="categories2.html" class="subcategories__link">
-                    Порошок металлический
-                  </a>
-                </li>
-              </ul>
-              <!-- category__list -->
-            </div>
-            <!--category__content-->
-          </div>
-          <!--category-->
-
-          <!--category-->
-          <div class="category js-dropdown">
-            <div class="category__name">
-              <a href='categories1.html' class='category__link'>
-                Латунный прокат
-              </a>
-              <div class="category__btn js-dropdown-btn">
-                <img src="./img/controls/dropdown-btn.svg" alt="" class="category__arrow">
-              </div>
-            </div>
-
-            <!--category__content-->
-            <div class="subcategories js-dropdown-body">
-              <!-- category__list -->
-              <ul class="subcategories__list js-dropdown-content">
-                <li class="subcategories__item">
-                  <a href="categories2.html" class="subcategories__link">
-                    Свинец
-                  </a>
-                </li>
-
-                <li class="subcategories__item">
-                  <a href="categories2.html" class="subcategories__link">
-                    Металлы и сплавы
-                  </a>
-                </li>
-
-                <li class="subcategories__item">
-                  <a href="categories2.html" class="subcategories__link">
-                    Прием лома
-                  </a>
-                </li>
-
-                <li class="subcategories__item">
-                  <a href="categories2.html" class="subcategories__link">
-                    Прием лома
-                  </a>
-                </li>
-
-                <li class="subcategories__item">
-                  <a href="categories2.html" class="subcategories__link">
-                    Порошок металлический
-                  </a>
-                </li>
-              </ul>
-              <!-- category__list -->
-            </div>
-            <!--category__content-->
-          </div>
-          <!--category-->
-
+        <nav id='catalogNav' data-link='testAjax/sidebarMenu.json' class="catalog-nav">
         </nav>
         <!-- catalog -->
       </div>
@@ -708,7 +351,9 @@
               </span><a href="tel:+74212529026" class="f-contact__link">+7 (4212) 52-90-26</a>
             </li>
 
-            <li class="f-contact"><a href="#!" class="f-contact__link f-contact__link--underline">Служба поддержки</a>
+            <li class="f-contact">
+              <span id='helpBtn' class="f-contact__link f-contact__link--underline">Служба
+                поддержки</span>
             </li>
           </ul>
         </div>
@@ -781,6 +426,65 @@
 
     </footer>
 
+    <!--mobile-menu-->
+    <nav id='mobileMenu' class="mobile-menu">
+      <ul class="mobile-menu__list">
+        <li class="mobile-menu__item">
+          <a href="index.html" class="mobile-menu__link">
+            <span class="mobile-menu__text">Главная</span>
+          </a>
+        </li>
+        <li class="mobile-menu__item">
+          <a href="catalog.html" class="mobile-menu__link">
+            <span class="mobile-menu__text">Каталог</span>
+          </a>
+        </li>
+        <li class="mobile-menu__item">
+          <a href="about.html" class="mobile-menu__link">
+            <span class="mobile-menu__text">О Компании</span>
+          </a>
+        </li>
+        <li class="mobile-menu__item">
+          <a href="branches.html" class="mobile-menu__link">
+            <span class="mobile-menu__text">Филиалы</span>
+          </a>
+        </li>
+        <li class="mobile-menu__item">
+          <a href="news.html" class="mobile-menu__link">
+            <span class="mobile-menu__text">Новости</span>
+          </a>
+        </li>
+        <li class="mobile-menu__item">
+          <a href="#!" class="mobile-menu__link">
+            <span class="mobile-menu__text">Оферта</span>
+          </a>
+        </li>
+        <li class="mobile-menu__item">
+          <a href="favorites.html" class="mobile-menu__link">
+            <span class="mobile-menu__text">Избранное</span>
+            <span class="mobile-menu__quantity">
+              <span id='favoriteCount' class="mobile-menu__num">122</span>
+            </span>
+          </a>
+        </li>
+        <li class="mobile-menu__item">
+          <a href="basket.html" class="mobile-menu__link">
+            <span class="mobile-menu__text">Корзина</span>
+            <span class="mobile-menu__quantity">
+              <span id='basketCount' class="mobile-menu__num ">122</span>
+            </span>
+          </a>
+        </li>
+      </ul>
+
+      <span class="mobile-menu__close">
+        <span id="mobileMenuClose" class="btn">
+          <img src="./img/controls/mobile-menu-close.svg" alt="" class="btn__icon">
+        </span>
+      </span>
+    </nav>
+    <!--mobile-menu-->
+
     <!--up-->
     <div id='up' class="up">
       <div id='upwardBtn' class="up-btn">
@@ -794,108 +498,8 @@
       <div class="bg-modals">
         <!-- connection windows-->
 
-        <!-- calculator -->
-        <div id='calculator' class="connection-modal modal js-modal">
-          <!--connection-modal__content-->
-          <div class="connection-modal__content">
-            <div class="modal__text">
-              <h4 class="modal__title">
-                Получите точный расчет
-              </h4>
-              <p class="modal__desc">
-                Загрузите файл с перечнем необходимых позиций
-                и в ответном письме мы вышлем Вам точный расчет
-              </p>
-            </div>
-
-            <form id='calculatorForm' enctype="multipart/form-data" action="test-form.html" method="POST"
-              class='modal-form'>
-              <!--modal__inputs-->
-              <div class="modal__inputs inputs-block">
-
-                <!--input-with-name-->
-                <div class="input-with-name">
-                  <label class="input-label">
-                    Имя
-                  </label>
-                  <input type="text" class="input js-input-name" name='name' placeholder="Константин">
-                </div>
-                <!--input-with-name-->
-
-                <!--input-with-name-->
-                <div class="input-with-name">
-                  <label class="input-label">
-                    Почта
-                  </label>
-                  <input type="text" class="input input--is-success js-input-email" name='email'
-                    placeholder="Kostya228@gmail.com">
-                </div>
-                <!--input-with-name-->
-
-                <!--input-with-name-->
-                <div class="input-with-name">
-                  <label class="input-label">
-                    Сообщение
-                  </label>
-                  <textarea class="input textarea input--is-error js-input-textarea" name='message'
-                    placeholder="Мне нужно быстро доставить"></textarea>
-                </div>
-                <!--input-with-name-->
-
-                <!--input-upload-->
-                <div class="input-upload">
-                  <label class="input-upload__label">
-                    <img src="./img/icon/clip-icon.svg" alt="" class="input-upload__img">
-                    <span class='input-upload__text'>Прикрепить файл</span>
-                    <input type="file" name='file' class="input-upload__file js-input-file ">
-                  </label>
-                </div>
-                <!--input-upload-->
-
-                <button class='input-submit yellow-btn' type='submit'>Отправить</button>
-
-                <!--input-check-->
-                <div class="input-check">
-                  <label class="input-check__label">
-                    <input class='input-check__checkbox js-input-checkbox' type="checkbox" name='consent'>
-                    <span class="input-check__fake">
-
-                    </span>
-                    <span class="input-check__text">
-                      Даю согласие на обработку моих персональных данных
-                    </span>
-
-                  </label>
-                </div>
-                <!--input-check-->
-
-              </div>
-              <!--modal__inputs-->
-
-              <!--modal-form__error-->
-              <div class='modal-form__error form-error'>
-                <p class="modal-form__error form-error__message">
-                  Ошибка отправки
-                </p>
-              </div>
-              <!--modal-form__error-->
-            </form>
-            <div class="modal__close">
-              <span class="btn  js-close-modal">
-                <img src="./img/controls/close-btn-icon.svg" alt="" class="btn__icon">
-              </span>
-            </div>
-
-            <div class="modal__bg connection-modal__bg">
-              <img src="./img/image/manager2.jpg" alt="" class="modal__img connection-modal__img">
-            </div>
-          </div>
-          <!--connection-modal__content-->
-        </div>
-        <!-- calculator -->
-
         <!-- feetback -->
-        <div id='feetback' class=" connection-modal modal js-modal">
+        <div id='feetback' class="connection-modal modal js-modal">
           <!--connection-modal__content-->
           <div class="connection-modal__content">
             <div class="modal__text">
@@ -908,7 +512,7 @@
               </p>
             </div>
 
-            <form id='feetbackForm' action="test-form.html" method="POST" class='modal-form'>
+            <form id='feetbackForm' action="testAjax/test-simple-form.json" method="POST" class='modal-form'>
               <!--modal__inputs-->
               <div class="modal__inputs inputs-block">
 
@@ -917,26 +521,25 @@
                   <label class="input-label">
                     Имя
                   </label>
-                  <input type="text" class="input js-input-name" name='name' placeholder="Константин">
+                  <input type="text" class="input js-input js-input-name" name='name' placeholder="Константин">
                 </div>
                 <!--input-with-name-->
 
                 <!--input-with-name-->
                 <div class="input-with-name">
                   <label class="input-label">
-                    Почта
+                    Телефон
                   </label>
-                  <input type="text" class="input input--is-success js-input-phone" name='phone'
-                    placeholder="+7 922 888 88 88">
+                  <input type="text" class="input js-input js-input-phone" name='phone' placeholder="+7 922 888 88 88">
                 </div>
                 <!--input-with-name-->
 
-                <button class='input-submit yellow-btn' type='submit'>Отправить</button>
+                <button class='input-submit yellow-btn js-submit' type='submit'>Отправить</button>
 
                 <!--input-check-->
-                <div class="input-check">
+                <div class="input-check js-checkbox">
                   <label class="input-check__label">
-                    <input class='input-check__checkbox js-input-checkbox' type="checkbox" name='consent'>
+                    <input class='input-check__checkbox js-input-checkbox' type="checkbox" name='consent' checked>
                     <span class="input-check__fake">
 
                     </span>
@@ -952,8 +555,8 @@
 
 
               <!--modal-form__error-->
-              <div class='modal-form__error form-error'>
-                <p class="modal-form__error form-error__message">
+              <div class='form-error'>
+                <p class="form-error__message js-message">
                   Ошибка отправки
                 </p>
               </div>
@@ -989,7 +592,8 @@
               </p>
             </div>
 
-            <form id='helpForm' enctype="multipart/form-data" action="test-form.html" method="POST" class='modal-form'>
+            <form id='helpForm' enctype="multipart/form-data" action="testAjax/test-simple-form.json" method="POST"
+              class='modal-form'>
               <!--modal__inputs-->
               <div class="modal__inputs inputs-block">
 
@@ -998,7 +602,7 @@
                   <label class="input-label">
                     Почта
                   </label>
-                  <input type="text" class="input input--is-success js-input-email" name='email'
+                  <input type="text" class="input js-input-email js-input" name='email'
                     placeholder="Kostya228@gmail.com">
                 </div>
                 <!--input-with-name-->
@@ -1008,15 +612,15 @@
                   <label class="input-label">
                     Сообщение
                   </label>
-                  <textarea class="input textarea input--is-error js-input-textarea" name='message'
+                  <textarea class="input textarea js-input-textarea js-input" name='message'
                     placeholder="Мне нужно быстро доставить"></textarea>
                 </div>
                 <!--input-with-name-->
 
-                <button class='input-submit yellow-btn' type='submit'>Отправить</button>
+                <button class='input-submit yellow-btn js-submit' type='submit'>Отправить</button>
 
                 <!--input-check-->
-                <div class="input-check">
+                <div class="input-check js-checkbox">
                   <label class="input-check__label">
                     <input class='input-check__checkbox js-input-checkbox' type="checkbox" name='consent'>
                     <span class="input-check__fake">
@@ -1034,8 +638,8 @@
               <!--modal__inputs-->
 
               <!--modal-form__error-->
-              <div class='modal-form__error form-error'>
-                <p class="modal-form__error form-error__message">
+              <div class='form-error'>
+                <p class="form-error__message js-message">
                   Ошибка отправки
                 </p>
               </div>
@@ -1087,8 +691,8 @@
         <!-- order windows-->
 
         <!--fast order-->
-        <div id='fastOrder' class="order-modal  modal js-modal">
-          <form id='fastOrderForm' action="test-form.html" method="POST">
+        <div id='fastOrder' class="order-modal modal js-modal">
+          <form id='fastOrderForm' action="testAjax/test-simple-form.json" method="POST">
             <div class="order-modal__content">
               <!--order-modal__left-->
               <div class="order-modal__left">
@@ -1110,7 +714,7 @@
                       <label class="input-label">
                         Имя
                       </label>
-                      <input type="text" class="input js-input-name" name='name' placeholder="Константин">
+                      <input type="text" class="input js-input-name js-input" name='name' placeholder="Константин">
                     </div>
                     <!--input-with-name-->
 
@@ -1119,7 +723,7 @@
                       <label class="input-label">
                         Телефон
                       </label>
-                      <input type="text" class="input input--is-success js-input-phone" name='phone'
+                      <input type="text" class="input js-input-phone js-input" name='phone'
                         placeholder="+7 922 888 88 88">
                     </div>
                     <!--input-with-name-->
@@ -1129,7 +733,7 @@
                       <label class="input-label">
                         Почта
                       </label>
-                      <input type="text" class="input input--is-success js-input-email" name='email'
+                      <input type="text" class="input js-input-email js-input" name='email'
                         placeholder="Kostya228@gmail.com">
                     </div>
                     <!--input-with-name-->
@@ -1139,17 +743,17 @@
                       <label class="input-label">
                         Сообщение
                       </label>
-                      <textarea class="input textarea input--is-error js-input-textarea" name='message'
+                      <textarea class="input textarea js-input-textarea js-input" name='message'
                         placeholder="Мне нужно быстро доставить"></textarea>
                     </div>
                     <!--input-with-name-->
 
-                    <button class='input-submit yellow-btn' type='submit'>Отправить</button>
+                    <button class='input-submit yellow-btn js-submit' type='submit'>Отправить</button>
 
                     <!--input-check-->
-                    <div class="input-check">
+                    <div class="input-check js-checkbox">
                       <label class="input-check__label">
-                        <input class='input-check__checkbox js-input-checkbox' type="checkbox" name='consent'>
+                        <input class='input-check__checkbox js-input-checkbox' type="checkbox" name='consent' checked>
                         <span class="input-check__fake">
 
                         </span>
@@ -1165,20 +769,14 @@
                   <!--modal__inputs-->
 
                   <!--modal-form__error-->
-                  <div class='modal-form__error form-error'>
-                    <p class="modal-form__error form-error__message">
+                  <div class='form-error'>
+                    <p class="form-error__message js-message">
                       Ошибка отправки
                     </p>
                   </div>
                   <!--modal-form__error-->
                 </div>
                 <!--order-inputs-->
-                <div class="modal__close">
-                  <span class="btn js-close-modal">
-                    <img src="./img/controls/close-btn-icon.svg" alt="" class="btn__icon">
-                  </span>
-                </div>
-
                 <div class="order-modal__bg">
                   <img src="./img/image/armature-order.jpg" alt="" class="modal__img order-modal__img">
                 </div>
@@ -1192,474 +790,135 @@
                 </h4>
 
                 <!--order-modal__list-->
-                <ul class="order-modal__list">
+                <ul class="order-modal__list scroll-bar js-list-wrap">
                   <li class="order-modal__item">
-                    <!--modal-card-->
-                    <div class="modal-card">
-                      <div class="modal-card__desc">
-                        <div class="modal-card__preview">
-                          <a href="product-page.html" class="modal-card__preview">
-                            <img src="./img/image/product-card-img-2.jpg" alt="" class="modal-card__img">
-                          </a>
-                        </div>
-                        <h3 class='modal-card__title'>
-                          <a href="product-page.html" class="modal-card__link link">Алюминиевая прессованная труба
-                            100х10 мм В95Т1 ГОСТ 18482-79 </a>
-                        </h3>
 
-
-                      </div>
-
-                      <div class="modal-card__price">
-                        <div class="modal-card__discount">
-                          <span class="discount-sticker">-10%</span>
-                        </div>
-                        <span class="modal-card__num">8900 ₽</span>
-                      </div>
-
-                      <!--modal-card__control-->
-                      <div class="modal-card__control">
-
-                        <!--modal-card__counter-->
-                        <div class="modal-card__counter">
-                          <div class="counter js-counter">
-                            <span class="counter__sing js-dec">-</span>
-
-                            <input type='text' class="counter__quantity js-quantity" value='1'>
-
-                            <span class="counter__sing js-inc">+</span>
-                          </div>
-                        </div>
-                        <!--modal-card__counter-->
-
-                        <div class="modal-card__icon ">
-                          <span class="btn js-favorite">
-                            <img class="btn__icon" src="./img/icon/favorite-icon.svg" alt="">
-                          </span>
-                        </div>
-
-                        <div class="modal-card__icon ">
-                          <span class="btn js-delete">
-                            <img src="./img/controls/delete-icon.svg" alt="" class="btn__icon">
-                          </span>
-                        </div>
-
-                      </div>
-                      <!--modal-card__control-->
-
-
-
-                    </div>
-                    <!--modal-card-->
-                  </li>
-
-                  <li class="order-modal__item">
-                    <!--modal-card-->
-                    <div class="modal-card">
-                      <div class="modal-card__desc">
-                        <div class="modal-card__preview">
-                          <a href="product-page.html" class="modal-card__preview">
-                            <img src="./img/image/product-card-img-2.jpg" alt="" class="modal-card__img">
-                          </a>
-                        </div>
-                        <h3 class='modal-card__title'>
-                          <a href="product-page.html" class="modal-card__link link">Алюминиевая прессованная труба
-                            100х10 мм В95Т1 ГОСТ 18482-79 </a>
-                        </h3>
-
-
-                      </div>
-
-                      <div class="modal-card__price">
-                        <div class="modal-card__discount">
-                          <span class="discount-sticker">-10%</span>
-                        </div>
-                        <span class="modal-card__num">8900 ₽</span>
-                      </div>
-
-                      <!--modal-card__control-->
-                      <div class="modal-card__control">
-
-                        <!--modal-card__counter-->
-                        <div class="modal-card__counter">
-                          <div class="counter js-counter">
-                            <span class="counter__sing js-dec">-</span>
-
-                            <input type='text' class="counter__quantity js-quantity" value='1'>
-
-                            <span class="counter__sing js-inc">+</span>
-                          </div>
-                        </div>
-                        <!--modal-card__counter-->
-
-                        <div class="modal-card__icon ">
-                          <span class="btn js-favorite">
-                            <img class="btn__icon" src="./img/icon/favorite-icon.svg" alt="">
-                          </span>
-                        </div>
-
-                        <div class="modal-card__icon ">
-                          <span class="btn js-delete">
-                            <img src="./img/controls/delete-icon.svg" alt="" class="btn__icon">
-                          </span>
-                        </div>
-
-                      </div>
-                      <!--modal-card__control-->
-
-
-
-                    </div>
-                    <!--modal-card-->
-                  </li>
-
-                  <li class="order-modal__item">
-                    <!--modal-card-->
-                    <div class="modal-card">
-                      <div class="modal-card__desc">
-                        <div class="modal-card__preview">
-                          <a href="product-page.html" class="modal-card__preview">
-                            <img src="./img/image/product-card-img-2.jpg" alt="" class="modal-card__img">
-                          </a>
-                        </div>
-                        <h3 class='modal-card__title'>
-                          <a href="product-page.html" class="modal-card__link link">Алюминиевая прессованная труба
-                            100х10 мм В95Т1 ГОСТ 18482-79 </a>
-                        </h3>
-
-
-                      </div>
-
-                      <div class="modal-card__price">
-                        <div class="modal-card__discount">
-                          <span class="discount-sticker">-10%</span>
-                        </div>
-                        <span class="modal-card__num">8900 ₽</span>
-                      </div>
-
-                      <!--modal-card__control-->
-                      <div class="modal-card__control">
-
-                        <!--modal-card__counter-->
-                        <div class="modal-card__counter">
-                          <div class="counter js-counter">
-                            <span class="counter__sing js-dec">-</span>
-
-                            <input type='text' class="counter__quantity js-quantity" value='1'>
-
-                            <span class="counter__sing js-inc">+</span>
-                          </div>
-                        </div>
-                        <!--modal-card__counter-->
-
-                        <div class="modal-card__icon ">
-                          <span class="btn js-favorite">
-                            <img class="btn__icon" src="./img/icon/favorite-icon.svg" alt="">
-                          </span>
-                        </div>
-
-                        <div class="modal-card__icon ">
-                          <span class="btn js-delete">
-                            <img src="./img/controls/delete-icon.svg" alt="" class="btn__icon">
-                          </span>
-                        </div>
-
-                      </div>
-                      <!--modal-card__control-->
-
-
-
-                    </div>
-                    <!--modal-card-->
-                  </li>
-
-                  <li class="order-modal__item">
-                    <!--modal-card-->
-                    <div class="modal-card">
-                      <div class="modal-card__desc">
-                        <div class="modal-card__preview">
-                          <a href="product-page.html" class="modal-card__preview">
-                            <img src="./img/image/product-card-img-2.jpg" alt="" class="modal-card__img">
-                          </a>
-                        </div>
-                        <h3 class='modal-card__title'>
-                          <a href="product-page.html" class="modal-card__link link">Алюминиевая прессованная труба
-                            100х10 мм В95Т1 ГОСТ 18482-79 </a>
-                        </h3>
-
-
-                      </div>
-
-                      <div class="modal-card__price">
-                        <div class="modal-card__discount">
-                          <span class="discount-sticker">-10%</span>
-                        </div>
-                        <span class="modal-card__num">8900 ₽</span>
-                      </div>
-
-                      <!--modal-card__control-->
-                      <div class="modal-card__control">
-
-                        <!--modal-card__counter-->
-                        <div class="modal-card__counter">
-                          <div class="counter js-counter">
-                            <span class="counter__sing js-dec">-</span>
-
-                            <input type='text' class="counter__quantity js-quantity" value='1'>
-
-                            <span class="counter__sing js-inc">+</span>
-                          </div>
-                        </div>
-                        <!--modal-card__counter-->
-
-                        <div class="modal-card__icon ">
-                          <span class="btn js-favorite">
-                            <img class="btn__icon" src="./img/icon/favorite-icon.svg" alt="">
-                          </span>
-                        </div>
-
-                        <div class="modal-card__icon ">
-                          <span class="btn js-delete">
-                            <img src="./img/controls/delete-icon.svg" alt="" class="btn__icon">
-                          </span>
-                        </div>
-
-                      </div>
-                      <!--modal-card__control-->
-
-
-
-                    </div>
-                    <!--modal-card-->
                   </li>
                 </ul>
                 <!--order-modal__list-->
 
                 <div class="order-modal__total">
                   <span class="order-modal__text">Итого:</span>
-                  <span class="order-modal__price">8900 ₽</span>
+                  <span id='fastOrderTotalPrice' class="order-modal__price js-total-price">8900 ₽</span>
                 </div>
               </div>
               <!--order-modal__right-->
 
             </div>
           </form>
+          <div class="modal__close">
+            <span id='closeFastOrderBtn' class="btn js-close-modal .js-clean-product">
+              <img src="./img/controls/close-btn-icon.svg" alt="" class="btn__icon">
+            </span>
+          </div>
         </div>
         <!--fast order-->
 
         <!--order-->
-        <div id='order' class="order-modal modal js-modal">
-          <form id='orderForm' action="test-form.html" method="POST">
-            <div class="order-modal__content">
-              <!--order-modal__left-->
-              <div class="order-modal__left">
-                <div class="modal__text">
-                  <h4 class="modal__title">
-                    Заказ
-                  </h4>
-                  <p class="modal__desc">
-                    Оставьте свои контактные данные
-                  </p>
-                </div>
-                <!--order-inputs-->
-                <div class='order-inputs'>
-                  <!--modal__inputs-->
-                  <div class="modal__inputs inputs-block">
-
-                    <!--input-with-name-->
-                    <div class="input-with-name">
-                      <label class="input-label">
-                        Имя
-                      </label>
-                      <input type="text" class="input js-input-name" name='name' placeholder="Константин">
-                    </div>
-                    <!--input-with-name-->
-
-                    <!--input-with-name-->
-                    <div class="input-with-name">
-                      <label class="input-label">
-                        Телефон
-                      </label>
-                      <input type="text" class="input input--is-success js-input-phone" name='phone'
-                        placeholder="+7 922 888 88 88">
-                    </div>
-                    <!--input-with-name-->
-
-                    <!--input-with-name-->
-                    <div class="input-with-name">
-                      <label class="input-label">
-                        Почта
-                      </label>
-                      <input type="text" class="input input--is-success js-input-email" name='email'
-                        placeholder="Kostya228@gmail.com">
-                    </div>
-                    <!--input-with-name-->
-
-                    <!--input-with-name-->
-                    <div class="input-with-name">
-                      <label class="input-label">
-                        Сообщение
-                      </label>
-                      <textarea class="input textarea input--is-error js-input-textarea" name='message'
-                        placeholder="Мне нужно быстро доставить"></textarea>
-                    </div>
-                    <!--input-with-name-->
-
-                    <button class='input-submit yellow-btn' type='submit'>Отправить</button>
-
-                    <!--input-check-->
-                    <div class="input-check">
-                      <label class="input-check__label">
-                        <input class='input-check__checkbox js-input-checkbox' type="checkbox" name='consent'>
-                        <span class="input-check__fake">
-
-                        </span>
-                        <span class="input-check__text">
-                          Даю согласие на обработку моих персональных данных
-                        </span>
-
-                      </label>
-                    </div>
-                    <!--input-check-->
-
-                  </div>
-                  <!--modal__inputs-->
-
-                  <!--modal-form__error-->
-                  <div class='modal-form__error form-error'>
-                    <p class="modal-form__error form-error__message">
-                      Ошибка отправки
-                    </p>
-                  </div>
-                  <!--modal-form__error-->
-                </div>
-                <!--order-inputs-->
-                <div class="modal__close">
-                  <span class="btn js-close-modal">
-                    <img src="./img/controls/close-btn-icon.svg" alt="" class="btn__icon">
-                  </span>
-                </div>
-
-                <div class="modal__bg order-modal__bg">
-                  <img src="./img/image/armature-order.jpg" alt="" class="modal__img order-modal__img">
-                </div>
-              </div>
-              <!--order-modal__left-->
-
-              <!--order-modal__right-->
-              <div class="order-modal__right">
-                <h4 class="modal__title">
-                  Информация о заказе
-                </h4>
-
-                <!--order-modal__list-->
-                <ul class="order-modal__list">
-                  <li class="order-modal__item">
-                    <!--modal-card-->
-                    <div class="modal-card">
-                      <div class="modal-card__desc">
-                        <div class="modal-card__preview">
-                          <a href="product-page.html" class="modal-card__preview">
-                            <img src="./img/image/product-card-img-2.jpg" alt="" class="modal-card__img">
-                          </a>
-                        </div>
-                        <h3 class='modal-card__title'>
-                          <a href="product-page.html" class="modal-card__link link">Алюминиевая прессованная труба
-                            100х10 мм В95Т1 ГОСТ 18482-79 </a>
-                        </h3>
-
-
-                      </div>
-
-                      <div class="modal-card__price">
-                        <div class="modal-card__discount">
-                          <span class="discount-sticker">-10%</span>
-                        </div>
-                        <span class="modal-card__num">8900 ₽</span>
-                      </div>
-
-                      <!--modal-card__control-->
-                      <div class="modal-card__control">
-
-                        <!--modal-card__counter-->
-                        <div class="modal-card__counter">
-                          <div class="counter js-counter">
-                            <span class="counter__sing js-dec">-</span>
-
-                            <input type='text' class="counter__quantity js-quantity" value='1'>
-
-                            <span class="counter__sing js-inc">+</span>
-                          </div>
-                        </div>
-                        <!--modal-card__counter-->
-
-                        <div class="modal-card__icon ">
-                          <span class="btn js-favorite">
-                            <img class="btn__icon" src="./img/icon/favorite-icon.svg" alt="">
-                          </span>
-                        </div>
-
-                        <div class="modal-card__icon ">
-                          <span class="btn js-delete">
-                            <img src="./img/controls/delete-icon.svg" alt="" class="btn__icon">
-                          </span>
-                        </div>
-
-                      </div>
-                      <!--modal-card__control-->
-
-
-
-                    </div>
-                    <!--modal-card-->
-                  </li>
-                </ul>
-                <!--order-modal__list-->
-
-                <div class="order-modal__total">
-                  <span class="order-modal__text">Итого:</span>
-                  <span class="order-modal__price">8900 ₽</span>
-                </div>
-              </div>
-              <!--order-modal__right-->
-
-            </div>
-          </form>
-        </div>
-        <!--order-->
-
-        <!--order-thanks-->
-        <div id='orderThanks' class="connection-thanks modal js-modal">
-          <div class="order-thanks__content">
-            <div class="modal-thanks__text">
+        <div id='order' class="connection-modal modal js-modal">
+          <!--connection-modal__content-->
+          <div class="connection-modal__content">
+            <div class="modal__text">
               <h4 class="modal__title">
-                Спасибо за ваш заказ
+                Заказ на сумму: <span id='orderTotalePrice' class="order
+                -total-price js-total-price">900000000000 p</span>
               </h4>
               <p class="modal__desc">
-                Скоро мы свяжемся с вами!
+                Оставьте свои контактные данные
+                и наш менеджер свяжется с вами в течении часа
               </p>
+            </div>
 
-              <a href="index.html" class="modal__link yellow-btn">На главную</a>
+            <form id='orderForm' action="testAjax/order-test.json" method="POST" class='modal-form'>
+              <!--modal__inputs-->
+              <div class="modal__inputs inputs-block">
+
+                <!--input-with-name-->
+                <div class="input-with-name">
+                  <label class="input-label">
+                    Имя
+                  </label>
+                  <input type="text" class="input js-input-name js-input" name='name' placeholder="Константин">
+                </div>
+                <!--input-with-name-->
+
+                <!--input-with-name-->
+                <div class="input-with-name">
+                  <label class="input-label">
+                    Телефон
+                  </label>
+                  <input type="text" class="input js-input-phone js-input" name='phone' placeholder="+7 922 888 88 88">
+                </div>
+                <!--input-with-name-->
+
+                <!--input-with-name-->
+                <div class="input-with-name">
+                  <label class="input-label">
+                    Почта
+                  </label>
+                  <input type="text" class="input js-input-email js-input" name='email'
+                    placeholder="Kostya228@gmail.com">
+                </div>
+                <!--input-with-name-->
+
+                <!--input-with-name-->
+                <div class="input-with-name">
+                  <label class="input-label">
+                    Сообщение
+                  </label>
+                  <textarea class="input textarea js-input-textarea js-input" name='message'
+                    placeholder="Мне нужно быстро доставить"></textarea>
+                </div>
+                <!--input-with-name-->
+
+                <button class='input-submit js-submit yellow-btn' type='submit'>Отправить</button>
+
+                <!--input-check-->
+                <div class="input-check js-checkbox">
+                  <label class="input-check__label">
+                    <input class='input-check__checkbox js-input-checkbox' type="checkbox" name='consent' checked>
+                    <span class="input-check__fake">
+
+                    </span>
+                    <span class="input-check__text">
+                      Даю согласие на обработку моих персональных данных
+                    </span>
+
+                  </label>
+                </div>
+                <!--input-check-->
+
+              </div>
+              <!--modal__inputs-->
+
+
+              <!--modal-form__error-->
+              <div class='form-error'>
+                <p class="form-error__message js-message">
+                  Ошибка отправки
+                </p>
+              </div>
+              <!--modal-form__error-->
+
+            </form>
+
+            <div class="modal__close">
+              <span class="btn js-close-modal">
+                <img src="./img/controls/close-btn-icon.svg" alt="" class="btn__icon">
+              </span>
+            </div>
+
+            <div class="modal__bg connection-modal__bg">
+              <img src="./img/image/armature-big.jpg" alt="" class="modal__img connection-modal__img">
             </div>
           </div>
-
-          <div class="modal__close">
-            <span class="btn js-close-modal">
-              <img src="./img/controls/close-btn-icon.svg" alt="" class="btn__icon">
-            </span>
-          </div>
-
-          <div class="modal__bg modal-thanks__bg order-thanks__bg">
-            <img src="./img/image/armature-order.jpg" alt="" class="modal__img connection-modal__img">
-          </div>
+          <!--connection-modal__content-->
         </div>
-        <!--order-thanks-->
+        <!--order-->
         <!-- order windows-->
       </div>
     </div>
     <!-- modal windows -->
-
-
   </div>
   <script src='./js/main.js'></script>
 </body>
