@@ -237,7 +237,7 @@ if (mobileMenuCloseBtn) {
 }
 
 // Функции для работы слайдеров
-function carusel(el) {
+function carusel(el,) {
   const slideWrap = el.querySelector('#caruselSlidesWrap');
   const slideTrack = el.querySelector('#caruselSlides');
   const slides = el.querySelectorAll('.js-carusel-slide');
@@ -358,7 +358,6 @@ function slider(el, autoplay = false) {
   const arrowNext = el.querySelector('.js-next');
   const arrowPrev = el.querySelector('.js-prev');
   const dots = el.querySelectorAll('.js-dot');
-  let dataSlide = null;
   let i = 0;
   let newSlidesArr = null;
   let isMove = false;
@@ -372,7 +371,7 @@ function slider(el, autoplay = false) {
   intervalSwitch(autoplay, true, timeInterval);
 
   slideWrap.addEventListener('mouseover', () => {
-    intervalSwitch(autoplay);
+    intervalSwitch(autoplay, false);
   });
   slideWrap.addEventListener('mouseout', () => {
     intervalSwitch(autoplay, true, timeInterval);
@@ -414,7 +413,7 @@ function slider(el, autoplay = false) {
     if (isMove) {
       return;
     }
-    intervalSwitch(autoplay);
+    intervalSwitch(autoplay, false);
     i++;
     isMove = true;
     const step = slideWrap.offsetWidth;
@@ -437,7 +436,8 @@ function slider(el, autoplay = false) {
     if (isMove) {
       return;
     }
-    intervalSwitch(autoplay);
+    intervalSwitch(autoplay, false);
+
     i--;
     isMove = true;
     const step = slideWrap.offsetWidth;

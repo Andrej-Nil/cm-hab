@@ -781,14 +781,6 @@
                   <!--modal__inputs-->
                   <div class="modal__inputs inputs-block">
 
-                    <!--input-with-name-->
-                    <div class="input-with-name">
-                      <label class="input-label">
-                        Имя
-                      </label>
-                      <input type="text" class="input js-input-name js-input" name='name' placeholder="Константин">
-                    </div>
-                    <!--input-with-name-->
 
                     <!--input-with-name-->
                     <div class="input-with-name">
@@ -815,7 +807,7 @@
                       <label class="input-label">
                         Сообщение
                       </label>
-                      <textarea class="input textarea js-input-textarea js-input" name='message'
+                      <textarea class="input textarea order__textarea js-input-textarea js-input" name='message'
                         placeholder="Мне нужно быстро доставить"></textarea>
                     </div>
                     <!--input-with-name-->
@@ -988,6 +980,29 @@
         </div>
         <!--order-->
         <!-- order windows-->
+        <!--order-thanks-->
+        <div id='orderThanks' class="connection-thanks modal js-modal">
+          <div class="order-thanks__content">
+            <div class="modal-thanks__text">
+              <h4 class="modal__title">
+                Спасибо за ваш заказ
+              </h4>
+              <p class="modal__desc">
+                Скоро мы свяжемся с вами!
+              </p>
+              <a href="index.html" class="modal__link yellow-btn">На главную</a>
+            </div>
+          </div>
+          <div class="modal__close">
+            <span class="btn js-close-modal">
+              <img src="./img/controls/close-btn-icon.svg" alt="" class="btn__icon">
+            </span>
+          </div>
+          <div class="modal__bg modal-thanks__bg order-thanks__bg">
+            <img src="./img/image/armature-order.jpg" alt="" class="modal__img connection-modal__img">
+          </div>
+        </div>
+        <!--order-thanks-->
       </div>
     </div>
     <!-- modal windows -->

@@ -6600,13 +6600,14 @@ ul {
 
 .order-modal__left {
   position: relative;
-  padding: 25px 20px 129px;
+  padding: 25px 20px 30px;
   width: 100%;
   background: #ffffff;
 }
 
 @media (min-width: 1090px) {
   .order-modal__left {
+    padding: 25px 20px 129px;
     padding: 50px;
     max-width: 490px;
   }
@@ -6617,11 +6618,28 @@ ul {
   z-index: 10;
 }
 
+.order__textarea {
+  height: 70px;
+}
+
+@media (min-width: 1090px) {
+  .order__textarea {
+    height: 100px;
+  }
+}
+
 .order-modal__bg {
   position: absolute;
   bottom: 0;
   left: 0;
-  max-width: 100px;
+  max-width: 190px;
+  opacity: 0.2;
+}
+
+@media (min-width: 1090px) {
+  .order-modal__bg {
+    max-width: 190px;
+  }
 }
 
 @media (min-width: 1090px) {

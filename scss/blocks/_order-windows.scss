@@ -20,10 +20,12 @@
 
 .order-modal__left {
   position: relative;
-  padding: 25px 20px 129px;
+
+  padding: 25px 20px 30px;
   width: 100%;
   background: $white;
   @media (min-width: 1090px) {
+    padding: 25px 20px 129px;
     //max-width: 440px;
     padding: 50px;
     max-width: 490px;
@@ -35,11 +37,22 @@
   z-index: 10;
 }
 
+.order__textarea {
+  height: 70px;
+  @media (min-width: 1090px) {
+    height: 100px;
+  }
+}
+
 .order-modal__bg {
   position: absolute;
   bottom: 0;
   left: 0;
-  max-width: 100px;
+  max-width: 190px;
+  opacity: 0.2;
+  @media (min-width: 1090px) {
+    max-width: 190px;
+  }
   @media (min-width: 1090px) {
     max-width: 190px;
   }
