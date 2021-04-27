@@ -1,0 +1,16 @@
+{
+	"rez": 1,
+	"desc": "",
+	"prod": {
+		"count": 8,
+		"article": 12312,
+		"price": 2000,
+		"total_price": 6000,
+		"sale_price": 8000
+	},
+	"card": {
+		"count": 7,
+		"total_price": 31000,
+		"sale_price": 36000
+	}
+}

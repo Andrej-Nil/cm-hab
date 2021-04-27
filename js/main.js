@@ -93,8 +93,6 @@ if (dropdownsBtns.length) {
   })
 }
 
-
-
 if (catalogNav) {
   window.addEventListener('load', renderCatalogNav);
 }
@@ -148,23 +146,18 @@ if (helpForm) {
 if (mobileMenuBtn) {
   mobileMenuBtn.addEventListener('click', mobileMenuOpen);
 }
-
 if (fastOrderForm) {
   fastOrderForm.addEventListener('submit', (e) => {
     e.preventDefault();
   })
   sendFastOrderForm()
 }
-
 if (orderForm) {
   orderForm.addEventListener('submit', (e) => {
     e.preventDefault();
   })
   sendOrderForm();
 }
-
-
-
 if (removeProductBtns.length) {
   Array.from(removeProductBtns).forEach((btn) => {
     btn.addEventListener('click', () => { removeProduct(btn) })
