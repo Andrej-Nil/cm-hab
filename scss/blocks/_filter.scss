@@ -1,12 +1,52 @@
+.filters__list {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  width: 100%;
+  &::before {
+    content: "";
+    display: block;
+    max-width: 250px;
+    width: 100%;
+    order: 99999;
+  }
+  &::after {
+    content: "";
+    display: block;
+    max-width: 250px;
+    width: 100%;
+  }
+}
+
 .filter {
   position: relative;
   display: inline-block;
-  margin-right: 5px;
   margin-bottom: 30px;
   max-width: 250px;
   width: 100%;
 }
 
+.filter__head {
+  position: relative;
+}
+
+.filter__arrow {
+  position: absolute;
+  display: flex;
+  align-items: center;
+  top: 50%;
+  right: 12px;
+  transform: translate(0, -50%);
+  z-index: 1000;
+  width: 16px;
+  height: 16px;
+}
+
+.filter__arrow-icon {
+  width: 100%;
+  height: auto;
+  transition: 0.2s ease-in-out;
+}
 .filter__input {
   position: relative;
   padding: 14px 40px 13px 21px;
@@ -22,14 +62,6 @@
   line-height: 95.2%;
   color: $d-grey;
   z-index: 1000;
-  &:focus {
-    border: 1px solid $yellow;
-    box-shadow: 0px 0px 4px rgba(251, 191, 0, 0.5);
-  }
-
-  &:focus + .filter__body {
-    height: 250px;
-  }
 }
 
 .filter__input::-webkit-input-placeholder {
@@ -62,32 +94,45 @@
 }
 
 .filter__body {
-  overflow-y: auto;
-  height: 0;
   position: absolute;
+  height: 250px;
+  height: 0;
+  overflow: hidden;
   top: 50%;
   width: 100%;
   border: 1px solid $l-grey;
+  background: $white;
   border-top: none;
   box-sizing: border-box;
+  padding: 0 0 0 0;
   border-radius: 0 0 5px 5px;
+  transition: 0.2s ease-in-out;
 }
 
 .filter__list {
-  padding: 50px 15px 20px;
+  overflow-y: auto;
+  min-height: 250px;
+  max-height: 100%;
+
+  border-radius: 0 0 5px 5px;
+  padding: 30px 0 0 0;
   background: $white;
 }
 
 .filter__item {
-  margin-bottom: 33px;
   &:last-child {
     margin-bottom: 0;
   }
+  &:hover {
+    background: $milky;
+  }
 }
 
-.filter__arrow {
-  position: absolute;
+.input-check__label {
+  padding: 16px 0 16px 20px;
+}
+
+.filter-check__fake {
   top: 50%;
-  right: 12px;
-  transform: translate(0, -50%);
+  transform: translate(20px, -50%);
 }

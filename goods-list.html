@@ -107,7 +107,7 @@
 
                 <a href="basket.html" class="h-nav__link">
                   <div class="h-nav__icon">
-                    <span class="h-icon__indicator h-icon__indicator-is-show"></span>
+                    <span id='basketIndicator' class="h-icon__indicator"></span>
                     <img class='h-icon__img' src="./img/icon/basket-icon.svg" alt="">
                   </div>
                 </a>
@@ -116,7 +116,7 @@
               <li class="h-nav__item">
                 <a href="favorites.html" class="h-nav__link">
                   <div class="h-nav__icon">
-                    <span class="h-icon__indicator"></span>
+                    <span id='favoriteIndicator' class="h-icon__indicator"></span>
                     <img class='h-icon__img' src="./img/icon/favorites-icon.svg" alt="">
                   </div>
                 </a>
@@ -242,10 +242,10 @@
               Цена
             </li>
             <li class="product-col product-col--3">
-              Количество
+              Купить
             </li>
             <li class="product-col product-col--4">
-              Купить
+              Добавить
             </li>
           </ul>
           <!--product-cols-->
@@ -254,7 +254,7 @@
           <ul class="product__list">
             <li class="product__item">
               <!-- product-card-list -->
-              <div class="product-line">
+              <div class="product-line js-product-card">
                 <h2 class="product-line__title">
                   <a href="product-page.html" class="product-line__link link">
                     Алюминиевая прессованная труба 100х10 мм В95Т1 ГОСТ 18482-79
@@ -268,25 +268,23 @@
                 </div>
                 <!-- product-line__controls -->
                 <div class="product-line__controls">
-                  <div class="product-line__counter">
-                    <div class="counter js-counter">
-                      <span class="counter__sing js-dec">-</span>
-
-                      <input type='text' class="counter__quantity js-quantity" value='1'>
-                      <span class="counter__sing js-inc">+</span>
-                    </div>
+                  <div class="product-line__fast">
+                    <span data-article='02' data-link='testAjax/modal-card.json'
+                      class="product-line__fast-btn white-btn js-fast-order">
+                      Заказать в 1 клик
+                    </span>
                   </div>
                   <!-- product-line__btns -->
                   <div class="product-line__btns">
                     <div class="product-line__btn">
-                      <span class="btn js-add-basket">
-                        <img class="btn__icon" src="./img/controls/basket-btn.svg" alt="">
+                      <span data-article='02' data-link='testAjax/in-basket-test.json' class="btn js-in-basket">
+                        <img class="btn__icon js-basket-icon" src="./img/icon/card-basket-icon.svg" alt="">
                       </span>
                     </div>
 
                     <div class="product-line__btn">
-                      <span class="btn js-favorite">
-                        <img class="btn__icon" src="./img/icon/favorite-icon.svg" alt="">
+                      <span data-article='02' data-link='testAjax/favorite-test.json' class="btn js-favorite">
+                        <img class="btn__icon js-favorite-img" src="./img/icon/favorite-icon.svg" alt="">
                       </span>
                     </div>
                   </div>
@@ -300,7 +298,7 @@
 
             <li class="product__item">
               <!-- product-card-list -->
-              <div class="product-line">
+              <div class="product-line js-product-card">
                 <h2 class="product-line__title">
                   <a href="product-page.html" class="product-line__link link">
                     Алюминиевая прессованная труба 100х10 мм В95Т1 ГОСТ 18482-79
@@ -314,25 +312,23 @@
                 </div>
                 <!-- product-line__controls -->
                 <div class="product-line__controls">
-                  <div class="product-line__counter">
-                    <div class="counter js-counter">
-                      <span class="counter__sing js-dec">-</span>
-
-                      <input type='text' class="counter__quantity js-quantity" value='1'>
-                      <span class="counter__sing js-inc">+</span>
-                    </div>
+                  <div class="product-line__fast">
+                    <span data-article='02' data-link='testAjax/modal-card.json'
+                      class="product-line__fast-btn white-btn js-fast-order">
+                      Заказать в 1 клик
+                    </span>
                   </div>
                   <!-- product-line__btns -->
                   <div class="product-line__btns">
                     <div class="product-line__btn">
-                      <span class="btn js-add-basket">
-                        <img class="btn__icon" src="./img/controls/basket-btn.svg" alt="">
+                      <span data-article='02' data-link='testAjax/in-basket-test.json' class="btn js-in-basket">
+                        <img class="btn__icon js-basket-icon" src="./img/icon/card-basket-icon.svg" alt="">
                       </span>
                     </div>
 
                     <div class="product-line__btn">
-                      <span class="btn js-favorite">
-                        <img class="btn__icon" src="./img/icon/favorite-icon.svg" alt="">
+                      <span data-article='02' data-link='testAjax/favorite-test.json' class="btn js-favorite">
+                        <img class="btn__icon js-favorite-img" src="./img/icon/favorite-icon.svg" alt="">
                       </span>
                     </div>
                   </div>
@@ -346,7 +342,7 @@
 
             <li class="product__item">
               <!-- product-card-list -->
-              <div class="product-line">
+              <div class="product-line js-product-card">
                 <h2 class="product-line__title">
                   <a href="product-page.html" class="product-line__link link">
                     Алюминиевая прессованная труба 100х10 мм В95Т1 ГОСТ 18482-79
@@ -360,25 +356,23 @@
                 </div>
                 <!-- product-line__controls -->
                 <div class="product-line__controls">
-                  <div class="product-line__counter">
-                    <div class="counter js-counter">
-                      <span class="counter__sing js-dec">-</span>
-
-                      <input type='text' class="counter__quantity js-quantity" value='1'>
-                      <span class="counter__sing js-inc">+</span>
-                    </div>
+                  <div class="product-line__fast">
+                    <span data-article='02' data-link='testAjax/modal-card.json'
+                      class="product-line__fast-btn white-btn js-fast-order">
+                      Заказать в 1 клик
+                    </span>
                   </div>
                   <!-- product-line__btns -->
                   <div class="product-line__btns">
                     <div class="product-line__btn">
-                      <span class="btn js-add-basket">
-                        <img class="btn__icon" src="./img/controls/basket-btn.svg" alt="">
+                      <span data-article='02' data-link='testAjax/in-basket-test.json' class="btn js-in-basket">
+                        <img class="btn__icon js-basket-icon" src="./img/icon/card-basket-icon.svg" alt="">
                       </span>
                     </div>
 
                     <div class="product-line__btn">
-                      <span class="btn js-favorite">
-                        <img class="btn__icon" src="./img/icon/favorite-icon.svg" alt="">
+                      <span data-article='02' data-link='testAjax/favorite-test.json' class="btn js-favorite">
+                        <img class="btn__icon js-favorite-img" src="./img/icon/favorite-icon.svg" alt="">
                       </span>
                     </div>
                   </div>
@@ -392,7 +386,7 @@
 
             <li class="product__item">
               <!-- product-card-list -->
-              <div class="product-line">
+              <div class="product-line js-product-card">
                 <h2 class="product-line__title">
                   <a href="product-page.html" class="product-line__link link">
                     Алюминиевая прессованная труба 100х10 мм В95Т1 ГОСТ 18482-79
@@ -406,25 +400,23 @@
                 </div>
                 <!-- product-line__controls -->
                 <div class="product-line__controls">
-                  <div class="product-line__counter">
-                    <div class="counter js-counter">
-                      <span class="counter__sing js-dec">-</span>
-
-                      <input type='text' class="counter__quantity js-quantity" value='1'>
-                      <span class="counter__sing js-inc">+</span>
-                    </div>
+                  <div class="product-line__fast">
+                    <span data-article='02' data-link='testAjax/modal-card.json'
+                      class="product-line__fast-btn white-btn js-fast-order">
+                      Заказать в 1 клик
+                    </span>
                   </div>
                   <!-- product-line__btns -->
                   <div class="product-line__btns">
                     <div class="product-line__btn">
-                      <span class="btn js-add-basket">
-                        <img class="btn__icon" src="./img/controls/basket-btn.svg" alt="">
+                      <span data-article='02' data-link='testAjax/in-basket-test.json' class="btn js-in-basket">
+                        <img class="btn__icon js-basket-icon" src="./img/icon/card-basket-icon.svg" alt="">
                       </span>
                     </div>
 
                     <div class="product-line__btn">
-                      <span class="btn js-favorite">
-                        <img class="btn__icon" src="./img/icon/favorite-icon.svg" alt="">
+                      <span data-article='02' data-link='testAjax/favorite-test.json' class="btn js-favorite">
+                        <img class="btn__icon js-favorite-img" src="./img/icon/favorite-icon.svg" alt="">
                       </span>
                     </div>
                   </div>
@@ -438,7 +430,7 @@
 
             <li class="product__item">
               <!-- product-card-list -->
-              <div class="product-line">
+              <div class="product-line js-product-card">
                 <h2 class="product-line__title">
                   <a href="product-page.html" class="product-line__link link">
                     Алюминиевая прессованная труба 100х10 мм В95Т1 ГОСТ 18482-79
@@ -452,255 +444,23 @@
                 </div>
                 <!-- product-line__controls -->
                 <div class="product-line__controls">
-                  <div class="product-line__counter">
-                    <div class="counter js-counter">
-                      <span class="counter__sing js-dec">-</span>
-
-                      <input type='text' class="counter__quantity js-quantity" value='1'>
-                      <span class="counter__sing js-inc">+</span>
-                    </div>
+                  <div class="product-line__fast">
+                    <span data-article='02' data-link='testAjax/modal-card.json'
+                      class="product-line__fast-btn white-btn js-fast-order">
+                      Заказать в 1 клик
+                    </span>
                   </div>
                   <!-- product-line__btns -->
                   <div class="product-line__btns">
                     <div class="product-line__btn">
-                      <span class="btn js-add-basket">
-                        <img class="btn__icon" src="./img/controls/basket-btn.svg" alt="">
+                      <span data-article='02' data-link='testAjax/in-basket-test.json' class="btn js-in-basket">
+                        <img class="btn__icon js-basket-icon" src="./img/icon/card-basket-icon.svg" alt="">
                       </span>
                     </div>
 
                     <div class="product-line__btn">
-                      <span class="btn js-favorite">
-                        <img class="btn__icon" src="./img/icon/favorite-icon.svg" alt="">
-                      </span>
-                    </div>
-                  </div>
-                  <!-- product-line__btns -->
-                </div>
-                <!--product-line__controls-->
-
-              </div>
-              <!-- product-card-list -->
-            </li>
-
-            <li class="product__item">
-              <!-- product-card-list -->
-              <div class="product-line">
-                <h2 class="product-line__title">
-                  <a href="product-page.html" class="product-line__link link">
-                    Алюминиевая прессованная труба 100х10 мм В95Т1 ГОСТ 18482-79
-                  </a>
-                </h2>
-                <div class="product-line__price">
-                  <div class="product-line__discount">
-                    <span class="discount-sticker">-10%</span>
-                  </div>
-                  <span class="product-line__num">100000890 ₽</span>
-                </div>
-                <!-- product-line__controls -->
-                <div class="product-line__controls">
-                  <div class="product-line__counter">
-                    <div class="counter js-counter">
-                      <span class="counter__sing js-dec">-</span>
-
-                      <input type='text' class="counter__quantity js-quantity" value='1'>
-                      <span class="counter__sing js-inc">+</span>
-                    </div>
-                  </div>
-                  <!-- product-line__btns -->
-                  <div class="product-line__btns">
-                    <div class="product-line__btn">
-                      <span class="btn js-add-basket">
-                        <img class="btn__icon" src="./img/controls/basket-btn.svg" alt="">
-                      </span>
-                    </div>
-
-                    <div class="product-line__btn">
-                      <span class="btn js-favorite">
-                        <img class="btn__icon" src="./img/icon/favorite-icon.svg" alt="">
-                      </span>
-                    </div>
-                  </div>
-                  <!-- product-line__btns -->
-                </div>
-                <!--product-line__controls-->
-
-              </div>
-              <!-- product-card-list -->
-            </li>
-
-            <li class="product__item">
-              <!-- product-card-list -->
-              <div class="product-line">
-                <h2 class="product-line__title">
-                  <a href="product-page.html" class="product-line__link link">
-                    Алюминиевая прессованная труба 100х10 мм В95Т1 ГОСТ 18482-79
-                  </a>
-                </h2>
-                <div class="product-line__price">
-                  <div class="product-line__discount">
-                    <span class="discount-sticker">-10%</span>
-                  </div>
-                  <span class="product-line__num">100000890 ₽</span>
-                </div>
-                <!-- product-line__controls -->
-                <div class="product-line__controls">
-                  <div class="product-line__counter">
-                    <div class="counter js-counter">
-                      <span class="counter__sing js-dec">-</span>
-
-                      <input type='text' class="counter__quantity js-quantity" value='1'>
-                      <span class="counter__sing js-inc">+</span>
-                    </div>
-                  </div>
-                  <!-- product-line__btns -->
-                  <div class="product-line__btns">
-                    <div class="product-line__btn">
-                      <span class="btn js-add-basket">
-                        <img class="btn__icon" src="./img/controls/basket-btn.svg" alt="">
-                      </span>
-                    </div>
-
-                    <div class="product-line__btn">
-                      <span class="btn js-favorite">
-                        <img class="btn__icon" src="./img/icon/favorite-icon.svg" alt="">
-                      </span>
-                    </div>
-                  </div>
-                  <!-- product-line__btns -->
-                </div>
-                <!--product-line__controls-->
-
-              </div>
-              <!-- product-card-list -->
-            </li>
-
-            <li class="product__item">
-              <!-- product-card-list -->
-              <div class="product-line">
-                <h2 class="product-line__title">
-                  <a href="product-page.html" class="product-line__link link">
-                    Алюминиевая прессованная труба 100х10 мм В95Т1 ГОСТ 18482-79
-                  </a>
-                </h2>
-                <div class="product-line__price">
-                  <div class="product-line__discount">
-                    <span class="discount-sticker">-10%</span>
-                  </div>
-                  <span class="product-line__num">100000890 ₽</span>
-                </div>
-                <!-- product-line__controls -->
-                <div class="product-line__controls">
-                  <div class="product-line__counter">
-                    <div class="counter js-counter">
-                      <span class="counter__sing js-dec">-</span>
-
-                      <input type='text' class="counter__quantity js-quantity" value='1'>
-                      <span class="counter__sing js-inc">+</span>
-                    </div>
-                  </div>
-                  <!-- product-line__btns -->
-                  <div class="product-line__btns">
-                    <div class="product-line__btn">
-                      <span class="btn js-add-basket">
-                        <img class="btn__icon" src="./img/controls/basket-btn.svg" alt="">
-                      </span>
-                    </div>
-
-                    <div class="product-line__btn">
-                      <span class="btn js-favorite">
-                        <img class="btn__icon" src="./img/icon/favorite-icon.svg" alt="">
-                      </span>
-                    </div>
-                  </div>
-                  <!-- product-line__btns -->
-                </div>
-                <!--product-line__controls-->
-
-              </div>
-              <!-- product-card-list -->
-            </li>
-
-            <li class="product__item">
-              <!-- product-card-list -->
-              <div class="product-line">
-                <h2 class="product-line__title">
-                  <a href="product-page.html" class="product-line__link link">
-                    Алюминиевая прессованная труба 100х10 мм В95Т1 ГОСТ 18482-79
-                  </a>
-                </h2>
-                <div class="product-line__price">
-                  <div class="product-line__discount">
-                    <span class="discount-sticker">-10%</span>
-                  </div>
-                  <span class="product-line__num">100000890 ₽</span>
-                </div>
-                <!-- product-line__controls -->
-                <div class="product-line__controls">
-                  <div class="product-line__counter">
-                    <div class="counter js-counter">
-                      <span class="counter__sing js-dec">-</span>
-
-                      <input type='text' class="counter__quantity js-quantity" value='1'>
-                      <span class="counter__sing js-inc">+</span>
-                    </div>
-                  </div>
-                  <!-- product-line__btns -->
-                  <div class="product-line__btns">
-                    <div class="product-line__btn">
-                      <span class="btn js-add-basket">
-                        <img class="btn__icon" src="./img/controls/basket-btn.svg" alt="">
-                      </span>
-                    </div>
-
-                    <div class="product-line__btn">
-                      <span class="btn js-favorite">
-                        <img class="btn__icon" src="./img/icon/favorite-icon.svg" alt="">
-                      </span>
-                    </div>
-                  </div>
-                  <!-- product-line__btns -->
-                </div>
-                <!--product-line__controls-->
-
-              </div>
-              <!-- product-card-list -->
-            </li>
-
-            <li class="product__item">
-              <!-- product-card-list -->
-              <div class="product-line">
-                <h2 class="product-line__title">
-                  <a href="product-page.html" class="product-line__link link">
-                    Алюминиевая прессованная труба 100х10 мм В95Т1 ГОСТ 18482-79
-                  </a>
-                </h2>
-                <div class="product-line__price">
-                  <div class="product-line__discount">
-                    <span class="discount-sticker">-10%</span>
-                  </div>
-                  <span class="product-line__num">100000890 ₽</span>
-                </div>
-                <!-- product-line__controls -->
-                <div class="product-line__controls">
-                  <div class="product-line__counter">
-                    <div class="counter js-counter">
-                      <span class="counter__sing js-dec">-</span>
-
-                      <input type='text' class="counter__quantity js-quantity" value='1'>
-                      <span class="counter__sing js-inc">+</span>
-                    </div>
-                  </div>
-                  <!-- product-line__btns -->
-                  <div class="product-line__btns">
-                    <div class="product-line__btn">
-                      <span class="btn js-add-basket">
-                        <img class="btn__icon" src="./img/controls/basket-btn.svg" alt="">
-                      </span>
-                    </div>
-
-                    <div class="product-line__btn">
-                      <span class="btn js-favorite">
-                        <img class="btn__icon" src="./img/icon/favorite-icon.svg" alt="">
+                      <span data-article='02' data-link='testAjax/favorite-test.json' class="btn js-favorite">
+                        <img class="btn__icon js-favorite-img" src="./img/icon/favorite-icon.svg" alt="">
                       </span>
                     </div>
                   </div>

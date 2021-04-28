@@ -107,7 +107,7 @@
 
                 <a href="basket.html" class="h-nav__link">
                   <div class="h-nav__icon">
-                    <span class="h-icon__indicator h-icon__indicator-is-show"></span>
+                    <span id='basketIndicator' class="h-icon__indicator"></span>
                     <img class='h-icon__img' src="./img/icon/basket-icon.svg" alt="">
                   </div>
                 </a>
@@ -116,7 +116,7 @@
               <li class="h-nav__item">
                 <a href="favorites.html" class="h-nav__link">
                   <div class="h-nav__icon">
-                    <span class="h-icon__indicator"></span>
+                    <span id='favoriteIndicator' class="h-icon__indicator"></span>
                     <img class='h-icon__img' src="./img/icon/favorites-icon.svg" alt="">
                   </div>
                 </a>
@@ -161,625 +161,338 @@
             Алюминиевая прессованная труба АД1
           </h1>
           <!--filter-->
-          <form class="filters">
-            <!-- filters__top -->
-            <div class="filters__top">
-              <h2 class="filters__title">Фильтры</h2>
-              <!-- filters__list -->
-              <div class="filters__list">
-                <!-- filter -->
-                <div class="filter">
+          <div id='filtersWrap' class="filters-wrap js-filters-close">
 
-                  <input type="text" name='' placeholder='Товар' class='filter__input'>
-                  <div class="filter__body">
-                    <ul class="filter__list">
-                      <li class="filter__item">
-                        <div class="filter__check input-check">
-                          <label class="input-check__label">
-                            <input class='input-check__checkbox' type="checkbox" name='sort' value="от А до Я">
-                            <span class="input-check__fake">
+            <form id='filters' class="filters">
+              <!-- filters__top -->
+              <h2 id='expandFiltersBtn' class="filters__title">Фильтры</h2>
+              <div class="filters__top-wrap js-filters-top-wrap">
+                <div class="filters__top js-filters-top">
+                  <!-- filters__list -->
+                  <div class="filters__list">
+                    <!-- filter -->
+                    <div class="filter js-filter">
 
-                            </span>
-                            <span class="sorting__text input-check__text">
-                              от А до Я
-                            </span>
-
-                          </label>
+                      <div class="filter__head js-filter-head">
+                        <input type="text" name='' placeholder='Товар' class='filter__input js-filter-input'>
+                        <div class="filter__arrow">
+                          <img src="./img/controls/filter-arrow.svg" alt="" class="filter__arrow-icon js-filter-arrow">
                         </div>
-                      </li>
-                      <li class="filter__item">
-                        <div class="filter__check input-check">
-                          <label class="input-check__label">
-                            <input class='input-check__checkbox' type="checkbox" name='sort' value="от А до Я">
-                            <span class="input-check__fake">
 
-                            </span>
-                            <span class="sorting__text input-check__text">
-                              от А до Я
-                            </span>
+                      </div>
 
-                          </label>
+
+
+                      <div class="filter__body js-filter-body">
+                        <ul class="filter__list filter-scroll js-filter-list">
+                          <li class="filter__item ">
+                            <div class="filter__check input-check">
+                              <label class="input-check__label">
+                                <input class='input-check__checkbox' type="checkbox" name='sort' value="от А до Я">
+                                <span class="input-check__fake filter-check__fake"></span>
+                                <span class="sorting__text input-check__text">
+                                  от А до Я
+                                </span>
+
+                              </label>
+                            </div>
+                          </li>
+                        </ul>
+
+                      </div>
+
+
+                    </div>
+                    <!--filter-->
+                    <!-- filter -->
+                    <div class="filter js-filter">
+
+                      <div class="filter__head js-filter-head">
+                        <input type="text" name='' placeholder='Товар' class='filter__input js-filter-input'>
+                        <div class="filter__arrow">
+                          <img src="./img/controls/filter-arrow.svg" alt="" class="filter__arrow-icon js-filter-arrow">
                         </div>
-                      </li>
-                      <li class="filter__item">
-                        <div class="filter__check input-check">
-                          <label class="input-check__label">
-                            <input class='input-check__checkbox' type="checkbox" name='sort' value="от А до Я">
-                            <span class="input-check__fake">
 
-                            </span>
-                            <span class="sorting__text input-check__text">
-                              от А до Я
-                            </span>
+                      </div>
 
-                          </label>
+
+
+                      <div class="filter__body js-filter-body">
+                        <ul class="filter__list filter-scroll js-filter-list">
+                          <li class="filter__item ">
+                            <div class="filter__check input-check">
+                              <label class="input-check__label">
+                                <input class='input-check__checkbox' type="checkbox" name='sort' value="от А до Я">
+                                <span class="input-check__fake filter-check__fake"></span>
+                                <span class="sorting__text input-check__text">
+                                  от А до Я
+                                </span>
+
+                              </label>
+                            </div>
+                          </li>
+                        </ul>
+
+                      </div>
+
+
+                    </div>
+                    <!--filter-->
+                    <!-- filter -->
+                    <div class="filter js-filter">
+
+                      <div class="filter__head js-filter-head">
+                        <input type="text" name='' placeholder='Товар' class='filter__input js-filter-input'>
+                        <div class="filter__arrow">
+                          <img src="./img/controls/filter-arrow.svg" alt="" class="filter__arrow-icon js-filter-arrow">
                         </div>
-                      </li>
-                      <li class="filter__item">
-                        <div class="filter__check input-check">
-                          <label class="input-check__label">
-                            <input class='input-check__checkbox' type="checkbox" name='sort' value="от А до Я">
-                            <span class="input-check__fake">
 
-                            </span>
-                            <span class="sorting__text input-check__text">
-                              от А до Я
-                            </span>
+                      </div>
 
-                          </label>
+
+
+                      <div class="filter__body js-filter-body">
+                        <ul class="filter__list filter-scroll js-filter-list">
+                          <li class="filter__item ">
+                            <div class="filter__check input-check">
+                              <label class="input-check__label">
+                                <input class='input-check__checkbox' type="checkbox" name='sort' value="от А до Я">
+                                <span class="input-check__fake filter-check__fake"></span>
+                                <span class="sorting__text input-check__text">
+                                  от А до Я
+                                </span>
+
+                              </label>
+                            </div>
+                          </li>
+                        </ul>
+
+                      </div>
+
+
+                    </div>
+                    <!--filter-->
+                    <!-- filter -->
+                    <div class="filter js-filter">
+
+                      <div class="filter__head js-filter-head">
+                        <input type="text" name='' placeholder='Товар' class='filter__input js-filter-input'>
+                        <div class="filter__arrow">
+                          <img src="./img/controls/filter-arrow.svg" alt="" class="filter__arrow-icon js-filter-arrow">
                         </div>
-                      </li>
-                      <li class="filter__item">
-                        <div class="filter__check input-check">
-                          <label class="input-check__label">
-                            <input class='input-check__checkbox' type="checkbox" name='sort' value="от А до Я">
-                            <span class="input-check__fake">
 
-                            </span>
-                            <span class="sorting__text input-check__text">
-                              от А до Я
-                            </span>
+                      </div>
 
-                          </label>
+
+
+                      <div class="filter__body js-filter-body">
+                        <ul class="filter__list filter-scroll js-filter-list">
+                          <li class="filter__item ">
+                            <div class="filter__check input-check">
+                              <label class="input-check__label">
+                                <input class='input-check__checkbox' type="checkbox" name='sort' value="от А до Я">
+                                <span class="input-check__fake filter-check__fake"></span>
+                                <span class="sorting__text input-check__text">
+                                  от А до Я
+                                </span>
+
+                              </label>
+                            </div>
+                          </li>
+                        </ul>
+
+                      </div>
+
+
+                    </div>
+                    <!--filter-->
+
+                    <!-- filter -->
+                    <div class="filter js-filter">
+
+                      <div class="filter__head js-filter-head">
+                        <input type="text" name='' placeholder='Товар' class='filter__input js-filter-input'>
+                        <div class="filter__arrow">
+                          <img src="./img/controls/filter-arrow.svg" alt="" class="filter__arrow-icon js-filter-arrow">
                         </div>
-                      </li>
-                    </ul>
+
+                      </div>
+
+
+
+                      <div class="filter__body js-filter-body">
+                        <ul class="filter__list filter-scroll js-filter-list">
+                          <li class="filter__item ">
+                            <div class="filter__check input-check">
+                              <label class="input-check__label">
+                                <input class='input-check__checkbox' type="checkbox" name='sort' value="от А до Я">
+                                <span class="input-check__fake filter-check__fake"></span>
+                                <span class="sorting__text input-check__text">
+                                  от А до Я
+                                </span>
+
+                              </label>
+                            </div>
+                          </li>
+                        </ul>
+
+                      </div>
+
+
+                    </div>
+                    <!--filter-->
+                    <!-- filter -->
+                    <div class="filter js-filter">
+
+                      <div class="filter__head js-filter-head">
+                        <input type="text" name='' placeholder='Товар' class='filter__input js-filter-input'>
+                        <div class="filter__arrow">
+                          <img src="./img/controls/filter-arrow.svg" alt="" class="filter__arrow-icon js-filter-arrow">
+                        </div>
+
+                      </div>
+
+
+
+                      <div class="filter__body js-filter-body">
+                        <ul class="filter__list filter-scroll js-filter-list">
+                          <li class="filter__item ">
+                            <div class="filter__check input-check">
+                              <label class="input-check__label">
+                                <input class='input-check__checkbox' type="checkbox" name='sort' value="от А до Я">
+                                <span class="input-check__fake filter-check__fake"></span>
+                                <span class="sorting__text input-check__text">
+                                  от А до Я
+                                </span>
+
+                              </label>
+                            </div>
+                          </li>
+                        </ul>
+
+                      </div>
+
+
+                    </div>
+                    <!--filter-->
+
                   </div>
-
-                  <img src="./img/controls/filter-arrow.svg" alt="" class="filter__arrow">
+                  <!-- filters__list -->
                 </div>
-                <!--filter-->
+              </div>
 
-                <!-- filter -->
-                <div class="filter">
+              <!-- filters__top -->
+              <!-- filters__bottom -->
+              <div class="filters__bottom">
+                <!--select-filters-->
+                <div class="selected-filters">
 
-                  <input type="text" name='' placeholder='Товар' class='filter__input'>
-                  <div class="filter__body">
-                    <ul class="filter__list">
-                      <li class="filter__item">
-                        <div class="filter__check input-check">
-                          <label class="input-check__label">
-                            <input class='input-check__checkbox' type="checkbox" name='sort' value="от А до Я">
-                            <span class="input-check__fake">
-
-                            </span>
-                            <span class="sorting__text input-check__text">
-                              от А до Я
-                            </span>
-
-                          </label>
-                        </div>
-                      </li>
-                      <li class="filter__item">
-                        <div class="filter__check input-check">
-                          <label class="input-check__label">
-                            <input class='input-check__checkbox' type="checkbox" name='sort' value="от А до Я">
-                            <span class="input-check__fake">
-
-                            </span>
-                            <span class="sorting__text input-check__text">
-                              от А до Я
-                            </span>
-
-                          </label>
-                        </div>
-                      </li>
-                      <li class="filter__item">
-                        <div class="filter__check input-check">
-                          <label class="input-check__label">
-                            <input class='input-check__checkbox' type="checkbox" name='sort' value="от А до Я">
-                            <span class="input-check__fake">
-
-                            </span>
-                            <span class="sorting__text input-check__text">
-                              от А до Я
-                            </span>
-
-                          </label>
-                        </div>
-                      </li>
-                      <li class="filter__item">
-                        <div class="filter__check input-check">
-                          <label class="input-check__label">
-                            <input class='input-check__checkbox' type="checkbox" name='sort' value="от А до Я">
-                            <span class="input-check__fake">
-
-                            </span>
-                            <span class="sorting__text input-check__text">
-                              от А до Я
-                            </span>
-
-                          </label>
-                        </div>
-                      </li>
-                      <li class="filter__item">
-                        <div class="filter__check input-check">
-                          <label class="input-check__label">
-                            <input class='input-check__checkbox' type="checkbox" name='sort' value="от А до Я">
-                            <span class="input-check__fake">
-
-                            </span>
-                            <span class="sorting__text input-check__text">
-                              от А до Я
-                            </span>
-
-                          </label>
-                        </div>
-                      </li>
-                    </ul>
+                  <!-- select-filter -->
+                  <div class="selected-filter">
+                    <span class="selected-filter__name">
+                      Труба
+                    </span>
+                    <div class="selected-filter__delete">
+                      <span class="btn js-close-modal">
+                        <img src="./img/controls/close-btn-dark.svg" alt="" class="btn__icon">
+                      </span>
+                    </div>
                   </div>
+                  <!-- select-filter -->
 
-                  <img src="./img/controls/filter-arrow.svg" alt="" class="filter__arrow">
-                </div>
-                <!--filter-->
-
-                <!-- filter -->
-                <div class="filter">
-
-                  <input type="text" name='' placeholder='Товар' class='filter__input'>
-                  <div class="filter__body">
-                    <ul class="filter__list">
-                      <li class="filter__item">
-                        <div class="filter__check input-check">
-                          <label class="input-check__label">
-                            <input class='input-check__checkbox' type="checkbox" name='sort' value="от А до Я">
-                            <span class="input-check__fake">
-
-                            </span>
-                            <span class="sorting__text input-check__text">
-                              от А до Я
-                            </span>
-
-                          </label>
-                        </div>
-                      </li>
-                      <li class="filter__item">
-                        <div class="filter__check input-check">
-                          <label class="input-check__label">
-                            <input class='input-check__checkbox' type="checkbox" name='sort' value="от А до Я">
-                            <span class="input-check__fake">
-
-                            </span>
-                            <span class="sorting__text input-check__text">
-                              от А до Я
-                            </span>
-
-                          </label>
-                        </div>
-                      </li>
-                      <li class="filter__item">
-                        <div class="filter__check input-check">
-                          <label class="input-check__label">
-                            <input class='input-check__checkbox' type="checkbox" name='sort' value="от А до Я">
-                            <span class="input-check__fake">
-
-                            </span>
-                            <span class="sorting__text input-check__text">
-                              от А до Я
-                            </span>
-
-                          </label>
-                        </div>
-                      </li>
-                      <li class="filter__item">
-                        <div class="filter__check input-check">
-                          <label class="input-check__label">
-                            <input class='input-check__checkbox' type="checkbox" name='sort' value="от А до Я">
-                            <span class="input-check__fake">
-
-                            </span>
-                            <span class="sorting__text input-check__text">
-                              от А до Я
-                            </span>
-
-                          </label>
-                        </div>
-                      </li>
-                      <li class="filter__item">
-                        <div class="filter__check input-check">
-                          <label class="input-check__label">
-                            <input class='input-check__checkbox' type="checkbox" name='sort' value="от А до Я">
-                            <span class="input-check__fake">
-
-                            </span>
-                            <span class="sorting__text input-check__text">
-                              от А до Я
-                            </span>
-
-                          </label>
-                        </div>
-                      </li>
-                    </ul>
+                  <!-- select-filter -->
+                  <div class="selected-filter">
+                    <span class="selected-filter__name">
+                      Алюминий
+                    </span>
+                    <div class="selected-filter__delete">
+                      <span class="btn js-close-modal">
+                        <img src="./img/controls/close-btn-dark.svg" alt="" class="btn__icon">
+                      </span>
+                    </div>
                   </div>
+                  <!-- select-filter -->
 
-                  <img src="./img/controls/filter-arrow.svg" alt="" class="filter__arrow">
-                </div>
-                <!--filter-->
-
-                <!-- filter -->
-                <div class="filter">
-
-                  <input type="text" name='' placeholder='Товар' class='filter__input'>
-                  <div class="filter__body">
-                    <ul class="filter__list">
-                      <li class="filter__item">
-                        <div class="filter__check input-check">
-                          <label class="input-check__label">
-                            <input class='input-check__checkbox' type="checkbox" name='sort' value="от А до Я">
-                            <span class="input-check__fake">
-
-                            </span>
-                            <span class="sorting__text input-check__text">
-                              от А до Я
-                            </span>
-
-                          </label>
-                        </div>
-                      </li>
-                      <li class="filter__item">
-                        <div class="filter__check input-check">
-                          <label class="input-check__label">
-                            <input class='input-check__checkbox' type="checkbox" name='sort' value="от А до Я">
-                            <span class="input-check__fake">
-
-                            </span>
-                            <span class="sorting__text input-check__text">
-                              от А до Я
-                            </span>
-
-                          </label>
-                        </div>
-                      </li>
-                      <li class="filter__item">
-                        <div class="filter__check input-check">
-                          <label class="input-check__label">
-                            <input class='input-check__checkbox' type="checkbox" name='sort' value="от А до Я">
-                            <span class="input-check__fake">
-
-                            </span>
-                            <span class="sorting__text input-check__text">
-                              от А до Я
-                            </span>
-
-                          </label>
-                        </div>
-                      </li>
-                      <li class="filter__item">
-                        <div class="filter__check input-check">
-                          <label class="input-check__label">
-                            <input class='input-check__checkbox' type="checkbox" name='sort' value="от А до Я">
-                            <span class="input-check__fake">
-
-                            </span>
-                            <span class="sorting__text input-check__text">
-                              от А до Я
-                            </span>
-
-                          </label>
-                        </div>
-                      </li>
-                      <li class="filter__item">
-                        <div class="filter__check input-check">
-                          <label class="input-check__label">
-                            <input class='input-check__checkbox' type="checkbox" name='sort' value="от А до Я">
-                            <span class="input-check__fake">
-
-                            </span>
-                            <span class="sorting__text input-check__text">
-                              от А до Я
-                            </span>
-
-                          </label>
-                        </div>
-                      </li>
-                    </ul>
+                  <!-- select-filter -->
+                  <div class="selected-filter">
+                    <span class="selected-filter__name">
+                      Металлопркат
+                    </span>
+                    <div class="selected-filter__delete">
+                      <span class="btn js-close-modal">
+                        <img src="./img/controls/close-btn-dark.svg" alt="" class="btn__icon">
+                      </span>
+                    </div>
                   </div>
+                  <!-- select-filter -->
 
-                  <img src="./img/controls/filter-arrow.svg" alt="" class="filter__arrow">
-                </div>
-                <!--filter-->
-
-                <!-- filter -->
-                <div class="filter">
-
-                  <input type="text" name='' placeholder='Товар' class='filter__input'>
-                  <div class="filter__body">
-                    <ul class="filter__list">
-                      <li class="filter__item">
-                        <div class="filter__check input-check">
-                          <label class="input-check__label">
-                            <input class='input-check__checkbox' type="checkbox" name='sort' value="от А до Я">
-                            <span class="input-check__fake">
-
-                            </span>
-                            <span class="sorting__text input-check__text">
-                              от А до Я
-                            </span>
-
-                          </label>
-                        </div>
-                      </li>
-                      <li class="filter__item">
-                        <div class="filter__check input-check">
-                          <label class="input-check__label">
-                            <input class='input-check__checkbox' type="checkbox" name='sort' value="от А до Я">
-                            <span class="input-check__fake">
-
-                            </span>
-                            <span class="sorting__text input-check__text">
-                              от А до Я
-                            </span>
-
-                          </label>
-                        </div>
-                      </li>
-                      <li class="filter__item">
-                        <div class="filter__check input-check">
-                          <label class="input-check__label">
-                            <input class='input-check__checkbox' type="checkbox" name='sort' value="от А до Я">
-                            <span class="input-check__fake">
-
-                            </span>
-                            <span class="sorting__text input-check__text">
-                              от А до Я
-                            </span>
-
-                          </label>
-                        </div>
-                      </li>
-                      <li class="filter__item">
-                        <div class="filter__check input-check">
-                          <label class="input-check__label">
-                            <input class='input-check__checkbox' type="checkbox" name='sort' value="от А до Я">
-                            <span class="input-check__fake">
-
-                            </span>
-                            <span class="sorting__text input-check__text">
-                              от А до Я
-                            </span>
-
-                          </label>
-                        </div>
-                      </li>
-                      <li class="filter__item">
-                        <div class="filter__check input-check">
-                          <label class="input-check__label">
-                            <input class='input-check__checkbox' type="checkbox" name='sort' value="от А до Я">
-                            <span class="input-check__fake">
-
-                            </span>
-                            <span class="sorting__text input-check__text">
-                              от А до Я
-                            </span>
-
-                          </label>
-                        </div>
-                      </li>
-                    </ul>
+                  <!-- select-filter -->
+                  <div class="selected-filter">
+                    <span class="selected-filter__name">
+                      Металлопркат
+                    </span>
+                    <div class="selected-filter__delete">
+                      <span class="btn">
+                        <img src="./img/controls/close-btn-dark.svg" alt="" class="btn__icon">
+                      </span>
+                    </div>
                   </div>
+                  <!-- select-filter -->
 
-                  <img src="./img/controls/filter-arrow.svg" alt="" class="filter__arrow">
-                </div>
-                <!--filter-->
-
-                <!-- filter -->
-                <div class="filter">
-
-                  <input type="text" name='' placeholder='Товар' class='filter__input'>
-                  <div class="filter__body">
-                    <ul class="filter__list">
-                      <li class="filter__item">
-                        <div class="filter__check input-check">
-                          <label class="input-check__label">
-                            <input class='input-check__checkbox' type="checkbox" name='sort' value="от А до Я">
-                            <span class="input-check__fake">
-
-                            </span>
-                            <span class="sorting__text input-check__text">
-                              от А до Я
-                            </span>
-
-                          </label>
-                        </div>
-                      </li>
-                      <li class="filter__item">
-                        <div class="filter__check input-check">
-                          <label class="input-check__label">
-                            <input class='input-check__checkbox' type="checkbox" name='sort' value="от А до Я">
-                            <span class="input-check__fake">
-
-                            </span>
-                            <span class="sorting__text input-check__text">
-                              от А до Я
-                            </span>
-
-                          </label>
-                        </div>
-                      </li>
-                      <li class="filter__item">
-                        <div class="filter__check input-check">
-                          <label class="input-check__label">
-                            <input class='input-check__checkbox' type="checkbox" name='sort' value="от А до Я">
-                            <span class="input-check__fake">
-
-                            </span>
-                            <span class="sorting__text input-check__text">
-                              от А до Я
-                            </span>
-
-                          </label>
-                        </div>
-                      </li>
-                      <li class="filter__item">
-                        <div class="filter__check input-check">
-                          <label class="input-check__label">
-                            <input class='input-check__checkbox' type="checkbox" name='sort' value="от А до Я">
-                            <span class="input-check__fake">
-
-                            </span>
-                            <span class="sorting__text input-check__text">
-                              от А до Я
-                            </span>
-
-                          </label>
-                        </div>
-                      </li>
-                      <li class="filter__item">
-                        <div class="filter__check input-check">
-                          <label class="input-check__label">
-                            <input class='input-check__checkbox' type="checkbox" name='sort' value="от А до Я">
-                            <span class="input-check__fake">
-
-                            </span>
-                            <span class="sorting__text input-check__text">
-                              от А до Я
-                            </span>
-
-                          </label>
-                        </div>
-                      </li>
-                    </ul>
+                  <!-- select-filter -->
+                  <div class="selected-filter">
+                    <span class="selected-filter__name">
+                      Металлопркат
+                    </span>
+                    <div class="selected-filter__delete">
+                      <span class="btn js-close-modal">
+                        <img src="./img/controls/close-btn-dark.svg" alt="" class="btn__icon">
+                      </span>
+                    </div>
                   </div>
+                  <!-- select-filter -->
 
-                  <img src="./img/controls/filter-arrow.svg" alt="" class="filter__arrow">
+                  <!-- select-filter -->
+                  <div class="selected-filter">
+                    <span class="selected-filter__name">
+                      Металлопркат
+                    </span>
+                    <div class="selected-filter__delete">
+                      <span class="btn js-close-modal">
+                        <img src="./img/controls/close-btn-dark.svg" alt="" class="btn__icon">
+                      </span>
+                    </div>
+                  </div>
+                  <!-- select-filter -->
+
                 </div>
-                <!--filter-->
+                <!-- select-filters -->
+
+                <!--filters__btns-->
+                <div class="filters__btns">
+
+                  <span type="text" class="filters__btn grey-btn">Сбросить фильтры</span>
+
+                  <input type="submit" name='' class="filters__btn yellow-btn" value='Показать'>
+                </div>
+                <!--filters__btns-->
 
               </div>
-              <!-- filters__list -->
-            </div>
-            <!-- filters__top -->
-            <!-- filters__bottom -->
-            <div class="filters__bottom">
-              <!--select-filters-->
-              <div class="selected-filters">
+              <!-- filters__bottom -->
 
-                <!-- select-filter -->
-                <div class="selected-filter">
-                  <span class="selected-filter__name">
-                    Труба
-                  </span>
-                  <div class="selected-filter__delete">
-                    <span class="btn js-close-modal">
-                      <img src="./img/controls/close-btn-dark.svg" alt="" class="btn__icon">
-                    </span>
-                  </div>
+              <div class="filters__roll-up-text">
+                <div class="roll-up__btn js-roll-up-btn">
+                  <span class="roll-up__text">Cвернуть</span>
+                  <img src="./img/controls/roll-up-arrow.svg" alt="" class="roll-up__arrow">
                 </div>
-                <!-- select-filter -->
-
-                <!-- select-filter -->
-                <div class="selected-filter">
-                  <span class="selected-filter__name">
-                    Алюминий
-                  </span>
-                  <div class="selected-filter__delete">
-                    <span class="btn js-close-modal">
-                      <img src="./img/controls/close-btn-dark.svg" alt="" class="btn__icon">
-                    </span>
-                  </div>
-                </div>
-                <!-- select-filter -->
-
-                <!-- select-filter -->
-                <div class="selected-filter">
-                  <span class="selected-filter__name">
-                    Металлопркат
-                  </span>
-                  <div class="selected-filter__delete">
-                    <span class="btn js-close-modal">
-                      <img src="./img/controls/close-btn-dark.svg" alt="" class="btn__icon">
-                    </span>
-                  </div>
-                </div>
-                <!-- select-filter -->
-
-                <!-- select-filter -->
-                <div class="selected-filter">
-                  <span class="selected-filter__name">
-                    Металлопркат
-                  </span>
-                  <div class="selected-filter__delete">
-                    <span class="btn">
-                      <img src="./img/controls/close-btn-dark.svg" alt="" class="btn__icon">
-                    </span>
-                  </div>
-                </div>
-                <!-- select-filter -->
-
-                <!-- select-filter -->
-                <div class="selected-filter">
-                  <span class="selected-filter__name">
-                    Металлопркат
-                  </span>
-                  <div class="selected-filter__delete">
-                    <span class="btn js-close-modal">
-                      <img src="./img/controls/close-btn-dark.svg" alt="" class="btn__icon">
-                    </span>
-                  </div>
-                </div>
-                <!-- select-filter -->
-
-                <!-- select-filter -->
-                <div class="selected-filter">
-                  <span class="selected-filter__name">
-                    Металлопркат
-                  </span>
-                  <div class="selected-filter__delete">
-                    <span class="btn js-close-modal">
-                      <img src="./img/controls/close-btn-dark.svg" alt="" class="btn__icon">
-                    </span>
-                  </div>
-                </div>
-                <!-- select-filter -->
-
               </div>
-              <!-- select-filters -->
-
-              <!--filters__btns-->
-              <div class="filters__btns">
-
-                <span type="text" class="filters__btn grey-btn">Сбросить фильтры</span>
-
-                <input type="submit" name='' class="filters__btn yellow-btn" value='Показать'>
-              </div>
-              <!--filters__btns-->
-
-            </div>
-            <!-- filters__bottom -->
-
-            <div class="filters__roll-up-text">
-              <div class="roll-up__btn">
-                <span class="roll-up__text">Cвернуть</span>
-                <img src="./img/controls/roll-up-arrow.svg" alt="" class="roll-up__arrow">
-              </div>
-            </div>
-
-            <div class="filters__roll-up">
+            </form>
+            <div id='rollUpBtn' class="filters__roll-up js-roll-up-btn">
               <span class="btn">
                 <img src="./img/controls/close-btn-icon.svg" alt="" class="btn__icon">
               </span>
             </div>
-          </form>
+          </div>
           <!--filter-->
 
 
@@ -860,7 +573,7 @@
           <!--product__list-->
           <div class="product__tile">
             <!-- product-card -->
-            <div class="product-card">
+            <div class="product-card js-product-card">
               <div class="product-card__content">
                 <div class="product-card__preview">
                   <a href="product-page.html" class="product-card__link">
@@ -880,20 +593,27 @@
                       </div>
                       <span class="product-card__number">90390 ₽</span>
                     </div>
+                    <div class="product-card__btn-icon">
+                      <span data-article='02' data-link='testAjax/in-basket-test.json' class="btn js-in-basket">
+                        <img class="btn__icon js-basket-icon" src="./img/icon/card-basket-icon.svg" alt="">
+                      </span>
+                    </div>
                     <div class="product-card__btn">
-                      <span class="product-card__in-basket yellow-btn">В карзину</span>
+                      <span data-article='02' data-link='testAjax/in-basket-test.json'
+                        class="product-card__in-basket js-basket-btn js-in-basket yellow-btn">В корзину</span>
                     </div>
                   </div>
                 </div>
               </div>
               <div class="product-card__favorite">
-                <span class="btn js-favorite">
-                  <img class="btn__icon" src="./img/icon/favorite-active-icon.svg" alt="">
+                <span data-article='02' data-link='testAjax/favorite-test.json' class="btn js-favorite">
+                  <img class="btn__icon js-favorite-img" src="./img/icon/favorite-icon.svg" alt="">
                 </span>
               </div>
 
               <div class="short-order">
-                <span class="short-order__btn white-btn js-add-basket">
+                <span data-article='02' data-link='testAjax/modal-card.json'
+                  class="short-order__btn white-btn js-fast-order">
                   Заказать в 1 клик
                 </span>
               </div>
@@ -901,11 +621,11 @@
             <!-- product-card -->
 
             <!-- product-card -->
-            <div class="product-card">
+            <div class="product-card js-product-card">
               <div class="product-card__content">
                 <div class="product-card__preview">
                   <a href="product-page.html" class="product-card__link">
-                    <img src="./img/image/product-card-img-2.jpg" alt="" class="product-card__img">
+                    <img src="./img/image/product-card-img-1.jpg" alt="" class="product-card__img">
                   </a>
                 </div>
                 <div class="product-card__info">
@@ -921,73 +641,38 @@
                       </div>
                       <span class="product-card__number">90390 ₽</span>
                     </div>
+                    <div class="product-card__btn-icon">
+                      <span data-article='02' data-link='testAjax/in-basket-test.json' class="btn js-in-basket">
+                        <img class="btn__icon js-basket-icon" src="./img/icon/card-basket-icon.svg" alt="">
+                      </span>
+                    </div>
                     <div class="product-card__btn">
-                      <span class="product-card__in-basket yellow-btn">В карзину</span>
+                      <span data-article='02' data-link='testAjax/in-basket-test.json'
+                        class="product-card__in-basket js-basket-btn js-in-basket yellow-btn">В корзину</span>
                     </div>
                   </div>
                 </div>
               </div>
-              <div class="product-card__favorite js-favorite">
-                <span class="btn js-favorite">
-                  <img class="btn__icon" src="./img/icon/favorite-icon.svg" alt="">
+              <div class="product-card__favorite">
+                <span data-article='02' data-link='testAjax/favorite-test.json' class="btn js-favorite">
+                  <img class="btn__icon js-favorite-img" src="./img/icon/favorite-icon.svg" alt="">
                 </span>
               </div>
 
               <div class="short-order">
-                <span class="short-order__btn white-btn js-add-basket">
+                <span data-article='02' data-link='testAjax/modal-card.json'
+                  class="short-order__btn white-btn js-fast-order">
                   Заказать в 1 клик
                 </span>
               </div>
             </div>
             <!-- product-card -->
-
             <!-- product-card -->
-            <div class="product-card">
+            <div class="product-card js-product-card">
               <div class="product-card__content">
                 <div class="product-card__preview">
                   <a href="product-page.html" class="product-card__link">
-                    <img src="./img/image/product-card-img-4.jpg" alt="" class="product-card__img">
-                  </a>
-                </div>
-                <div class="product-card__info">
-                  <h3 class="product-card__title">
-                    <a href="product-page.html" class="product-card__title-link link">
-                      Лист нержавеющий 7х1250х2500 мм 03Х13Н6К10М4ФБ-ВД
-                    </a>
-                  </h3>
-                  <div class="product-card__buy">
-                    <div class="product-card__price">
-                      <div class="product-card__discount">
-                        <span class="discount-sticker">-10%</span>
-                      </div>
-                      <span class="product-card__number">90390 ₽</span>
-                    </div>
-                    <div class="product-card__btn">
-                      <span class="product-card__in-basket white-btn">Добавлено</span>
-                    </div>
-                  </div>
-                </div>
-              </div>
-              <div class="product-card__favorite js-favorite">
-                <span class="btn js-favorite">
-                  <img class="btn__icon" src="./img/icon/favorite-icon.svg" alt="">
-                </span>
-              </div>
-
-              <div class="short-order">
-                <span class="short-order__btn white-btn  js-add-basket">
-                  Заказать в 1 клик
-                </span>
-              </div>
-            </div>
-            <!-- product-card -->
-
-            <!-- product-card -->
-            <div class="product-card">
-              <div class="product-card__content">
-                <div class="product-card__preview">
-                  <a href="product-page.html" class="product-card__link">
-                    <img src="./img/image/product-card-img-2.jpg" alt="" class="product-card__img">
+                    <img src="./img/image/product-card-img-1.jpg" alt="" class="product-card__img">
                   </a>
                 </div>
                 <div class="product-card__info">
@@ -1003,20 +688,27 @@
                       </div>
                       <span class="product-card__number">90390 ₽</span>
                     </div>
+                    <div class="product-card__btn-icon">
+                      <span data-article='02' data-link='testAjax/in-basket-test.json' class="btn js-in-basket">
+                        <img class="btn__icon js-basket-icon" src="./img/icon/card-basket-icon.svg" alt="">
+                      </span>
+                    </div>
                     <div class="product-card__btn">
-                      <span class="product-card__in-basket yellow-btn">В карзину</span>
+                      <span data-article='02' data-link='testAjax/in-basket-test.json'
+                        class="product-card__in-basket js-basket-btn js-in-basket yellow-btn">В корзину</span>
                     </div>
                   </div>
                 </div>
               </div>
-              <div class="product-card__favorite js-favorite">
-                <span class="btn js-favorite">
-                  <img class="btn__icon" src="./img/icon/favorite-icon.svg" alt="">
+              <div class="product-card__favorite">
+                <span data-article='02' data-link='testAjax/favorite-test.json' class="btn js-favorite">
+                  <img class="btn__icon js-favorite-img" src="./img/icon/favorite-icon.svg" alt="">
                 </span>
               </div>
 
               <div class="short-order">
-                <span class="short-order__btn white-btn  js-add-basket">
+                <span data-article='02' data-link='testAjax/modal-card.json'
+                  class="short-order__btn white-btn js-fast-order">
                   Заказать в 1 клик
                 </span>
               </div>
@@ -1024,53 +716,11 @@
             <!-- product-card -->
 
             <!-- product-card -->
-            <div class="product-card">
+            <div class="product-card js-product-card">
               <div class="product-card__content">
                 <div class="product-card__preview">
                   <a href="product-page.html" class="product-card__link">
-                    <img src="./img/image/product-card-img-4.jpg" alt="" class="product-card__img">
-                  </a>
-                </div>
-                <div class="product-card__info">
-                  <h3 class="product-card__title">
-                    <a href="product-page.html" class="product-card__title-link link">
-                      Лист нержавеющий 7х1250х2500 мм 03Х13Н6К10М4ФБ-ВД
-                    </a>
-                  </h3>
-                  <div class="product-card__buy">
-                    <div class="product-card__price">
-                      <div class="product-card__discount">
-                        <span class="discount-sticker">-10%</span>
-                      </div>
-                      <span class="product-card__number">90390 ₽</span>
-                    </div>
-                    <div class="product-card__btn">
-                      <span class="product-card__in-basket white-btn">Добавлено</span>
-                    </div>
-                  </div>
-                </div>
-
-              </div>
-              <div class="product-card__favorite js-favorite">
-                <span class="btn js-favorite">
-                  <img class="btn__icon" src="./img/icon/favorite-icon.svg" alt="">
-                </span>
-              </div>
-
-              <div class="short-order">
-                <span class="short-order__btn white-btn js-add-basket">
-                  Заказать в 1 клик
-                </span>
-              </div>
-            </div>
-            <!-- product-card -->
-
-            <!-- product-card -->
-            <div class="product-card">
-              <div class="product-card__content">
-                <div class="product-card__preview">
-                  <a href="product-page.html" class="product-card__link">
-                    <img src="./img/image/product-card-img-2.jpg" alt="" class="product-card__img">
+                    <img src="./img/image/product-card-img-1.jpg" alt="" class="product-card__img">
                   </a>
                 </div>
                 <div class="product-card__info">
@@ -1086,20 +736,27 @@
                       </div>
                       <span class="product-card__number">90390 ₽</span>
                     </div>
+                    <div class="product-card__btn-icon">
+                      <span data-article='02' data-link='testAjax/in-basket-test.json' class="btn js-in-basket">
+                        <img class="btn__icon js-basket-icon" src="./img/icon/card-basket-icon.svg" alt="">
+                      </span>
+                    </div>
                     <div class="product-card__btn">
-                      <span class="product-card__in-basket yellow-btn">В карзину</span>
+                      <span data-article='02' data-link='testAjax/in-basket-test.json'
+                        class="product-card__in-basket js-basket-btn js-in-basket yellow-btn">В корзину</span>
                     </div>
                   </div>
                 </div>
               </div>
-              <div class="product-card__favorite js-favorite">
-                <span class="btn js-favorite">
-                  <img class="btn__icon" src="./img/icon/favorite-icon.svg" alt="">
+              <div class="product-card__favorite">
+                <span data-article='02' data-link='testAjax/favorite-test.json' class="btn js-favorite">
+                  <img class="btn__icon js-favorite-img" src="./img/icon/favorite-icon.svg" alt="">
                 </span>
               </div>
 
               <div class="short-order">
-                <span class="short-order__btn white-btn js-add-basket">
+                <span data-article='02' data-link='testAjax/modal-card.json'
+                  class="short-order__btn white-btn js-fast-order">
                   Заказать в 1 клик
                 </span>
               </div>
@@ -1107,52 +764,11 @@
             <!-- product-card -->
 
             <!-- product-card -->
-            <div class="product-card">
+            <div class="product-card js-product-card">
               <div class="product-card__content">
                 <div class="product-card__preview">
                   <a href="product-page.html" class="product-card__link">
-                    <img src="./img/image/product-card-img-4.jpg" alt="" class="product-card__img">
-                  </a>
-                </div>
-                <div class="product-card__info">
-                  <h3 class="product-card__title">
-                    <a href="product-page.html" class="product-card__title-link link">
-                      Лист нержавеющий 7х1250х2500 мм 03Х13Н6К10М4ФБ-ВД
-                    </a>
-                  </h3>
-                  <div class="product-card__buy">
-                    <div class="product-card__price">
-                      <div class="product-card__discount">
-                        <span class="discount-sticker">-10%</span>
-                      </div>
-                      <span class="product-card__number">90390 ₽</span>
-                    </div>
-                    <div class="product-card__btn">
-                      <span class="product-card__in-basket white-btn">Добавлено</span>
-                    </div>
-                  </div>
-                </div>
-              </div>
-              <div class="product-card__favorite js-favorite">
-                <span class="btn js-favorite">
-                  <img class="btn__icon" src="./img/icon/favorite-icon.svg" alt="">
-                </span>
-              </div>
-
-              <div class="short-order">
-                <span class="short-order__btn white-btn  js-add-basket">
-                  Заказать в 1 клик
-                </span>
-              </div>
-            </div>
-            <!-- product-card -->
-
-            <!-- product-card -->
-            <div class="product-card">
-              <div class="product-card__content">
-                <div class="product-card__preview">
-                  <a href="product-page.html" class="product-card__link">
-                    <img src="./img/image/product-card-img-2.jpg" alt="" class="product-card__img">
+                    <img src="./img/image/product-card-img-1.jpg" alt="" class="product-card__img">
                   </a>
                 </div>
                 <div class="product-card__info">
@@ -1168,38 +784,44 @@
                       </div>
                       <span class="product-card__number">90390 ₽</span>
                     </div>
+                    <div class="product-card__btn-icon">
+                      <span data-article='02' data-link='testAjax/in-basket-test.json' class="btn js-in-basket">
+                        <img class="btn__icon js-basket-icon" src="./img/icon/card-basket-icon.svg" alt="">
+                      </span>
+                    </div>
                     <div class="product-card__btn">
-                      <span class="product-card__in-basket yellow-btn">В карзину</span>
+                      <span data-article='02' data-link='testAjax/in-basket-test.json'
+                        class="product-card__in-basket js-basket-btn js-in-basket yellow-btn">В корзину</span>
                     </div>
                   </div>
                 </div>
               </div>
-              <div class="product-card__favorite js-favorite">
-                <span class="btn js-favorite">
-                  <img class="btn__icon" src="./img/icon/favorite-icon.svg" alt="">
+              <div class="product-card__favorite">
+                <span data-article='02' data-link='testAjax/favorite-test.json' class="btn js-favorite">
+                  <img class="btn__icon js-favorite-img" src="./img/icon/favorite-icon.svg" alt="">
                 </span>
               </div>
 
               <div class="short-order">
-                <span class="short-order__btn white-btn  js-add-basket">
+                <span data-article='02' data-link='testAjax/modal-card.json'
+                  class="short-order__btn white-btn js-fast-order">
                   Заказать в 1 клик
                 </span>
               </div>
             </div>
             <!-- product-card -->
-
             <!-- product-card -->
-            <div class="product-card">
+            <div class="product-card js-product-card">
               <div class="product-card__content">
                 <div class="product-card__preview">
                   <a href="product-page.html" class="product-card__link">
-                    <img src="./img/image/product-card-img-4.jpg" alt="" class="product-card__img">
+                    <img src="./img/image/product-card-img-1.jpg" alt="" class="product-card__img">
                   </a>
                 </div>
                 <div class="product-card__info">
                   <h3 class="product-card__title">
                     <a href="product-page.html" class="product-card__title-link link">
-                      Лист нержавеющий 7х1250х2500 мм 03Х13Н6К10М4ФБ-ВД
+                      Лист нержавеющий 7х1250х2500 мм 03Х13Н6К10М4ФБ-ВД 7х1250х2500 мм 03Х13Н6К10М4ФБ-ВД
                     </a>
                   </h3>
                   <div class="product-card__buy">
@@ -1209,26 +831,36 @@
                       </div>
                       <span class="product-card__number">90390 ₽</span>
                     </div>
+                    <div class="product-card__btn-icon">
+                      <span data-article='02' data-link='testAjax/in-basket-test.json' class="btn js-in-basket">
+                        <img class="btn__icon js-basket-icon" src="./img/icon/card-basket-icon.svg" alt="">
+                      </span>
+                    </div>
                     <div class="product-card__btn">
-                      <span class="product-card__in-basket white-btn">Добавлено</span>
+                      <span data-article='02' data-link='testAjax/in-basket-test.json'
+                        class="product-card__in-basket js-basket-btn js-in-basket yellow-btn">В корзину</span>
                     </div>
                   </div>
                 </div>
-
               </div>
-              <div class="product-card__favorite js-favorite">
-                <span class="btn js-favorite">
-                  <img class="btn__icon" src="./img/icon/favorite-icon.svg" alt="">
+              <div class="product-card__favorite">
+                <span data-article='02' data-link='testAjax/favorite-test.json' class="btn js-favorite">
+                  <img class="btn__icon js-favorite-img" src="./img/icon/favorite-icon.svg" alt="">
                 </span>
               </div>
 
               <div class="short-order">
-                <span class="short-order__btn white-btn js-add-basket">
+                <span data-article='02' data-link='testAjax/modal-card.json'
+                  class="short-order__btn white-btn js-fast-order">
                   Заказать в 1 клик
                 </span>
               </div>
             </div>
             <!-- product-card -->
+
+
+
+
           </div>
           <!--product__list-->
 

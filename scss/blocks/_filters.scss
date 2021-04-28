@@ -1,13 +1,23 @@
+.filters-wrap {
+  position: relative;
+  height: 60px;
+  width: 190px;
+  background: $white;
+  border-radius: 20px;
+  overflow: hidden;
+  margin-bottom: 30px;
+  transition: 0.2s ease-in-out;
+}
 .filters {
   position: relative;
   background: $white;
-  border-radius: 20px;
-  margin-bottom: 30px;
+  //padding: 18px 0 0;
+  align-items: start;
 }
 
-.filters__top {
-  padding: 18px 10px 0 13px;
+.filters__top-wrap {
   position: relative;
+  transition: 0.2s ease-in-out;
   &::before {
     content: "";
     position: absolute;
@@ -19,10 +29,19 @@
     background: $milky;
   }
 }
+
+.filters__top {
+  padding: 0 18px 0;
+  position: relative;
+}
 .filters__title {
+  width: 190px;
   font-size: 24px;
+  //padding: 10px 0 20px 42px;
+  padding: 18px 0 20px 44px;
   line-height: 95.2%;
-  margin-bottom: 20px;
+  //margin-bottom: 20px;
+  cursor: pointer;
 }
 
 .filters__list {
@@ -76,9 +95,14 @@
 }
 
 .filters__roll-up {
+  display: none;
   position: absolute;
   top: 13px;
   right: 18px;
   width: 30px;
   height: 30px;
+}
+
+.filters__roll-up--is-show {
+  display: block;
 }

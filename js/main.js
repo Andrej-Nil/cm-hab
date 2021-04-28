@@ -49,11 +49,19 @@ const removeProductBtns = document.querySelectorAll('.js-remove-product');
 const elementLinks = document.querySelectorAll('.js-element-link');
 const dropdownsBtns = document.querySelectorAll('.js-dropdown-btn');
 const switchToggle = document.querySelector('#switchToggle');
-const counters = document.querySelectorAll('.js-counter')
+const counters = document.querySelectorAll('.js-counter');
 const catalogNav = document.querySelector('#catalogNav');
 
-const map = document.querySelector('#map');
+//filters
+const expandFiltersBtn = document.querySelector('#expandFiltersBtn');
+const filtersWrap = document.querySelector('#filtersWrap');
+const filters = document.querySelectorAll('.js-filter');
+const filterHeads = document.querySelectorAll('.js-filter-head');
+const filterTopWrap = document.querySelector('.js-filters-top-wrap');
 
+const rollUpBtns = document.querySelectorAll('.js-roll-up-btn');
+
+const map = document.querySelector('#map');
 const regTel = /^((8|\+7)[\- ]?)?(\(?\d{3}\)?[\- ]?)?[\d\- ]{5,10}$/;
 const regMail = /^([a-z0-9_-]+\.)*[a-z0-9_-]+@[a-z0-9_-]+(\.[a-z0-9_-]+)*\.[a-z]{2,6}$/;
 
@@ -162,6 +170,147 @@ if (removeProductBtns.length) {
   Array.from(removeProductBtns).forEach((btn) => {
     btn.addEventListener('click', () => { removeProduct(btn) })
   });
+}
+
+
+
+if (filtersWrap) {
+  expandFiltersBtn.addEventListener('click', expandFilters);
+}
+
+if (filterHeads.length) {
+  Array.from(filterHeads).forEach((head) => {
+    head.addEventListener('click', () => {
+      showFilters(head);
+    })
+  })
+  body.addEventListener('click', closeFilters)
+}
+
+if (rollUpBtns.length) {
+  Array.from(rollUpBtns).forEach((btn) => {
+    btn.addEventListener('click', () => {
+      rollUpFiltersbtn()
+    })
+  })
+}
+
+function rollUpFiltersbtn() {
+  const filters = filtersWrap.querySelector('#filters');
+  const rollUpBtn = filtersWrap.querySelector('#rollUpBtn');
+  const filtersHeight = filters.offsetHeight;
+  filtersWrap.style.height = filtersHeight + 'px';
+  setTimeout(() => {
+    filtersWrap.style.height = '60px';
+    rollUpBtn.classList.remove('filters__roll-up--is-show')
+  }, 20)
+  setTimeout(() => {
+    filtersWrap.style.width = '190px';
+    filtersWrap.classList.add('js-filters-close');
+  }, 220)
+
+}
+
+function expandFilters() {
+  const filters = filtersWrap.querySelector('#filters');
+  const rollUpBtn = filtersWrap.querySelector('#rollUpBtn');
+  let filtersHeight = null;
+  filtersWrap.style.width = '100%';
+  setTimeout(() => {
+    rollUpBtn.classList.add('filters__roll-up--is-show');
+    filtersHeight = filters.offsetHeight;
+    filtersWrap.style.height = filtersHeight + 'px';
+    filtersWrap.classList.remove('js-filters-close');
+  }, 200);
+  setTimeout(() => {
+    filtersWrap.style.height = 'auto';
+  }, 400);
+}
+
+
+
+
+
+function closeFilters(e) {
+  const isFilter = e.target.closest('.js-filter');
+  const filterTop = filterTopWrap.querySelector('.js-filters-top');
+  const filterTopHeight = filterTop.offsetHeight;
+  const isFiltersWrapClose = filtersWrap.classList.contains('js-filters-close');
+
+  if (isFiltersWrapClose) {
+    return;
+  }
+  if (!isFilter) {
+    filterTopWrap.style.height = filterTopHeight + 'px';
+    setTimeout(() => {
+      filterTopWrap.style.height = 'auto';
+    }, 200);
+  }
+
+  Array.from(filters).forEach((filter) => {
+    const target = e.target.closest('.js-filter');
+    if (target === filter) {
+      return;
+    }
+
+    const filterArrow = filter.querySelector('.js-filter-arrow');
+    const filterBody = filter.querySelector('.js-filter-body');
+    filterBody.style.height = '0';
+    filterArrow.style.transform = 'rotate(0)';
+
+    setTimeout(() => {
+      filter.style.zIndex = '0';
+    }, 100)
+  })
+
+}
+
+function showFilters(head) {
+  const filter = head.closest('.js-filter');
+  const filterArrow = filter.querySelector('.js-filter-arrow');
+  const filterBody = filter.querySelector('.js-filter-body');
+  const filterList = filter.querySelector('.js-filter-list');
+  const filterListHeight = filterList.offsetHeight;
+  const filterTopWrap = filter.closest('.js-filters-top-wrap');
+  const filterTopWrapHeight = filterTopWrap.offsetHeight;
+  filter.style.zIndex = '1000';
+  filterBody.style.height = filterListHeight + 'px';
+  filterArrow.style.transform = 'rotate(180deg)';
+  filterTopWrap.style.height = filterTopWrapHeight + 'px';
+
+  openFilterTop(filter, filterTopWrap, filterListHeight)
+
+
+
+
+
+
+
+
+
+
+  //console.log(filterTopWrap)
+
+
+
+
+}
+
+function openFilterTop(filter, filterTopWrap, filterListHeight) {
+  const filterCoords = filter.getBoundingClientRect();
+  const filterHalfHeight = filter.offsetHeight / 2;
+  const filterTopWrapCoords = filterTopWrap.getBoundingClientRect();
+  const filterTopWrapHeight = filterTopWrap.offsetHeight;
+  const filterStyles = getComputedStyle(filter);
+  const filterMarginBottom = parseInt(filterStyles.marginBottom);
+  //Находим высоту от filter без MarginBottom до низа filterTopWrap;
+  const heightFromFilterTofilterTopBottom = filterTopWrapCoords.bottom
+    - filterCoords.bottom
+    - filterMarginBottom;
+  //Находим высоту, которую необходимо добавить  
+  //к текущей высоте filterTopWrapp
+  const heightToAdd = filterListHeight - heightFromFilterTofilterTopBottom - filterHalfHeight;
+  filterTopWrap.style.height = heightToAdd + filterTopWrapHeight + 'px';
 }
 
 
@@ -567,7 +716,6 @@ function getData(method, data, api) {
       reject(new Error("Network Error"))
     };
   })
-
 }
 
 //функции для работой с формой
@@ -948,7 +1096,6 @@ function managingСounter(counter) {
 
 function dropdownOpen(btn) {
   const dropdown = btn.closest('.js-dropdown');
-  console.log(btn)
   const dropdownBody = dropdown.querySelector('.js-dropdown-body');
   const dropdownContent = dropdown.querySelector('.js-dropdown-content');
   const dropdownContentHeight = dropdownContent.offsetHeight;
