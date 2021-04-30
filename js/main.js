@@ -38,6 +38,7 @@ const productCarusel = document.querySelector('#productCarusel');
 const popularGoods = document.querySelector('#popularGoods');
 const sectionSlider = document.querySelector('#sectionSlider');
 const newsSlider = document.querySelector('#newsSlider');
+const productSlider = document.querySelector('#productSlider');
 
 //btns
 const favoriteBtns = document.querySelectorAll('.js-favorite');
@@ -58,6 +59,8 @@ const filtersWrap = document.querySelector('#filtersWrap');
 const filters = document.querySelectorAll('.js-filter');
 const filterHeads = document.querySelectorAll('.js-filter-head');
 const filterTopWrap = document.querySelector('.js-filters-top-wrap');
+const filterInputs = document.querySelectorAll('.js-filter-input');
+
 
 const rollUpBtns = document.querySelectorAll('.js-roll-up-btn');
 
@@ -100,7 +103,6 @@ if (dropdownsBtns.length) {
     })
   })
 }
-
 if (catalogNav) {
   window.addEventListener('load', renderCatalogNav);
 }
@@ -119,6 +121,10 @@ if (switchToggle) {
 if (mainSlider) {
   slider(mainSlider, true);
 }
+
+if (productSlider) {
+  slider(productSlider);
+}
 if (popularGoods) {
   slider(popularGoods, false);
 }
@@ -131,6 +137,8 @@ if (sectionSlider) {
 if (productCarusel) {
   carusel(productCarusel);
 }
+
+
 
 // Forms
 if (callbackForm) {
@@ -173,7 +181,7 @@ if (removeProductBtns.length) {
 }
 
 
-
+// block filters
 if (filtersWrap) {
   expandFiltersBtn.addEventListener('click', expandFilters);
 }
@@ -184,7 +192,13 @@ if (filterHeads.length) {
       showFilters(head);
     })
   })
-  body.addEventListener('click', closeFilters)
+
+  Array.from(filterHeads).forEach((head) => {
+    head.addEventListener('click', renderFilterList(head))
+  })
+  body.addEventListener('click', closeAllFilters)
+
+
 }
 
 if (rollUpBtns.length) {
@@ -195,123 +209,17 @@ if (rollUpBtns.length) {
   })
 }
 
-function rollUpFiltersbtn() {
-  const filters = filtersWrap.querySelector('#filters');
-  const rollUpBtn = filtersWrap.querySelector('#rollUpBtn');
-  const filtersHeight = filters.offsetHeight;
-  filtersWrap.style.height = filtersHeight + 'px';
-  setTimeout(() => {
-    filtersWrap.style.height = '60px';
-    rollUpBtn.classList.remove('filters__roll-up--is-show')
-  }, 20)
-  setTimeout(() => {
-    filtersWrap.style.width = '190px';
-    filtersWrap.classList.add('js-filters-close');
-  }, 220)
+if (filterInputs.length) {
+  Array.from(filterInputs).forEach((input) => {
+    searchByFilters(input);
+  });
+}
+
+function searchByFilters(input) {
+  const filter = input.closest('.js-filter');
 
 }
 
-function expandFilters() {
-  const filters = filtersWrap.querySelector('#filters');
-  const rollUpBtn = filtersWrap.querySelector('#rollUpBtn');
-  let filtersHeight = null;
-  filtersWrap.style.width = '100%';
-  setTimeout(() => {
-    rollUpBtn.classList.add('filters__roll-up--is-show');
-    filtersHeight = filters.offsetHeight;
-    filtersWrap.style.height = filtersHeight + 'px';
-    filtersWrap.classList.remove('js-filters-close');
-  }, 200);
-  setTimeout(() => {
-    filtersWrap.style.height = 'auto';
-  }, 400);
-}
-
-
-
-
-
-function closeFilters(e) {
-  const isFilter = e.target.closest('.js-filter');
-  const filterTop = filterTopWrap.querySelector('.js-filters-top');
-  const filterTopHeight = filterTop.offsetHeight;
-  const isFiltersWrapClose = filtersWrap.classList.contains('js-filters-close');
-
-  if (isFiltersWrapClose) {
-    return;
-  }
-  if (!isFilter) {
-    filterTopWrap.style.height = filterTopHeight + 'px';
-    setTimeout(() => {
-      filterTopWrap.style.height = 'auto';
-    }, 200);
-  }
-
-  Array.from(filters).forEach((filter) => {
-    const target = e.target.closest('.js-filter');
-    if (target === filter) {
-      return;
-    }
-
-    const filterArrow = filter.querySelector('.js-filter-arrow');
-    const filterBody = filter.querySelector('.js-filter-body');
-    filterBody.style.height = '0';
-    filterArrow.style.transform = 'rotate(0)';
-
-    setTimeout(() => {
-      filter.style.zIndex = '0';
-    }, 100)
-  })
-
-}
-
-function showFilters(head) {
-  const filter = head.closest('.js-filter');
-  const filterArrow = filter.querySelector('.js-filter-arrow');
-  const filterBody = filter.querySelector('.js-filter-body');
-  const filterList = filter.querySelector('.js-filter-list');
-  const filterListHeight = filterList.offsetHeight;
-  const filterTopWrap = filter.closest('.js-filters-top-wrap');
-  const filterTopWrapHeight = filterTopWrap.offsetHeight;
-  filter.style.zIndex = '1000';
-  filterBody.style.height = filterListHeight + 'px';
-  filterArrow.style.transform = 'rotate(180deg)';
-  filterTopWrap.style.height = filterTopWrapHeight + 'px';
-
-  openFilterTop(filter, filterTopWrap, filterListHeight)
-
-
-
-
-
-
-
-
-
-
-  //console.log(filterTopWrap)
-
-
-
-
-}
-
-function openFilterTop(filter, filterTopWrap, filterListHeight) {
-  const filterCoords = filter.getBoundingClientRect();
-  const filterHalfHeight = filter.offsetHeight / 2;
-  const filterTopWrapCoords = filterTopWrap.getBoundingClientRect();
-  const filterTopWrapHeight = filterTopWrap.offsetHeight;
-  const filterStyles = getComputedStyle(filter);
-  const filterMarginBottom = parseInt(filterStyles.marginBottom);
-  //Находим высоту от filter без MarginBottom до низа filterTopWrap;
-  const heightFromFilterTofilterTopBottom = filterTopWrapCoords.bottom
-    - filterCoords.bottom
-    - filterMarginBottom;
-  //Находим высоту, которую необходимо добавить  
-  //к текущей высоте filterTopWrapp
-  const heightToAdd = filterListHeight - heightFromFilterTofilterTopBottom - filterHalfHeight;
-  filterTopWrap.style.height = heightToAdd + filterTopWrapHeight + 'px';
-}
 
 
 
@@ -565,7 +473,7 @@ function slider(el, autoplay = false) {
     intervalSwitch(autoplay, false);
     i++;
     isMove = true;
-    const step = slideWrap.offsetWidth;
+    const step = slides[0].offsetWidth;
     newSlidesArr = el.querySelectorAll('.js-slide');
     slideWrap.style.transform = `translate(-${step}px, 0)`;
     slideWrap.classList.add('slides--is-move');
@@ -589,7 +497,7 @@ function slider(el, autoplay = false) {
 
     i--;
     isMove = true;
-    const step = slideWrap.offsetWidth;
+    const step = slides[0].offsetWidth;
     slideWrap.classList.remove('slides--is-move');
     newSlidesArr = el.querySelectorAll('.js-slide');
     newSlidesArr[0].before(newSlidesArr[numLastSlide]);
@@ -1197,6 +1105,125 @@ function clearBasketList() {
   console.log(basketList)
 }
 
+//Функции для стилиализации филтров
+
+function rollUpFiltersbtn() {
+  const filters = filtersWrap.querySelector('#filters');
+  const rollUpBtn = filtersWrap.querySelector('#rollUpBtn');
+  const filtersHeight = filters.offsetHeight;
+  filtersWrap.style.height = filtersHeight + 'px';
+  setTimeout(() => {
+    filtersWrap.style.height = '60px';
+    rollUpBtn.classList.remove('filters__roll-up--is-show')
+  }, 20)
+  setTimeout(() => {
+    filtersWrap.style.width = '190px';
+    filtersWrap.classList.add('js-filters-close');
+  }, 220)
+
+}
+
+function expandFilters() {
+  const filters = filtersWrap.querySelector('#filters');
+  const rollUpBtn = filtersWrap.querySelector('#rollUpBtn');
+  let filtersHeight = null;
+  filtersWrap.style.width = '100%';
+  setTimeout(() => {
+    rollUpBtn.classList.add('filters__roll-up--is-show');
+    filtersHeight = filters.offsetHeight;
+    filtersWrap.style.height = filtersHeight + 'px';
+    filtersWrap.classList.remove('js-filters-close');
+  }, 200);
+  setTimeout(() => {
+    filtersWrap.style.height = 'auto';
+  }, 400);
+}
+
+function closeAllFilters(e) {
+  const isFilter = e.target.closest('.js-filter');
+  const filterTop = filterTopWrap.querySelector('.js-filters-top');
+  const filterTopHeight = filterTop.offsetHeight;
+  const isFiltersWrapClose = filtersWrap.classList.contains('js-filters-close');
+  if (isFiltersWrapClose) {
+    return;
+  }
+  if (!isFilter) {
+    filterTopWrap.style.height = filterTopHeight + 'px';
+    setTimeout(() => {
+      filterTopWrap.style.height = 'auto';
+    }, 200);
+  }
+
+  Array.from(filters).forEach((filter) => {
+    const target = e.target.closest('.js-filter');
+    if (target === filter) {
+      return;
+    }
+    closeFilterList(filter);
+  })
+
+
+
+}
+
+function closeFilterList(filter) {
+
+  const filterArrow = filter.querySelector('.js-filter-arrow-icon');
+  const filterBody = filter.querySelector('.js-filter-body');
+
+  filterBody.style.height = '0';
+  filterArrow.style.transform = 'rotate(0)';
+  filter.classList.remove('js-open-fiter');
+
+  setTimeout(() => {
+    filter.style.zIndex = '0';
+  }, 100)
+}
+
+function showFilters(head) {
+  const filter = head.closest('.js-filter');
+  const filterArrow = filter.querySelector('.js-filter-arrow-icon');
+  const filterBody = filter.querySelector('.js-filter-body');
+  const filterList = filter.querySelector('.js-filter-list');
+  const filterListHeight = filterList.offsetHeight;
+  const filterTopWrap = filter.closest('.js-filters-top-wrap');
+  const filterTopWrapHeight = filterTopWrap.offsetHeight;
+  filter.classList.add('js-open-fiter')
+  filter.style.zIndex = '1000';
+  filterBody.style.height = filterListHeight + 'px';
+  filterArrow.style.transform = 'rotate(180deg)';
+  filterTopWrap.style.height = filterTopWrapHeight + 'px';
+
+  openFilterTop(filter, filterTopWrap, filterListHeight)
+
+
+}
+
+function openFilterTop(filter, filterTopWrap, filterListHeight) {
+  const filterCoords = filter.getBoundingClientRect();
+  const filterHalfHeight = filter.offsetHeight / 2;
+  const filterTopWrapCoords = filterTopWrap.getBoundingClientRect();
+  const filterTop = filterTopWrap.querySelector('.js-filters-top');
+  const filterTopHeight = filterTop.offsetHeight;
+  const filterTopWrapHeight = filterTopWrap.offsetHeight;
+  const filterStyles = getComputedStyle(filter);
+  const filterMarginBottom = parseInt(filterStyles.marginBottom);
+  //Находим высоту от filter без MarginBottom до низа filterTopWrap;
+  const heightFromFilterTofilterTopBottom = filterTopWrapCoords.bottom
+    - filterCoords.bottom
+    - filterMarginBottom;
+  //Находим высоту, которую необходимо добавить  
+  //к текущей высоте filterTopWrapp
+
+  const heightToAdd = filterListHeight - heightFromFilterTofilterTopBottom - filterHalfHeight;
+  const TotalFilterTopWrap = heightToAdd + filterTopWrapHeight;
+  if (TotalFilterTopWrap < filterTopHeight) {
+    filterTopWrap.style.height = filterTopHeight + 'px';
+    return;
+  }
+  filterTopWrap.style.height = TotalFilterTopWrap + 'px';
+}
+
 // функции для отправки запросов с кнопок
 // фаврит, в корзину, удалит
 function getInfoFromBtnToSend(btn) {
@@ -1357,14 +1384,14 @@ async function renderCatalogNav() {
   });
 
   function getMarkupEl(obj) {
-    const { link, text, article } = obj;
+    const { link, text, article, data_link } = obj;
     return (`
             <div class="category js-dropdown">
               <div class="category__name">
                 <a href='${link}' class='category__link'>
                   ${text}
                 </a >
-                <div class="category__btn js-dropdown-btn js-subcategory-btn" data-article="${article}">
+                <div data-link="${data_link}"  class="category__btn js-dropdown-btn js-subcategory-btn" data-article="${article}">
                   <img src="./img/controls/dropdown-btn.svg" alt="" class="category__arrow">
                 </div>
               </div>
@@ -1471,7 +1498,7 @@ async function renderModalProduct(modal, btn) {
 }
 
 async function renderSubCatalogNav(btn) {
-  const api = 'testAjax/sidebarSubMenu.json';
+  const api = btn.getAttribute('data-link');
   const article = btn.getAttribute('data-article');
   const parent = btn.closest('.js-dropdown');
   const ul = parent.querySelector('.js-dropdown-content');
@@ -1498,7 +1525,7 @@ async function renderSubCatalogNav(btn) {
   function getMarkupEl(obj) {
     const { link, text } = obj;
     return (`
-    <li class="subcategories__item js-item">
+    <li class="subcategories__item  js-item">
       <a href="${link}" class="subcategories__link">
       ${text}
       </a>
@@ -1507,3 +1534,74 @@ async function renderSubCatalogNav(btn) {
   }
 
 }
+
+async function renderFilterList(head) {
+  const filter = head.closest('.js-filter');
+  const filterList = filter.querySelector('.js-filter-list');
+  const api = head.getAttribute('data-link');
+  const data = {
+    _token: _token
+  }
+  const response = await getData(POST, data, api);
+  const sortedFilters = sortFilters(response.content)
+  render(filterList, sortedFilters, getMarkupEl);
+  renderSelectedFilters(filterList);
+  function getMarkupEl(obj) {
+    const { field_slug, field_value_slug, field_value_name, checked } = obj;
+    const checkboxActive = checked ? 'checked="checked"' : '';
+    return (`
+    <li class="filter__item">
+      <div class="filter__check input-check">
+        <label class="filter__check-label input-check__label">
+          <input class='input-check__checkbox js-filter-checkbox' type="checkbox" ${checkboxActive} data-name='${field_value_name}' name='${field_slug}' value="${field_value_slug}"  >
+          <span class="input-check__fake filter-check__fake"></span>
+          <span class="sorting__text input-check__text">
+          ${field_value_name}
+          </span>
+        </label>
+      </div>
+    </li>
+    `)
+  }
+}
+
+
+function renderSelectedFilters(filterList) {
+  const filterListItem = filterList.querySelectorAll('.js-filter-checkbox');
+
+  Array.from(filterListItem).forEach((item) => {
+    if (item.checked) {
+      console.log(item);
+    }
+
+  })
+}
+
+function sortFilters(arr) {
+  const checkedArr = arr.filter((item) => item.checked == true);
+  const noCheckedArr = arr.filter((item) => item.checked == false);
+  noCheckedArr.sort((a, b) => {
+    return sorting(a, b)
+  })
+  checkedArr.sort((a, b) => {
+    return sorting(a, b)
+  })
+
+  return checkedArr.concat(noCheckedArr);
+}
+
+function sorting(a, b) {
+  if (a.field_value_name > b.field_value_name) {
+    return 1;
+  }
+  if (a.field_value_name < b.field_value_name) {
+    return -1;
+  }
+  // a должно быть равным b
+  return 0;
+}
+
+
+
+
+

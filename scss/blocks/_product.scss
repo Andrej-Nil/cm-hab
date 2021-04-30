@@ -157,7 +157,7 @@
 .product__btns {
   display: flex;
   flex-direction: column;
-  @media (min-width: 500px) {
+  @media (min-width: 520px) {
     flex-direction: row;
     justify-content: space-between;
   }
@@ -177,7 +177,7 @@
   &:last-child {
     margin-bottom: 0;
   }
-  @media (min-width: 500px) {
+  @media (min-width: 520px) {
     width: 210px;
     margin-bottom: 0px;
   }
@@ -190,7 +190,7 @@
   width: 100%;
   padding: 13px 33px 14px;
 
-  @media (min-width: 500px) {
+  @media (min-width: 520px) {
     width: 210px;
     margin-left: auto;
   }

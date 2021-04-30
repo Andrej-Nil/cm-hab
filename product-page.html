@@ -107,7 +107,7 @@
 
                 <a href="basket.html" class="h-nav__link">
                   <div class="h-nav__icon">
-                    <span class="h-icon__indicator h-icon__indicator-is-show"></span>
+                    <span id='basketIndicator' class="h-icon__indicator"></span>
                     <img class='h-icon__img' src="./img/icon/basket-icon.svg" alt="">
                   </div>
                 </a>
@@ -116,7 +116,7 @@
               <li class="h-nav__item">
                 <a href="favorites.html" class="h-nav__link">
                   <div class="h-nav__icon">
-                    <span class="h-icon__indicator"></span>
+                    <span id='favoriteIndicator' class="h-icon__indicator"></span>
                     <img class='h-icon__img' src="./img/icon/favorites-icon.svg" alt="">
                   </div>
                 </a>
@@ -161,7 +161,7 @@
         <div class="section">
 
           <!-- product -->
-          <div class="product">
+          <div class="product js-product-card">
 
             <div id='productCarusel' class="product-carusel">
               <!-- pic-dots -->
@@ -267,8 +267,8 @@
 
                 <!-- product__favorite -->
                 <div class="product__favorite">
-                  <span class="btn js-favorite">
-                    <img class="btn__icon" src="./img/icon/favorite-active-icon.svg" alt="">
+                  <span data-article='02' data-link='testAjax/favorite-test.json' class="btn js-favorite">
+                    <img class="btn__icon js-favorite-img" src="./img/icon/favorite-icon.svg" alt="">
                   </span>
                 </div>
                 <!-- product__favorite -->
@@ -318,8 +318,15 @@
               <!--product__info-->
 
               <div class="product__btns">
-                <span class="product__btn yellow-btn">В корзину</span>
-                <span class="product__btn product__btn--order white-btn">Заказать</span>
+                <span data-article='01' data-link='testAjax/in-basket-test.json'
+                  class="product__btn js-in-basket js-basket-btn yellow-btn">В корзину</span>
+
+
+
+
+                <span data-article='02' data-link='testAjax/modal-card.json'
+                  class="product__btn product__btn--order white-btn js-fast-order">Заказать</span>
+
               </div>
             </div>
             <!-- product__desc -->
@@ -384,55 +391,14 @@
             <img src="./img/icon/middle-arrow.svg" alt="" class='other-product__link-arrow'>
           </a>
 
-          <!--popular__list-->
+          <!--product__tile-->
           <div class="product__tile">
             <!-- product-card -->
-            <div class="product-card">
+            <div class="product-card js-product-card">
               <div class="product-card__content">
                 <div class="product-card__preview">
                   <a href="product-page.html" class="product-card__link">
-                    <img src="./img/image/product-card-img-4.jpg" alt="" class="product-card__img">
-                  </a>
-                </div>
-                <div class="product-card__info">
-                  <h3 class="product-card__title">
-                    <a href="product-page.html" class="product-card__title-link link">
-                      Лист нержавеющий 7х1250х2500 мм 03Х13Н6К10М4ФБ-ВД
-                    </a>
-                  </h3>
-                  <div class="product-card__buy">
-                    <div class="product-card__price">
-                      <div class="product-card__discount">
-                        <span class="discount-sticker">-10%</span>
-                      </div>
-                      <span class="product-card__number">90390 ₽</span>
-                    </div>
-                    <div class="product-card__btn">
-                      <span class="product-card__in-basket white-btn">Добавлено</span>
-                    </div>
-                  </div>
-                </div>
-              </div>
-              <div class="product-card__favorite js-favorite">
-                <span class="btn js-favorite">
-                  <img class="btn__icon" src="./img/icon/favorite-icon.svg" alt="">
-                </span>
-              </div>
-
-              <div class="short-order">
-                <span class="short-order__btn white-btn  js-add-basket">
-                  Заказать в 1 клик
-                </span>
-              </div>
-            </div>
-            <!-- product-card -->
-
-            <!-- product-card -->
-            <div class="product-card">
-              <div class="product-card__content">
-                <div class="product-card__preview">
-                  <a href="product-page.html" class="product-card__link">
-                    <img src="./img/image/product-card-img-2.jpg" alt="" class="product-card__img">
+                    <img src="./img/image/product-card-img-1.jpg" alt="" class="product-card__img">
                   </a>
                 </div>
                 <div class="product-card__info">
@@ -448,20 +414,27 @@
                       </div>
                       <span class="product-card__number">90390 ₽</span>
                     </div>
+                    <div class="product-card__btn-icon">
+                      <span data-article='02' data-link='testAjax/in-basket-test.json' class="btn js-in-basket">
+                        <img class="btn__icon js-basket-icon" src="./img/icon/card-basket-icon.svg" alt="">
+                      </span>
+                    </div>
                     <div class="product-card__btn">
-                      <span class="product-card__in-basket yellow-btn">В карзину</span>
+                      <span data-article='02' data-link='testAjax/in-basket-test.json'
+                        class="product-card__in-basket js-basket-btn js-in-basket yellow-btn">В корзину</span>
                     </div>
                   </div>
                 </div>
               </div>
-              <div class="product-card__favorite js-favorite">
-                <span class="btn js-favorite">
-                  <img class="btn__icon" src="./img/icon/favorite-icon.svg" alt="">
+              <div class="product-card__favorite">
+                <span data-article='02' data-link='testAjax/favorite-test.json' class="btn js-favorite">
+                  <img class="btn__icon js-favorite-img" src="./img/icon/favorite-icon.svg" alt="">
                 </span>
               </div>
 
               <div class="short-order">
-                <span class="short-order__btn white-btn  js-add-basket">
+                <span data-article='02' data-link='testAjax/modal-card.json'
+                  class="short-order__btn white-btn js-fast-order">
                   Заказать в 1 клик
                 </span>
               </div>
@@ -469,17 +442,17 @@
             <!-- product-card -->
 
             <!-- product-card -->
-            <div class="product-card">
+            <div class="product-card js-product-card">
               <div class="product-card__content">
                 <div class="product-card__preview">
                   <a href="product-page.html" class="product-card__link">
-                    <img src="./img/image/product-card-img-4.jpg" alt="" class="product-card__img">
+                    <img src="./img/image/product-card-img-1.jpg" alt="" class="product-card__img">
                   </a>
                 </div>
                 <div class="product-card__info">
                   <h3 class="product-card__title">
                     <a href="product-page.html" class="product-card__title-link link">
-                      Лист нержавеющий 7х1250х2500 мм 03Х13Н6К10М4ФБ-ВД
+                      Лист нержавеющий 7х1250х2500 мм 03Х13Н6К10М4ФБ-ВД 7х1250х2500 мм 03Х13Н6К10М4ФБ-ВД
                     </a>
                   </h3>
                   <div class="product-card__buy">
@@ -489,28 +462,228 @@
                       </div>
                       <span class="product-card__number">90390 ₽</span>
                     </div>
+                    <div class="product-card__btn-icon">
+                      <span data-article='02' data-link='testAjax/in-basket-test.json' class="btn js-in-basket">
+                        <img class="btn__icon js-basket-icon" src="./img/icon/card-basket-icon.svg" alt="">
+                      </span>
+                    </div>
                     <div class="product-card__btn">
-                      <span class="product-card__in-basket white-btn">Добавлено</span>
+                      <span data-article='02' data-link='testAjax/in-basket-test.json'
+                        class="product-card__in-basket js-basket-btn js-in-basket yellow-btn">В корзину</span>
                     </div>
                   </div>
                 </div>
-
               </div>
-              <div class="product-card__favorite js-favorite">
-                <span class="btn js-favorite">
-                  <img class="btn__icon" src="./img/icon/favorite-icon.svg" alt="">
+              <div class="product-card__favorite">
+                <span data-article='02' data-link='testAjax/favorite-test.json' class="btn js-favorite">
+                  <img class="btn__icon js-favorite-img" src="./img/icon/favorite-icon.svg" alt="">
                 </span>
               </div>
 
               <div class="short-order">
-                <span class="short-order__btn white-btn js-add-basket">
+                <span data-article='02' data-link='testAjax/modal-card.json'
+                  class="short-order__btn white-btn js-fast-order">
                   Заказать в 1 клик
                 </span>
               </div>
             </div>
             <!-- product-card -->
+            <!-- product-card -->
+            <div class="product-card js-product-card">
+              <div class="product-card__content">
+                <div class="product-card__preview">
+                  <a href="product-page.html" class="product-card__link">
+                    <img src="./img/image/product-card-img-1.jpg" alt="" class="product-card__img">
+                  </a>
+                </div>
+                <div class="product-card__info">
+                  <h3 class="product-card__title">
+                    <a href="product-page.html" class="product-card__title-link link">
+                      Лист нержавеющий 7х1250х2500 мм 03Х13Н6К10М4ФБ-ВД 7х1250х2500 мм 03Х13Н6К10М4ФБ-ВД
+                    </a>
+                  </h3>
+                  <div class="product-card__buy">
+                    <div class="product-card__price">
+                      <div class="product-card__discount">
+                        <span class="discount-sticker">-10%</span>
+                      </div>
+                      <span class="product-card__number">90390 ₽</span>
+                    </div>
+                    <div class="product-card__btn-icon">
+                      <span data-article='02' data-link='testAjax/in-basket-test.json' class="btn js-in-basket">
+                        <img class="btn__icon js-basket-icon" src="./img/icon/card-basket-icon.svg" alt="">
+                      </span>
+                    </div>
+                    <div class="product-card__btn">
+                      <span data-article='02' data-link='testAjax/in-basket-test.json'
+                        class="product-card__in-basket js-basket-btn js-in-basket yellow-btn">В корзину</span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="product-card__favorite">
+                <span data-article='02' data-link='testAjax/favorite-test.json' class="btn js-favorite">
+                  <img class="btn__icon js-favorite-img" src="./img/icon/favorite-icon.svg" alt="">
+                </span>
+              </div>
+
+              <div class="short-order">
+                <span data-article='02' data-link='testAjax/modal-card.json'
+                  class="short-order__btn white-btn js-fast-order">
+                  Заказать в 1 клик
+                </span>
+              </div>
+            </div>
+            <!-- product-card -->
+
+            <!-- product-card -->
+            <div class="product-card js-product-card">
+              <div class="product-card__content">
+                <div class="product-card__preview">
+                  <a href="product-page.html" class="product-card__link">
+                    <img src="./img/image/product-card-img-1.jpg" alt="" class="product-card__img">
+                  </a>
+                </div>
+                <div class="product-card__info">
+                  <h3 class="product-card__title">
+                    <a href="product-page.html" class="product-card__title-link link">
+                      Лист нержавеющий 7х1250х2500 мм 03Х13Н6К10М4ФБ-ВД 7х1250х2500 мм 03Х13Н6К10М4ФБ-ВД
+                    </a>
+                  </h3>
+                  <div class="product-card__buy">
+                    <div class="product-card__price">
+                      <div class="product-card__discount">
+                        <span class="discount-sticker">-10%</span>
+                      </div>
+                      <span class="product-card__number">90390 ₽</span>
+                    </div>
+                    <div class="product-card__btn-icon">
+                      <span data-article='02' data-link='testAjax/in-basket-test.json' class="btn js-in-basket">
+                        <img class="btn__icon js-basket-icon" src="./img/icon/card-basket-icon.svg" alt="">
+                      </span>
+                    </div>
+                    <div class="product-card__btn">
+                      <span data-article='02' data-link='testAjax/in-basket-test.json'
+                        class="product-card__in-basket js-basket-btn js-in-basket yellow-btn">В корзину</span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="product-card__favorite">
+                <span data-article='02' data-link='testAjax/favorite-test.json' class="btn js-favorite">
+                  <img class="btn__icon js-favorite-img" src="./img/icon/favorite-icon.svg" alt="">
+                </span>
+              </div>
+
+              <div class="short-order">
+                <span data-article='02' data-link='testAjax/modal-card.json'
+                  class="short-order__btn white-btn js-fast-order">
+                  Заказать в 1 клик
+                </span>
+              </div>
+            </div>
+            <!-- product-card -->
+
+            <!-- product-card -->
+            <div class="product-card js-product-card">
+              <div class="product-card__content">
+                <div class="product-card__preview">
+                  <a href="product-page.html" class="product-card__link">
+                    <img src="./img/image/product-card-img-1.jpg" alt="" class="product-card__img">
+                  </a>
+                </div>
+                <div class="product-card__info">
+                  <h3 class="product-card__title">
+                    <a href="product-page.html" class="product-card__title-link link">
+                      Лист нержавеющий 7х1250х2500 мм 03Х13Н6К10М4ФБ-ВД 7х1250х2500 мм 03Х13Н6К10М4ФБ-ВД
+                    </a>
+                  </h3>
+                  <div class="product-card__buy">
+                    <div class="product-card__price">
+                      <div class="product-card__discount">
+                        <span class="discount-sticker">-10%</span>
+                      </div>
+                      <span class="product-card__number">90390 ₽</span>
+                    </div>
+                    <div class="product-card__btn-icon">
+                      <span data-article='02' data-link='testAjax/in-basket-test.json' class="btn js-in-basket">
+                        <img class="btn__icon js-basket-icon" src="./img/icon/card-basket-icon.svg" alt="">
+                      </span>
+                    </div>
+                    <div class="product-card__btn">
+                      <span data-article='02' data-link='testAjax/in-basket-test.json'
+                        class="product-card__in-basket js-basket-btn js-in-basket yellow-btn">В корзину</span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="product-card__favorite">
+                <span data-article='02' data-link='testAjax/favorite-test.json' class="btn js-favorite">
+                  <img class="btn__icon js-favorite-img" src="./img/icon/favorite-icon.svg" alt="">
+                </span>
+              </div>
+
+              <div class="short-order">
+                <span data-article='02' data-link='testAjax/modal-card.json'
+                  class="short-order__btn white-btn js-fast-order">
+                  Заказать в 1 клик
+                </span>
+              </div>
+            </div>
+            <!-- product-card -->
+            <!-- product-card -->
+            <div class="product-card js-product-card">
+              <div class="product-card__content">
+                <div class="product-card__preview">
+                  <a href="product-page.html" class="product-card__link">
+                    <img src="./img/image/product-card-img-1.jpg" alt="" class="product-card__img">
+                  </a>
+                </div>
+                <div class="product-card__info">
+                  <h3 class="product-card__title">
+                    <a href="product-page.html" class="product-card__title-link link">
+                      Лист нержавеющий 7х1250х2500 мм 03Х13Н6К10М4ФБ-ВД 7х1250х2500 мм 03Х13Н6К10М4ФБ-ВД
+                    </a>
+                  </h3>
+                  <div class="product-card__buy">
+                    <div class="product-card__price">
+                      <div class="product-card__discount">
+                        <span class="discount-sticker">-10%</span>
+                      </div>
+                      <span class="product-card__number">90390 ₽</span>
+                    </div>
+                    <div class="product-card__btn-icon">
+                      <span data-article='02' data-link='testAjax/in-basket-test.json' class="btn js-in-basket">
+                        <img class="btn__icon js-basket-icon" src="./img/icon/card-basket-icon.svg" alt="">
+                      </span>
+                    </div>
+                    <div class="product-card__btn">
+                      <span data-article='02' data-link='testAjax/in-basket-test.json'
+                        class="product-card__in-basket js-basket-btn js-in-basket yellow-btn">В корзину</span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="product-card__favorite">
+                <span data-article='02' data-link='testAjax/favorite-test.json' class="btn js-favorite">
+                  <img class="btn__icon js-favorite-img" src="./img/icon/favorite-icon.svg" alt="">
+                </span>
+              </div>
+
+              <div class="short-order">
+                <span data-article='02' data-link='testAjax/modal-card.json'
+                  class="short-order__btn white-btn js-fast-order">
+                  Заказать в 1 клик
+                </span>
+              </div>
+            </div>
+            <!-- product-card -->
+
+
+
+
           </div>
-          <!--popular__list-->
+          <!--product__tile-->
         </section>
         <!--похожие товары-->
 
@@ -524,55 +697,14 @@
             <img src="./img/icon/middle-arrow.svg" alt="" class='other-product__link-arrow'>
           </a>
 
-          <!--popular__list-->
+          <!--product__tile-->
           <div class="product__tile">
             <!-- product-card -->
-            <div class="product-card">
+            <div class="product-card js-product-card">
               <div class="product-card__content">
                 <div class="product-card__preview">
                   <a href="product-page.html" class="product-card__link">
-                    <img src="./img/image/product-card-img-4.jpg" alt="" class="product-card__img">
-                  </a>
-                </div>
-                <div class="product-card__info">
-                  <h3 class="product-card__title">
-                    <a href="product-page.html" class="product-card__title-link link">
-                      Лист нержавеющий 7х1250х2500 мм 03Х13Н6К10М4ФБ-ВД
-                    </a>
-                  </h3>
-                  <div class="product-card__buy">
-                    <div class="product-card__price">
-                      <div class="product-card__discount">
-                        <span class="discount-sticker">-10%</span>
-                      </div>
-                      <span class="product-card__number">90390 ₽</span>
-                    </div>
-                    <div class="product-card__btn">
-                      <span class="product-card__in-basket white-btn">Добавлено</span>
-                    </div>
-                  </div>
-                </div>
-              </div>
-              <div class="product-card__favorite js-favorite">
-                <span class="btn js-favorite">
-                  <img class="btn__icon" src="./img/icon/favorite-icon.svg" alt="">
-                </span>
-              </div>
-
-              <div class="short-order">
-                <span class="short-order__btn white-btn  js-add-basket">
-                  Заказать в 1 клик
-                </span>
-              </div>
-            </div>
-            <!-- product-card -->
-
-            <!-- product-card -->
-            <div class="product-card">
-              <div class="product-card__content">
-                <div class="product-card__preview">
-                  <a href="product-page.html" class="product-card__link">
-                    <img src="./img/image/product-card-img-2.jpg" alt="" class="product-card__img">
+                    <img src="./img/image/product-card-img-1.jpg" alt="" class="product-card__img">
                   </a>
                 </div>
                 <div class="product-card__info">
@@ -588,20 +720,27 @@
                       </div>
                       <span class="product-card__number">90390 ₽</span>
                     </div>
+                    <div class="product-card__btn-icon">
+                      <span data-article='02' data-link='testAjax/in-basket-test.json' class="btn js-in-basket">
+                        <img class="btn__icon js-basket-icon" src="./img/icon/card-basket-icon.svg" alt="">
+                      </span>
+                    </div>
                     <div class="product-card__btn">
-                      <span class="product-card__in-basket yellow-btn">В карзину</span>
+                      <span data-article='02' data-link='testAjax/in-basket-test.json'
+                        class="product-card__in-basket js-basket-btn js-in-basket yellow-btn">В корзину</span>
                     </div>
                   </div>
                 </div>
               </div>
-              <div class="product-card__favorite js-favorite">
-                <span class="btn js-favorite">
-                  <img class="btn__icon" src="./img/icon/favorite-icon.svg" alt="">
+              <div class="product-card__favorite">
+                <span data-article='02' data-link='testAjax/favorite-test.json' class="btn js-favorite">
+                  <img class="btn__icon js-favorite-img" src="./img/icon/favorite-icon.svg" alt="">
                 </span>
               </div>
 
               <div class="short-order">
-                <span class="short-order__btn white-btn  js-add-basket">
+                <span data-article='02' data-link='testAjax/modal-card.json'
+                  class="short-order__btn white-btn js-fast-order">
                   Заказать в 1 клик
                 </span>
               </div>
@@ -609,17 +748,17 @@
             <!-- product-card -->
 
             <!-- product-card -->
-            <div class="product-card">
+            <div class="product-card js-product-card">
               <div class="product-card__content">
                 <div class="product-card__preview">
                   <a href="product-page.html" class="product-card__link">
-                    <img src="./img/image/product-card-img-4.jpg" alt="" class="product-card__img">
+                    <img src="./img/image/product-card-img-1.jpg" alt="" class="product-card__img">
                   </a>
                 </div>
                 <div class="product-card__info">
                   <h3 class="product-card__title">
                     <a href="product-page.html" class="product-card__title-link link">
-                      Лист нержавеющий 7х1250х2500 мм 03Х13Н6К10М4ФБ-ВД
+                      Лист нержавеющий 7х1250х2500 мм 03Х13Н6К10М4ФБ-ВД 7х1250х2500 мм 03Х13Н6К10М4ФБ-ВД
                     </a>
                   </h3>
                   <div class="product-card__buy">
@@ -629,28 +768,228 @@
                       </div>
                       <span class="product-card__number">90390 ₽</span>
                     </div>
+                    <div class="product-card__btn-icon">
+                      <span data-article='02' data-link='testAjax/in-basket-test.json' class="btn js-in-basket">
+                        <img class="btn__icon js-basket-icon" src="./img/icon/card-basket-icon.svg" alt="">
+                      </span>
+                    </div>
                     <div class="product-card__btn">
-                      <span class="product-card__in-basket white-btn">Добавлено</span>
+                      <span data-article='02' data-link='testAjax/in-basket-test.json'
+                        class="product-card__in-basket js-basket-btn js-in-basket yellow-btn">В корзину</span>
                     </div>
                   </div>
                 </div>
-
               </div>
-              <div class="product-card__favorite js-favorite">
-                <span class="btn js-favorite">
-                  <img class="btn__icon" src="./img/icon/favorite-icon.svg" alt="">
+              <div class="product-card__favorite">
+                <span data-article='02' data-link='testAjax/favorite-test.json' class="btn js-favorite">
+                  <img class="btn__icon js-favorite-img" src="./img/icon/favorite-icon.svg" alt="">
                 </span>
               </div>
 
               <div class="short-order">
-                <span class="short-order__btn white-btn js-add-basket">
+                <span data-article='02' data-link='testAjax/modal-card.json'
+                  class="short-order__btn white-btn js-fast-order">
                   Заказать в 1 клик
                 </span>
               </div>
             </div>
             <!-- product-card -->
+            <!-- product-card -->
+            <div class="product-card js-product-card">
+              <div class="product-card__content">
+                <div class="product-card__preview">
+                  <a href="product-page.html" class="product-card__link">
+                    <img src="./img/image/product-card-img-1.jpg" alt="" class="product-card__img">
+                  </a>
+                </div>
+                <div class="product-card__info">
+                  <h3 class="product-card__title">
+                    <a href="product-page.html" class="product-card__title-link link">
+                      Лист нержавеющий 7х1250х2500 мм 03Х13Н6К10М4ФБ-ВД 7х1250х2500 мм 03Х13Н6К10М4ФБ-ВД
+                    </a>
+                  </h3>
+                  <div class="product-card__buy">
+                    <div class="product-card__price">
+                      <div class="product-card__discount">
+                        <span class="discount-sticker">-10%</span>
+                      </div>
+                      <span class="product-card__number">90390 ₽</span>
+                    </div>
+                    <div class="product-card__btn-icon">
+                      <span data-article='02' data-link='testAjax/in-basket-test.json' class="btn js-in-basket">
+                        <img class="btn__icon js-basket-icon" src="./img/icon/card-basket-icon.svg" alt="">
+                      </span>
+                    </div>
+                    <div class="product-card__btn">
+                      <span data-article='02' data-link='testAjax/in-basket-test.json'
+                        class="product-card__in-basket js-basket-btn js-in-basket yellow-btn">В корзину</span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="product-card__favorite">
+                <span data-article='02' data-link='testAjax/favorite-test.json' class="btn js-favorite">
+                  <img class="btn__icon js-favorite-img" src="./img/icon/favorite-icon.svg" alt="">
+                </span>
+              </div>
+
+              <div class="short-order">
+                <span data-article='02' data-link='testAjax/modal-card.json'
+                  class="short-order__btn white-btn js-fast-order">
+                  Заказать в 1 клик
+                </span>
+              </div>
+            </div>
+            <!-- product-card -->
+
+            <!-- product-card -->
+            <div class="product-card js-product-card">
+              <div class="product-card__content">
+                <div class="product-card__preview">
+                  <a href="product-page.html" class="product-card__link">
+                    <img src="./img/image/product-card-img-1.jpg" alt="" class="product-card__img">
+                  </a>
+                </div>
+                <div class="product-card__info">
+                  <h3 class="product-card__title">
+                    <a href="product-page.html" class="product-card__title-link link">
+                      Лист нержавеющий 7х1250х2500 мм 03Х13Н6К10М4ФБ-ВД 7х1250х2500 мм 03Х13Н6К10М4ФБ-ВД
+                    </a>
+                  </h3>
+                  <div class="product-card__buy">
+                    <div class="product-card__price">
+                      <div class="product-card__discount">
+                        <span class="discount-sticker">-10%</span>
+                      </div>
+                      <span class="product-card__number">90390 ₽</span>
+                    </div>
+                    <div class="product-card__btn-icon">
+                      <span data-article='02' data-link='testAjax/in-basket-test.json' class="btn js-in-basket">
+                        <img class="btn__icon js-basket-icon" src="./img/icon/card-basket-icon.svg" alt="">
+                      </span>
+                    </div>
+                    <div class="product-card__btn">
+                      <span data-article='02' data-link='testAjax/in-basket-test.json'
+                        class="product-card__in-basket js-basket-btn js-in-basket yellow-btn">В корзину</span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="product-card__favorite">
+                <span data-article='02' data-link='testAjax/favorite-test.json' class="btn js-favorite">
+                  <img class="btn__icon js-favorite-img" src="./img/icon/favorite-icon.svg" alt="">
+                </span>
+              </div>
+
+              <div class="short-order">
+                <span data-article='02' data-link='testAjax/modal-card.json'
+                  class="short-order__btn white-btn js-fast-order">
+                  Заказать в 1 клик
+                </span>
+              </div>
+            </div>
+            <!-- product-card -->
+
+            <!-- product-card -->
+            <div class="product-card js-product-card">
+              <div class="product-card__content">
+                <div class="product-card__preview">
+                  <a href="product-page.html" class="product-card__link">
+                    <img src="./img/image/product-card-img-1.jpg" alt="" class="product-card__img">
+                  </a>
+                </div>
+                <div class="product-card__info">
+                  <h3 class="product-card__title">
+                    <a href="product-page.html" class="product-card__title-link link">
+                      Лист нержавеющий 7х1250х2500 мм 03Х13Н6К10М4ФБ-ВД 7х1250х2500 мм 03Х13Н6К10М4ФБ-ВД
+                    </a>
+                  </h3>
+                  <div class="product-card__buy">
+                    <div class="product-card__price">
+                      <div class="product-card__discount">
+                        <span class="discount-sticker">-10%</span>
+                      </div>
+                      <span class="product-card__number">90390 ₽</span>
+                    </div>
+                    <div class="product-card__btn-icon">
+                      <span data-article='02' data-link='testAjax/in-basket-test.json' class="btn js-in-basket">
+                        <img class="btn__icon js-basket-icon" src="./img/icon/card-basket-icon.svg" alt="">
+                      </span>
+                    </div>
+                    <div class="product-card__btn">
+                      <span data-article='02' data-link='testAjax/in-basket-test.json'
+                        class="product-card__in-basket js-basket-btn js-in-basket yellow-btn">В корзину</span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="product-card__favorite">
+                <span data-article='02' data-link='testAjax/favorite-test.json' class="btn js-favorite">
+                  <img class="btn__icon js-favorite-img" src="./img/icon/favorite-icon.svg" alt="">
+                </span>
+              </div>
+
+              <div class="short-order">
+                <span data-article='02' data-link='testAjax/modal-card.json'
+                  class="short-order__btn white-btn js-fast-order">
+                  Заказать в 1 клик
+                </span>
+              </div>
+            </div>
+            <!-- product-card -->
+            <!-- product-card -->
+            <div class="product-card js-product-card">
+              <div class="product-card__content">
+                <div class="product-card__preview">
+                  <a href="product-page.html" class="product-card__link">
+                    <img src="./img/image/product-card-img-1.jpg" alt="" class="product-card__img">
+                  </a>
+                </div>
+                <div class="product-card__info">
+                  <h3 class="product-card__title">
+                    <a href="product-page.html" class="product-card__title-link link">
+                      Лист нержавеющий 7х1250х2500 мм 03Х13Н6К10М4ФБ-ВД 7х1250х2500 мм 03Х13Н6К10М4ФБ-ВД
+                    </a>
+                  </h3>
+                  <div class="product-card__buy">
+                    <div class="product-card__price">
+                      <div class="product-card__discount">
+                        <span class="discount-sticker">-10%</span>
+                      </div>
+                      <span class="product-card__number">90390 ₽</span>
+                    </div>
+                    <div class="product-card__btn-icon">
+                      <span data-article='02' data-link='testAjax/in-basket-test.json' class="btn js-in-basket">
+                        <img class="btn__icon js-basket-icon" src="./img/icon/card-basket-icon.svg" alt="">
+                      </span>
+                    </div>
+                    <div class="product-card__btn">
+                      <span data-article='02' data-link='testAjax/in-basket-test.json'
+                        class="product-card__in-basket js-basket-btn js-in-basket yellow-btn">В корзину</span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="product-card__favorite">
+                <span data-article='02' data-link='testAjax/favorite-test.json' class="btn js-favorite">
+                  <img class="btn__icon js-favorite-img" src="./img/icon/favorite-icon.svg" alt="">
+                </span>
+              </div>
+
+              <div class="short-order">
+                <span data-article='02' data-link='testAjax/modal-card.json'
+                  class="short-order__btn white-btn js-fast-order">
+                  Заказать в 1 клик
+                </span>
+              </div>
+            </div>
+            <!-- product-card -->
+
+
+
+
           </div>
-          <!--popular__list-->
+          <!--product__tile-->
         </section>
         <!--Ранее просмотренные-->
       </div>

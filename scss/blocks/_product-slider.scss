@@ -1,8 +1,13 @@
 .product-slider {
-  width: 160px;
-  //margin: 0 auto;
-  @media (min-width: 500px) {
-    width: 245px;
+  //width: 160px;
+  margin: 0 0 20px 0;
+  width: 100%;
+  //@media (min-width: 540px) {
+  //  width: 245px;
+
+  //}
+
+  @media (min-width: 800px) {
   }
   @media (min-width: 1090px) {
     width: 100%;
@@ -17,9 +22,18 @@
   display: flex;
   min-width: 160px;
   margin-right: 15px;
-  @media (min-width: 500px) {
+  @media (min-width: 540px) {
     min-width: 245px;
     margin-right: 20px;
+  }
+
+  @media (min-width: 800px) {
+    min-width: 31.7%;
+    width: 31.7%;
+  }
+  @media (min-width: 900px) {
+    min-width: 32%;
+    width: 32%;
   }
   @media (min-width: 1090px) {
     min-width: 340px;
@@ -66,8 +80,11 @@
   overflow: hidden;
   height: 110px;
   border-radius: 20px 20px 0 0;
-  @media (min-width: 500px) {
+  @media (min-width: 540px) {
     height: 220px;
+  }
+  @media (min-width: 800px) {
+    height: auto;
   }
   @media (min-width: 1090px) {
     height: 320px;
