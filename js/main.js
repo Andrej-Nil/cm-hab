@@ -52,6 +52,7 @@ const dropdownsBtns = document.querySelectorAll('.js-dropdown-btn');
 const switchToggle = document.querySelector('#switchToggle');
 const counters = document.querySelectorAll('.js-counter');
 const catalogNav = document.querySelector('#catalogNav');
+const news = document.querySelector('#news');
 
 //filters
 const expandFiltersBtn = document.querySelector('#expandFiltersBtn');
@@ -215,11 +216,75 @@ if (filterInputs.length) {
   });
 }
 
-function searchByFilters(input) {
-  const filter = input.closest('.js-filter');
+//function searchByFilters(input) {
+//  const filter = input.closest('.js-filter');
+
+//}
+
+if (news) {
+  window.addEventListener('scroll', function () {
+    loadingNews()
+  });
 
 }
 
+async function loadingNews() {
+  const api = news.getAttribute('data-link');
+  const newsList = news.querySelector('#newsList');
+  const coordNewsList = newsList.getBoundingClientRect();
+  const innerHeight = window.innerHeight;
+  const res = coordNewsList.bottom - innerHeight;
+  let response = null;
+  const message = `<span class="spinner__text">Это все новости</span>`
+  const data = { _token: _token };
+  if (res > 0) {
+    return;
+  }
+  if (news.classList.contains('js-all-loaded')) {
+    return;
+  }
+
+  if (news.classList.contains('js-loading')) {
+    return;
+  }
+  news.classList.add('js-loading');
+  render(news, [1], getMarkupSpiner);
+
+
+  response = await getData(POST, data, api);
+
+  if (!response.content.news_more) {
+    news.querySelector('.spinner').innerHTML = message;
+    news.classList.add('js-all-loaded');
+    news.classList.remove('js-loading');
+    return;
+  }
+
+  renderNews(response.content.news);
+}
+
+function renderNews(newsArr) {
+  render(newsList, newsArr, getMarkupEl);
+  news.classList.remove('js-loading');
+  news.querySelector('.spinner').remove();
+  function getMarkupEl(obj) {
+    const { news_title, news_img } = obj;
+    return (`
+    <div class="news-card">
+              <div class="news-card__preview">
+                <a href="one-news.html" class="news-card__preview-link">
+                  <img src="${news_img}" alt="" class="news-card__img">
+                </a>
+              </div>
+              <div class="news-card__desc">
+                <h2 class="news-card__title"><a href="one-news.html" class="news-card_link">${news_title}
+                  </a>
+                </h2>
+              </div>
+            </div>
+    `)
+  }
+}
 
 
 
@@ -1577,6 +1642,22 @@ function renderSelectedFilters(filterList) {
   })
 }
 
+function getMarkupSpiner() {
+  return (`
+  <div class="spinner">
+    <div class="loadingio-spinner-dual-ring-3inkns7bjnw">
+      <div class="ldio-2ikg7lk3b38">
+        <div></div>
+        <div>
+          <div></div>
+        </div>
+      </div>
+    </div>
+    <span class="spinner__text">Загружаю...</span>
+  </div>
+  `)
+}
+
 function sortFilters(arr) {
   const checkedArr = arr.filter((item) => item.checked == true);
   const noCheckedArr = arr.filter((item) => item.checked == false);
@@ -1600,6 +1681,10 @@ function sorting(a, b) {
   // a должно быть равным b
   return 0;
 }
+
+
+
+
 
 
 

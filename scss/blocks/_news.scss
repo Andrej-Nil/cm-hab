@@ -3,15 +3,16 @@
   flex-direction: column;
   @media (min-width: 545px) {
     flex-direction: row;
+    flex-wrap: wrap;
     justify-content: space-between;
   }
 }
 
-.news-col {
-  @media (min-width: 545px) {
-    margin-right: 10px;
-    &:last-child {
-      margin-right: 0;
-    }
-  }
-}
+//.news-col {
+//  @media (min-width: 545px) {
+//    margin-right: 10px;
+//    &:last-child {
+//      margin-right: 0;
+//    }
+//  }
+//}

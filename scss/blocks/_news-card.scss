@@ -1,8 +1,7 @@
 .news-card {
   overflow: hidden;
   background: $white;
-  max-width: 515px;
-  width: 100%;
+
   border-radius: 20px;
   margin-bottom: 30px;
 
@@ -12,6 +11,12 @@
 
   &:hover .news-card__img {
     transform: scale(1.1, 1.1);
+  }
+  @media (min-width: 560px) {
+    width: 48%;
+  }
+  @media (min-width: 1500px) {
+    max-width: 515px;
   }
 }
 
