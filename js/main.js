@@ -55,12 +55,13 @@ const catalogNav = document.querySelector('#catalogNav');
 const news = document.querySelector('#news');
 
 //filters
-const expandFiltersBtn = document.querySelector('#expandFiltersBtn');
-const filtersWrap = document.querySelector('#filtersWrap');
 const filters = document.querySelectorAll('.js-filter');
-const filterHeads = document.querySelectorAll('.js-filter-head');
-const filterTopWrap = document.querySelector('.js-filters-top-wrap');
-const filterInputs = document.querySelectorAll('.js-filter-input');
+//const expandFiltersBtn = document.querySelector('#expandFiltersBtn');
+//const filtersWrap = document.querySelector('#filtersWrap');
+
+//const filterHeads = document.querySelectorAll('.js-filter-head');
+//const filterTopWrap = document.querySelector('.js-filters-top-wrap');
+//const filterInputs = document.querySelectorAll('.js-filter-input');
 
 
 const rollUpBtns = document.querySelectorAll('.js-roll-up-btn');
@@ -181,46 +182,6 @@ if (removeProductBtns.length) {
   });
 }
 
-
-// block filters
-if (filtersWrap) {
-  expandFiltersBtn.addEventListener('click', expandFilters);
-}
-
-if (filterHeads.length) {
-  Array.from(filterHeads).forEach((head) => {
-    head.addEventListener('click', () => {
-      showFilters(head);
-    })
-  })
-
-  Array.from(filterHeads).forEach((head) => {
-    head.addEventListener('click', renderFilterList(head))
-  })
-  body.addEventListener('click', closeAllFilters)
-
-
-}
-
-if (rollUpBtns.length) {
-  Array.from(rollUpBtns).forEach((btn) => {
-    btn.addEventListener('click', () => {
-      rollUpFiltersbtn()
-    })
-  })
-}
-
-if (filterInputs.length) {
-  Array.from(filterInputs).forEach((input) => {
-    searchByFilters(input);
-  });
-}
-
-//function searchByFilters(input) {
-//  const filter = input.closest('.js-filter');
-
-//}
-
 if (news) {
   window.addEventListener('scroll', function () {
     loadingNews()
@@ -228,63 +189,162 @@ if (news) {
 
 }
 
-async function loadingNews() {
-  const api = news.getAttribute('data-link');
-  const newsList = news.querySelector('#newsList');
-  const coordNewsList = newsList.getBoundingClientRect();
-  const innerHeight = window.innerHeight;
-  const res = coordNewsList.bottom - innerHeight;
-  let response = null;
-  const message = `<span class="spinner__text">Это все новости</span>`
-  const data = { _token: _token };
-  if (res > 0) {
-    return;
-  }
-  if (news.classList.contains('js-all-loaded')) {
-    return;
-  }
-
-  if (news.classList.contains('js-loading')) {
-    return;
-  }
-  news.classList.add('js-loading');
-  render(news, [1], getMarkupSpiner);
 
 
-  response = await getData(POST, data, api);
+// block filters
 
-  if (!response.content.news_more) {
-    news.querySelector('.spinner').innerHTML = message;
-    news.classList.add('js-all-loaded');
-    news.classList.remove('js-loading');
-    return;
-  }
 
-  renderNews(response.content.news);
+//if (filtersWrap) {
+//  expandFiltersBtn.addEventListener('click', expandFilters);
+//}
+
+//if (filterHeads.length) {
+//  Array.from(filterHeads).forEach((head) => {
+//    head.addEventListener('click', () => {
+//      showFilters(head);
+//    })
+//  })
+
+//  Array.from(filterHeads).forEach((head) => {
+//    head.addEventListener('click', renderFilterList(head))
+//  })
+//  body.addEventListener('click', closeAllFilters)
+
+
+//}
+
+//if (rollUpBtns.length) {
+//  Array.from(rollUpBtns).forEach((btn) => {
+//    btn.addEventListener('click', () => {
+//      rollUpFiltersbtn()
+//    })
+//  })
+//}
+
+//if (filterInputs.length) {
+//  Array.from(filterInputs).forEach((input) => {
+//    searchByFilters(input);
+//  });
+//}
+
+if (filters.length) {
+  Array.from(filters).forEach((item) => {
+    filterFn(item);
+  })
+  body.addEventListener('click', (e) => {
+    const isFiter = e.target.closest('.js-filter');
+    closeAllFilter(filters, isFiter);
+  });
 }
 
-function renderNews(newsArr) {
-  render(newsList, newsArr, getMarkupEl);
-  news.classList.remove('js-loading');
-  news.querySelector('.spinner').remove();
-  function getMarkupEl(obj) {
-    const { news_title, news_img } = obj;
-    return (`
-    <div class="news-card">
-              <div class="news-card__preview">
-                <a href="one-news.html" class="news-card__preview-link">
-                  <img src="${news_img}" alt="" class="news-card__img">
-                </a>
-              </div>
-              <div class="news-card__desc">
-                <h2 class="news-card__title"><a href="one-news.html" class="news-card_link">${news_title}
-                  </a>
-                </h2>
-              </div>
-            </div>
-    `)
+function filterFn(filter) {
+  const api = filter.getAttribute('data-link');
+  const arrowBtn = filter.querySelector('.js-filter-arrow-icon');
+  const filterInput = filter.querySelector('.js-filter-input');
+  const filterBody = filter.querySelector('.js-filter-body');
+
+  arrowBtn.addEventListener('click', openFilterList);
+  filterInput.addEventListener('click', openFilterList);
+
+  function openFilterList(e) {
+    const target = e.target;
+    const isOpen = filterBody.classList.contains('filter__body--is-open');
+    const isInput = target.classList.contains('js-filter-input');
+
+    if (isOpen && isInput) {
+      return;
+    }
+    closeAllFilter(filters, filter);
+    filterBody.classList.toggle('filter__body--is-open');
+    filter.classList.toggle('filter--is-open');
+    arrowBtn.classList.toggle('filter__arrow-icon--is-up');
+    openFilterTop(filter)
   }
+
+
+  function openFilterTop(filter) {
+    const filterCoords = filter.getBoundingClientRect();
+    const filterHalfHeight = filter.offsetHeight / 2;
+    const filtersTop = filter.closest('.js-filters-top');
+    const filtersTopHeight = filtersTop.offsetHeight;
+    const filtersTopCoords = filtersTop.getBoundingClientRect();
+
+
+    const filtersList = filtersTop.querySelector('.js-filters-list');
+    const filtersListHeight = filtersList.offsetHeight;
+
+    const filterStyles = getComputedStyle(filter);
+    const filterMarginBottom = parseInt(filterStyles.marginBottom);
+
+    const filterList = filter.querySelector('.js-filter-list');
+    const filterListHeight = filterList.offsetHeight;
+
+    //Находим высоту от filter без MarginBottom до низа filterTopWrap;
+    const heightFromFilterTofiltersTopBottom = filtersTopCoords.bottom
+      - filterCoords.bottom
+      - filterMarginBottom;
+    console.log(filtersTopCoords.bottom)
+
+
+    //Находим высоту, которую необходимо добавить  
+    //к текущей высоте filterTopWrapp
+
+    const heightToAdd = filtersListHeight - heightFromFilterTofiltersTopBottom - filterHalfHeight;
+
+    const totalFiltersTop = heightToAdd + filterListHeight;
+    if (totalFiltersTop < heightToAdd) {
+      filtersTop.style.height = filtersList + 'px';
+      return;
+    }
+    filtersTop.style.height = totalFiltersTop + 'px';
+
+    console.log(heightFromFilterTofiltersTopBottom)
+  }
+
+
 }
+
+function closeAllFilter(filters, filter) {
+  Array.from(filters).forEach((item) => {
+    if (filter === item) {
+      return;
+    }
+    const arrowBtn = item.querySelector('.js-filter-arrow-icon');
+    const filterBody = item.querySelector('.js-filter-body');
+    filterBody.classList.remove('filter__body--is-open');
+    item.classList.remove('filter--is-open');
+    arrowBtn.classList.remove('filter__arrow-icon--is-up');
+  })
+}
+
+
+function openuFilterTop(filter, filterTopWrap, filterListHeight) {
+  //const filterCoords = filter.getBoundingClientRect();
+  //const filterHalfHeight = filter.offsetHeight / 2;
+  //const filterTopWrapCoords = filterTopWrap.getBoundingClientRect();
+  //const filterTop = filterTopWrap.querySelector('.js-filters-top');
+  //const filterTopHeight = filterTop.offsetHeight;
+  //const filterTopWrapHeight = filterTopWrap.offsetHeight;
+  //const filterStyles = getComputedStyle(filter);
+  //const filterMarginBottom = parseInt(filterStyles.marginBottom);
+  //Находим высоту от filter без MarginBottom до низа filterTopWrap;
+  const heightFromFilterTofilterTopBottom = filterTopWrapCoords.bottom
+    - filterCoords.bottom
+    - filterMarginBottom;
+  //Находим высоту, которую необходимо добавить  
+  //к текущей высоте filterTopWrapp
+
+  const heightToAdd = filterListHeight - heightFromFilterTofilterTopBottom - filterHalfHeight;
+  const TotalFilterTopWrap = heightToAdd + filterTopWrapHeight;
+  if (TotalFilterTopWrap < filterTopHeight) {
+    filterTopWrap.style.height = filterTopHeight + 'px';
+    return;
+  }
+  filterTopWrap.style.height = TotalFilterTopWrap + 'px';
+}
+
+
+
 
 
 
@@ -662,6 +722,8 @@ function getToken() {
   return meta.getAttribute('content')
 }
 
+
+
 //Функция для получения ответа с сервира
 function getData(method, data, api) {
 
@@ -690,6 +752,42 @@ function getData(method, data, api) {
     };
   })
 }
+
+async function loadingNews() {
+  const api = news.getAttribute('data-link');
+  const newsList = news.querySelector('#newsList');
+  const coordNewsList = newsList.getBoundingClientRect();
+  const innerHeight = window.innerHeight;
+  const res = coordNewsList.bottom - innerHeight;
+  let response = null;
+  const message = `<span class="spinner__text">Это все новости</span>`
+  const data = { _token: _token };
+  if (res > 0) {
+    return;
+  }
+  if (news.classList.contains('js-all-loaded')) {
+    return;
+  }
+
+  if (news.classList.contains('js-loading')) {
+    return;
+  }
+  news.classList.add('js-loading');
+  render(news, [1], getMarkupSpinner);
+
+
+  response = await getData(POST, data, api);
+
+  if (!response.content.news_more) {
+    news.querySelector('.spinner').innerHTML = message;
+    news.classList.add('js-all-loaded');
+    news.classList.remove('js-loading');
+    return;
+  }
+
+  renderNews(response.content.news);
+}
+
 
 //функции для работой с формой
 function clearInput(inputs) {
@@ -1172,6 +1270,40 @@ function clearBasketList() {
 
 //Функции для стилиализации филтров
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 function rollUpFiltersbtn() {
   const filters = filtersWrap.querySelector('#filters');
   const rollUpBtn = filtersWrap.querySelector('#rollUpBtn');
@@ -1259,7 +1391,7 @@ function showFilters(head) {
   filterArrow.style.transform = 'rotate(180deg)';
   filterTopWrap.style.height = filterTopWrapHeight + 'px';
 
-  openFilterTop(filter, filterTopWrap, filterListHeight)
+  //openFilterTop(filter, filterTopWrap, filterListHeight)
 
 
 }
@@ -1642,7 +1774,32 @@ function renderSelectedFilters(filterList) {
   })
 }
 
-function getMarkupSpiner() {
+
+
+function renderNews(newsArr) {
+  render(newsList, newsArr, getMarkupEl);
+  news.classList.remove('js-loading');
+  news.querySelector('.spinner').remove();
+  function getMarkupEl(obj) {
+    const { title, img, link } = obj;
+    return (`
+    <div class="news-card">
+              <div class="news-card__preview">
+                <a href="${link}" class="news-card__preview-link">
+                  <img src="${img}" alt="" class="news-card__img">
+                </a>
+              </div>
+              <div class="news-card__desc">
+                <h2 class="news-card__title"><a href="${link}" class="news-card_link">${title}
+                  </a>
+                </h2>
+              </div>
+            </div>
+    `)
+  }
+}
+
+function getMarkupSpinner() {
   return (`
   <div class="spinner">
     <div class="loadingio-spinner-dual-ring-3inkns7bjnw">

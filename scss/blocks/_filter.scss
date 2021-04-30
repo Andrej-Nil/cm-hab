@@ -4,7 +4,8 @@
   margin-bottom: 20px;
   //max-width: 250px;
   width: 100%;
-
+  z-index: 0;
+  transition: 0.015s ease-in-out 0.1s;
   @media (min-width: 580px) {
     max-width: 49%;
   }
@@ -15,6 +16,10 @@
     max-width: 250px;
     margin-bottom: 30px;
   }
+}
+
+.filter--is-open {
+  z-index: 1000;
 }
 
 .filter__head {
@@ -40,6 +45,10 @@
   max-width: 16px;
   height: auto;
   transition: 0.2s ease-in-out;
+}
+
+.filter__arrow-icon--is-up {
+  transform: rotate(180deg);
 }
 .filter__input {
   position: relative;

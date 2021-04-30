@@ -2,23 +2,27 @@
 	"rez": 1,
 	"desc": "",
   "content":{
-    "news_more" : false,
+    "news_more" : true,
     "news": [
       {
-        "news_title": "Неподкупность государственных СМИ стала доступной ширнармассам",
-        "news_img": "./img/image/news-card-img-1.jpg"
+        "title": "Неподкупность государственных СМИ стала доступной ширнармассам",
+        "img": "./img/image/news-card-img-1.jpg",
+        "link": "one-news.html"
       },
       {
-        "news_title": "Независимые СМИ потому и независимы, что чистый разум не скован границами",
-        "news_img": "./img/image/news-card-img-2.jpg"
+        "title": "Независимые СМИ потому и независимы, что чистый разум не скован границами",
+        "img": "./img/image/news-card-img-2.jpg",
+        "link": "one-news.html"
       },
       {
-        "news_title": "На двадцатом съезде партии прозвучало поразительное заявление: консультация с широким активом процветает, как ни в чем не бывало",
-        "news_img": "./img/image/news-card-img-3.jpg"
+        "title": "На двадцатом съезде партии прозвучало поразительное заявление: консультация с широким активом процветает, как ни в чем не бывало",
+        "img": "./img/image/news-card-img-3.jpg",
+        "link": "one-news.html"
       },
       {
-        "news_title": "Постоянный количественный рост не стал ограничивающим фактором!",
-        "news_img": "./img/image/news-card-img-4.jpg"
+        "title": "Постоянный количественный рост не стал ограничивающим фактором!",
+        "img": "./img/image/news-card-img-4.jpg",
+        "link": "one-news.html"
       }
     ]
   }
