@@ -5,37 +5,37 @@
 	"content": [
 		{
 			"field_slug":"latun", 
-			"field_value_name": "труба", 
+			"field_value_name": "труба Лат", 
 			"field_value_slug": "truba",
 			"checked": false
 		},
 		{
 			"field_slug":"latun", 
-			"field_value_name": "уголок", 
+			"field_value_name": "уголок Лат", 
 			"field_value_slug": "ugolok",
 			"checked": false
 		},
 		{
 			"field_slug":"latun", 
-			"field_value_name": "лист", 
+			"field_value_name": "лист Лат", 
 			"field_value_slug": "list",
 			"checked": false
 		},
 		{
 			"field_slug":"latun", 
-			"field_value_name": "арматура", 
+			"field_value_name": "арматура Лат", 
 			"field_value_slug": "armatura",
 			"checked": false
 		},
 		{
 			"field_slug":"latun", 
-			"field_value_name": "швеллер", 
+			"field_value_name": "швеллер Лат", 
 			"field_value_slug": "schweller",
 			"checked": false
 		},
 		{
 			"field_slug":"latun", 
-			"field_value_name": "двутавр", 
+			"field_value_name": "двутавр Лат", 
 			"field_value_slug": "dvutavr",
 			"checked": false
 		}

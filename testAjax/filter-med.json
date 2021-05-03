@@ -5,37 +5,37 @@
 	"content": [
 		{
 			"field_slug":"med", 
-			"field_value_name": "труба", 
+			"field_value_name": "труба Мед", 
 			"field_value_slug": "truba",
 			"checked": false
 		},
 		{
 			"field_slug":"med", 
-			"field_value_name": "уголок", 
+			"field_value_name": "уголок Мед", 
 			"field_value_slug": "ugolok",
 			"checked": false
 		},
 		{
 			"field_slug":"med", 
-			"field_value_name": "лист", 
+			"field_value_name": "лист Мед", 
 			"field_value_slug": "list",
 			"checked": false
 		},
 		{
 			"field_slug":"med", 
-			"field_value_name": "арматура", 
+			"field_value_name": "арматура Мед", 
 			"field_value_slug": "armatura",
 			"checked": false
 		},
 		{
 			"field_slug":"med", 
-			"field_value_name": "швеллер", 
+			"field_value_name": "швеллер Мед", 
 			"field_value_slug": "schweller",
 			"checked": false
 		},
 		{
 			"field_slug":"med", 
-			"field_value_name": "двутавр", 
+			"field_value_name": "двутавр Мед", 
 			"field_value_slug": "dvutavr",
 			"checked": false
 		}

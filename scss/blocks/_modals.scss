@@ -1,4 +1,5 @@
 .modals-wrap {
+  position: relative;
   display: none;
   position: fixed;
   top: 0;
@@ -16,28 +17,32 @@
 .bg-modals {
   width: 100%;
   min-height: 100%;
-  //padding: 100px 0;
-  background: $bgForModals;
+  background: rgba(0, 0, 0, 0);
   display: flex;
   align-items: flex-start;
   justify-content: center;
-  padding: 100px 15px;
-  @media (min-width: 720px) {
-    //padding: 0;
-  }
+  padding: 0 15px;
+  transition: 0.2s ease-in;
+}
+
+.bg-modals--is-open {
+  background: $bgForModals;
 }
 
 .modal {
-  display: none;
+  position: absolute;
+  top: 0;
+  left: 50%;
   overflow: hidden;
+  transform: translate(-50%, -100%);
   width: 100%;
-  //margin-top: 100px;
   border-radius: 20px;
   background: $white;
+  transition: 0.4s ease-out;
 }
 
 .modal--is-show {
-  display: block;
+  transform: translate(-50%, 0%);
 }
 
 .modal__text {

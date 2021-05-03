@@ -6692,6 +6692,7 @@ ul {
 }
 
 .modals-wrap {
+  position: relative;
   display: none;
   position: fixed;
   top: 0;
@@ -6709,7 +6710,7 @@ ul {
 .bg-modals {
   width: 100%;
   min-height: 100%;
-  background: rgba(0, 0, 0, 0.5);
+  background: rgba(0, 0, 0, 0);
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -6719,19 +6720,32 @@ ul {
   -webkit-box-pack: center;
       -ms-flex-pack: center;
           justify-content: center;
-  padding: 100px 15px;
+  padding: 0 15px;
+  -webkit-transition: 0.2s ease-in;
+  transition: 0.2s ease-in;
+}
+
+.bg-modals--is-open {
+  background: rgba(0, 0, 0, 0.5);
 }
 
 .modal {
-  display: none;
+  position: absolute;
+  top: 0;
+  left: 50%;
   overflow: hidden;
+  -webkit-transform: translate(-50%, -100%);
+          transform: translate(-50%, -100%);
   width: 100%;
   border-radius: 20px;
   background: #ffffff;
+  -webkit-transition: 0.4s ease-out;
+  transition: 0.4s ease-out;
 }
 
 .modal--is-show {
-  display: block;
+  -webkit-transform: translate(-50%, 0%);
+          transform: translate(-50%, 0%);
 }
 
 .modal__text {
@@ -6834,7 +6848,6 @@ ul {
 }
 
 .connection-modal__content {
-  position: relative;
   padding: 25px 20px 16px;
   width: 100%;
 }
@@ -6863,7 +6876,6 @@ ul {
 }
 
 .connection-thanks {
-  position: relative;
   max-width: 420px;
   min-height: 450px;
 }
@@ -6893,7 +6905,6 @@ ul {
 }
 
 .order-modal {
-  position: relative;
   max-width: 570px;
   width: 100%;
 }

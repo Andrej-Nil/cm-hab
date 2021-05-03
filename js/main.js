@@ -7,6 +7,7 @@ const body = document.querySelector('body');
 
 //modal
 const modalsWrap = document.querySelector('#modalsWrap');
+const bgModals = document.querySelector('.bg-modals')
 const feetbackBtn = document.querySelector('#feetbackBtn');
 const fastOrderBtns = document.querySelectorAll('.js-fast-order');
 const feetbackModal = document.querySelector('#feetback');
@@ -237,14 +238,58 @@ if (filters.length) {
   });
 }
 
-function filterFn(filter) {
+async function filterFn(filter) {
   const api = filter.getAttribute('data-link');
-  const arrowBtn = filter.querySelector('.js-filter-arrow-icon');
+  const data = {
+    _token: _token
+  };
+  const response = await getData(POST, data, api);
+
+  const arrowBtn = filter.querySelector('.js-filter-arrow');
+  const arrowBtnIcon = filter.querySelector('.js-filter-arrow-icon');
   const filterInput = filter.querySelector('.js-filter-input');
   const filterBody = filter.querySelector('.js-filter-body');
+  const filtersTop = filter.closest('.js-filters-top');
+  const filtersList = filtersTop.querySelector('.js-filters-list');
+  let filtersListHeight = filtersList.offsetHeight;
+  let windowInnerWidth = null;
 
+  filtersTop.style.height = filtersListHeight + 'px';
+  //window.addEventListener('resize', () => {
+  //filtersListHeight = filtersList.offsetHeight;
+  //filtersTop.style.height = filtersListHeight + 'px';
+  //closeAllFilter(filters, filter);
+  //})
+
+
+
+
+  renderFilterList(filter, response.content);
   arrowBtn.addEventListener('click', openFilterList);
   filterInput.addEventListener('click', openFilterList);
+
+  filterInput.addEventListener('input', () => {
+    searchFilter(filterInput, response.content, filter)
+  })
+
+  function searchFilter(input, arr, filter) {
+    const value = input.value.trim();
+    console.log(value);
+    const newArr = arr.filter((item) => {
+      const filretName = item.field_value_name;
+      if (filretName.includes(value)) {
+        return item;
+      }
+
+    })
+
+    renderFilterList(filter, newArr);
+
+  }
+
+
+
+
 
   function openFilterList(e) {
     const target = e.target;
@@ -257,17 +302,27 @@ function filterFn(filter) {
     closeAllFilter(filters, filter);
     filterBody.classList.toggle('filter__body--is-open');
     filter.classList.toggle('filter--is-open');
-    arrowBtn.classList.toggle('filter__arrow-icon--is-up');
+    arrowBtnIcon.classList.toggle('filter__arrow-icon--is-up');
+
+
     openFilterTop(filter)
+
+    console.log(filtersListHeight)
+    if (!filter.classList.contains('filter--is-open')) {
+      filtersTop.style.height = filtersListHeight + 'px';
+
+    }
   }
 
 
   function openFilterTop(filter) {
+
     const filterCoords = filter.getBoundingClientRect();
     const filterHalfHeight = filter.offsetHeight / 2;
     const filtersTop = filter.closest('.js-filters-top');
     const filtersTopHeight = filtersTop.offsetHeight;
     const filtersTopCoords = filtersTop.getBoundingClientRect();
+
 
 
     const filtersList = filtersTop.querySelector('.js-filters-list');
@@ -279,80 +334,60 @@ function filterFn(filter) {
     const filterList = filter.querySelector('.js-filter-list');
     const filterListHeight = filterList.offsetHeight;
 
+    filtersTop.style.height = filterListHeight + 'px';
     //Находим высоту от filter без MarginBottom до низа filterTopWrap;
     const heightFromFilterTofiltersTopBottom = filtersTopCoords.bottom
       - filterCoords.bottom
       - filterMarginBottom;
-    console.log(filtersTopCoords.bottom)
+    //console.log(heightFromFilterTofiltersTopBottom)
 
 
     //Находим высоту, которую необходимо добавить  
     //к текущей высоте filterTopWrapp
 
-    const heightToAdd = filtersListHeight - heightFromFilterTofiltersTopBottom - filterHalfHeight;
+    const heightToAdd = filterListHeight - heightFromFilterTofiltersTopBottom - filterHalfHeight;
+    //console.log(heightToAdd)
 
-    const totalFiltersTop = heightToAdd + filterListHeight;
-    if (totalFiltersTop < heightToAdd) {
-      filtersTop.style.height = filtersList + 'px';
+    const totalFiltersTop = heightToAdd + filtersTopHeight;
+    console.log(totalFiltersTop, filtersListHeight)
+    if (totalFiltersTop <= filtersListHeight) {
+      filtersTop.style.height = filtersListHeight + 'px';
+
       return;
     }
     filtersTop.style.height = totalFiltersTop + 'px';
 
-    console.log(heightFromFilterTofiltersTopBottom)
+    //console.log(heightFromFilterTofiltersTopBottom)
   }
 
-
 }
+
+
 
 function closeAllFilter(filters, filter) {
+  const filtersTop = filters[0].closest('.js-filters-top');
+  const filtersList = filtersTop.querySelector('.js-filters-list');
+  const filtersListHeight = filtersList.offsetHeight;
+  let hasFiter = false;
   Array.from(filters).forEach((item) => {
     if (filter === item) {
+      hasFiter = true;
       return;
     }
-    const arrowBtn = item.querySelector('.js-filter-arrow-icon');
+    const arrowBtnIcon = item.querySelector('.js-filter-arrow-icon');
     const filterBody = item.querySelector('.js-filter-body');
+
     filterBody.classList.remove('filter__body--is-open');
     item.classList.remove('filter--is-open');
-    arrowBtn.classList.remove('filter__arrow-icon--is-up');
+    arrowBtnIcon.classList.remove('filter__arrow-icon--is-up');
   })
-}
-
-
-function openuFilterTop(filter, filterTopWrap, filterListHeight) {
-  //const filterCoords = filter.getBoundingClientRect();
-  //const filterHalfHeight = filter.offsetHeight / 2;
-  //const filterTopWrapCoords = filterTopWrap.getBoundingClientRect();
-  //const filterTop = filterTopWrap.querySelector('.js-filters-top');
-  //const filterTopHeight = filterTop.offsetHeight;
-  //const filterTopWrapHeight = filterTopWrap.offsetHeight;
-  //const filterStyles = getComputedStyle(filter);
-  //const filterMarginBottom = parseInt(filterStyles.marginBottom);
-  //Находим высоту от filter без MarginBottom до низа filterTopWrap;
-  const heightFromFilterTofilterTopBottom = filterTopWrapCoords.bottom
-    - filterCoords.bottom
-    - filterMarginBottom;
-  //Находим высоту, которую необходимо добавить  
-  //к текущей высоте filterTopWrapp
-
-  const heightToAdd = filterListHeight - heightFromFilterTofilterTopBottom - filterHalfHeight;
-  const TotalFilterTopWrap = heightToAdd + filterTopWrapHeight;
-  if (TotalFilterTopWrap < filterTopHeight) {
-    filterTopWrap.style.height = filterTopHeight + 'px';
+  if (hasFiter) {
     return;
   }
-  filterTopWrap.style.height = TotalFilterTopWrap + 'px';
+  filtersTop.style.height = filtersListHeight + 'px';
+  console.log(filtersListHeight)
+
 }
-
-
-
-
-
-
-
-
-
-
-
 
 
 
@@ -658,14 +693,24 @@ function slider(el, autoplay = false) {
 function modalOpen(modal) {
   body.classList.add('no-scroll');
   modalsWrap.classList.add('modals--is-show');
-  modal.classList.add('modal--is-show');
+
+  setTimeout(() => {
+    bgModals.classList.add('bg-modals--is-open');
+    modal.classList.add('modal--is-show');
+  }, 10)
+
 }
 
 function modalClose(btn) {
   const modal = btn.closest(".js-modal");
   modal.classList.remove('modal--is-show');
   body.classList.remove('no-scroll');
-  modalsWrap.classList.remove('modals--is-show');
+  bgModals.classList.remove('bg-modals--is-open');
+  setTimeout(() => {
+    modalsWrap.classList.remove('modals--is-show');
+  }, 510)
+
+
 }
 
 function clearFastOrderList() {
@@ -1732,15 +1777,10 @@ async function renderSubCatalogNav(btn) {
 
 }
 
-async function renderFilterList(head) {
-  const filter = head.closest('.js-filter');
+function renderFilterList(filter, arr) {
   const filterList = filter.querySelector('.js-filter-list');
-  const api = head.getAttribute('data-link');
-  const data = {
-    _token: _token
-  }
-  const response = await getData(POST, data, api);
-  const sortedFilters = sortFilters(response.content)
+  const sortedFilters = sortFilters(arr)
+  filterList.innerHTML = '';
   render(filterList, sortedFilters, getMarkupEl);
   renderSelectedFilters(filterList);
   function getMarkupEl(obj) {
@@ -1763,12 +1803,14 @@ async function renderFilterList(head) {
 }
 
 
+
+
 function renderSelectedFilters(filterList) {
   const filterListItem = filterList.querySelectorAll('.js-filter-checkbox');
 
   Array.from(filterListItem).forEach((item) => {
     if (item.checked) {
-      console.log(item);
+      //console.log(item);
     }
 
   })
