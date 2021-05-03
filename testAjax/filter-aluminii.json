@@ -19,7 +19,7 @@
 			"field_slug":"aluminii", 
 			"field_value_name": "лист Алю", 
 			"field_value_slug": "list",
-			"checked": true
+			"checked": false
 		},
 		{
 			"field_slug":"aluminii", 
@@ -37,7 +37,7 @@
 			"field_slug":"aluminii", 
 			"field_value_name": "двутавр Алю", 
 			"field_value_slug": "dvutavr",
-			"checked": true
+			"checked": false
 		}
 	]
 }

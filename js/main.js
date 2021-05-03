@@ -243,7 +243,9 @@ async function filterFn(filter) {
   const data = {
     _token: _token
   };
+
   const response = await getData(POST, data, api);
+  const filterListArr = response.content;
 
   const arrowBtn = filter.querySelector('.js-filter-arrow');
   const arrowBtnIcon = filter.querySelector('.js-filter-arrow-icon');
@@ -251,6 +253,8 @@ async function filterFn(filter) {
   const filterBody = filter.querySelector('.js-filter-body');
   const filtersTop = filter.closest('.js-filters-top');
   const filtersList = filtersTop.querySelector('.js-filters-list');
+  let checkboxList = null;
+  let sortedFilters = sortFilters(filterListArr, filter);
   let filtersListHeight = filtersList.offsetHeight;
   let windowInnerWidth = null;
 
@@ -263,13 +267,58 @@ async function filterFn(filter) {
 
 
 
+  renderFilterList(filter, sortedFilters, showSelectedFilter);
+  sortedFilters = sortFilters(filterListArr, filter);
+  checkboxList = filter.querySelectorAll('.js-filter-checkbox');
 
-  renderFilterList(filter, response.content);
-  arrowBtn.addEventListener('click', openFilterList);
+  Array.from(checkboxList).forEach((checkbox) => {
+    checkbox.addEventListener('change', () => {
+      showSelectedFilter(checkbox, filterListArr);
+    })
+  })
+
+
+  function showSelectedFilter(checkbox, filterListArr) {
+    if (checkbox.checked) {
+      renderSelectedFilter(checkbox, filterListArr);
+      filter.classList.remove('js-sorted')
+      console.log(filterListArr)
+    }
+    if (!checkbox.checked) {
+      console.log('not cecked')
+    }
+
+  }
+
+
+  function renderSelectedFilter(checkbox, arr) {
+    const dataName = checkbox.getAttribute('data-name');
+    const value = checkbox.value;
+    const name = checkbox.getAttribute('name');
+    console.log(name)
+    arr.forEach((item, idx) => {
+      const fieldValueSlug = item.field_value_slug;
+      if (fieldValueSlug == value) {
+        arr[idx].checked = true;
+      }
+    })
+  }
+
+
+  arrowBtn.addEventListener('click', (e) => {
+    const isSorted = filter.classList.contains('js-sorted');
+    openFilterList(e);
+    if (isSorted) {
+      return;
+    }
+
+    sortedFilters = sortFilters(filterListArr, filter);
+    renderFilterList(filter, sortedFilters, showSelectedFilter);
+  });
   filterInput.addEventListener('click', openFilterList);
 
   filterInput.addEventListener('input', () => {
-    searchFilter(filterInput, response.content, filter)
+    searchFilter(filterInput, filterListArr, filter)
   })
 
   function searchFilter(input, arr, filter) {
@@ -283,12 +332,9 @@ async function filterFn(filter) {
 
     })
 
-    renderFilterList(filter, newArr);
+    renderFilterList(filter, newArr, showSelectedFilter);
 
   }
-
-
-
 
 
   function openFilterList(e) {
@@ -307,7 +353,6 @@ async function filterFn(filter) {
 
     openFilterTop(filter)
 
-    console.log(filtersListHeight)
     if (!filter.classList.contains('filter--is-open')) {
       filtersTop.style.height = filtersListHeight + 'px';
 
@@ -349,7 +394,7 @@ async function filterFn(filter) {
     //console.log(heightToAdd)
 
     const totalFiltersTop = heightToAdd + filtersTopHeight;
-    console.log(totalFiltersTop, filtersListHeight)
+
     if (totalFiltersTop <= filtersListHeight) {
       filtersTop.style.height = filtersListHeight + 'px';
 
@@ -362,6 +407,45 @@ async function filterFn(filter) {
 
 }
 
+
+function renderFilterList(filter, arr, showSelectedFilter) {
+  let checkboxList = null;
+  const filterList = filter.querySelector('.js-filter-list');
+  const sortedFilters = sortFilters(arr, filter);
+  filterList.innerHTML = '';
+
+  render(filterList, sortedFilters, getMarkupEl);
+
+
+  checkboxList = filter.querySelectorAll('.js-filter-checkbox');
+
+  Array.from(checkboxList).forEach((checkbox) => {
+    checkbox.addEventListener('change', () => {
+      showSelectedFilter(checkbox, arr);
+    })
+  })
+  //renderSelectedFilters(filterList);
+
+
+
+  function getMarkupEl(obj) {
+    const { field_slug, field_value_slug, field_value_name, checked } = obj;
+    const checkboxActive = checked ? 'checked="checked"' : '';
+    return (`
+    <li class="filter__item">
+      <div class="filter__check input-check">
+        <label class="filter__check-label input-check__label">
+          <input class='input-check__checkbox js-filter-checkbox' type="checkbox" ${checkboxActive} data-name='${field_value_name}' name='${field_slug}' value="${field_value_slug}"  >
+          <span class="input-check__fake filter-check__fake"></span>
+          <span class="sorting__text input-check__text">
+          ${field_value_name}
+          </span>
+        </label>
+      </div>
+    </li>
+    `)
+  }
+}
 
 
 function closeAllFilter(filters, filter) {
@@ -1777,30 +1861,7 @@ async function renderSubCatalogNav(btn) {
 
 }
 
-function renderFilterList(filter, arr) {
-  const filterList = filter.querySelector('.js-filter-list');
-  const sortedFilters = sortFilters(arr)
-  filterList.innerHTML = '';
-  render(filterList, sortedFilters, getMarkupEl);
-  renderSelectedFilters(filterList);
-  function getMarkupEl(obj) {
-    const { field_slug, field_value_slug, field_value_name, checked } = obj;
-    const checkboxActive = checked ? 'checked="checked"' : '';
-    return (`
-    <li class="filter__item">
-      <div class="filter__check input-check">
-        <label class="filter__check-label input-check__label">
-          <input class='input-check__checkbox js-filter-checkbox' type="checkbox" ${checkboxActive} data-name='${field_value_name}' name='${field_slug}' value="${field_value_slug}"  >
-          <span class="input-check__fake filter-check__fake"></span>
-          <span class="sorting__text input-check__text">
-          ${field_value_name}
-          </span>
-        </label>
-      </div>
-    </li>
-    `)
-  }
-}
+
 
 
 
@@ -1857,7 +1918,8 @@ function getMarkupSpinner() {
   `)
 }
 
-function sortFilters(arr) {
+function sortFilters(arr, filter, splitMarked) {
+
   const checkedArr = arr.filter((item) => item.checked == true);
   const noCheckedArr = arr.filter((item) => item.checked == false);
   noCheckedArr.sort((a, b) => {
@@ -1866,6 +1928,7 @@ function sortFilters(arr) {
   checkedArr.sort((a, b) => {
     return sorting(a, b)
   })
+  filter.classList.add('js-sorted');
 
   return checkedArr.concat(noCheckedArr);
 }
