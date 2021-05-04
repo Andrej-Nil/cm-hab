@@ -57,12 +57,7 @@ const news = document.querySelector('#news');
 
 //filters
 const filters = document.querySelectorAll('.js-filter');
-//const expandFiltersBtn = document.querySelector('#expandFiltersBtn');
-//const filtersWrap = document.querySelector('#filtersWrap');
-
-//const filterHeads = document.querySelectorAll('.js-filter-head');
-//const filterTopWrap = document.querySelector('.js-filters-top-wrap');
-//const filterInputs = document.querySelectorAll('.js-filter-input');
+const expandFiltersBtn = document.querySelector('#expandFiltersBtn');
 
 
 const rollUpBtns = document.querySelectorAll('.js-roll-up-btn');
@@ -187,55 +182,60 @@ if (news) {
   window.addEventListener('scroll', function () {
     loadingNews()
   });
-
 }
 
 
 
 // block filters
 
+if (rollUpBtns.length) {
+  Array.from(rollUpBtns).forEach((btn) => {
+    btn.addEventListener('click', () => {
+      rollUpFiltersbtn()
+    })
+  })
+}
 
-//if (filtersWrap) {
-//  expandFiltersBtn.addEventListener('click', expandFilters);
-//}
-
-//if (filterHeads.length) {
-//  Array.from(filterHeads).forEach((head) => {
-//    head.addEventListener('click', () => {
-//      showFilters(head);
-//    })
-//  })
-
-//  Array.from(filterHeads).forEach((head) => {
-//    head.addEventListener('click', renderFilterList(head))
-//  })
-//  body.addEventListener('click', closeAllFilters)
+if (expandFiltersBtn) {
+  expandFiltersBtn.addEventListener('click', expandFilters);
+}
 
 
-//}
+function rollUpFiltersbtn() {
+  const filters = filtersWrap.querySelector('#filters');
+  const rollUpBtn = filtersWrap.querySelector('#rollUpBtn');
+  const filtersHeight = filters.offsetHeight;
+  filtersWrap.style.height = filtersHeight + 'px';
+  setTimeout(() => {
+    filtersWrap.style.height = '60px';
+    rollUpBtn.classList.remove('filters__roll-up--is-show');
+  }, 20);
+  setTimeout(() => {
+    filtersWrap.style.width = '190px';
+    filtersWrap.classList.add('js-filters-close');
+  }, 220);
 
-//if (rollUpBtns.length) {
-//  Array.from(rollUpBtns).forEach((btn) => {
-//    btn.addEventListener('click', () => {
-//      rollUpFiltersbtn()
-//    })
-//  })
-//}
+}
 
-//if (filterInputs.length) {
-//  Array.from(filterInputs).forEach((input) => {
-//    searchByFilters(input);
-//  });
-//}
+function expandFilters() {
+  const filtersWrap = document.querySelector('#filtersWrap');
+  const filters = document.querySelector('#filters');
+  const rollUpBtn = filtersWrap.querySelector('#rollUpBtn');
+  filtersWrap.style.width = '100%';
+  setTimeout(() => {
+    rollUpBtn.classList.add('filters__roll-up--is-show');
+    filtersWrap.style.height = filters.offsetHeight + 'px';
+  }, 200)
+  setTimeout(() => {
+    filtersWrap.style.height = 'auto';
+  }, 300)
+
+}
 
 if (filters.length) {
   Array.from(filters).forEach((item) => {
     filterFn(item);
   })
-  body.addEventListener('click', (e) => {
-    //const isFiter = e.target.closest('.js-filter');
-    //closeAllFilter(filters, isFiter);
-  });
 }
 
 async function filterFn(filter) {
@@ -255,17 +255,15 @@ async function filterFn(filter) {
   const filterList = filter.querySelector('.js-filter-list');
   const filtersTop = filter.closest('.js-filters-top');
   const filtersList = filtersTop.querySelector('.js-filters-list');
-  //let checkboxList = null;
   let sortedFilters = sortFilters(filterListArr, filter, true);
   let filtersListHeight = filtersList.offsetHeight;
-  //let windowInnerWidth = null;
 
-  filtersTop.style.minHeight = filtersListHeight + 'px';
-  //window.addEventListener('resize', () => {
-  //filtersListHeight = filtersList.offsetHeight;
-  //filtersTop.style.height = filtersListHeight + 'px';
-  //closeAllFilter(filters, filter);
-  //})
+  //filtersTop.style.minHeight = filtersListHeight + 'px';
+  window.addEventListener('resize', () => {
+    filtersListHeight = filtersList.offsetHeight;
+    filtersTop.style.height = filtersListHeight + 'px';
+    closeAllFilter(filters, filter);
+  })
 
 
 
@@ -273,35 +271,6 @@ async function filterFn(filter) {
   resetFiltersBtn.addEventListener('click', () => {
     resetFilters(filter, filterListArr)
   })
-
-  function resetFilters(filter, arr) {
-    const checkboxes = filter.querySelectorAll('.js-filter-checkbox');
-    const selectedFiltersList = document.querySelector('#selectedFilters');
-    Array.from(checkboxes).forEach((checkbox) => {
-      checkbox.checked = false;
-    })
-
-    arr.forEach((item) => {
-      item.checked = false
-    })
-    selectedFiltersList.innerHTML = '';
-    filter.classList.remove('js-sorted');
-  }
-
-  function showSelectedFilter(checkbox, arr) {
-    if (checkbox.checked) {
-
-      renderSelectedFilter(checkbox, arr);
-      filter.classList.remove('js-sorted');
-    }
-    if (!checkbox.checked) {
-      removeSelectedFilter(checkbox, arr);
-      filter.classList.remove('js-sorted');
-    }
-
-  }
-
-
 
 
   arrowBtn.addEventListener('click', (e) => {
@@ -369,6 +338,7 @@ async function filterFn(filter) {
     openFilterTop(filter)
 
     if (!filter.classList.contains('filter--is-open')) {
+      filtersListHeight = filtersList.offsetHeight;
       filtersTop.style.minHeight = filtersListHeight + 'px';
 
     }
@@ -406,7 +376,6 @@ async function filterFn(filter) {
     //к текущей высоте filterTopWrapp
 
     const heightToAdd = filterListHeight - heightFromFilterTofiltersTopBottom - filterHalfHeight;
-    //console.log(heightToAdd)
 
     const totalFiltersTop = heightToAdd + filtersTopHeight;
 
@@ -419,8 +388,6 @@ async function filterFn(filter) {
     //  return;
     //}
     filtersTop.style.minHeight = totalFiltersTop + 'px';
-
-    //console.log(heightFromFilterTofiltersTopBottom)
   }
 
   function removeSelectedFilter(checkbox, arr) {
@@ -555,32 +522,63 @@ async function filterFn(filter) {
     }
   }
 
-  function closeAllFilter(filters, filter) {
-    const filtersTop = filters[0].closest('.js-filters-top');
-    const filtersList = filtersTop.querySelector('.js-filters-list');
-    const filtersListHeight = filtersList.offsetHeight;
-    let hasFiter = false;
-    Array.from(filters).forEach((item) => {
-      if (filter === item) {
-        hasFiter = true;
-        return;
-      }
-      const arrowBtnIcon = item.querySelector('.js-filter-arrow-icon');
-      const filterBody = item.querySelector('.js-filter-body');
 
-      filterBody.classList.remove('filter__body--is-open');
-      item.classList.remove('filter--is-open');
-      arrowBtnIcon.classList.remove('filter__arrow-icon--is-up');
+  function resetFilters(filter, arr) {
+    const checkboxes = filter.querySelectorAll('.js-filter-checkbox');
+    const selectedFiltersList = document.querySelector('#selectedFilters');
+    Array.from(checkboxes).forEach((checkbox) => {
+      checkbox.checked = false;
     })
-    if (hasFiter) {
-      return;
+
+    arr.forEach((item) => {
+      item.checked = false
+    })
+    selectedFiltersList.innerHTML = '';
+    filter.classList.remove('js-sorted');
+  }
+
+  function showSelectedFilter(checkbox, arr) {
+    if (checkbox.checked) {
+
+      renderSelectedFilter(checkbox, arr);
+      filter.classList.remove('js-sorted');
     }
-    filtersTop.style.minHeight = filtersListHeight + 'px';
+    if (!checkbox.checked) {
+      removeSelectedFilter(checkbox, arr);
+      filter.classList.remove('js-sorted');
+    }
 
   }
 
 
 }
+
+function closeAllFilter(filters, filter) {
+  const filtersTop = filters[0].closest('.js-filters-top');
+
+  const filtersList = filtersTop.querySelector('.js-filters-list');
+  const filtersListHeight = filtersList.offsetHeight;
+  let hasFiter = false;
+  Array.from(filters).forEach((item) => {
+    if (filter === item) {
+      hasFiter = true;
+      return;
+    }
+    const arrowBtnIcon = item.querySelector('.js-filter-arrow-icon');
+    const filterItem = item.closest('.js-filter');
+    const filterBody = filterItem.querySelector('.js-filter-body');
+    console.log(filterBody)
+    filterBody.classList.remove('filter__body--is-open');
+    item.classList.remove('filter--is-open');
+    arrowBtnIcon.classList.remove('filter__arrow-icon--is-up');
+  })
+  if (hasFiter) {
+    return;
+  }
+  filtersTop.style.minHeight = filtersListHeight + 'px';
+
+}
+
 
 
 
@@ -962,7 +960,6 @@ function getToken() {
   const meta = document.querySelector('meta[name="csrf-token"]');
   return meta.getAttribute('content')
 }
-
 
 
 //Функция для получения ответа с сервира
@@ -1512,123 +1509,48 @@ function clearBasketList() {
 //Функции для стилиализации филтров
 
 
-function rollUpFiltersbtn() {
-  const filters = filtersWrap.querySelector('#filters');
-  const rollUpBtn = filtersWrap.querySelector('#rollUpBtn');
-  const filtersHeight = filters.offsetHeight;
-  filtersWrap.style.height = filtersHeight + 'px';
-  setTimeout(() => {
-    filtersWrap.style.height = '60px';
-    rollUpBtn.classList.remove('filters__roll-up--is-show')
-  }, 20)
-  setTimeout(() => {
-    filtersWrap.style.width = '190px';
-    filtersWrap.classList.add('js-filters-close');
-  }, 220)
 
-}
 
-function expandFilters() {
-  const filters = filtersWrap.querySelector('#filters');
-  const rollUpBtn = filtersWrap.querySelector('#rollUpBtn');
-  let filtersHeight = null;
-  filtersWrap.style.width = '100%';
-  setTimeout(() => {
-    rollUpBtn.classList.add('filters__roll-up--is-show');
-    filtersHeight = filters.offsetHeight;
-    filtersWrap.style.height = filtersHeight + 'px';
-    filtersWrap.classList.remove('js-filters-close');
-  }, 200);
-  setTimeout(() => {
-    filtersWrap.style.height = 'auto';
-  }, 400);
-}
+//function closeAllFilters(e) {
+//  const isFilter = e.target.closest('.js-filter');
+//  const filterTop = filterTopWrap.querySelector('.js-filters-top');
+//  const filterTopHeight = filterTop.offsetHeight;
+//  const isFiltersWrapClose = filtersWrap.classList.contains('js-filters-close');
+//  if (isFiltersWrapClose) {
+//    return;
+//  }
+//  if (!isFilter) {
+//    filterTopWrap.style.height = filterTopHeight + 'px';
+//    setTimeout(() => {
+//      filterTopWrap.style.height = 'auto';
+//    }, 200);
+//  }
 
-function closeAllFilters(e) {
-  const isFilter = e.target.closest('.js-filter');
-  const filterTop = filterTopWrap.querySelector('.js-filters-top');
-  const filterTopHeight = filterTop.offsetHeight;
-  const isFiltersWrapClose = filtersWrap.classList.contains('js-filters-close');
-  if (isFiltersWrapClose) {
-    return;
-  }
-  if (!isFilter) {
-    filterTopWrap.style.height = filterTopHeight + 'px';
-    setTimeout(() => {
-      filterTopWrap.style.height = 'auto';
-    }, 200);
-  }
-
-  Array.from(filters).forEach((filter) => {
-    const target = e.target.closest('.js-filter');
-    if (target === filter) {
-      return;
-    }
-    closeFilterList(filter);
-  })
+//  Array.from(filters).forEach((filter) => {
+//    const target = e.target.closest('.js-filter');
+//    if (target === filter) {
+//      return;
+//    }
+//    closeFilterList(filter);
+//  })
 
 
 
-}
+//}
 
-function closeFilterList(filter) {
+//function closeFilterList(filter) {
 
-  const filterArrow = filter.querySelector('.js-filter-arrow-icon');
-  const filterBody = filter.querySelector('.js-filter-body');
+//  const filterArrow = filter.querySelector('.js-filter-arrow-icon');
+//  const filterBody = filter.querySelector('.js-filter-body');
 
-  filterBody.style.height = '0';
-  filterArrow.style.transform = 'rotate(0)';
-  filter.classList.remove('js-open-fiter');
+//  filterBody.style.height = '0';
+//  filterArrow.style.transform = 'rotate(0)';
+//  filter.classList.remove('js-open-fiter');
 
-  setTimeout(() => {
-    filter.style.zIndex = '0';
-  }, 100)
-}
-
-function showFilters(head) {
-  const filter = head.closest('.js-filter');
-  const filterArrow = filter.querySelector('.js-filter-arrow-icon');
-  const filterBody = filter.querySelector('.js-filter-body');
-  const filterList = filter.querySelector('.js-filter-list');
-  const filterListHeight = filterList.offsetHeight;
-  const filterTopWrap = filter.closest('.js-filters-top-wrap');
-  const filterTopWrapHeight = filterTopWrap.offsetHeight;
-  filter.classList.add('js-open-fiter')
-  filter.style.zIndex = '1000';
-  filterBody.style.height = filterListHeight + 'px';
-  filterArrow.style.transform = 'rotate(180deg)';
-  filterTopWrap.style.height = filterTopWrapHeight + 'px';
-
-  //openFilterTop(filter, filterTopWrap, filterListHeight)
-
-
-}
-
-function openFilterTop(filter, filterTopWrap, filterListHeight) {
-  const filterCoords = filter.getBoundingClientRect();
-  const filterHalfHeight = filter.offsetHeight / 2;
-  const filterTopWrapCoords = filterTopWrap.getBoundingClientRect();
-  const filterTop = filterTopWrap.querySelector('.js-filters-top');
-  const filterTopHeight = filterTop.offsetHeight;
-  const filterTopWrapHeight = filterTopWrap.offsetHeight;
-  const filterStyles = getComputedStyle(filter);
-  const filterMarginBottom = parseInt(filterStyles.marginBottom);
-  //Находим высоту от filter без MarginBottom до низа filterTopWrap;
-  const heightFromFilterTofilterTopBottom = filterTopWrapCoords.bottom
-    - filterCoords.bottom
-    - filterMarginBottom;
-  //Находим высоту, которую необходимо добавить  
-  //к текущей высоте filterTopWrapp
-
-  const heightToAdd = filterListHeight - heightFromFilterTofilterTopBottom - filterHalfHeight;
-  const TotalFilterTopWrap = heightToAdd + filterTopWrapHeight;
-  if (TotalFilterTopWrap < filterTopHeight) {
-    filterTopWrap.style.height = filterTopHeight + 'px';
-    return;
-  }
-  filterTopWrap.style.height = TotalFilterTopWrap + 'px';
-}
-
+//  setTimeout(() => {
+//    filter.style.zIndex = '0';
+//  }, 100)
+//}
 // функции для отправки запросов с кнопок
 // фаврит, в корзину, удалит
 function getInfoFromBtnToSend(btn) {

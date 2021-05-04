@@ -4337,6 +4337,8 @@ ul {
 
 .filters-wrap {
   position: relative;
+  height: 60px;
+  width: 190px;
   background: #ffffff;
   border-radius: 20px;
   overflow: hidden;
