@@ -238,346 +238,6 @@ if (filters.length) {
   })
 }
 
-async function filterFn(filter) {
-  const api = filter.getAttribute('data-link');
-  const data = {
-    _token: _token
-  };
-
-  const response = await getData(POST, data, api);
-  const filterListArr = response.content;
-  const resetFiltersBtn = document.querySelector('#resetFilters');
-
-  const arrowBtn = filter.querySelector('.js-filter-arrow');
-  const arrowBtnIcon = filter.querySelector('.js-filter-arrow-icon');
-  const filterInput = filter.querySelector('.js-filter-input');
-  const filterBody = filter.querySelector('.js-filter-body');
-  const filterList = filter.querySelector('.js-filter-list');
-  const filtersTop = filter.closest('.js-filters-top');
-  const filtersList = filtersTop.querySelector('.js-filters-list');
-  let sortedFilters = sortFilters(filterListArr, filter, true);
-  let filtersListHeight = filtersList.offsetHeight;
-
-  //filtersTop.style.minHeight = filtersListHeight + 'px';
-  window.addEventListener('resize', () => {
-    filtersListHeight = filtersList.offsetHeight;
-    filtersTop.style.height = filtersListHeight + 'px';
-    closeAllFilter(filters, filter);
-  })
-
-
-
-  renderFilterList(filter, sortedFilters, showSelectedFilter);
-  resetFiltersBtn.addEventListener('click', () => {
-    resetFilters(filter, filterListArr)
-  })
-
-
-  arrowBtn.addEventListener('click', (e) => {
-    const isSorted = filter.classList.contains('js-sorted');
-    openFilterList(e);
-    if (isSorted) {
-      return;
-    }
-
-    sortedFilters = sortFilters(filterListArr, filter, true);
-    renderFilterList(filter, sortedFilters, showSelectedFilter);
-  });
-  filterInput.addEventListener('click', openFilterList);
-
-  filterInput.addEventListener('input', () => {
-    searchFilter(filterInput, filterListArr, filter)
-  })
-
-  function searchFilter(input, arr, filter) {
-    const value = input.value.trim();
-    let sortedFilters = null;
-    console.log(value);
-    const newArr = arr.filter((item) => {
-      const filretName = item.field_value_name;
-      if (filretName.includes(value)) {
-        return item;
-      }
-
-    })
-
-    if (value !== '') {
-      sortedFilters = newArr.sort((a, b) => {
-        return sorting(a, b)
-      });
-    }
-    if (value === '') {
-      sortedFilters = sortFilters(newArr, filter, true);
-    }
-
-    renderFilterList(filter, sortedFilters, showSelectedFilter);
-
-  }
-
-
-  function openFilterList(e) {
-    const target = e.target;
-    const isOpen = filterBody.classList.contains('filter__body--is-open');
-
-    const isInput = target.classList.contains('js-filter-input');
-
-    if (isOpen && isInput) {
-      return;
-    }
-
-    if (!isOpen) {
-      filterList.scrollTop = 0;
-    }
-    closeAllFilter(filters, filter);
-    filterBody.classList.toggle('filter__body--is-open');
-
-    filter.classList.toggle('filter--is-open');
-    arrowBtnIcon.classList.toggle('filter__arrow-icon--is-up');
-
-
-    openFilterTop(filter)
-
-    if (!filter.classList.contains('filter--is-open')) {
-      filtersListHeight = filtersList.offsetHeight;
-      filtersTop.style.minHeight = filtersListHeight + 'px';
-
-    }
-  }
-
-
-  function openFilterTop(filter) {
-
-    const filterCoords = filter.getBoundingClientRect();
-    const filterHalfHeight = filter.offsetHeight / 2;
-    const filtersTop = filter.closest('.js-filters-top');
-    const filtersTopHeight = filtersTop.offsetHeight;
-    const filtersTopCoords = filtersTop.getBoundingClientRect();
-
-
-
-    const filtersList = filtersTop.querySelector('.js-filters-list');
-    const filtersListHeight = filtersList.offsetHeight;
-
-    const filterStyles = getComputedStyle(filter);
-    const filterMarginBottom = parseInt(filterStyles.marginBottom);
-
-    const filterList = filter.querySelector('.js-filter-list');
-    const filterListHeight = filterList.offsetHeight;
-
-    filtersTop.style.minHeight = filterListHeight + 'px';
-    //Находим высоту от filter без MarginBottom до низа filterTopWrap;
-    const heightFromFilterTofiltersTopBottom = filtersTopCoords.bottom
-      - filterCoords.bottom
-      - filterMarginBottom;
-    //console.log(heightFromFilterTofiltersTopBottom)
-
-
-    //Находим высоту, которую необходимо добавить  
-    //к текущей высоте filterTopWrapp
-
-    const heightToAdd = filterListHeight - heightFromFilterTofiltersTopBottom - filterHalfHeight;
-
-    const totalFiltersTop = heightToAdd + filtersTopHeight;
-
-    if (totalFiltersTop <= filtersListHeight) {
-      filtersTop.style.minHeight = filtersListHeight + 'px';
-      return;
-    }
-    //if (filtersTopHeight > filtersListHeight) {
-    //  filtersTop.style.minHeight = filtersListHeight + 'px';
-    //  return;
-    //}
-    filtersTop.style.minHeight = totalFiltersTop + 'px';
-  }
-
-  function removeSelectedFilter(checkbox, arr) {
-    const fieldSlug = checkbox.getAttribute('name');
-    const checkboxValue = checkbox.value;
-    const selectedFilterList = document.querySelector(`#selectedFilters`);
-    const selectedFilter = selectedFilterList.querySelector(`#${fieldSlug}${checkboxValue}`);
-    console.log(selectedFilter);
-
-
-    arr.forEach((item, idx) => {
-      const fieldValueSlug = item.field_value_slug;
-      if (fieldValueSlug == checkboxValue) {
-        arr[idx].checked = false;
-      }
-    })
-    selectedFilterList.removeChild(selectedFilter);
-  }
-
-  function removeSelectedFilterWithBtn(btn, arr) {
-    const selectedFilter = btn.closest('.js-selected-filter')
-    const filtersTop = document.querySelector('.js-filters-top');
-    const dataId = btn.getAttribute('data-id');
-    const checkbox = filtersTop.querySelector(`[data-id=${dataId}]`);
-    const filter = checkbox.closest('.js-filter')
-    const checkboxValue = checkbox.value;
-    checkbox.checked = false;
-    filter.classList.remove('js-sorted');
-
-    arr.forEach((item, idx) => {
-      const fieldValueSlug = item.field_value_slug;
-      if (fieldValueSlug == checkboxValue) {
-        arr[idx].checked = false;
-      }
-    })
-    selectedFilter.remove();
-  }
-
-  function renderFilterList(filter, arr, showSelectedFilter) {
-    let checkboxList = null;
-    const filterList = filter.querySelector('.js-filter-list');
-    filterList.innerHTML = '';
-
-    render(filterList, arr, getMarkupEl);
-
-
-    checkboxList = filter.querySelectorAll('.js-filter-checkbox');
-
-    Array.from(checkboxList).forEach((checkbox) => {
-      checkbox.addEventListener('change', () => {
-        showSelectedFilter(checkbox, arr);
-      })
-    })
-
-
-
-    function getMarkupEl(obj) {
-      const { field_slug, field_value_slug, field_value_name, checked } = obj;
-      const checkboxActive = checked ? 'checked="checked"' : '';
-      return (`
-      <li class="filter__item">
-        <div class="filter__check input-check">
-          <label class="filter__check-label input-check__label">
-            <input data-id="${field_slug}${field_value_slug}" class='input-check__checkbox js-filter-checkbox' type="checkbox" ${checkboxActive} data-name='${field_value_name}' name='${field_slug}' value="${field_value_slug}">
-            <span class="input-check__fake filter-check__fake"></span>
-            <span class="sorting__text input-check__text">
-            ${field_value_name}
-            </span>
-          </label>
-        </div>
-      </li>
-      `)
-    }
-  }
-
-  function renderSelectedFilter(checkbox, arr) {
-    const selectedFilters = document.querySelector('#selectedFilters');
-    const dataName = checkbox.getAttribute('data-name');
-    const value = checkbox.value;
-    const name = checkbox.getAttribute('name');
-    const selectedFilterArr = [{
-      field_value_name: dataName,
-      field_slug: name,
-      field_value_slug: value
-    }]
-    let selectedFilterRemeveBtns = null;
-    arr.forEach((item, idx) => {
-      const fieldValueSlug = item.field_value_slug;
-      if (fieldValueSlug == value) {
-        arr[idx].checked = true;
-      }
-    })
-
-    render(selectedFilters, selectedFilterArr, getMarkupEl);
-    selectedFilterRemeveBtns = selectedFilters.querySelectorAll('.js-remove-filter');
-    Array.from(selectedFilterRemeveBtns).forEach((btn) => {
-      btn.addEventListener('click', () => {
-        removeSelectedFilterWithBtn(btn, arr);
-      })
-    })
-
-    function getMarkupEl(obj) {
-      const { field_slug, field_value_slug, field_value_name } = obj;
-      return (`
-      <div id="${field_slug}${field_value_slug}" class="selected-filter js-selected-filter" data-filter="${field_slug}", data-value="" >
-      <span class="selected-filter__name">
-        ${field_value_name}
-      </span>
-      <div class="selected-filter__delete">
-        <span data-id="${field_slug}${field_value_slug}" class="btn js-remove-filter">
-          <img src="./img/controls/close-btn-dark.svg" alt="" class="btn__icon">
-        </span>
-      </div>
-    </div>
-      `)
-    }
-
-  }
-
-  function sortFilters(arr, filter, splitMarked) {
-    if (splitMarked) {
-      const checkedArr = arr.filter((item) => item.checked == true);
-      const noCheckedArr = arr.filter((item) => item.checked == false);
-      noCheckedArr.sort((a, b) => {
-        return sorting(a, b)
-      })
-      checkedArr.sort((a, b) => {
-        return sorting(a, b)
-      })
-      filter.classList.add('js-sorted');
-      return checkedArr.concat(noCheckedArr);
-    }
-  }
-
-
-  function resetFilters(filter, arr) {
-    const checkboxes = filter.querySelectorAll('.js-filter-checkbox');
-    const selectedFiltersList = document.querySelector('#selectedFilters');
-    Array.from(checkboxes).forEach((checkbox) => {
-      checkbox.checked = false;
-    })
-
-    arr.forEach((item) => {
-      item.checked = false
-    })
-    selectedFiltersList.innerHTML = '';
-    filter.classList.remove('js-sorted');
-  }
-
-  function showSelectedFilter(checkbox, arr) {
-    if (checkbox.checked) {
-
-      renderSelectedFilter(checkbox, arr);
-      filter.classList.remove('js-sorted');
-    }
-    if (!checkbox.checked) {
-      removeSelectedFilter(checkbox, arr);
-      filter.classList.remove('js-sorted');
-    }
-
-  }
-
-
-}
-
-function closeAllFilter(filters, filter) {
-  const filtersTop = filters[0].closest('.js-filters-top');
-
-  const filtersList = filtersTop.querySelector('.js-filters-list');
-  const filtersListHeight = filtersList.offsetHeight;
-  let hasFiter = false;
-  Array.from(filters).forEach((item) => {
-    if (filter === item) {
-      hasFiter = true;
-      return;
-    }
-    const arrowBtnIcon = item.querySelector('.js-filter-arrow-icon');
-    const filterItem = item.closest('.js-filter');
-    const filterBody = filterItem.querySelector('.js-filter-body');
-    console.log(filterBody)
-    filterBody.classList.remove('filter__body--is-open');
-    item.classList.remove('filter--is-open');
-    arrowBtnIcon.classList.remove('filter__arrow-icon--is-up');
-  })
-  if (hasFiter) {
-    return;
-  }
-  filtersTop.style.minHeight = filtersListHeight + 'px';
-
-}
 
 
 
@@ -1506,51 +1166,348 @@ function clearBasketList() {
   console.log(basketList)
 }
 
-//Функции для стилиализации филтров
+//Функции для работы филтров
+
+async function filterFn(filter) {
+  const api = filter.getAttribute('data-link');
+  const data = {
+    _token: _token
+  };
+
+  const response = await getData(POST, data, api);
+  const filterListArr = response.content;
+  const resetFiltersBtn = document.querySelector('#resetFilters');
+
+  const arrowBtn = filter.querySelector('.js-filter-arrow');
+  const arrowBtnIcon = filter.querySelector('.js-filter-arrow-icon');
+  const filterInput = filter.querySelector('.js-filter-input');
+  const filterBody = filter.querySelector('.js-filter-body');
+  const filterList = filter.querySelector('.js-filter-list');
+  const filtersTop = filter.closest('.js-filters-top');
+  const filtersList = filtersTop.querySelector('.js-filters-list');
+  let sortedFilters = sortFilters(filterListArr, filter, true);
+  let filtersListHeight = filtersList.offsetHeight;
+
+  //filtersTop.style.minHeight = filtersListHeight + 'px';
+  window.addEventListener('resize', () => {
+    filtersListHeight = filtersList.offsetHeight;
+    filtersTop.style.height = filtersListHeight + 'px';
+    closeAllFilter(filters, filter);
+  })
 
 
 
-
-//function closeAllFilters(e) {
-//  const isFilter = e.target.closest('.js-filter');
-//  const filterTop = filterTopWrap.querySelector('.js-filters-top');
-//  const filterTopHeight = filterTop.offsetHeight;
-//  const isFiltersWrapClose = filtersWrap.classList.contains('js-filters-close');
-//  if (isFiltersWrapClose) {
-//    return;
-//  }
-//  if (!isFilter) {
-//    filterTopWrap.style.height = filterTopHeight + 'px';
-//    setTimeout(() => {
-//      filterTopWrap.style.height = 'auto';
-//    }, 200);
-//  }
-
-//  Array.from(filters).forEach((filter) => {
-//    const target = e.target.closest('.js-filter');
-//    if (target === filter) {
-//      return;
-//    }
-//    closeFilterList(filter);
-//  })
+  renderFilterList(filter, sortedFilters, showSelectedFilter);
+  resetFiltersBtn.addEventListener('click', () => {
+    resetFilters(filter, filterListArr)
+  })
 
 
+  arrowBtn.addEventListener('click', (e) => {
+    const isSorted = filter.classList.contains('js-sorted');
+    openFilterList(e);
+    if (isSorted) {
+      return;
+    }
 
-//}
+    sortedFilters = sortFilters(filterListArr, filter, true);
+    renderFilterList(filter, sortedFilters, showSelectedFilter);
+  });
+  filterInput.addEventListener('click', openFilterList);
 
-//function closeFilterList(filter) {
+  filterInput.addEventListener('input', () => {
+    searchFilter(filterInput, filterListArr, filter)
+  })
 
-//  const filterArrow = filter.querySelector('.js-filter-arrow-icon');
-//  const filterBody = filter.querySelector('.js-filter-body');
+  function searchFilter(input, arr, filter) {
+    const value = input.value.trim();
+    let sortedFilters = null;
+    console.log(value);
+    const newArr = arr.filter((item) => {
+      const filretName = item.field_value_name;
+      if (filretName.includes(value)) {
+        return item;
+      }
 
-//  filterBody.style.height = '0';
-//  filterArrow.style.transform = 'rotate(0)';
-//  filter.classList.remove('js-open-fiter');
+    })
 
-//  setTimeout(() => {
-//    filter.style.zIndex = '0';
-//  }, 100)
-//}
+    if (value !== '') {
+      sortedFilters = newArr.sort((a, b) => {
+        return sorting(a, b)
+      });
+    }
+    if (value === '') {
+      sortedFilters = sortFilters(newArr, filter, true);
+    }
+
+    renderFilterList(filter, sortedFilters, showSelectedFilter);
+
+  }
+
+
+  function openFilterList(e) {
+    const target = e.target;
+    const isOpen = filterBody.classList.contains('filter__body--is-open');
+
+    const isInput = target.classList.contains('js-filter-input');
+
+    if (isOpen && isInput) {
+      return;
+    }
+
+    if (!isOpen) {
+      filterList.scrollTop = 0;
+    }
+    closeAllFilter(filters, filter);
+    filterBody.classList.toggle('filter__body--is-open');
+
+    filter.classList.toggle('filter--is-open');
+    arrowBtnIcon.classList.toggle('filter__arrow-icon--is-up');
+
+
+    openFilterTop(filter)
+
+    if (!filter.classList.contains('filter--is-open')) {
+      filtersListHeight = filtersList.offsetHeight;
+      filtersTop.style.minHeight = filtersListHeight + 'px';
+
+    }
+  }
+
+
+  function openFilterTop(filter) {
+
+    const filterCoords = filter.getBoundingClientRect();
+    const filterHalfHeight = filter.offsetHeight / 2;
+    const filtersTop = filter.closest('.js-filters-top');
+    const filtersTopHeight = filtersTop.offsetHeight;
+    const filtersTopCoords = filtersTop.getBoundingClientRect();
+
+
+
+    const filtersList = filtersTop.querySelector('.js-filters-list');
+    const filtersListHeight = filtersList.offsetHeight;
+
+    const filterStyles = getComputedStyle(filter);
+    const filterMarginBottom = parseInt(filterStyles.marginBottom);
+
+    const filterList = filter.querySelector('.js-filter-list');
+    const filterListHeight = filterList.offsetHeight;
+
+    filtersTop.style.minHeight = filterListHeight + 'px';
+    //Находим высоту от filter без MarginBottom до низа filterTopWrap;
+    const heightFromFilterTofiltersTopBottom = filtersTopCoords.bottom
+      - filterCoords.bottom
+      - filterMarginBottom;
+    //console.log(heightFromFilterTofiltersTopBottom)
+
+
+    //Находим высоту, которую необходимо добавить  
+    //к текущей высоте filterTopWrapp
+
+    const heightToAdd = filterListHeight - heightFromFilterTofiltersTopBottom - filterHalfHeight;
+
+    const totalFiltersTop = heightToAdd + filtersTopHeight;
+
+    if (totalFiltersTop <= filtersListHeight) {
+      filtersTop.style.minHeight = filtersListHeight + 'px';
+      return;
+    }
+    //if (filtersTopHeight > filtersListHeight) {
+    //  filtersTop.style.minHeight = filtersListHeight + 'px';
+    //  return;
+    //}
+    filtersTop.style.minHeight = totalFiltersTop + 'px';
+  }
+
+  function removeSelectedFilter(checkbox, arr) {
+    const fieldSlug = checkbox.getAttribute('name');
+    const checkboxValue = checkbox.value;
+    const selectedFilterList = document.querySelector(`#selectedFilters`);
+    const selectedFilter = selectedFilterList.querySelector(`#${fieldSlug}${checkboxValue}`);
+    console.log(selectedFilter);
+
+
+    arr.forEach((item, idx) => {
+      const fieldValueSlug = item.field_value_slug;
+      if (fieldValueSlug == checkboxValue) {
+        arr[idx].checked = false;
+      }
+    })
+    selectedFilterList.removeChild(selectedFilter);
+  }
+
+  function removeSelectedFilterWithBtn(btn, arr) {
+    const selectedFilter = btn.closest('.js-selected-filter')
+    const filtersTop = document.querySelector('.js-filters-top');
+    const dataId = btn.getAttribute('data-id');
+    const checkbox = filtersTop.querySelector(`[data-id=${dataId}]`);
+    const filter = checkbox.closest('.js-filter')
+    const checkboxValue = checkbox.value;
+    checkbox.checked = false;
+    filter.classList.remove('js-sorted');
+
+    arr.forEach((item, idx) => {
+      const fieldValueSlug = item.field_value_slug;
+      if (fieldValueSlug == checkboxValue) {
+        arr[idx].checked = false;
+      }
+    })
+    selectedFilter.remove();
+  }
+
+  function renderFilterList(filter, arr, showSelectedFilter) {
+    let checkboxList = null;
+    const filterList = filter.querySelector('.js-filter-list');
+    filterList.innerHTML = '';
+
+    render(filterList, arr, getMarkupEl);
+
+
+    checkboxList = filter.querySelectorAll('.js-filter-checkbox');
+
+    Array.from(checkboxList).forEach((checkbox) => {
+      checkbox.addEventListener('change', () => {
+        showSelectedFilter(checkbox, arr);
+      })
+    })
+
+
+
+    function getMarkupEl(obj) {
+      const { field_slug, field_value_slug, field_value_name, checked } = obj;
+      const checkboxActive = checked ? 'checked="checked"' : '';
+      return (`
+      <li class="filter__item">
+        <div class="filter__check input-check">
+          <label class="filter__check-label input-check__label">
+            <input data-id="${field_slug}${field_value_slug}" class='input-check__checkbox js-filter-checkbox' type="checkbox" ${checkboxActive} data-name='${field_value_name}' name='${field_slug}' value="${field_value_slug}">
+            <span class="input-check__fake filter-check__fake"></span>
+            <span class="sorting__text input-check__text">
+            ${field_value_name}
+            </span>
+          </label>
+        </div>
+      </li>
+      `)
+    }
+  }
+
+  function renderSelectedFilter(checkbox, arr) {
+    const selectedFilters = document.querySelector('#selectedFilters');
+    const dataName = checkbox.getAttribute('data-name');
+    const value = checkbox.value;
+    const name = checkbox.getAttribute('name');
+    const selectedFilterArr = [{
+      field_value_name: dataName,
+      field_slug: name,
+      field_value_slug: value
+    }]
+    let selectedFilterRemeveBtns = null;
+    arr.forEach((item, idx) => {
+      const fieldValueSlug = item.field_value_slug;
+      if (fieldValueSlug == value) {
+        arr[idx].checked = true;
+      }
+    })
+
+    render(selectedFilters, selectedFilterArr, getMarkupEl);
+    selectedFilterRemeveBtns = selectedFilters.querySelectorAll('.js-remove-filter');
+    Array.from(selectedFilterRemeveBtns).forEach((btn) => {
+      btn.addEventListener('click', () => {
+        removeSelectedFilterWithBtn(btn, arr);
+      })
+    })
+
+    function getMarkupEl(obj) {
+      const { field_slug, field_value_slug, field_value_name } = obj;
+      return (`
+      <div id="${field_slug}${field_value_slug}" class="selected-filter js-selected-filter" data-filter="${field_slug}", data-value="" >
+      <span class="selected-filter__name">
+        ${field_value_name}
+      </span>
+      <div class="selected-filter__delete">
+        <span data-id="${field_slug}${field_value_slug}" class="btn js-remove-filter">
+          <img src="./img/controls/close-btn-dark.svg" alt="" class="btn__icon">
+        </span>
+      </div>
+    </div>
+      `)
+    }
+
+  }
+
+  function sortFilters(arr, filter, splitMarked) {
+    if (splitMarked) {
+      const checkedArr = arr.filter((item) => item.checked == true);
+      const noCheckedArr = arr.filter((item) => item.checked == false);
+      noCheckedArr.sort((a, b) => {
+        return sorting(a, b)
+      })
+      checkedArr.sort((a, b) => {
+        return sorting(a, b)
+      })
+      filter.classList.add('js-sorted');
+      return checkedArr.concat(noCheckedArr);
+    }
+  }
+
+
+  function resetFilters(filter, arr) {
+    const checkboxes = filter.querySelectorAll('.js-filter-checkbox');
+    const selectedFiltersList = document.querySelector('#selectedFilters');
+    Array.from(checkboxes).forEach((checkbox) => {
+      checkbox.checked = false;
+    })
+
+    arr.forEach((item) => {
+      item.checked = false
+    })
+    selectedFiltersList.innerHTML = '';
+    filter.classList.remove('js-sorted');
+  }
+
+  function showSelectedFilter(checkbox, arr) {
+    if (checkbox.checked) {
+
+      renderSelectedFilter(checkbox, arr);
+      filter.classList.remove('js-sorted');
+    }
+    if (!checkbox.checked) {
+      removeSelectedFilter(checkbox, arr);
+      filter.classList.remove('js-sorted');
+    }
+
+  }
+
+
+}
+
+function closeAllFilter(filters, filter) {
+  const filtersTop = filters[0].closest('.js-filters-top');
+
+  const filtersList = filtersTop.querySelector('.js-filters-list');
+  const filtersListHeight = filtersList.offsetHeight;
+  let hasFiter = false;
+  Array.from(filters).forEach((item) => {
+    if (filter === item) {
+      hasFiter = true;
+      return;
+    }
+    const arrowBtnIcon = item.querySelector('.js-filter-arrow-icon');
+    const filterItem = item.closest('.js-filter');
+    const filterBody = filterItem.querySelector('.js-filter-body');
+    filterBody.classList.remove('filter__body--is-open');
+    item.classList.remove('filter--is-open');
+    arrowBtnIcon.classList.remove('filter__arrow-icon--is-up');
+  })
+  if (hasFiter) {
+    return;
+  }
+  filtersTop.style.minHeight = filtersListHeight + 'px';
+
+}
+
 // функции для отправки запросов с кнопок
 // фаврит, в корзину, удалит
 function getInfoFromBtnToSend(btn) {
@@ -1901,8 +1858,6 @@ function getMarkupSpinner() {
   </div>
   `)
 }
-
-
 
 function sorting(a, b) {
   if (a.field_value_name > b.field_value_name) {
