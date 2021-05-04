@@ -657,6 +657,8 @@ async function loadingNews() {
   const coordNewsList = newsList.getBoundingClientRect();
   const innerHeight = window.innerHeight;
   const res = coordNewsList.bottom - innerHeight;
+  const newsCard = newsList.querySelectorAll('.news-card');
+  let countNews = null;
   let response = null;
   const message = `<span class="spinner__text">Это все новости</span>`
   const data = { _token: _token };
@@ -675,8 +677,9 @@ async function loadingNews() {
 
 
   response = await getData(POST, data, api);
-
-  if (!response.content.news_more) {
+  countNews = response.content.news_more;
+  newsCard
+  if (countNews <= newsCard.length) {
     news.querySelector('.spinner').innerHTML = message;
     news.classList.add('js-all-loaded');
     news.classList.remove('js-loading');
