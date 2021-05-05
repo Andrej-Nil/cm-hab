@@ -1,0 +1,43 @@
+{
+	"rez": 1,
+	"desc": "",
+	"field_name":"Дюраль",
+	"content": [
+		{
+			"field_slug":"dural", 
+			"field_value_name": "труба Дюр", 
+			"field_value_slug": "truba",
+			"checked": false
+		},
+		{
+			"field_slug":"dural", 
+			"field_value_name": "уголок Дюр", 
+			"field_value_slug": "ugolok",
+			"checked": false
+		},
+		{
+			"field_slug":"dural", 
+			"field_value_name": "лист Дюр", 
+			"field_value_slug": "list",
+			"checked": false
+		},
+		{
+			"field_slug":"dural", 
+			"field_value_name": "арматура Дюр", 
+			"field_value_slug": "armatura",
+			"checked": false
+		},
+		{
+			"field_slug":"dural", 
+			"field_value_name": "швеллер Дюр", 
+			"field_value_slug": "schweller",
+			"checked": false
+		},
+		{
+			"field_slug":"dural", 
+			"field_value_name": "двутавр Дюр", 
+			"field_value_slug": "dvutavr",
+			"checked": false
+		}
+	]
+}

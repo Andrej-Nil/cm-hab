@@ -1,0 +1,43 @@
+{
+	"rez": 1,
+	"desc": "",
+	"field_name":"Цинк",
+	"content": [
+		{
+			"field_slug":"tsink", 
+			"field_value_name": "труба цинк", 
+			"field_value_slug": "truba",
+			"checked": false
+		},
+		{
+			"field_slug":"tsink", 
+			"field_value_name": "уголок цинк", 
+			"field_value_slug": "ugolok",
+			"checked": false
+		},
+		{
+			"field_slug":"tsink", 
+			"field_value_name": "лист цинк", 
+			"field_value_slug": "list",
+			"checked": false
+		},
+		{
+			"field_slug":"tsink", 
+			"field_value_name": "арматура цинк", 
+			"field_value_slug": "armatura",
+			"checked": false
+		},
+		{
+			"field_slug":"tsink", 
+			"field_value_name": "швеллер цинк", 
+			"field_value_slug": "schweller",
+			"checked": false
+		},
+		{
+			"field_slug":"tsink", 
+			"field_value_name": "двутавр цинк", 
+			"field_value_slug": "dvutavr",
+			"checked": false
+		}
+	]
+}

@@ -1,0 +1,43 @@
+{
+	"rez": 1,
+	"desc": "",
+	"field_name":"Золото",
+	"content": [
+		{
+			"field_slug":"gold", 
+			"field_value_name": "труба gold", 
+			"field_value_slug": "truba",
+			"checked": false
+		},
+		{
+			"field_slug":"gold", 
+			"field_value_name": "уголок gold", 
+			"field_value_slug": "ugolok",
+			"checked": false
+		},
+		{
+			"field_slug":"gold", 
+			"field_value_name": "лист gold", 
+			"field_value_slug": "list",
+			"checked": false
+		},
+		{
+			"field_slug":"gold", 
+			"field_value_name": "арматура gold", 
+			"field_value_slug": "armatura",
+			"checked": false
+		},
+		{
+			"field_slug":"gold", 
+			"field_value_name": "швеллер gold", 
+			"field_value_slug": "schweller",
+			"checked": false
+		},
+		{
+			"field_slug":"gold", 
+			"field_value_name": "двутавр gold", 
+			"field_value_slug": "dvutavr",
+			"checked": false
+		}
+	]
+}

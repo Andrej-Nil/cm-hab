@@ -1,0 +1,43 @@
+{
+	"rez": 1,
+	"desc": "",
+	"field_name":"олово",
+	"content": [
+		{
+			"field_slug":"olovo", 
+			"field_value_name": "труба олово", 
+			"field_value_slug": "truba",
+			"checked": false
+		},
+		{
+			"field_slug":"olovo", 
+			"field_value_name": "уголок олово", 
+			"field_value_slug": "ugolok",
+			"checked": false
+		},
+		{
+			"field_slug":"olovo", 
+			"field_value_name": "лист олово", 
+			"field_value_slug": "list",
+			"checked": false
+		},
+		{
+			"field_slug":"olovo", 
+			"field_value_name": "арматура олово", 
+			"field_value_slug": "armatura",
+			"checked": false
+		},
+		{
+			"field_slug":"olovo", 
+			"field_value_name": "швеллер олово", 
+			"field_value_slug": "schweller",
+			"checked": false
+		},
+		{
+			"field_slug":"olovo", 
+			"field_value_name": "двутавр Лат", 
+			"field_value_slug": "dvutavr",
+			"checked": false
+		}
+	]
+}
