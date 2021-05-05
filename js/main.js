@@ -46,7 +46,8 @@ const favoriteBtns = document.querySelectorAll('.js-favorite');
 const inBasketBns = document.querySelectorAll('.js-in-basket');
 const upwardBtn = document.querySelector('#upwardBtn');
 const upBtn = document.querySelector('#up');
-const removeProductBtns = document.querySelectorAll('.js-remove-filter');
+
+const removeProductBtns = document.querySelectorAll('.js-remove-product');
 
 const elementLinks = document.querySelectorAll('.js-element-link');
 const dropdownsBtns = document.querySelectorAll('.js-dropdown-btn');
@@ -201,68 +202,11 @@ if (expandFiltersBtn) {
 }
 
 
-function rollUpFiltersbtn() {
-  const filters = filtersWrap.querySelector('#filters');
-  const rollUpBtn = filtersWrap.querySelector('#rollUpBtn');
-  const filtersHeight = filters.offsetHeight;
-  filtersWrap.style.height = filtersHeight + 'px';
-  setTimeout(() => {
-    filtersWrap.style.height = '60px';
-    rollUpBtn.classList.remove('filters__roll-up--is-show');
-  }, 20);
-  setTimeout(() => {
-    filtersWrap.style.width = '190px';
-    filtersWrap.classList.add('js-filters-close');
-  }, 220);
-
-}
-
-function expandFilters() {
-  const filtersWrap = document.querySelector('#filtersWrap');
-  const filters = document.querySelector('#filters');
-  const rollUpBtn = filtersWrap.querySelector('#rollUpBtn');
-  filtersWrap.style.width = '100%';
-  setTimeout(() => {
-    rollUpBtn.classList.add('filters__roll-up--is-show');
-    filtersWrap.style.height = filters.offsetHeight + 'px';
-  }, 200)
-  setTimeout(() => {
-    filtersWrap.style.height = 'auto';
-  }, 300)
-
-}
-
 if (filters.length) {
   Array.from(filters).forEach((item) => {
     filterFn(item);
   })
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 
@@ -1180,7 +1124,7 @@ async function filterFn(filter) {
   const response = await getData(POST, data, api);
   const filterListArr = response.content;
   const resetFiltersBtn = document.querySelector('#resetFilters');
-
+  const removeFilterBtns = document.querySelectorAll('.js-remove-filter');
   const arrowBtn = filter.querySelector('.js-filter-arrow');
   const arrowBtnIcon = filter.querySelector('.js-filter-arrow-icon');
   const filterInput = filter.querySelector('.js-filter-input');
@@ -1194,7 +1138,7 @@ async function filterFn(filter) {
   //filtersTop.style.minHeight = filtersListHeight + 'px';
   window.addEventListener('resize', () => {
     filtersListHeight = filtersList.offsetHeight;
-    filtersTop.style.height = filtersListHeight + 'px';
+    filtersTop.style.minHeight = filtersListHeight + 'px';
     closeAllFilter(filters, filter);
   })
 
@@ -1221,6 +1165,12 @@ async function filterFn(filter) {
   filterInput.addEventListener('input', () => {
     searchFilter(filterInput, filterListArr, filter)
   })
+
+  if (removeFilterBtns.length) {
+    Array.from(removeFilterBtns).forEach((btn) => {
+      removeSelectedFilterWithBtn(btn, filterListArr);
+    })
+  }
 
   function searchFilter(input, arr, filter) {
     const value = input.value.trim();
@@ -1508,6 +1458,37 @@ function closeAllFilter(filters, filter) {
     return;
   }
   filtersTop.style.minHeight = filtersListHeight + 'px';
+
+}
+
+function rollUpFiltersbtn() {
+  const filters = filtersWrap.querySelector('#filters');
+  const rollUpBtn = filtersWrap.querySelector('#rollUpBtn');
+  const filtersHeight = filters.offsetHeight;
+  filtersWrap.style.height = filtersHeight + 'px';
+  setTimeout(() => {
+    filtersWrap.style.height = '60px';
+    rollUpBtn.classList.remove('filters__roll-up--is-show');
+  }, 20);
+  setTimeout(() => {
+    filtersWrap.style.width = '190px';
+    filtersWrap.classList.add('js-filters-close');
+  }, 220);
+
+}
+
+function expandFilters() {
+  const filtersWrap = document.querySelector('#filtersWrap');
+  const filters = document.querySelector('#filters');
+  const rollUpBtn = filtersWrap.querySelector('#rollUpBtn');
+  filtersWrap.style.width = '100%';
+  setTimeout(() => {
+    rollUpBtn.classList.add('filters__roll-up--is-show');
+    filtersWrap.style.height = filters.offsetHeight + 'px';
+  }, 200)
+  setTimeout(() => {
+    filtersWrap.style.height = 'auto';
+  }, 300)
 
 }
 

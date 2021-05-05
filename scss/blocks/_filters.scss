@@ -18,8 +18,8 @@
 .filters__top {
   padding: 0 15px 0;
   position: relative;
-  position: relative;
   transition: 0.2s ease-in-out;
+  min-height: 0;
   &::before {
     content: "";
     position: absolute;
