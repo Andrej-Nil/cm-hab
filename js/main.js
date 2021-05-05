@@ -27,6 +27,8 @@ const feetbackForm = document.querySelector('#feetbackForm');
 const helpForm = document.querySelector('#helpForm');
 const fastOrderForm = document.querySelector('#fastOrderForm');
 const orderForm = document.querySelector('#orderForm');
+const loginForm = document.querySelector('#loginForm');
+const registrationForm = document.querySelector('#registrationForm');
 
 //mobileMenu
 const mobileMenuBtn = document.querySelector('#menuBtn');
@@ -59,8 +61,7 @@ const news = document.querySelector('#news');
 //filters
 const filters = document.querySelectorAll('.js-filter');
 const expandFiltersBtn = document.querySelector('#expandFiltersBtn');
-
-
+const filterInputs = document.querySelectorAll('.js-filter-input');
 const rollUpBtns = document.querySelectorAll('.js-roll-up-btn');
 
 const map = document.querySelector('#map');
@@ -73,6 +74,21 @@ let marker;
 const sensitivity = 20;
 let touchStart = null;
 let touchPosition = null;
+
+if (loginForm) {
+  loginForm.addEventListener('submit', (e) => {
+    e.preventDefault();
+  })
+  sendLoginForm();
+}
+
+if (registrationForm) {
+  registrationForm.addEventListener('submit', (e) => {
+    e.preventDefault();
+  })
+  sendRegistrationForm();
+}
+
 
 if (counters.length) {
   Array.from(counters).forEach((counter) => {
@@ -137,8 +153,6 @@ if (productCarusel) {
   carusel(productCarusel);
 }
 
-
-
 // Forms
 if (callbackForm) {
   callbackForm.addEventListener('submit', (e) => {
@@ -201,14 +215,12 @@ if (expandFiltersBtn) {
   expandFiltersBtn.addEventListener('click', expandFilters);
 }
 
-
 if (filters.length) {
   Array.from(filters).forEach((item) => {
     filterFn(item);
+    changePlaceholder(item);
   })
 }
-
-
 
 //modals
 if (feetbackModal && modalsWrap) {
@@ -516,7 +528,6 @@ function clearFastOrderList() {
   lisrWrap.innerHTML = '';
 }
 
-
 // Функции для открытия/закрытия мобильного меня
 function mobileMenuOpen() {
   mobileMenu.classList.add('mobile-menu--is-open');
@@ -564,7 +575,6 @@ function getToken() {
   const meta = document.querySelector('meta[name="csrf-token"]');
   return meta.getAttribute('content')
 }
-
 
 //Функция для получения ответа с сервира
 function getData(method, data, api) {
@@ -680,12 +690,16 @@ function checkInput(input) {
       statusVisualInput(input, result);
       break;
     case 'message':
-      result = isEmptyInput(input.value)
+      result = isEmptyInput(input.value);
       statusVisualInput(input, result);
       break;
     case 'consent':
       result = checkCheckbox(input);
       statusVisualCheckbox(input, result);
+      break;
+    case 'password':
+      result = isEmptyInput(input.value);
+      statusVisualInput(input, result);
       break;
   }
 
@@ -756,6 +770,114 @@ function statusVisualInput(input, result = false) {
 }
 
 //отправка форм
+function sendRegistrationForm() {
+  const api = registrationForm.action;
+  const inputs = registrationForm.querySelectorAll('.js-input');
+  const mailInput = registrationForm.querySelector('.js-input-email');
+  const pasInput = registrationForm.querySelector('.js-pas-input');
+  const repeatPasInput = registrationForm.querySelector('.js-repeat-pass-input');
+  const submitBtn = registrationForm.querySelector('.js-submit');
+  const formMessage = registrationForm.querySelector('.js-message');
+  const registrationTab = document.querySelector('#registrationTab');
+  const resultTab = document.querySelector('#resultTab');
+  const resultMessage = document.querySelector('#resultMessage');
+  mailInput.addEventListener('blur', () => {
+    checkInput(mailInput);
+  });
+
+  pasInput.addEventListener('blur', () => {
+    checkInput(pasInput);
+  });
+
+  repeatPasInput.addEventListener('input', () => {
+    checkingPasMatch()
+  });
+  pasInput.addEventListener('input', () => {
+    checkingPasMatch()
+  });
+
+  function checkingPasMatch() {
+    const pasValue = pasInput.value.trim();
+    const repeatValue = repeatPasInput.value.trim();
+    if (pasValue === '') {
+      repeatPasInput.classList.remove('input--is-error');
+      repeatPasInput.classList.remove('input--is-success');
+      return;
+    }
+
+    if (pasValue === repeatValue) {
+      repeatPasInput.classList.remove('input--is-error');
+      repeatPasInput.classList.add('input--is-success');
+      return true;
+    }
+
+    if (pasValue !== repeatValue) {
+      repeatPasInput.classList.add('input--is-error');
+      repeatPasInput.classList.remove('input--is-success');
+      return false;
+    }
+
+  }
+
+  submitBtn.addEventListener('click', () => {
+    const result = formCheck(mailInput, pasInput);
+    const checkRepeat = checkingPasMatch();
+    if (result && checkRepeat) {
+      postLogin(POST, api);
+    }
+  });
+  async function postLogin(method, api) {
+    const data = new FormData(registrationForm);
+    data.append('_token', _token);
+    const response = await getData(method, data, api);
+    const res = showMessageError(response, formMessage);
+    if (res) {
+      clearInput(inputs);
+      registrationTab.classList.remove('product-info__text--is-active');
+      resultTab.classList.add('product-info__text--is-active');
+      resultMessage.innerHTML = response.desc;
+    }
+  }
+}
+
+function sendLoginForm() {
+  const api = loginForm.action;
+  const inputs = loginForm.querySelectorAll('.js-input');
+  const mailInput = loginForm.querySelector('.js-input-email');
+  const pasInput = loginForm.querySelector('.js-pas-input');
+  const submitBtn = loginForm.querySelector('.js-submit');
+  const formMessage = loginForm.querySelector('.js-message');
+  const loginTab = document.querySelector('#loginTab');
+  const resultTab = document.querySelector('#resultTab');
+  const resultMessage = document.querySelector('#resultMessage');
+  mailInput.addEventListener('blur', () => {
+    checkInput(mailInput);
+  });
+
+  pasInput.addEventListener('blur', () => {
+    checkInput(pasInput);
+  });
+
+  submitBtn.addEventListener('click', () => {
+    const result = formCheck(mailInput, pasInput);
+
+    if (result) {
+      postLogin(POST, api)
+    }
+  });
+  async function postLogin(method, api) {
+    const data = new FormData(loginForm);
+    data.append('_token', _token);
+    const response = await getData(method, data, api);
+    const res = showMessageError(response, formMessage);
+    if (res) {
+      clearInput(inputs);
+      loginTab.classList.remove('product-info__text--is-active');
+      resultTab.classList.add('product-info__text--is-active');
+      resultMessage.innerHTML = response.desc;
+    }
+  }
+}
 function sendCallbackForm() {
   const api = callbackForm.action;
   const inputs = callbackForm.querySelectorAll('.js-input');
@@ -1803,7 +1925,6 @@ async function renderSubCatalogNav(btn) {
 
 }
 
-
 function renderNews(newsArr) {
   render(newsList, newsArr, getMarkupEl);
   news.classList.remove('js-loading');
@@ -1853,12 +1974,4 @@ function sorting(a, b) {
   // a должно быть равным b
   return 0;
 }
-
-
-
-
-
-
-
-
 

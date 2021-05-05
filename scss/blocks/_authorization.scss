@@ -1,0 +1,26 @@
+.authorization {
+  max-width: 520px;
+  margin: 0 auto;
+  margin-bottom: 200px;
+}
+
+.authorization__input {
+  min-width: 250px;
+}
+
+.authorization__result {
+  position: relative;
+}
+
+.authorization__info {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  margin: auto 0;
+}
+
+.authorization__result-text {
+  font-size: 28px;
+  line-height: 120%;
+  margin-bottom: 40px;
+}

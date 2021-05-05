@@ -2372,6 +2372,7 @@ ul {
 }
 
 .section {
+  width: 100%;
   margin-bottom: 80px;
   padding: 0 15px;
 }
@@ -4358,9 +4359,9 @@ ul {
 .filters__top {
   padding: 0 15px 0;
   position: relative;
-  position: relative;
   -webkit-transition: 0.2s ease-in-out;
   transition: 0.2s ease-in-out;
+  min-height: 0;
 }
 
 .filters__top::before {
@@ -6070,6 +6071,40 @@ ul {
   .basket-card__btn:last-child {
     margin-right: 0;
   }
+}
+
+.authorization {
+  max-width: 520px;
+  margin: 0 auto;
+  margin-bottom: 200px;
+}
+
+.authorization__input {
+  min-width: 250px;
+}
+
+.authorization__result {
+  position: relative;
+}
+
+.authorization__info {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  margin: auto 0;
+}
+
+.authorization__result-text {
+  font-size: 28px;
+  line-height: 120%;
+  margin-bottom: 40px;
 }
 
 .search-form {
