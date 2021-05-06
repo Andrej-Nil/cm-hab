@@ -75,6 +75,11 @@ const sensitivity = 20;
 let touchStart = null;
 let touchPosition = null;
 
+let moveStart = null;
+let moveEnd = null;
+
+
+
 if (loginForm) {
   loginForm.addEventListener('submit', (e) => {
     e.preventDefault();
@@ -310,6 +315,17 @@ function carusel(el,) {
     });
   }
 
+
+
+
+  //управление мышью
+  slideWrap.addEventListener('dragstart', (e) => {
+    e.preventDefault();
+  })
+  slideWrap.addEventListener('mousedown', function (e) { startCursorMove(e) });
+  slideWrap.addEventListener('mouseup', function (e) { endCursorMove(e, prev, next) });
+
+
   //Управление сенсером
   slideWrap.addEventListener('touchstart', function (e) { startTouchMove(e) });
   slideWrap.addEventListener('touchmove', function (e) { touchMove(e) });
@@ -398,6 +414,12 @@ function slider(el, autoplay = false) {
 
   //управление интервалом
   intervalSwitch(autoplay, true, timeInterval);
+
+  slideWrap.addEventListener('dragstart', (e) => {
+    e.preventDefault();
+  })
+  slideWrap.addEventListener('mousedown', function (e) { startCursorMove(e) });
+  slideWrap.addEventListener('mouseup', function (e) { endCursorMove(e, prev, next) });
 
   slideWrap.addEventListener('mouseover', () => {
     intervalSwitch(autoplay, false);
@@ -501,6 +523,42 @@ function slider(el, autoplay = false) {
   }
 
 }
+
+//Функции Отслеживающие джижение по сенсеру
+// и опроеделяющик длину движения
+function startTouchMove(e) {
+  touchStart = e.changedTouches[0].clientX;
+  touchPosition = touchStart;
+}
+
+function touchMove(e) {
+  touchPosition = e.changedTouches[0].clientX;
+}
+
+function touchEnd(next, prev) {
+  let distance = touchStart - touchPosition;
+  if (distance > 0 && distance >= sensitivity) {
+    next();
+  }
+  if (distance < 0 && distance * -1 >= sensitivity) {
+    prev();
+  }
+}
+// управление мышью
+function startCursorMove(e) {
+  moveStart = e.clientX;
+}
+
+function endCursorMove(e, prev, next) {
+  moveEnd = e.clientX;
+  let distance = moveStart - moveEnd;
+  if (distance > 0 && distance >= sensitivity) {
+    next();
+  }
+  if (distance < 0 && distance * -1 >= sensitivity) {
+    prev();
+  }
+}
 // Функции работы модульных окон
 function modalOpen(modal) {
   body.classList.add('no-scroll');
@@ -539,26 +597,7 @@ function mobileMenuClose() {
   mobileMenu.classList.remove('mobile-menu--is-open');
 }
 
-//Функции Отслеживающие джижение по сенсеру
-// и опроеделяющик длину движения
-function startTouchMove(e) {
-  touchStart = e.changedTouches[0].clientX;
-  touchPosition = touchStart;
-}
 
-function touchMove(e) {
-  touchPosition = e.changedTouches[0].clientX;
-}
-
-function touchEnd(next, prev) {
-  let distance = touchStart - touchPosition;
-  if (distance > 0 && distance >= sensitivity) {
-    next();
-  }
-  if (distance < 0 && distance * -1 >= sensitivity) {
-    prev();
-  }
-}
 
 //map
 function initMap() {
