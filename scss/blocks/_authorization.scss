@@ -4,8 +4,43 @@
   margin-bottom: 200px;
 }
 
+.authorization_info {
+  background: #fff;
+}
+
+.authorization_nav {
+  padding: 0 20px;
+  display: block;
+}
+
+.authorization_nav__item {
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 100%;
+
+  @media (min-width: 1090px) {
+    font-size: 20px;
+    line-height: 95.2%;
+    margin-right: 50px;
+  }
+  @media (min-width: 1500px) {
+    font-size: 24px;
+  }
+}
+
+.authorization__desc {
+  padding: 15px 20px;
+}
+
+.authorization__inputs-item {
+  justify-content: space-between;
+}
 .authorization__input {
-  min-width: 250px;
+  width: 100%;
+
+  @media (min-width: 450px) {
+    max-width: 250px;
+  }
 }
 
 .authorization__result {

@@ -1197,16 +1197,16 @@ function showIElement(elementLink) {
   const idElement = elementLink.dataset.type;
 
   Array.from(elementLinks).forEach((el) => {
-    el.classList.remove('product-info__item--is-active')
+    el.classList.remove('switching-tab--is-active')
   });
 
-  elementLink.classList.add('product-info__item--is-active');
+  elementLink.classList.add('switching-tab--is-active');
 
   Array.from(elements).forEach((el) => {
     const elId = el.getAttribute('id');
-    el.classList.remove('product-info__text--is-active')
+    el.classList.remove('switching-tab__content--is-active')
     if (elId == idElement) {
-      el.classList.add('product-info__text--is-active')
+      el.classList.add('switching-tab__content--is-active')
     }
   });
 }

@@ -43,7 +43,6 @@
             <a href="authorization.html" class=" h-login__link">
               <span class="h-login-btn">Авторизация</span>
             </a>
-
           </div>
 
         </div>
@@ -148,27 +147,28 @@
         </h2>
 
         <!-- section__content -->
-        <div class="section__content">
-          <div class="product-info">
-            <nav class="product-info__nav">
-              <span data-type='loginTab' class="product-info__item js-element-link
-    product-info__item--is-active">
+        <div class="authorization_content">
+          <div class="authorization_info switching-window">
+            <nav class="authorization_nav switching-nav">
+              <span data-type='loginTab'
+                class="authorization_nav__item switching-tab switching-tab--is-active js-element-link">
                 Вход
               </span>
 
-              <span data-type='registrationTab' class="product-info__item js-element-link">
+              <span data-type='registrationTab' class="authorization_nav__item switching-tab js-element-link">
                 Регистрация
               </span>
             </nav>
 
-            <div class="product-info__desc">
-              <div id='loginTab' class="product-info__text js-element product-info__text--is-active">
+            <div class="authorization__desc">
+              <div id='loginTab'
+                class="authorizationc__content js-element switching-tab__content--is-active switching-tab__content">
 
                 <form id='loginForm' enctype="multipart/form-data" action="testAjax/login-test.json" method="POST"
-                  class='login-form'>
+                  class='authorization-form'>
 
                   <div class="authorization__inputs inputs-block">
-                    <div class="input-with-name">
+                    <div class="input-with-name authorization__inputs-item">
                       <label class="input-label">
                         Логин
                       </label>
@@ -176,7 +176,7 @@
                         placeholder="Kostya228@gmail.com">
                     </div>
 
-                    <div class="input-with-name">
+                    <div class="input-with-name authorization__inputs-item">
                       <label class="input-label">
                         Пароль
                       </label>
@@ -198,12 +198,12 @@
 
               </div>
 
-              <div id='registrationTab' class="product-info__text js-element">
+              <div id='registrationTab' class="authorizationc__content js-element switching-tab__content">
                 <form id='registrationForm' enctype="multipart/form-data" action="testAjax/registration-test.json"
                   method="POST" class='login-form'>
 
                   <div class="authorization__inputs inputs-block">
-                    <div class="input-with-name">
+                    <div class="input-with-name authorization__inputs-item">
                       <label class="input-label">
                         Логин
                       </label>
@@ -211,7 +211,7 @@
                         placeholder="Kostya228@gmail.com">
                     </div>
 
-                    <div class="input-with-name">
+                    <div class="input-with-name authorization__inputs-item">
                       <label class="input-label">
                         Пароль
                       </label>
@@ -219,7 +219,7 @@
                         placeholder="Пароль">
                     </div>
 
-                    <div class="input-with-name">
+                    <div class="input-with-name authorization__inputs-item">
                       <label class="input-label">
                         Повторите пароль
                       </label>
@@ -242,7 +242,7 @@
                 </form>
               </div>
 
-              <div id='resultTab' class="authorization__result product-info__text js-element">
+              <div id='resultTab' class="authorization__result switching-tab__content  js-element">
                 <div class="authorization__info">
                   <p id='resultMessage' class='authorization__result-text '>Добро пожаловать</p>
                   <a href="index.html" class="authorization__result-link yellow-btn">На главную</a>

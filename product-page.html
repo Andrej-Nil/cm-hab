@@ -40,7 +40,9 @@
           </div>
 
           <div class="h-login">
-            <span id='feedback' class="h-login-btn">Авторизация</span>
+            <a href="authorization.html" class=" h-login__link">
+              <span class="h-login-btn">Авторизация</span>
+            </a>
           </div>
 
         </div>
@@ -334,24 +336,25 @@
           </div>
           <!-- product -->
           <!-- product-info -->
-          <div class="product-info">
-            <nav class="product-info__nav">
-              <span data-type='description' class="product-info__item js-element-link
-    product-info__item--is-active">
+          <div class="product-info switching-window">
+            <nav class="product-info__nav switching-nav">
+              <span data-type='description' class="product-info__item switching-tab js-element-link
+              switching-tab--is-active">
                 Описание
               </span>
 
-              <span data-type='specifications' class="product-info__item js-element-link">
+              <span data-type='specifications' class="product-info__item switching-tab js-element-link">
                 Характеристики
               </span>
 
-              <span data-type='application' class="product-info__item js-element-link">
+              <span data-type='application' class="product-info__item switching-tab js-element-link">
                 Применение
               </span>
             </nav>
 
-            <div class="product-info__desc">
-              <p id='description' class="product-info__text js-element product-info__text--is-active">
+            <div class="product-info__desc ">
+              <p id='description'
+                class="product-info__text switching-tab__content js-element switching-tab__content--is-active">
                 Противоположная точка зрения подразумевает, что непосредственные участники технического прогресса
                 обнародованы. В частности, укрепление и развитие внутренней структуры требует анализа дальнейших
                 направлений развития. Интерактивные прототипы и по сей день остаются уделом либералов, которые жаждут
@@ -362,7 +365,7 @@
                 формировании поэтапного и последовательного развития общества.
               </p>
 
-              <p id='specifications' class="product-info__text js-element">
+              <p id='specifications' class="product-info__text switching-tab__content js-element">
                 Полоса горячекатаная — это прокат прямоугольного сечения, изготавливаемый по ГОСТу 103-2006 из
                 конструкционных и инструментальных сталей. Компания осуществляет поставки полосы шириной 25-150 мм и
                 толщиной 4-60 мм. Полоса имеет очень широкий спектр применения — она используется как заготовка для
@@ -370,7 +373,7 @@
                 машиностроения, в инструментальном производстве и других отраслях.
               </p>
 
-              <p id='application' class="product-info__text js-element">
+              <p id='application' class="product-info__text switching-tab__content js-element">
                 Пачки весом до 5 тонн, увязанные катанкой не мене чем в двух местах (количество увязок зависит от длины
                 проката). На каждую пачку прикрепляются две пластиковые бирки.
               </p>
