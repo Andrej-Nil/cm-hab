@@ -48,7 +48,6 @@ const favoriteBtns = document.querySelectorAll('.js-favorite');
 const inBasketBns = document.querySelectorAll('.js-in-basket');
 const upwardBtn = document.querySelector('#upwardBtn');
 const upBtn = document.querySelector('#up');
-
 const removeProductBtns = document.querySelectorAll('.js-remove-product');
 
 const elementLinks = document.querySelectorAll('.js-element-link');
@@ -59,6 +58,7 @@ const catalogNav = document.querySelector('#catalogNav');
 const news = document.querySelector('#news');
 
 //filters
+const filtersForm = document.querySelector('#filters');
 const filters = document.querySelectorAll('.js-filter');
 const expandFiltersBtn = document.querySelector('#expandFiltersBtn');
 const filterInputs = document.querySelectorAll('.js-filter-input');
@@ -221,6 +221,8 @@ if (filters.length) {
     changePlaceholder(item);
   })
 }
+
+
 
 //modals
 if (feetbackModal && modalsWrap) {
@@ -1265,7 +1267,6 @@ async function filterFn(filter) {
   })
 
 
-
   renderFilterList(filter, sortedFilters, showSelectedFilter);
   resetFiltersBtn.addEventListener('click', () => {
     resetFilters(filter, filterListArr)
@@ -1349,7 +1350,6 @@ async function filterFn(filter) {
     }
   }
 
-
   function openFilterTop(filter) {
 
     const filterCoords = filter.getBoundingClientRect();
@@ -1400,7 +1400,6 @@ async function filterFn(filter) {
     const checkboxValue = checkbox.value;
     const selectedFilterList = document.querySelector(`#selectedFilters`);
     const selectedFilter = selectedFilterList.querySelector(`#${fieldSlug}${checkboxValue}`);
-    console.log(selectedFilter);
 
 
     arr.forEach((item, idx) => {
@@ -1444,6 +1443,7 @@ async function filterFn(filter) {
     Array.from(checkboxList).forEach((checkbox) => {
       checkbox.addEventListener('change', () => {
         showSelectedFilter(checkbox, arr);
+        getFilterProguct();
       })
     })
 
@@ -1466,6 +1466,27 @@ async function filterFn(filter) {
       </li>
       `)
     }
+  }
+
+  async function getFilterProguct() {
+    const filterFormSumbit = filtersForm.querySelector('#filterFormSumbit');
+    const api = 'testAjax/filter-product.json';
+    const data = new FormData(filtersForm);
+    let response = null
+    let count = null;
+    data.append('_token', _token);
+    response = await getData(POST, data, api);
+    count = response.content.count;
+
+    filterFormSumbit.value = `Показать (${count})`;
+
+    console.log(filterFormSumbit);
+
+    //console.log(filtersForm)
+    //for (let [name, value] of data) {
+    //  console.log(`${name} = ${value}`);
+    //}
+
   }
 
   function renderSelectedFilter(checkbox, arr) {
@@ -1612,6 +1633,18 @@ function expandFilters() {
     filtersWrap.style.height = 'auto';
   }, 300)
 
+}
+
+function changePlaceholder(filter) {
+  const input = filter.querySelector('.js-filter-input');
+  const currentPliceholder = input.placeholder;
+  const activePliceholder = 'Поиск по значениям';
+  input.addEventListener('focus', () => {
+    input.placeholder = activePliceholder;
+  })
+  input.addEventListener('blur', () => {
+    input.placeholder = currentPliceholder;
+  })
 }
 
 // функции для отправки запросов с кнопок
@@ -1772,7 +1805,6 @@ async function renderCatalogNav() {
   Array.from(btns).forEach((btn) => {
     btn.addEventListener('click', () => renderSubCatalogNav(btn));
   });
-
   function getMarkupEl(obj) {
     const { link, text, article, data_link } = obj;
     return (`
@@ -1780,14 +1812,14 @@ async function renderCatalogNav() {
               <div class="category__name">
                 <a href='${link}' class='category__link'>
                   ${text}
-                </a >
-                <div data-link="${data_link}"  class="category__btn js-dropdown-btn js-subcategory-btn" data-article="${article}">
+                </a>
+                <div data-link="${data_link}" class="category__btn js-dropdown-btn js-subcategory-btn" data-article="${article}">
                   <img src="./img/controls/dropdown-btn.svg" alt="" class="category__arrow">
                 </div>
               </div>
               <div class="subcategories js-dropdown-body">
                 <ul class="subcategories__list js-dropdown-content">
-                  
+            
                 </ul>
               </div>
             </div>

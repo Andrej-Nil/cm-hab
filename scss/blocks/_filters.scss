@@ -54,7 +54,7 @@
 
   padding: 20px 15px 0;
   margin-bottom: 10px;
-  @media (min-width: 580px) {
+  @media (min-width: 720px) {
     padding: 20px 18px 0;
   }
 }
@@ -66,7 +66,7 @@
 .filters__btns {
   align-items: start;
   margin-bottom: 20px;
-  @media (min-width: 600px) {
+  @media (min-width: 720px) {
     display: flex;
     justify-content: space-between;
     text-align: right;
@@ -84,7 +84,7 @@
   &:last-child {
     margin-bottom: 0;
   }
-  @media (min-width: 600px) {
+  @media (min-width: 720px) {
     margin-bottom: 0px;
     width: auto;
     text-align: right;

@@ -1458,7 +1458,7 @@ ul {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
-  margin-right: 70px;
+  margin-right: 50px;
 }
 
 .h-contacts__item {
@@ -4481,7 +4481,7 @@ ul {
   margin-bottom: 10px;
 }
 
-@media (min-width: 580px) {
+@media (min-width: 720px) {
   .filters__bottom {
     padding: 20px 18px 0;
   }
@@ -4500,7 +4500,7 @@ ul {
   margin-bottom: 20px;
 }
 
-@media (min-width: 600px) {
+@media (min-width: 720px) {
   .filters__btns {
     display: -webkit-box;
     display: -ms-flexbox;
@@ -4526,7 +4526,7 @@ ul {
   margin-bottom: 0;
 }
 
-@media (min-width: 600px) {
+@media (min-width: 720px) {
   .filters__btn {
     margin-bottom: 0px;
     width: auto;
