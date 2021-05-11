@@ -78,8 +78,6 @@ let touchPosition = null;
 let moveStart = null;
 let moveEnd = null;
 
-
-
 if (loginForm) {
   loginForm.addEventListener('submit', (e) => {
     e.preventDefault();
@@ -93,7 +91,6 @@ if (registrationForm) {
   })
   sendRegistrationForm();
 }
-
 
 if (counters.length) {
   Array.from(counters).forEach((counter) => {
@@ -197,17 +194,13 @@ if (removeProductBtns.length) {
     btn.addEventListener('click', () => { removeProduct(btn) })
   });
 }
-
 if (news) {
   window.addEventListener('scroll', function () {
     loadingNews()
   });
 }
 
-
-
 // block filters
-
 if (rollUpBtns.length) {
   Array.from(rollUpBtns).forEach((btn) => {
     btn.addEventListener('click', () => {
@@ -227,8 +220,6 @@ if (filters.length) {
   })
 }
 
-
-
 //modals
 if (feetbackModal && modalsWrap) {
   feetbackBtn.addEventListener('click', () => {
@@ -246,7 +237,6 @@ if (fastOrderBtns.length && modalsWrap) {
 if (orderModal && orderBtn) {
   orderBtn.addEventListener('click', () => modalOpen(orderModal));
 }
-
 if (helpBtn) {
   helpBtn.addEventListener('click', () => modalOpen(helpModal));
 }
@@ -597,8 +587,6 @@ function mobileMenuClose() {
   mobileMenu.classList.remove('mobile-menu--is-open');
 }
 
-
-
 //map
 function initMap() {
   yandexMap = new ymaps.Map("map", {
@@ -683,7 +671,6 @@ async function loadingNews() {
 
   renderNews(response.content.news);
 }
-
 
 //функции для работой с формой
 function clearInput(inputs) {
@@ -874,8 +861,8 @@ function sendRegistrationForm() {
     const res = showMessageError(response, formMessage);
     if (res) {
       clearInput(inputs);
-      registrationTab.classList.remove('product-info__text--is-active');
-      resultTab.classList.add('product-info__text--is-active');
+      registrationTab.classList.remove('switching-tab__content--is-active');
+      resultTab.classList.add('switching-tab__content--is-active');
       resultMessage.innerHTML = response.desc;
     }
   }
@@ -913,8 +900,8 @@ function sendLoginForm() {
     const res = showMessageError(response, formMessage);
     if (res) {
       clearInput(inputs);
-      loginTab.classList.remove('product-info__text--is-active');
-      resultTab.classList.add('product-info__text--is-active');
+      loginTab.classList.remove('switching-tab__content--is-active');
+      resultTab.classList.add('switching-tab__content--is-active');
       resultMessage.innerHTML = response.desc;
     }
   }
@@ -1277,7 +1264,6 @@ function clearBasketList() {
 }
 
 //Функции для работы филтров
-
 async function filterFn(filter) {
   const api = filter.getAttribute('data-link');
   const data = {
@@ -2045,4 +2031,3 @@ function sorting(a, b) {
   // a должно быть равным b
   return 0;
 }
-
