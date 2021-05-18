@@ -13,6 +13,8 @@
 }
 
 .callback-form__title {
+  position: relative;
+  z-index: 1;
   font-weight: 600;
   font-size: 18px;
   line-height: 110%;
@@ -29,6 +31,8 @@
 }
 
 .callback-form__desc {
+  position: relative;
+  z-index: 1;
   font-size: 14px;
   line-height: 110%;
 
@@ -90,6 +94,7 @@
 }
 
 .callback-right__img {
+  z-index: 0;
   position: absolute;
   bottom: 0;
   right: 0;
