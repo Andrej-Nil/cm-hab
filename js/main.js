@@ -52,7 +52,8 @@ const removeProductBtns = document.querySelectorAll('.js-remove-product');
 
 const elementLinks = document.querySelectorAll('.js-element-link');
 const dropdownsBtns = document.querySelectorAll('.js-dropdown-btn');
-const switchToggle = document.querySelector('#switchToggle');
+const switchToggles = document.querySelectorAll('[data-switch]');
+const switchFixed = document.querySelector('#switchFixed');
 const counters = document.querySelectorAll('.js-counter');
 const catalogNav = document.querySelector('#catalogNav');
 const news = document.querySelector('#news');
@@ -131,8 +132,14 @@ if (elementLinks.length) {
 if (map) {
   ymaps.ready(initMap);
 }
-if (switchToggle) {
-  switchToggle.addEventListener('click', toggleSwitch);
+if (switchToggles.length) {
+
+  Array.from(switchToggles).forEach((toggle) => {
+    toggle.addEventListener('click', () => {
+      toggleSwitch(toggle);
+    });
+  })
+  //switchToggle.addEventListener('click', toggleSwitch);
 }
 //карусели
 if (mainSlider) {
@@ -194,11 +201,41 @@ if (removeProductBtns.length) {
     btn.addEventListener('click', () => { removeProduct(btn) })
   });
 }
-if (news) {
-  window.addEventListener('scroll', function () {
+
+
+window.addEventListener('scroll', function () {
+  if (news) {
     loadingNews()
-  });
+  }
+
+  if (switchFixed) {
+    showSwitchFixed()
+  }
+});
+
+if (switchFixed) {
+  clickToggleToUp()
 }
+
+function clickToggleToUp() {
+  const toggle = switchFixed.querySelector('[data-switch]');
+  toggle.addEventListener('click', goTop);
+}
+
+function showSwitchFixed() {
+  const scrollTop = getScrollTop()
+  if (scrollTop > 170) {
+    switchFixed.classList.add('switch-wrap-fixed--is-show');
+  } else {
+    switchFixed.classList.remove('switch-wrap-fixed--is-show');
+  }
+}
+
+function getScrollTop() {
+  return self.pageYOffset || (document.documentElement && document.documentElement.scrollTop) || (document.body && document.body.scrollTop)
+}
+
+//switchFixed
 
 // block filters
 if (rollUpBtns.length) {
@@ -604,6 +641,67 @@ function getToken() {
   const meta = document.querySelector('meta[name="csrf-token"]');
   return meta.getAttribute('content')
 }
+
+//Функции для работы переключателя
+
+function toggleSwitch(switcher) {
+  const left = switcher.classList.contains('switch__toggle--is-left');
+  const right = switcher.classList.contains('switch__toggle--is-right');
+  if (!left) {
+
+    switchToggles.forEach((switcher) => {
+      switcher.classList.remove('switch__toggle--is-right');
+      switcher.classList.add('switch__toggle--is-left');
+    })
+
+    switchSection('left')
+    return;
+  }
+  if (!right) {
+    switchToggles.forEach((switcher) => {
+      switcher.classList.remove('switch__toggle--is-left');
+      switcher.classList.add('switch__toggle--is-right');
+    })
+
+    switchSection('right')
+    return;
+  }
+
+  function switchSection(section) {
+    const switchLeft = document.querySelector('#switchLeft');
+    const switchRight = document.querySelector('#switchRight');
+
+    if (section === 'left') {
+      switchLeft.style.display = 'block';
+      switchRight.style.display = 'none';
+    }
+    if (section === 'right') {
+
+      switchRight.style.display = 'block';
+      switchLeft.style.display = 'none';
+    }
+  }
+}
+
+function showIElement(elementLink) {
+  const elements = document.querySelectorAll('.js-element');
+  const idElement = elementLink.dataset.type;
+
+  Array.from(elementLinks).forEach((el) => {
+    el.classList.remove('switching-tab--is-active')
+  });
+
+  elementLink.classList.add('switching-tab--is-active');
+
+  Array.from(elements).forEach((el) => {
+    const elId = el.getAttribute('id');
+    el.classList.remove('switching-tab__content--is-active')
+    if (elId == idElement) {
+      el.classList.add('switching-tab__content--is-active')
+    }
+  });
+}
+
 
 //Функция для получения ответа с сервира
 function getData(method, data, api) {
@@ -1188,56 +1286,6 @@ function findChildren(el, domClass) {
   return children;
 }
 
-function toggleSwitch() {
-  const left = switchToggle.classList.contains('switch__toggle--is-left');
-  const right = switchToggle.classList.contains('switch__toggle--is-right');
-  if (!left) {
-    switchToggle.classList.remove('switch__toggle--is-right');
-    switchToggle.classList.add('switch__toggle--is-left');
-    switchSection('left')
-    return;
-  }
-  if (!right) {
-    switchToggle.classList.remove('switch__toggle--is-left');
-    switchToggle.classList.add('switch__toggle--is-right');
-    switchSection('right')
-    return;
-  }
-
-  function switchSection(section) {
-    const switchLeft = document.querySelector('#switchLeft');
-    const switchRight = document.querySelector('#switchRight');
-
-    if (section === 'left') {
-      switchLeft.style.display = 'block';
-      switchRight.style.display = 'none';
-    }
-    if (section === 'right') {
-
-      switchRight.style.display = 'block';
-      switchLeft.style.display = 'none';
-    }
-  }
-}
-
-function showIElement(elementLink) {
-  const elements = document.querySelectorAll('.js-element');
-  const idElement = elementLink.dataset.type;
-
-  Array.from(elementLinks).forEach((el) => {
-    el.classList.remove('switching-tab--is-active')
-  });
-
-  elementLink.classList.add('switching-tab--is-active');
-
-  Array.from(elements).forEach((el) => {
-    const elId = el.getAttribute('id');
-    el.classList.remove('switching-tab__content--is-active')
-    if (elId == idElement) {
-      el.classList.add('switching-tab__content--is-active')
-    }
-  });
-}
 
 function setFavoriteIcon(el, boolean) {
   const imgEl = el.querySelector('.js-favorite-img');

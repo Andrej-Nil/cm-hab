@@ -19,6 +19,27 @@
   }
 }
 
+.switch-wrap-fixed {
+  position: fixed;
+  display: block;
+  width: 100%;
+  top: -150px;
+  left: 0;
+  z-index: 1000;
+  transition: 0.3s ease-in-out;
+  @media (min-width: 1090px) {
+    display: none;
+  }
+}
+
+.switch-fixed {
+  border: 2px solid $l-grey;
+}
+
+.switch-wrap-fixed--is-show {
+  top: 0%;
+}
+
 .switch__item {
   font-weight: normal;
   font-size: 14px;
