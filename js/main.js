@@ -705,13 +705,13 @@ function showIElement(elementLink) {
 
 //Функция для получения ответа с сервира
 function getData(method, data, api) {
-
+  const formData = createFormData(data);
   return new Promise(function (resolve, reject) {
 
     const xhr = new XMLHttpRequest();
     let response = null
     xhr.open(method, api, true);
-    xhr.send(data);
+    xhr.send(formData);
     xhr.onload = function () {
       if (xhr.status != 200) {
         console.log('Ошибка: ' + xhr.status);
@@ -730,6 +730,14 @@ function getData(method, data, api) {
       reject(new Error("Network Error"))
     };
   })
+}
+
+function createFormData(data) {
+  const formData = new FormData()
+  for (let key in data) {
+    formData.append(`${key}`, data[key])
+  }
+  return formData;
 }
 
 async function loadingNews() {
