@@ -1326,7 +1326,8 @@ async function filterFn(filter) {
     _token: _token
   };
 
-  const response = await getData(POST, data, api);
+  const formData = createFormData(data);
+  const response = await getData(POST, formData, api);
   const filterListArr = response.content;
   const resetFiltersBtn = document.querySelector('#resetFilters');
   const removeFilterBtns = document.querySelectorAll('.js-remove-filter');
@@ -1807,14 +1808,16 @@ function getQuantity(product) {
 
 async function addInBasketBns(btn) {
   const info = getInfoFromBtnToSend(btn);
-  const response = await getData(POST, info.data, info.api);
+  const formData = createFormData(info.data);
+  const response = await getData(POST, formData, info.api);
   setInBasketBtn(btn, response.toggle, response.desc)
   setBasketIndicator(response.count)
 }
 
 async function addFavorite(btn) {
   const info = getInfoFromBtnToSend(btn);
-  const response = await getData(POST, info.data, info.api);
+  const formData = createFormData(info.data);
+  const response = await getData(POST, formData, info.api);
   setFavoriteIcon(btn, response.toggle);
   setFavoriteIndicator(response.count)
 }
@@ -1823,7 +1826,8 @@ async function removeProduct(btn) {
   const productCard = btn.closest('.js-product-card');
   const productList = productCard.parentElement
   const info = getInfoFromBtnToSend(btn);
-  const response = await getData(POST, info.data, info.api);
+  const formData = createFormData(info.data);
+  const response = await getData(POST, formData, info.api);
   if (response.toggle) {
     productList.removeChild(productCard);
     setTotalPrice(response.total_price);
@@ -1853,7 +1857,6 @@ function setBasketIndicator(count) {
 function setFavoriteIndicator(count) {
   const iconIndicator = document.querySelector('#favoriteIndicator');
   const favoriteCount = document.querySelector('#favoriteCount');
-  console.log(favoriteCount);
   if (count === 0) {
     iconIndicator.classList.remove('h-icon__indicator--is-show');
     favoriteCount.innerHTML = 0;
@@ -1878,7 +1881,8 @@ async function renderCatalogNav() {
   const data = {
     _token: _token,
   }
-  const response = await getData(POST, data, api);
+  const formData = createFormData(data);
+  const response = await getData(POST, formData, api);
 
   render(catalogNav, response.desc, getMarkupEl);
   const btns = document.querySelectorAll('.js-subcategory-btn');
@@ -1920,7 +1924,8 @@ async function renderModalProduct(modal, btn) {
   }
   let counters = null
   let favoriteBtns = null
-  const response = await getData(POST, data, api);
+  const formData = createFormData(data);
+  const response = await getData(POST, formData, api);
 
   render(listWrap, response.prod, getMarkupEl);
 
@@ -2017,7 +2022,9 @@ async function renderSubCatalogNav(btn) {
   if (liList.length) {
     return;
   }
-  const response = await getData(POST, data, api);
+
+  const formData = createFormData(data);
+  const response = await getData(POST, formData, api);
   render(ul, response.desc, getMarkupEl);
   dropdownOpen(btn);
   rotateArrowDropdownsBtn(btn);
